@@ -1,0 +1,41 @@
+# The URL the site will be built for
+base_url = "https://CSUwangj.github.io"
+
+# Whether to automatically compile all Sass files in the sass directory
+compile_sass = true
+
+# Whether to do syntax highlighting
+# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
+highlight_code = true
+
+# Whether to build a search index to be used later on by a JavaScript library
+build_search_index = true
+theme = "DogFood"
+generate_feed = true
+feed_filename = "atom.xml"
+taxonomies = [
+  {name = "categories", rss = true},
+  {name = "tags", rss = true},
+  {name = "archives", rss = true},
+]
+
+
+[extra]
+site_name = "LuckyDog"
+menu_items = [
+  {url = "$BASE_URL", name = "Home"},
+  {url = "$BASE_URL/categories", name = "Categories"},
+  {url = "$BASE_URL/tags", name = "Tags"},
+  {url = "$BASE_URL/about", name = "About"},
+  {url = "$BASE_URL/archives", name = "Archives"},
+]
+author = "CSUwangj"
+quote = "Just keep in mind that hacking is very rarely in a sequence."
+links = [
+  {name = "zickshen", url = "https://zickshen.github.io/"},
+]
+author_links = [
+  {name = "Github", url = "https://github.com/CSUwangj", favion = "fa fw fa-github"},
+]
+copyright_year = "2018-2020"
+avatar = "img/avatar.png"

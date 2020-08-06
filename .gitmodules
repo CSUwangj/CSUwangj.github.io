@@ -1,0 +1,3 @@
+[submodule "themes/DogFood"]
+	path = themes/DogFood
+	url = https://github.com/CSUwangj/DogFood.git
