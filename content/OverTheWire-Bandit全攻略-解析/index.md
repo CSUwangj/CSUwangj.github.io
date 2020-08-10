@@ -45,7 +45,7 @@ archives = [ "archive",]
 - [ ] [Level 32 → Level 33](http://overthewire.org/wargames/bandit/bandit33.html)
 - [ ] [Level 33 → Level 34](http://overthewire.org/wargames/bandit/bandit34.html)
 
-<!--more-->
+<!-- more -->
 
 # Level 0
 ```bash

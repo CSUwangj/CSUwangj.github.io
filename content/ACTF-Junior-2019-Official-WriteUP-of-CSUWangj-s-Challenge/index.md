@@ -11,7 +11,7 @@ archives = [ "archive",]
 +++
 日常出锅、、、
 
-<!--more-->
+<!-- more -->
 
 # Linux&PWN
 

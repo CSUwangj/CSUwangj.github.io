@@ -13,7 +13,7 @@ Interesting challenges for regular expression newbie like me~
 
 TBC...
 
-<!--more-->
+<!-- more -->
 
 # Classic
 

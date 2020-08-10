@@ -11,7 +11,7 @@ archives = [ "archive",]
 +++
 打算专门搞个整理用的东西，顺便可以看看自己有多少挖完没填的坑。
 
-<!--more-->
+<!-- more -->
 
 # Daily Challenge
 

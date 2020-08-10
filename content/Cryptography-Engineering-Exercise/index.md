@@ -11,7 +11,7 @@ archives = [ "archive",]
 +++
 Cryptography Engineer在目前看来是一本十分不错的讲密码学的书。既然书名都叫密码学工程了，那就更应该动手做点练习了，这里就是用于存放部分练习以及索引的。
 
-<!--more-->
+<!-- more -->
 
 # Chapter 1
 

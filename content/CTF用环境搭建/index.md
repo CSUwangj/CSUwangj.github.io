@@ -49,7 +49,7 @@ archives = [ "archive",]
 
 
 
-<!--more-->
+<!-- more -->
 
 # 正文
 

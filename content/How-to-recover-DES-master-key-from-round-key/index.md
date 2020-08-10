@@ -15,7 +15,7 @@ Reverse the picking(or called compressing) process where extract round key from 
 
 If the dumbass/fuckhead/shithead who created this question forgot or not known parity, just fuck it.
 
-<!--more-->
+<!-- more -->
 
 # We Got the Key!
 
