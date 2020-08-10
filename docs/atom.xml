@@ -13,7 +13,7 @@
 		<link href="https://CSUwangj.github.io/bo-wen-zheng-li/" type="text/html"/>
 		<id>https://CSUwangj.github.io/bo-wen-zheng-li/</id>
 		<content type="html">&lt;p&gt;打算专门搞个整理用的东西，顺便可以看看自己有多少挖完没填的坑。&lt;&#x2F;p&gt;
-&lt;!--more--&gt;
+&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
 &lt;h1 id=&quot;daily-challenge&quot;&gt;Daily Challenge&lt;&#x2F;h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;csuwangj.github.io&#x2F;2018-12-19-Daily-Challenge&#x2F;&quot;&gt;2018-12-19 Daily Challenge&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
@@ -102,7 +102,7 @@
 		<content type="html">&lt;h1 id=&quot;xu-lun&quot;&gt;绪论&lt;&#x2F;h1&gt;
 &lt;p&gt;整理自己在学校的东西，看到自己为了毕业设计开的项目，觉得自己的这份经验值得分享一下，所以整理一下发出来，帮助学弟学妹开始自己的毕设。&lt;&#x2F;p&gt;
 &lt;p&gt;本文主要分为两个部分，一个是工作流，另一个是小技巧：工作流包括了我从联系导师、确认选题到最后完成设计、申请推优的大流程；小技巧则是我认为在毕设过程中提升了我工作效率的一些设计、软件。&lt;&#x2F;p&gt;
-&lt;!--more--&gt;
+&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
 &lt;h1 id=&quot;gong-zuo-liu&quot;&gt;工作流&lt;&#x2F;h1&gt;
 &lt;h2 id=&quot;xuan-ti-yu-lian-xi-dao-shi&quot;&gt;选题与联系导师&lt;&#x2F;h2&gt;
 &lt;p&gt;选题的来源就是自己定和让老师给两种，如果保研或者自己早有想法大概就是前者了。有想法以后可以尽早联系觉得合适的导师，看看是否还有位置&#x2F;任务工作量是否合适。导师如果愿意留位置给你那还需要记得隔段时间和老师确认一下，如果老师到时候给忘了就有点尴尬了。让老师给任务的也可以早点联系老师，了解一下任务相关的东西（不了解感觉问题也不大，只要毕个业的话）。&lt;&#x2F;p&gt;
@@ -180,7 +180,7 @@
 		<content type="html">&lt;h1 id=&quot;tldr&quot;&gt;TLDR&lt;&#x2F;h1&gt;
 &lt;p&gt;Reverse the picking(or called compressing) process where extract round key from part of master key to get most of master key(56bits), use parity to recover last 8bits.&lt;&#x2F;p&gt;
 &lt;p&gt;If the dumbass&#x2F;fuckhead&#x2F;shithead who created this question forgot or not known parity, just fuck it.&lt;&#x2F;p&gt;
-&lt;!--more--&gt;
+&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
 &lt;h1 id=&quot;we-got-the-key&quot;&gt;We Got the Key!&lt;&#x2F;h1&gt;
 &lt;p&gt;I came across this problem when I participated in one shity CTF.&lt;&#x2F;p&gt;
 &lt;p&gt;Here goes problem:&lt;&#x2F;p&gt;
@@ -297,7 +297,7 @@ key = [-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2
 		<link href="https://CSUwangj.github.io/bian-cheng-shi-hen-hao-wan-de-md2docxshi-zen-yao-xie-chu-lai-de/" type="text/html"/>
 		<id>https://CSUwangj.github.io/bian-cheng-shi-hen-hao-wan-de-md2docxshi-zen-yao-xie-chu-lai-de/</id>
 		<content type="html">&lt;p&gt;花了一个多月写了一个工具，写一点东西帮助想重新造轮子的朋友~&lt;&#x2F;p&gt;
-&lt;!--more--&gt;
+&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
 &lt;p&gt;我在上个月花了半个月的时间补充相关知识后，在这个月花了几天时间写出了一个将给定 markdown 按照一定格式渲染成 .docx 文件的工具，代码已经开源在&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;CSUwangj&#x2F;md2docx-csharp&quot;&gt;github&lt;&#x2F;a&gt;上。但是这个项目目的只是给中南信安学子使用，而且封面格式只按照某个老师的要求来的，如果有定制的需求，还是需要自己动手，那么这里就写一篇文章简单介绍一下完成这个过程中可能用到的资料、工具和可能踩到的坑。&lt;&#x2F;p&gt;
 &lt;p&gt;行文中会将用到的资源用超链接放在里面，但为了方便，也会在末尾用&lt;a href=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;bian-cheng-shi-hen-hao-wan-de-md2docxshi-zen-yao-xie-chu-lai-de&#x2F;#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99&quot;&gt;一个列表&lt;&#x2F;a&gt;把资料列出来。&lt;&#x2F;p&gt;
 &lt;p&gt;文章会先介绍 .docx文件和 markdown，是相对比较底层的简单介绍，如果只是关心程序是如何完成的，则完全可以跳过这部分。然后文章会介绍实现里的一些细节，我的实现用了 C#，开发时用的是 Visual Studio，使用的库为 Microsoft.Community.Toolkit（markdown parser）和 Open XML SDK（操作.docx文件）。&lt;&#x2F;p&gt;
@@ -494,7 +494,7 @@ key = [-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2
 		<id>https://CSUwangj.github.io/regex-golf-challenge/</id>
 		<content type="html">&lt;p&gt;Interesting challenges for regular expression newbie like me~&lt;&#x2F;p&gt;
 &lt;p&gt;TBC...&lt;&#x2F;p&gt;
-&lt;!--more--&gt;
+&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
 &lt;h1 id=&quot;classic&quot;&gt;Classic&lt;&#x2F;h1&gt;
 &lt;h2 id=&quot;warmup&quot;&gt;Warmup&lt;&#x2F;h2&gt;
 &lt;p&gt;&lt;code&gt;foo&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
@@ -547,7 +547,7 @@ key = [-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2
 		<link href="https://CSUwangj.github.io/actf-junior-2019-official-writeup-of-csuwangj-s-challenge/" type="text/html"/>
 		<id>https://CSUwangj.github.io/actf-junior-2019-official-writeup-of-csuwangj-s-challenge/</id>
 		<content type="html">&lt;p&gt;日常出锅、、、&lt;&#x2F;p&gt;
-&lt;!--more--&gt;
+&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
 &lt;h1 id=&quot;linux-pwn&quot;&gt;Linux&amp;amp;PWN&lt;&#x2F;h1&gt;
 &lt;h2 id=&quot;vim&quot;&gt;vim&lt;&#x2F;h2&gt;
 &lt;p&gt;首先要了解vim的几个模式&lt;&#x2F;p&gt;
@@ -922,7 +922,7 @@ flag = flag[index:]&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&g
 &lt;p&gt;我觉得这篇文章阅读方式可以按照《C语言常见问题集》，遇到问题了来看看也行，电脑阅读的时候右边应该会有个目录可以跳转，顺着读一遍也行。&lt;&#x2F;p&gt;
 &lt;p&gt;文章只能慢慢更新，因为我并不想随意地对待这种难得的问题，然而工作在身并不能全身心投入。&lt;&#x2F;p&gt;
 &lt;p&gt;以下内容如无特殊声明，采用C99和C++11标准。&lt;&#x2F;p&gt;
-&lt;!--more--&gt;
+&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
 &lt;h1 id=&quot;wei-shi-yao-zai-du-ru-de-shi-hou-bu-jia-jing-chang-hui-re-dan-shi-shu-zu-ming-bu-jia-jiu-mei-wen-ti&quot;&gt;为什么在读入的时候不加&amp;amp;经常会 RE，但是数组名不加&amp;amp;就没问题？&lt;&#x2F;h1&gt;
 &lt;p&gt;我们直接来看一段代码：&lt;&#x2F;p&gt;
 &lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
@@ -1265,7 +1265,7 @@ flag = flag[index:]&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&g
 		<id>https://CSUwangj.github.io/you-yi-ci-zhuang-ji/</id>
 		<content type="html">&lt;p&gt;更新了固态硬盘，所以又要重装电脑啦~
 记录一蛤装机过程，主要还是给自己以后参考用。&lt;&#x2F;p&gt;
-&lt;!--more--&gt;
+&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
 &lt;h1 id=&quot;zhun-bei-gong-zuo&quot;&gt;准备工作&lt;&#x2F;h1&gt;
 &lt;p&gt;到&lt;a href=&quot;https:&#x2F;&#x2F;www.microsoft.com&#x2F;software-download&#x2F;windows10&quot;&gt;Download Windows 10 Disc Image (ISO File) - Microsoft&lt;&#x2F;a&gt;下载创建安装盘的工具&lt;&#x2F;p&gt;
 &lt;p&gt;到电脑厂商官网&#x2F;硬件厂商官网下载驱动。&lt;&#x2F;p&gt;
@@ -1289,7 +1289,7 @@ flag = flag[index:]&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&g
 		<link href="https://CSUwangj.github.io/cryptography-engineering-exercise/" type="text/html"/>
 		<id>https://CSUwangj.github.io/cryptography-engineering-exercise/</id>
 		<content type="html">&lt;p&gt;Cryptography Engineer在目前看来是一本十分不错的讲密码学的书。既然书名都叫密码学工程了，那就更应该动手做点练习了，这里就是用于存放部分练习以及索引的。&lt;&#x2F;p&gt;
-&lt;!--more--&gt;
+&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
 &lt;h1 id=&quot;chapter-1&quot;&gt;Chapter 1&lt;&#x2F;h1&gt;
 &lt;h2 id=&quot;current-event-exercises&quot;&gt;Current Event Exercises&lt;&#x2F;h2&gt;
 &lt;p&gt;这个训练感觉很能提升我的系统意识，所以目前是有一个长期更新的打算，后续看看吧。&lt;&#x2F;p&gt;
@@ -1344,7 +1344,7 @@ flag = flag[index:]&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&g
 &lt;li&gt;[ ] &lt;a href=&quot;http:&#x2F;&#x2F;overthewire.org&#x2F;wargames&#x2F;bandit&#x2F;bandit33.html&quot;&gt;Level 32 → Level 33&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;li&gt;[ ] &lt;a href=&quot;http:&#x2F;&#x2F;overthewire.org&#x2F;wargames&#x2F;bandit&#x2F;bandit34.html&quot;&gt;Level 33 → Level 34&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
-&lt;!--more--&gt;
+&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
 &lt;h1 id=&quot;level-0&quot;&gt;Level 0&lt;&#x2F;h1&gt;
 &lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
 &lt;code&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ssh&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt; bandit.labs.overthewire.org&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -p&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt; 2220&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -l&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt; bandit0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;
@@ -1447,7 +1447,7 @@ flag = flag[index:]&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&g
 &lt;li&gt;[ ] Level 13&lt;&#x2F;li&gt;
 &lt;li&gt;[ ] Level 14&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
-&lt;!--more--&gt;
+&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
 &lt;h1 id=&quot;level-00&quot;&gt;Level 00&lt;&#x2F;h1&gt;
 &lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
 &lt;code&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;#!&#x2F;usr&#x2F;bin&#x2F;python&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;
@@ -1510,7 +1510,7 @@ r.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;interactive&lt;
 &lt;li&gt;[x] Final 1&lt;&#x2F;li&gt;
 &lt;li&gt;[x] Final 2&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
-&lt;!--more--&gt;
+&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
 &lt;h1 id=&quot;stack-0&quot;&gt;Stack 0&lt;&#x2F;h1&gt;
 &lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
 &lt;code&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt; python&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -c &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;print &amp;#39;a&amp;#39;*65&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;quot; | &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;.&#x2F;stack0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;
@@ -2243,7 +2243,7 @@ r.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;interactive&lt;
 		<link href="https://CSUwangj.github.io/zai-piplian-bu-shang-wang-de-shi-hou-an-zhuang-pwntools/" type="text/html"/>
 		<id>https://CSUwangj.github.io/zai-piplian-bu-shang-wang-de-shi-hou-an-zhuang-pwntools/</id>
 		<content type="html">&lt;p&gt;本文描述了这样一种特殊情况下安装pwntools的解决方案：有方法联网，但是pip连不上网。 &lt;&#x2F;p&gt;
-&lt;!--more--&gt;
+&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
 &lt;p&gt;解决方法很简单，就是将pwntools和其依赖包下载下来，然后手动安装。选择对应版本，有whl直接下载whl，没有就下载源代码用命令python setup install安装，安装的时候可能会遇到有预先依赖，那就先安装依赖的包就行。 &lt;&#x2F;p&gt;
 &lt;p&gt;下图是我在2018年7月22日下载的一套，有需要的度盘链接：https:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;1efC82WX_TdAMoS7aVBFi1w 密码：lnv8&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;zai-piplian-bu-shang-wang-de-shi-hou-an-zhuang-pwntools&#x2F;1532396878037.png&quot; alt=&quot;压缩包&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
@@ -2290,7 +2290,7 @@ r.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;interactive&lt;
 &lt;li&gt;[x] angr&lt;&#x2F;li&gt;
 &lt;li&gt;[x] request &lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
-&lt;!--more--&gt;
+&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
 &lt;h1 id=&quot;zheng-wen&quot;&gt;正文&lt;&#x2F;h1&gt;
 &lt;h2 id=&quot;huan-jing-1&quot;&gt;环境&lt;&#x2F;h2&gt;
 &lt;h3 id=&quot;86jia-gou-ji-qi-ge-bie-ji-ben-ku&quot;&gt;86架构及其个别基本库&lt;&#x2F;h3&gt;
@@ -2538,7 +2538,7 @@ s = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Decimal&lt;&#
 		<content type="html">&lt;p&gt;最后四个题没人做出来&lt;&#x2F;p&gt;
 &lt;p&gt;题目丢到了github，欢迎来玩~&lt;&#x2F;p&gt;
 &lt;p&gt;https:&#x2F;&#x2F;github.com&#x2F;CSUwangj&#x2F;AFCTF2018-Crypto&lt;&#x2F;p&gt;
-&lt;!--more--&gt;
+&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
 &lt;h1 id=&quot;jian-dan-ti&quot;&gt;简单题&lt;&#x2F;h1&gt;
 &lt;h2 id=&quot;morse&quot;&gt;Morse&lt;&#x2F;h2&gt;
 &lt;h3 id=&quot;jie-ti-si-lu&quot;&gt;解题思路&lt;&#x2F;h3&gt;
@@ -3417,7 +3417,7 @@ d = N - &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;int&lt;&#
 		<id>https://CSUwangj.github.io/ctf-magic-number-wp/</id>
 		<content type="html">&lt;p&gt;99次内猜14个[0,1023]内的数，那肯定是不仅二分而且要整体二分了&lt;&#x2F;p&gt;
 &lt;p&gt;简单说来是&lt;&#x2F;p&gt;
-&lt;!--more--&gt;
+&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
 &lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;ctf-magic-number-wp&#x2F;1524837016603.png&quot; alt=&quot;伪代码&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;于是可以写出代码&lt;&#x2F;p&gt;
 &lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
