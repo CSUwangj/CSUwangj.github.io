@@ -1,7 +1,7 @@
 +++
 title = "Regex Golf Challenge"
-date = 2019-03-18T21:23:34+00:00
-updated = 2020-08-07T02:01:26.829857+00:00
+date = 2019-03-18T21:23:34+08:00
+updated = 2020-08-07T02:01:26.829857+08:00
 in_search_index = true
 
 [taxonomies]

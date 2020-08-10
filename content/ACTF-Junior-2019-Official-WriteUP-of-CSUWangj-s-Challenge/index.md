@@ -1,7 +1,7 @@
 +++
 title = "ACTF Junior 2019 Official WriteUP of CSUWangj's Challenge"
-date = 2019-02-28T15:55:24+00:00
-updated = 2020-08-07T02:01:26.829857+00:00
+date = 2019-02-28T15:55:24+08:00
+updated = 2020-08-07T02:01:26.829857+08:00
 in_search_index = true
 
 [taxonomies]

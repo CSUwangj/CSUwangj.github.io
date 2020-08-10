@@ -1,7 +1,7 @@
 +++
 title = "AFCTF2018-Crypto_OfficialWriteUp"
-date = 2018-05-21T14:46:15+00:00
-updated = 2020-08-07T01:54:42.997715+00:00
+date = 2018-05-21T14:46:15+08:00
+updated = 2020-08-07T01:54:42.997715+08:00
 description = "第一届AFCTF密码学官方WP"
 in_search_index = true
 

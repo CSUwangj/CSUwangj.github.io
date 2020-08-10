@@ -1,7 +1,7 @@
 +++
 title = "JarvisOJ-WP合集"
-date = 2018-05-10T09:11:00+00:00
-updated = 2020-08-07T01:54:43.005696+00:00
+date = 2018-05-10T09:11:00+08:00
+updated = 2020-08-07T01:54:43.005696+08:00
 description = "JarvisOJ-WP合集"
 in_search_index = true
 

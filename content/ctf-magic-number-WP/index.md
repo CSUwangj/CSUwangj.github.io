@@ -1,7 +1,7 @@
 +++
 title = "*ctf magic_number WP"
-date = 2018-04-27T21:48:19+00:00
-updated = 2020-08-07T01:48:37.602645+00:00
+date = 2018-04-27T21:48:19+08:00
+updated = 2020-08-07T01:48:37.602645+08:00
 description = "starctf_magic_number"
 in_search_index = true
 

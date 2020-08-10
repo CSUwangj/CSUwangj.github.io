@@ -1,7 +1,7 @@
 +++
 title = "在pip连不上网的时候安装pwntools"
-date = 2018-07-21T14:38:02+00:00
-updated = 2020-08-07T01:48:37.615611+00:00
+date = 2018-07-21T14:38:02+08:00
+updated = 2020-08-07T01:48:37.615611+08:00
 description = "本文描述了这样一种特殊情况下安装pwntools的解决方案：有方法联网，但是pip连不上网。"
 in_search_index = true
 

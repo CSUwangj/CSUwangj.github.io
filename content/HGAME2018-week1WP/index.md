@@ -1,7 +1,7 @@
 +++
 title = "HGAME2018-week1WP"
-date = 2018-02-08T10:17:34+00:00
-updated = 2020-08-07T01:48:37.522860+00:00
+date = 2018-02-08T10:17:34+08:00
+updated = 2020-08-07T01:48:37.522860+08:00
 description = "HGAME2018-week1WP"
 in_search_index = true
 
