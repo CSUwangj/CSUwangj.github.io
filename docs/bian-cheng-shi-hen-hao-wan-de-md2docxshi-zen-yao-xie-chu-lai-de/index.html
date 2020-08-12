@@ -161,63 +161,63 @@
 <p><img src="https://CSUwangj.github.io/bian-cheng-shi-hen-hao-wan-de-md2docxshi-zen-yao-xie-chu-lai-de/design.jpg" alt="Correspondence" /></p>
 <p>处理嵌套、交错的 MarkdownInline 其实挺简单，只需要一个简单的 DFS，遇到新的非 TextRunInline 的话就加上心的格式，然后继续DFS。下面是一个简单的示例代码</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#65737e;">// 输出嵌套的类HTML样子的（伪）渲染效果
-</span><span style="color:#b48ead;">static void </span><span style="color:#8fa1b3;">dfs</span><span style="color:#c0c5ce;">(MarkdownInline </span><span style="color:#bf616a;">inline</span><span style="color:#c0c5ce;">)
-{
-    </span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">inline </span><span style="color:#c0c5ce;">is TextRunInline </span><span style="color:#bf616a;">txt</span><span style="color:#c0c5ce;">)
-    {
-        </span><span style="color:#bf616a;">Console</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">Write</span><span style="color:#c0c5ce;">($&quot;</span><span style="color:#a3be8c;">txt</span><span style="color:#c0c5ce;">{</span><span style="color:#bf616a;">txt</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">Text</span><span style="color:#c0c5ce;">}&quot;);
-    }
-    </span><span style="color:#b48ead;">else if </span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">inline </span><span style="color:#c0c5ce;">is CodeInline </span><span style="color:#bf616a;">code</span><span style="color:#c0c5ce;">)
-    {
-        </span><span style="color:#bf616a;">Console</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">Write</span><span style="color:#c0c5ce;">($&quot;</span><span style="color:#a3be8c;">code</span><span style="color:#c0c5ce;">{</span><span style="color:#bf616a;">code</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">Text</span><span style="color:#c0c5ce;">}&quot;);
-    }
-    </span><span style="color:#b48ead;">else if </span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">inline </span><span style="color:#c0c5ce;">is BoldTextInline </span><span style="color:#bf616a;">bd</span><span style="color:#c0c5ce;">)
-    {
-        </span><span style="color:#b48ead;">foreach</span><span style="color:#c0c5ce;">(</span><span style="color:#b48ead;">var </span><span style="color:#bf616a;">e </span><span style="color:#b48ead;">in </span><span style="color:#bf616a;">bd</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">Inlines</span><span style="color:#c0c5ce;">)
-        {
-            </span><span style="color:#bf616a;">Console</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">Write</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">&lt;Bold&gt;</span><span style="color:#c0c5ce;">&quot;);
-            </span><span style="color:#bf616a;">dfs</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">e</span><span style="color:#c0c5ce;">);
-            </span><span style="color:#bf616a;">Console</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">Write</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">&lt;/Bold&gt;</span><span style="color:#c0c5ce;">&quot;);
-        }
-    }
-    </span><span style="color:#b48ead;">else if </span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">inline </span><span style="color:#c0c5ce;">is ItalicTextInline </span><span style="color:#bf616a;">it</span><span style="color:#c0c5ce;">)
-    {
-        </span><span style="color:#b48ead;">foreach</span><span style="color:#c0c5ce;">(</span><span style="color:#b48ead;">var </span><span style="color:#bf616a;">e </span><span style="color:#b48ead;">in </span><span style="color:#bf616a;">it</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">Inlines</span><span style="color:#c0c5ce;">)
-        {
-            </span><span style="color:#bf616a;">Console</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">Write</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">&lt;Italic&gt;</span><span style="color:#c0c5ce;">&quot;);
-            </span><span style="color:#bf616a;">dfs</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">e</span><span style="color:#c0c5ce;">);
-            </span><span style="color:#bf616a;">Console</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">Write</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">&lt;/Italic&gt;</span><span style="color:#c0c5ce;">&quot;);
-        }
-    }
-    </span><span style="color:#b48ead;">else if </span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">inline </span><span style="color:#c0c5ce;">is StrikethroughTextInline </span><span style="color:#bf616a;">st</span><span style="color:#c0c5ce;">)
-    {
-        </span><span style="color:#b48ead;">foreach </span><span style="color:#c0c5ce;">(</span><span style="color:#b48ead;">var </span><span style="color:#bf616a;">e </span><span style="color:#b48ead;">in </span><span style="color:#bf616a;">st</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">Inlines</span><span style="color:#c0c5ce;">)
-        {
-            </span><span style="color:#bf616a;">Console</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">Write</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">&lt;Strike&gt;</span><span style="color:#c0c5ce;">&quot;);
-            </span><span style="color:#bf616a;">dfs</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">e</span><span style="color:#c0c5ce;">);
-            </span><span style="color:#bf616a;">Console</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">Write</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">&lt;/Strike&gt;</span><span style="color:#c0c5ce;">&quot;);
-        }
-    }
-    </span><span style="color:#b48ead;">else if </span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">inline </span><span style="color:#c0c5ce;">is SubscriptTextInline </span><span style="color:#bf616a;">ss</span><span style="color:#c0c5ce;">)
-    {
-        </span><span style="color:#b48ead;">foreach </span><span style="color:#c0c5ce;">(</span><span style="color:#b48ead;">var </span><span style="color:#bf616a;">e </span><span style="color:#b48ead;">in </span><span style="color:#bf616a;">ss</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">Inlines</span><span style="color:#c0c5ce;">)
-        {
-            </span><span style="color:#bf616a;">Console</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">Write</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">&lt;Subs&gt;</span><span style="color:#c0c5ce;">&quot;);
-            </span><span style="color:#bf616a;">dfs</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">e</span><span style="color:#c0c5ce;">);
-            </span><span style="color:#bf616a;">Console</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">Write</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">&lt;/Subs&gt;</span><span style="color:#c0c5ce;">&quot;);
-        }
-    }
-    </span><span style="color:#b48ead;">else if </span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">inline </span><span style="color:#c0c5ce;">is SuperscriptTextInline </span><span style="color:#bf616a;">sp</span><span style="color:#c0c5ce;">)
-    {
-        </span><span style="color:#b48ead;">foreach </span><span style="color:#c0c5ce;">(</span><span style="color:#b48ead;">var </span><span style="color:#bf616a;">e </span><span style="color:#b48ead;">in </span><span style="color:#bf616a;">sp</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">Inlines</span><span style="color:#c0c5ce;">)
-        {
-            </span><span style="color:#bf616a;">Console</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">Write</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">&lt;Super&gt;</span><span style="color:#c0c5ce;">&quot;);
-            </span><span style="color:#bf616a;">dfs</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">e</span><span style="color:#c0c5ce;">);
-            </span><span style="color:#bf616a;">Console</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">Write</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">&lt;/Super&gt;</span><span style="color:#c0c5ce;">&quot;);
-        }
-    }
-}
+<code><span style="color:#65737e;">// 输出嵌套的类HTML样子的（伪）渲染效果</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">static void </span><span style="color:#8fa1b3;">dfs</span><span style="color:#c0c5ce;">(MarkdownInline </span><span style="color:#bf616a;">inline</span><span style="color:#c0c5ce;">)</span><span style="color:#c0c5ce;">
+{</span><span style="color:#c0c5ce;">
+    </span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">inline </span><span style="color:#c0c5ce;">is TextRunInline </span><span style="color:#bf616a;">txt</span><span style="color:#c0c5ce;">)</span><span style="color:#c0c5ce;">
+    {</span><span style="color:#c0c5ce;">
+        </span><span style="color:#bf616a;">Console</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">Write</span><span style="color:#c0c5ce;">($&quot;</span><span style="color:#a3be8c;">txt</span><span style="color:#c0c5ce;">{</span><span style="color:#bf616a;">txt</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">Text</span><span style="color:#c0c5ce;">}&quot;);</span><span style="color:#c0c5ce;">
+    }</span><span style="color:#c0c5ce;">
+    </span><span style="color:#b48ead;">else if </span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">inline </span><span style="color:#c0c5ce;">is CodeInline </span><span style="color:#bf616a;">code</span><span style="color:#c0c5ce;">)</span><span style="color:#c0c5ce;">
+    {</span><span style="color:#c0c5ce;">
+        </span><span style="color:#bf616a;">Console</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">Write</span><span style="color:#c0c5ce;">($&quot;</span><span style="color:#a3be8c;">code</span><span style="color:#c0c5ce;">{</span><span style="color:#bf616a;">code</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">Text</span><span style="color:#c0c5ce;">}&quot;);</span><span style="color:#c0c5ce;">
+    }</span><span style="color:#c0c5ce;">
+    </span><span style="color:#b48ead;">else if </span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">inline </span><span style="color:#c0c5ce;">is BoldTextInline </span><span style="color:#bf616a;">bd</span><span style="color:#c0c5ce;">)</span><span style="color:#c0c5ce;">
+    {</span><span style="color:#c0c5ce;">
+        </span><span style="color:#b48ead;">foreach</span><span style="color:#c0c5ce;">(</span><span style="color:#b48ead;">var </span><span style="color:#bf616a;">e </span><span style="color:#b48ead;">in </span><span style="color:#bf616a;">bd</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">Inlines</span><span style="color:#c0c5ce;">)</span><span style="color:#c0c5ce;">
+        {</span><span style="color:#c0c5ce;">
+            </span><span style="color:#bf616a;">Console</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">Write</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">&lt;Bold&gt;</span><span style="color:#c0c5ce;">&quot;);</span><span style="color:#c0c5ce;">
+            </span><span style="color:#bf616a;">dfs</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">e</span><span style="color:#c0c5ce;">);</span><span style="color:#c0c5ce;">
+            </span><span style="color:#bf616a;">Console</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">Write</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">&lt;/Bold&gt;</span><span style="color:#c0c5ce;">&quot;);</span><span style="color:#c0c5ce;">
+        }</span><span style="color:#c0c5ce;">
+    }</span><span style="color:#c0c5ce;">
+    </span><span style="color:#b48ead;">else if </span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">inline </span><span style="color:#c0c5ce;">is ItalicTextInline </span><span style="color:#bf616a;">it</span><span style="color:#c0c5ce;">)</span><span style="color:#c0c5ce;">
+    {</span><span style="color:#c0c5ce;">
+        </span><span style="color:#b48ead;">foreach</span><span style="color:#c0c5ce;">(</span><span style="color:#b48ead;">var </span><span style="color:#bf616a;">e </span><span style="color:#b48ead;">in </span><span style="color:#bf616a;">it</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">Inlines</span><span style="color:#c0c5ce;">)</span><span style="color:#c0c5ce;">
+        {</span><span style="color:#c0c5ce;">
+            </span><span style="color:#bf616a;">Console</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">Write</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">&lt;Italic&gt;</span><span style="color:#c0c5ce;">&quot;);</span><span style="color:#c0c5ce;">
+            </span><span style="color:#bf616a;">dfs</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">e</span><span style="color:#c0c5ce;">);</span><span style="color:#c0c5ce;">
+            </span><span style="color:#bf616a;">Console</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">Write</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">&lt;/Italic&gt;</span><span style="color:#c0c5ce;">&quot;);</span><span style="color:#c0c5ce;">
+        }</span><span style="color:#c0c5ce;">
+    }</span><span style="color:#c0c5ce;">
+    </span><span style="color:#b48ead;">else if </span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">inline </span><span style="color:#c0c5ce;">is StrikethroughTextInline </span><span style="color:#bf616a;">st</span><span style="color:#c0c5ce;">)</span><span style="color:#c0c5ce;">
+    {</span><span style="color:#c0c5ce;">
+        </span><span style="color:#b48ead;">foreach </span><span style="color:#c0c5ce;">(</span><span style="color:#b48ead;">var </span><span style="color:#bf616a;">e </span><span style="color:#b48ead;">in </span><span style="color:#bf616a;">st</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">Inlines</span><span style="color:#c0c5ce;">)</span><span style="color:#c0c5ce;">
+        {</span><span style="color:#c0c5ce;">
+            </span><span style="color:#bf616a;">Console</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">Write</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">&lt;Strike&gt;</span><span style="color:#c0c5ce;">&quot;);</span><span style="color:#c0c5ce;">
+            </span><span style="color:#bf616a;">dfs</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">e</span><span style="color:#c0c5ce;">);</span><span style="color:#c0c5ce;">
+            </span><span style="color:#bf616a;">Console</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">Write</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">&lt;/Strike&gt;</span><span style="color:#c0c5ce;">&quot;);</span><span style="color:#c0c5ce;">
+        }</span><span style="color:#c0c5ce;">
+    }</span><span style="color:#c0c5ce;">
+    </span><span style="color:#b48ead;">else if </span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">inline </span><span style="color:#c0c5ce;">is SubscriptTextInline </span><span style="color:#bf616a;">ss</span><span style="color:#c0c5ce;">)</span><span style="color:#c0c5ce;">
+    {</span><span style="color:#c0c5ce;">
+        </span><span style="color:#b48ead;">foreach </span><span style="color:#c0c5ce;">(</span><span style="color:#b48ead;">var </span><span style="color:#bf616a;">e </span><span style="color:#b48ead;">in </span><span style="color:#bf616a;">ss</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">Inlines</span><span style="color:#c0c5ce;">)</span><span style="color:#c0c5ce;">
+        {</span><span style="color:#c0c5ce;">
+            </span><span style="color:#bf616a;">Console</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">Write</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">&lt;Subs&gt;</span><span style="color:#c0c5ce;">&quot;);</span><span style="color:#c0c5ce;">
+            </span><span style="color:#bf616a;">dfs</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">e</span><span style="color:#c0c5ce;">);</span><span style="color:#c0c5ce;">
+            </span><span style="color:#bf616a;">Console</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">Write</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">&lt;/Subs&gt;</span><span style="color:#c0c5ce;">&quot;);</span><span style="color:#c0c5ce;">
+        }</span><span style="color:#c0c5ce;">
+    }</span><span style="color:#c0c5ce;">
+    </span><span style="color:#b48ead;">else if </span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">inline </span><span style="color:#c0c5ce;">is SuperscriptTextInline </span><span style="color:#bf616a;">sp</span><span style="color:#c0c5ce;">)</span><span style="color:#c0c5ce;">
+    {</span><span style="color:#c0c5ce;">
+        </span><span style="color:#b48ead;">foreach </span><span style="color:#c0c5ce;">(</span><span style="color:#b48ead;">var </span><span style="color:#bf616a;">e </span><span style="color:#b48ead;">in </span><span style="color:#bf616a;">sp</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">Inlines</span><span style="color:#c0c5ce;">)</span><span style="color:#c0c5ce;">
+        {</span><span style="color:#c0c5ce;">
+            </span><span style="color:#bf616a;">Console</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">Write</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">&lt;Super&gt;</span><span style="color:#c0c5ce;">&quot;);</span><span style="color:#c0c5ce;">
+            </span><span style="color:#bf616a;">dfs</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">e</span><span style="color:#c0c5ce;">);</span><span style="color:#c0c5ce;">
+            </span><span style="color:#bf616a;">Console</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">Write</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">&lt;/Super&gt;</span><span style="color:#c0c5ce;">&quot;);</span><span style="color:#c0c5ce;">
+        }</span><span style="color:#c0c5ce;">
+    }</span><span style="color:#c0c5ce;">
+}</span><span style="color:#c0c5ce;">
 </span></code></pre>
 <p>现在处理思路也有了，对应关系也找了，接下来再把操作 .docx 文件解决了这个软件也就完成了。</p>
 <h2 id="open-xml-sdk">Open XML SDK</h2>
@@ -302,7 +302,7 @@
                 src="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;img&#x2F;avatar.png"
                 alt="CSUwangj" />
               
-              <p class="site-author-name">CSUwangj</p>
+              <p class="site-author-name unselectable">CSUwangj</p>
               <p class="site-author-quote">Just keep in mind that hacking is very rarely in a sequence.</p>
             </div>
             <div class="feed-link">

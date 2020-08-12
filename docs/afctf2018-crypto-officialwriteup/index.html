@@ -102,7 +102,8 @@
       <p>最后四个题没人做出来</p>
 <p>题目丢到了github，欢迎来玩~</p>
 <p>https://github.com/CSUwangj/AFCTF2018-Crypto</p>
-<span id="continue-reading"></span><h1 id="jian-dan-ti">简单题</h1>
+<span id="continue-reading"></span>
+<h1 id="jian-dan-ti">简单题</h1>
 <h2 id="morse">Morse</h2>
 <h3 id="jie-ti-si-lu">解题思路</h3>
 <p>摩尔斯电码转字符，观察会发现是十六进制数，转ASCII码得flag</p>
@@ -112,79 +113,79 @@
 <h3 id="jie-ti-si-lu-1">解题思路</h3>
 <p>现在放出加密代码</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">base64
-</span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">random
-</span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">os
-</span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">sys
-</span><span style="color:#b48ead;">with </span><span style="color:#96b5b4;">open</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">flag.txt</span><span style="color:#c0c5ce;">&#39;, &#39;</span><span style="color:#a3be8c;">r</span><span style="color:#c0c5ce;">&#39;) </span><span style="color:#b48ead;">as </span><span style="color:#c0c5ce;">file:
-    flag = </span><span style="color:#bf616a;">bytes</span><span style="color:#c0c5ce;">(file.</span><span style="color:#bf616a;">read</span><span style="color:#c0c5ce;">(),&#39;</span><span style="color:#a3be8c;">ascii</span><span style="color:#c0c5ce;">&#39;)
-    file.</span><span style="color:#bf616a;">close</span><span style="color:#c0c5ce;">()
-
-</span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">i </span><span style="color:#b48ead;">in </span><span style="color:#96b5b4;">range</span><span style="color:#c0c5ce;">(</span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">30</span><span style="color:#c0c5ce;">):
-    </span><span style="color:#96b5b4;">print</span><span style="color:#c0c5ce;">(i)
-    a = random.</span><span style="color:#bf616a;">randint</span><span style="color:#c0c5ce;">(</span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">2</span><span style="color:#c0c5ce;">)
-    </span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">a == </span><span style="color:#d08770;">2</span><span style="color:#c0c5ce;">:
-        flag = base64.</span><span style="color:#bf616a;">b64encode</span><span style="color:#c0c5ce;">(flag)
-    </span><span style="color:#b48ead;">elif </span><span style="color:#c0c5ce;">a == </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">:
-        flag = base64.</span><span style="color:#bf616a;">b32encode</span><span style="color:#c0c5ce;">(flag)
-    </span><span style="color:#b48ead;">else</span><span style="color:#c0c5ce;">:
-        flag = base64.</span><span style="color:#bf616a;">b16encode</span><span style="color:#c0c5ce;">(flag)
-
-</span><span style="color:#b48ead;">with </span><span style="color:#96b5b4;">open</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">flag_encode.txt</span><span style="color:#c0c5ce;">&#39;, &#39;</span><span style="color:#a3be8c;">w</span><span style="color:#c0c5ce;">&#39;) </span><span style="color:#b48ead;">as </span><span style="color:#c0c5ce;">file:
-    file.</span><span style="color:#bf616a;">write</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">str</span><span style="color:#c0c5ce;">(flag)[</span><span style="color:#d08770;">2</span><span style="color:#c0c5ce;">:-</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">])
-    file.</span><span style="color:#bf616a;">close</span><span style="color:#c0c5ce;">()
-
+<code><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">base64</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">random</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">os</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">sys</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">with </span><span style="color:#96b5b4;">open</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">flag.txt</span><span style="color:#c0c5ce;">&#39;, &#39;</span><span style="color:#a3be8c;">r</span><span style="color:#c0c5ce;">&#39;) </span><span style="color:#b48ead;">as </span><span style="color:#c0c5ce;">file:</span><span style="color:#c0c5ce;">
+    flag = </span><span style="color:#bf616a;">bytes</span><span style="color:#c0c5ce;">(file.</span><span style="color:#bf616a;">read</span><span style="color:#c0c5ce;">(),&#39;</span><span style="color:#a3be8c;">ascii</span><span style="color:#c0c5ce;">&#39;)</span><span style="color:#c0c5ce;">
+    file.</span><span style="color:#bf616a;">close</span><span style="color:#c0c5ce;">()</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">i </span><span style="color:#b48ead;">in </span><span style="color:#96b5b4;">range</span><span style="color:#c0c5ce;">(</span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">30</span><span style="color:#c0c5ce;">):</span><span style="color:#c0c5ce;">
+    </span><span style="color:#96b5b4;">print</span><span style="color:#c0c5ce;">(i)</span><span style="color:#c0c5ce;">
+    a = random.</span><span style="color:#bf616a;">randint</span><span style="color:#c0c5ce;">(</span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">2</span><span style="color:#c0c5ce;">)</span><span style="color:#c0c5ce;">
+    </span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">a == </span><span style="color:#d08770;">2</span><span style="color:#c0c5ce;">:</span><span style="color:#c0c5ce;">
+        flag = base64.</span><span style="color:#bf616a;">b64encode</span><span style="color:#c0c5ce;">(flag)</span><span style="color:#c0c5ce;">
+    </span><span style="color:#b48ead;">elif </span><span style="color:#c0c5ce;">a == </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">:</span><span style="color:#c0c5ce;">
+        flag = base64.</span><span style="color:#bf616a;">b32encode</span><span style="color:#c0c5ce;">(flag)</span><span style="color:#c0c5ce;">
+    </span><span style="color:#b48ead;">else</span><span style="color:#c0c5ce;">:</span><span style="color:#c0c5ce;">
+        flag = base64.</span><span style="color:#bf616a;">b16encode</span><span style="color:#c0c5ce;">(flag)</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">with </span><span style="color:#96b5b4;">open</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">flag_encode.txt</span><span style="color:#c0c5ce;">&#39;, &#39;</span><span style="color:#a3be8c;">w</span><span style="color:#c0c5ce;">&#39;) </span><span style="color:#b48ead;">as </span><span style="color:#c0c5ce;">file:</span><span style="color:#c0c5ce;">
+    file.</span><span style="color:#bf616a;">write</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">str</span><span style="color:#c0c5ce;">(flag)[</span><span style="color:#d08770;">2</span><span style="color:#c0c5ce;">:-</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">])</span><span style="color:#c0c5ce;">
+    file.</span><span style="color:#bf616a;">close</span><span style="color:#c0c5ce;">()</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
 </span></code></pre>
 <p>这个问题的关键在于，经过30重加密的文件不可能会小，直接用文本编辑器打开的都完蛋啦。正确姿势是使用十六进制编辑器或者word打开，或者用程序读入一部分后查看内容。</p>
 <p>此外根据题目可以大抵知道这是Base编码。</p>
 <p>解密代码如下，可以在出题人博客找到主要部分</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#65737e;"># -*- coding: utf-8 -*-
-# Python3
-# Solution.py
-</span><span style="color:#b48ead;">from </span><span style="color:#c0c5ce;">base64 </span><span style="color:#b48ead;">import </span><span style="color:#d08770;">*
-</span><span style="color:#c0c5ce;">s = &quot;&quot;
-</span><span style="color:#b48ead;">with </span><span style="color:#96b5b4;">open</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">flag_encode.txt</span><span style="color:#c0c5ce;">&#39;, &#39;</span><span style="color:#a3be8c;">r</span><span style="color:#c0c5ce;">&#39;) </span><span style="color:#b48ead;">as </span><span style="color:#c0c5ce;">file:
-    s = </span><span style="color:#bf616a;">bytes</span><span style="color:#c0c5ce;">(file.</span><span style="color:#bf616a;">read</span><span style="color:#c0c5ce;">(),&#39;</span><span style="color:#a3be8c;">ascii</span><span style="color:#c0c5ce;">&#39;)
-    file.</span><span style="color:#bf616a;">close</span><span style="color:#c0c5ce;">()
-
-lis1 = [s]
-lis2 = []
-lis3 = []
-lis4 = []
-</span><span style="color:#b48ead;">while</span><span style="color:#c0c5ce;">(</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">):
-	</span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">a </span><span style="color:#b48ead;">in </span><span style="color:#c0c5ce;">lis1:
-		ok = </span><span style="color:#d08770;">0
-		</span><span style="color:#b48ead;">try</span><span style="color:#c0c5ce;">:
-			lis2.</span><span style="color:#bf616a;">append</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">b64decode</span><span style="color:#c0c5ce;">(a).</span><span style="color:#bf616a;">decode</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">ascii</span><span style="color:#c0c5ce;">&#39;))
-			ok = </span><span style="color:#d08770;">1
-		</span><span style="color:#b48ead;">except</span><span style="color:#c0c5ce;">:
-			</span><span style="color:#b48ead;">pass
-		try</span><span style="color:#c0c5ce;">:
-			lis2.</span><span style="color:#bf616a;">append</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">b32decode</span><span style="color:#c0c5ce;">(a).</span><span style="color:#bf616a;">decode</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">ascii</span><span style="color:#c0c5ce;">&#39;))
-			ok = </span><span style="color:#d08770;">1
-		</span><span style="color:#b48ead;">except</span><span style="color:#c0c5ce;">:
-			</span><span style="color:#b48ead;">pass
-		try</span><span style="color:#c0c5ce;">:
-			lis2.</span><span style="color:#bf616a;">append</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">b16decode</span><span style="color:#c0c5ce;">(a).</span><span style="color:#bf616a;">decode</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">ascii</span><span style="color:#c0c5ce;">&#39;))
-			ok = </span><span style="color:#d08770;">1
-		</span><span style="color:#b48ead;">except</span><span style="color:#c0c5ce;">:
-			</span><span style="color:#b48ead;">pass
-		if </span><span style="color:#c0c5ce;">not ok:
-			lis3.</span><span style="color:#bf616a;">append</span><span style="color:#c0c5ce;">(a)
-	</span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">not </span><span style="color:#96b5b4;">len</span><span style="color:#c0c5ce;">(lis2):
-		</span><span style="color:#b48ead;">break
-	</span><span style="color:#c0c5ce;">lis1=lis2.</span><span style="color:#bf616a;">copy</span><span style="color:#c0c5ce;">()
-	lis2.</span><span style="color:#bf616a;">clear</span><span style="color:#c0c5ce;">()
-</span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">a </span><span style="color:#b48ead;">in </span><span style="color:#96b5b4;">range</span><span style="color:#c0c5ce;">(</span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">,</span><span style="color:#96b5b4;">len</span><span style="color:#c0c5ce;">(lis3)):
-	ok = </span><span style="color:#d08770;">1
-	</span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">b </span><span style="color:#b48ead;">in </span><span style="color:#c0c5ce;">lis3[a]:
-		</span><span style="color:#b48ead;">if </span><span style="color:#96b5b4;">ord</span><span style="color:#c0c5ce;">(b)&gt;</span><span style="color:#d08770;">126 </span><span style="color:#c0c5ce;">or </span><span style="color:#96b5b4;">ord</span><span style="color:#c0c5ce;">(b)&lt;</span><span style="color:#d08770;">32</span><span style="color:#c0c5ce;">:
-			ok = </span><span style="color:#d08770;">0
-			</span><span style="color:#b48ead;">break
-	if </span><span style="color:#c0c5ce;">ok:
-		lis4.</span><span style="color:#bf616a;">append</span><span style="color:#c0c5ce;">(lis3[a])
-</span><span style="color:#96b5b4;">print</span><span style="color:#c0c5ce;">(lis4)
+<code><span style="color:#65737e;"># -*- coding: utf-8 -*-</span><span style="color:#65737e;">
+# Python3</span><span style="color:#65737e;">
+# Solution.py</span><span style="color:#65737e;">
+</span><span style="color:#b48ead;">from </span><span style="color:#c0c5ce;">base64 </span><span style="color:#b48ead;">import </span><span style="color:#d08770;">*</span><span style="color:#c0c5ce;">
+s = &quot;&quot;</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">with </span><span style="color:#96b5b4;">open</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">flag_encode.txt</span><span style="color:#c0c5ce;">&#39;, &#39;</span><span style="color:#a3be8c;">r</span><span style="color:#c0c5ce;">&#39;) </span><span style="color:#b48ead;">as </span><span style="color:#c0c5ce;">file:</span><span style="color:#c0c5ce;">
+    s = </span><span style="color:#bf616a;">bytes</span><span style="color:#c0c5ce;">(file.</span><span style="color:#bf616a;">read</span><span style="color:#c0c5ce;">(),&#39;</span><span style="color:#a3be8c;">ascii</span><span style="color:#c0c5ce;">&#39;)</span><span style="color:#c0c5ce;">
+    file.</span><span style="color:#bf616a;">close</span><span style="color:#c0c5ce;">()</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+lis1 = [s]</span><span style="color:#c0c5ce;">
+lis2 = []</span><span style="color:#c0c5ce;">
+lis3 = []</span><span style="color:#c0c5ce;">
+lis4 = []</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">while</span><span style="color:#c0c5ce;">(</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">):</span><span style="color:#c0c5ce;">
+	</span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">a </span><span style="color:#b48ead;">in </span><span style="color:#c0c5ce;">lis1:</span><span style="color:#c0c5ce;">
+		ok = </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">
+		</span><span style="color:#b48ead;">try</span><span style="color:#c0c5ce;">:</span><span style="color:#c0c5ce;">
+			lis2.</span><span style="color:#bf616a;">append</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">b64decode</span><span style="color:#c0c5ce;">(a).</span><span style="color:#bf616a;">decode</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">ascii</span><span style="color:#c0c5ce;">&#39;))</span><span style="color:#c0c5ce;">
+			ok = </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">
+		</span><span style="color:#b48ead;">except</span><span style="color:#c0c5ce;">:</span><span style="color:#c0c5ce;">
+			</span><span style="color:#b48ead;">pass</span><span style="color:#c0c5ce;">
+		</span><span style="color:#b48ead;">try</span><span style="color:#c0c5ce;">:</span><span style="color:#c0c5ce;">
+			lis2.</span><span style="color:#bf616a;">append</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">b32decode</span><span style="color:#c0c5ce;">(a).</span><span style="color:#bf616a;">decode</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">ascii</span><span style="color:#c0c5ce;">&#39;))</span><span style="color:#c0c5ce;">
+			ok = </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">
+		</span><span style="color:#b48ead;">except</span><span style="color:#c0c5ce;">:</span><span style="color:#c0c5ce;">
+			</span><span style="color:#b48ead;">pass</span><span style="color:#c0c5ce;">
+		</span><span style="color:#b48ead;">try</span><span style="color:#c0c5ce;">:</span><span style="color:#c0c5ce;">
+			lis2.</span><span style="color:#bf616a;">append</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">b16decode</span><span style="color:#c0c5ce;">(a).</span><span style="color:#bf616a;">decode</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">ascii</span><span style="color:#c0c5ce;">&#39;))</span><span style="color:#c0c5ce;">
+			ok = </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">
+		</span><span style="color:#b48ead;">except</span><span style="color:#c0c5ce;">:</span><span style="color:#c0c5ce;">
+			</span><span style="color:#b48ead;">pass</span><span style="color:#c0c5ce;">
+		</span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">not ok:</span><span style="color:#c0c5ce;">
+			lis3.</span><span style="color:#bf616a;">append</span><span style="color:#c0c5ce;">(a)</span><span style="color:#c0c5ce;">
+	</span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">not </span><span style="color:#96b5b4;">len</span><span style="color:#c0c5ce;">(lis2):</span><span style="color:#c0c5ce;">
+		</span><span style="color:#b48ead;">break</span><span style="color:#c0c5ce;">
+	lis1=lis2.</span><span style="color:#bf616a;">copy</span><span style="color:#c0c5ce;">()</span><span style="color:#c0c5ce;">
+	lis2.</span><span style="color:#bf616a;">clear</span><span style="color:#c0c5ce;">()</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">a </span><span style="color:#b48ead;">in </span><span style="color:#96b5b4;">range</span><span style="color:#c0c5ce;">(</span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">,</span><span style="color:#96b5b4;">len</span><span style="color:#c0c5ce;">(lis3)):</span><span style="color:#c0c5ce;">
+	ok = </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">
+	</span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">b </span><span style="color:#b48ead;">in </span><span style="color:#c0c5ce;">lis3[a]:</span><span style="color:#c0c5ce;">
+		</span><span style="color:#b48ead;">if </span><span style="color:#96b5b4;">ord</span><span style="color:#c0c5ce;">(b)&gt;</span><span style="color:#d08770;">126 </span><span style="color:#c0c5ce;">or </span><span style="color:#96b5b4;">ord</span><span style="color:#c0c5ce;">(b)&lt;</span><span style="color:#d08770;">32</span><span style="color:#c0c5ce;">:</span><span style="color:#c0c5ce;">
+			ok = </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">
+			</span><span style="color:#b48ead;">break</span><span style="color:#c0c5ce;">
+	</span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">ok:</span><span style="color:#c0c5ce;">
+		lis4.</span><span style="color:#bf616a;">append</span><span style="color:#c0c5ce;">(lis3[a])</span><span style="color:#c0c5ce;">
+</span><span style="color:#96b5b4;">print</span><span style="color:#c0c5ce;">(lis4)</span><span style="color:#c0c5ce;">
 </span></code></pre><h3 id="flag-1">flag</h3>
 <p><code>afctf{U_5h0u1d_Us3_T00l5}</code></p>
 <h2 id="magicnum">MagicNum</h2>
@@ -192,17 +193,17 @@ lis4 = []
 <p>这个题可能有点脑洞的成分了，结果导致做出来的人很少。其实提示已经很明显了。</p>
 <p>加密代码如下：</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#b48ead;">#include </span><span style="color:#c0c5ce;">&lt;</span><span style="color:#a3be8c;">stdio.h</span><span style="color:#c0c5ce;">&gt;
-</span><span style="color:#b48ead;">char</span><span style="color:#c0c5ce;"> flag[]=&quot;</span><span style="color:#a3be8c;">afctf{sec_is_everywhere}</span><span style="color:#c0c5ce;">&quot;;
-
-</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main</span><span style="color:#c0c5ce;">()
-{
-	</span><span style="color:#b48ead;">for</span><span style="color:#c0c5ce;">(</span><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> i=</span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;i&lt;</span><span style="color:#d08770;">6</span><span style="color:#c0c5ce;">;++i){
-		</span><span style="color:#96b5b4;">printf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#d08770;">%20f</span><span style="color:#96b5b4;">\n</span><span style="color:#c0c5ce;">&quot;,*(</span><span style="color:#b48ead;">float</span><span style="color:#c0c5ce;">*)(flag+i*</span><span style="color:#d08770;">4</span><span style="color:#c0c5ce;">));
-	}
-	</span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;
-}
-
+<code><span style="color:#b48ead;">#include </span><span style="color:#c0c5ce;">&lt;</span><span style="color:#a3be8c;">stdio.h</span><span style="color:#c0c5ce;">&gt;</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">char</span><span style="color:#c0c5ce;"> flag[]=&quot;</span><span style="color:#a3be8c;">afctf{sec_is_everywhere}</span><span style="color:#c0c5ce;">&quot;;</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main</span><span style="color:#c0c5ce;">()</span><span style="color:#c0c5ce;">
+{</span><span style="color:#c0c5ce;">
+	</span><span style="color:#b48ead;">for</span><span style="color:#c0c5ce;">(</span><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> i=</span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;i&lt;</span><span style="color:#d08770;">6</span><span style="color:#c0c5ce;">;++i){</span><span style="color:#c0c5ce;">
+		</span><span style="color:#96b5b4;">printf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#d08770;">%20f</span><span style="color:#96b5b4;">\n</span><span style="color:#c0c5ce;">&quot;,*(</span><span style="color:#b48ead;">float</span><span style="color:#c0c5ce;">*)(flag+i*</span><span style="color:#d08770;">4</span><span style="color:#c0c5ce;">));</span><span style="color:#c0c5ce;">
+	}</span><span style="color:#c0c5ce;">
+	</span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;</span><span style="color:#c0c5ce;">
+}</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
 </span></code></pre><h3 id="flag-2">flag</h3>
 <p><code>afctf{sec_is_everywhere}</code></p>
 <h2 id="single">Single</h2>
@@ -235,25 +236,25 @@ lis4 = []
 <h3 id="jie-ti-si-lu-5">解题思路</h3>
 <p>裸RSA</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">!/usr/</span><span style="color:#96b5b4;">bin</span><span style="color:#c0c5ce;">/python
-
-</span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">libnum
-
-p=</span><span style="color:#bf616a;">int</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">0x928fb6aa9d813b6c3270131818a7c54edb18e3806942b88670106c1821e0326364194a8c49392849432b37632f0abe3f3c52e909b939c91c50e41a7b8cd00c67d6743b4f</span><span style="color:#c0c5ce;">&#39;,</span><span style="color:#d08770;">16</span><span style="color:#c0c5ce;">)
-
-q=</span><span style="color:#bf616a;">int</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">0xec301417ccdffa679a8dcc4027dd0d75baf9d441625ed8930472165717f4732884c33f25d4ee6a6c9ae6c44aedad039b0b72cf42cab7f80d32b74061</span><span style="color:#c0c5ce;">&#39;,</span><span style="color:#d08770;">16</span><span style="color:#c0c5ce;">)
-
-e=</span><span style="color:#bf616a;">int</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">0x10001</span><span style="color:#c0c5ce;">&#39;, </span><span style="color:#d08770;">16</span><span style="color:#c0c5ce;">)
-
-c=</span><span style="color:#bf616a;">int</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">0x70c9133e1647e95c3cb99bd998a9028b5bf492929725a9e8e6d2e277fa0f37205580b196e5f121a2e83bc80a8204c99f5036a07c8cf6f96c420369b4161d2654a7eccbdaf583204b645e137b3bd15c5ce865298416fd5831cba0d947113ed5be5426b708b89451934d11f9aed9085b48b729449e461ff0863552149b965e22b6</span><span style="color:#c0c5ce;">&#39;,</span><span style="color:#d08770;">16</span><span style="color:#c0c5ce;">)
-
-n=p*q
-
-phi=(p-</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">)*(q-</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">)
-
-d = libnum.modular.</span><span style="color:#bf616a;">invmod</span><span style="color:#c0c5ce;">(e, phi)
-
-</span><span style="color:#b48ead;">print </span><span style="color:#c0c5ce;">libnum.</span><span style="color:#bf616a;">n2s</span><span style="color:#c0c5ce;">(</span><span style="color:#96b5b4;">pow</span><span style="color:#c0c5ce;">(c, d, n))
+<code><span style="color:#c0c5ce;">!/usr/</span><span style="color:#96b5b4;">bin</span><span style="color:#c0c5ce;">/python</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">libnum</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+p=</span><span style="color:#bf616a;">int</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">0x928fb6aa9d813b6c3270131818a7c54edb18e3806942b88670106c1821e0326364194a8c49392849432b37632f0abe3f3c52e909b939c91c50e41a7b8cd00c67d6743b4f</span><span style="color:#c0c5ce;">&#39;,</span><span style="color:#d08770;">16</span><span style="color:#c0c5ce;">)</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+q=</span><span style="color:#bf616a;">int</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">0xec301417ccdffa679a8dcc4027dd0d75baf9d441625ed8930472165717f4732884c33f25d4ee6a6c9ae6c44aedad039b0b72cf42cab7f80d32b74061</span><span style="color:#c0c5ce;">&#39;,</span><span style="color:#d08770;">16</span><span style="color:#c0c5ce;">)</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+e=</span><span style="color:#bf616a;">int</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">0x10001</span><span style="color:#c0c5ce;">&#39;, </span><span style="color:#d08770;">16</span><span style="color:#c0c5ce;">)</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+c=</span><span style="color:#bf616a;">int</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">0x70c9133e1647e95c3cb99bd998a9028b5bf492929725a9e8e6d2e277fa0f37205580b196e5f121a2e83bc80a8204c99f5036a07c8cf6f96c420369b4161d2654a7eccbdaf583204b645e137b3bd15c5ce865298416fd5831cba0d947113ed5be5426b708b89451934d11f9aed9085b48b729449e461ff0863552149b965e22b6</span><span style="color:#c0c5ce;">&#39;,</span><span style="color:#d08770;">16</span><span style="color:#c0c5ce;">)</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+n=p*q</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+phi=(p-</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">)*(q-</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">)</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+d = libnum.modular.</span><span style="color:#bf616a;">invmod</span><span style="color:#c0c5ce;">(e, phi)</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">print </span><span style="color:#c0c5ce;">libnum.</span><span style="color:#bf616a;">n2s</span><span style="color:#c0c5ce;">(</span><span style="color:#96b5b4;">pow</span><span style="color:#c0c5ce;">(c, d, n))</span><span style="color:#c0c5ce;">
 </span></code></pre><h3 id="flag-5">flag</h3>
 <p><code>afctf{R54_|5_$0_$imp13}</code></p>
 <h2 id="ke-lian-de-rsa">可怜的RSA</h2>
@@ -262,13 +263,13 @@ d = libnum.modular.</span><span style="color:#bf616a;">invmod</span><span style=
 <li>用OpenSSL查看公钥，尝试将其分解成私钥</li>
 </ol>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">openssl rsa -noout -text -inform PEM -in public.key -pubin
+<code><span style="color:#c0c5ce;">openssl rsa -noout -text -inform PEM -in public.key -pubin</span><span style="color:#c0c5ce;">
 </span></code></pre>
 <ol start="2">
 <li>将十六进制转为十进制</li>
 </ol>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">python -c &quot;print int(&#39;25b18bf5f389097d17237866bb51cff8de922453749ebc403b0995c97c0e386d46c161cadff77c69860dae4791c214cf8487aaaa9f26e920a977834906038aefb5c30827dfcf3fc9e9769544f94e07cdfe0872039a3a6262116678b261fb2d6b9d32539e92a153b3675629bab3942e7d35e30f7eef5abf1c50d797d0cc88e1bdccfd1a12ea6f7ef75c3727dbdf2e780f3428ae8f7a4fb7a89f184a365032b153f8425e845750eb2b7abc02dc15ce0207507aa950863bb8480a78028dd62979944d6c633fafa103e4db28ce87f5a0c6ed4a2f2664427f565c7781ab6191456d971c7ffa395272374cec0155e5f91189db742e4c28b03a0fa11cffb03173d2a4cce6ae53&#39;, 16)&quot;
+<code><span style="color:#c0c5ce;">python -c &quot;print int(&#39;25b18bf5f389097d17237866bb51cff8de922453749ebc403b0995c97c0e386d46c161cadff77c69860dae4791c214cf8487aaaa9f26e920a977834906038aefb5c30827dfcf3fc9e9769544f94e07cdfe0872039a3a6262116678b261fb2d6b9d32539e92a153b3675629bab3942e7d35e30f7eef5abf1c50d797d0cc88e1bdccfd1a12ea6f7ef75c3727dbdf2e780f3428ae8f7a4fb7a89f184a365032b153f8425e845750eb2b7abc02dc15ce0207507aa950863bb8480a78028dd62979944d6c633fafa103e4db28ce87f5a0c6ed4a2f2664427f565c7781ab6191456d971c7ffa395272374cec0155e5f91189db742e4c28b03a0fa11cffb03173d2a4cce6ae53&#39;, 16)&quot;</span><span style="color:#c0c5ce;">
 </span></code></pre>
 <ol start="3">
 <li>用网站对其分解（http://www.factordb.com/index.php?query=79832181757332818552764610761349592984614744432279135328398999801627880283610900361281249973175805069916210179560506497075132524902086881120372213626641879468491936860976686933630869673826972619938321951599146744807653301076026577949579618331502776303983485566046485431039541708467141408260220098592761245010678592347501894176269580510459729633673468068467144199744563731826362102608811033400887813754780282628099443490170016087838606998017490456601315802448567772411623826281747245660954245413781519794295336197555688543537992197142258053220453757666537840276416475602759374950715283890232230741542737319569819793988431443）</li>
@@ -278,18 +279,18 @@ d = libnum.modular.</span><span style="color:#bf616a;">invmod</span><span style=
 <li>然后用rsatool生成私钥，发现flag.enc还经过base64加密，所以最后</li>
 </ol>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">decrypt_RSA</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">privkey</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">message</span><span style="color:#c0c5ce;">):
-    </span><span style="color:#b48ead;">from </span><span style="color:#c0c5ce;">Crypto.PublicKey </span><span style="color:#b48ead;">import </span><span style="color:#bf616a;">RSA 
-    </span><span style="color:#b48ead;">from </span><span style="color:#c0c5ce;">Crypto.Cipher </span><span style="color:#b48ead;">import </span><span style="color:#bf616a;">PKCS1_OAEP 
-    </span><span style="color:#b48ead;">from </span><span style="color:#c0c5ce;">base64 </span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">b64decode 
-    key = </span><span style="color:#96b5b4;">open</span><span style="color:#c0c5ce;">(privkey, &quot;</span><span style="color:#a3be8c;">r</span><span style="color:#c0c5ce;">&quot;).</span><span style="color:#bf616a;">read</span><span style="color:#c0c5ce;">() 
-    rsakey = RSA.</span><span style="color:#bf616a;">importKey</span><span style="color:#c0c5ce;">(key) 
-    rsakey = PKCS1_OAEP.</span><span style="color:#bf616a;">new</span><span style="color:#c0c5ce;">(rsakey) 
-    decrypted = rsakey.</span><span style="color:#bf616a;">decrypt</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">b64decode</span><span style="color:#c0c5ce;">(message)) 
-    </span><span style="color:#b48ead;">return </span><span style="color:#c0c5ce;">decrypted
- 
-flag = &quot;</span><span style="color:#a3be8c;">GVd1d3viIXFfcHapEYuo5fAvIiUS83adrtMW/MgPwxVBSl46joFCQ1plcnlDGfL19K/3PvChV6n5QGohzfVyz2Z5GdTlaknxvHDUGf5HCukokyPwK/1EYU7NzrhGE7J5jPdi0Aj7xi/Odxy0hGMgpaBLd/nL3N8O6i9pc4Gg3O8soOlciBG/6/xdfN3SzSStMYIN8nfZZMSq3xDDvz4YB7TcTBh4ik4wYhuC77gmT+HWOv5gLTNQ3EkZs5N3EAopy11zHNYU80yv1jtFGcluNPyXYttU5qU33jcp0Wuznac+t+AZHeSQy5vk8DyWorSGMiS+J4KNqSVlDs12EqXEqqJ0uA==</span><span style="color:#c0c5ce;">&quot;
-</span><span style="color:#b48ead;">print </span><span style="color:#bf616a;">decrypt_RSA</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">priv.key</span><span style="color:#c0c5ce;">&#39;, flag)
+<code><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">decrypt_RSA</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">privkey</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">message</span><span style="color:#c0c5ce;">):</span><span style="color:#c0c5ce;">
+    </span><span style="color:#b48ead;">from </span><span style="color:#c0c5ce;">Crypto.PublicKey </span><span style="color:#b48ead;">import </span><span style="color:#bf616a;">RSA </span><span style="color:#c0c5ce;">
+    </span><span style="color:#b48ead;">from </span><span style="color:#c0c5ce;">Crypto.Cipher </span><span style="color:#b48ead;">import </span><span style="color:#bf616a;">PKCS1_OAEP </span><span style="color:#c0c5ce;">
+    </span><span style="color:#b48ead;">from </span><span style="color:#c0c5ce;">base64 </span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">b64decode </span><span style="color:#c0c5ce;">
+    key = </span><span style="color:#96b5b4;">open</span><span style="color:#c0c5ce;">(privkey, &quot;</span><span style="color:#a3be8c;">r</span><span style="color:#c0c5ce;">&quot;).</span><span style="color:#bf616a;">read</span><span style="color:#c0c5ce;">() </span><span style="color:#c0c5ce;">
+    rsakey = RSA.</span><span style="color:#bf616a;">importKey</span><span style="color:#c0c5ce;">(key) </span><span style="color:#c0c5ce;">
+    rsakey = PKCS1_OAEP.</span><span style="color:#bf616a;">new</span><span style="color:#c0c5ce;">(rsakey) </span><span style="color:#c0c5ce;">
+    decrypted = rsakey.</span><span style="color:#bf616a;">decrypt</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">b64decode</span><span style="color:#c0c5ce;">(message)) </span><span style="color:#c0c5ce;">
+    </span><span style="color:#b48ead;">return </span><span style="color:#c0c5ce;">decrypted</span><span style="color:#c0c5ce;">
+ </span><span style="color:#c0c5ce;">
+flag = &quot;</span><span style="color:#a3be8c;">GVd1d3viIXFfcHapEYuo5fAvIiUS83adrtMW/MgPwxVBSl46joFCQ1plcnlDGfL19K/3PvChV6n5QGohzfVyz2Z5GdTlaknxvHDUGf5HCukokyPwK/1EYU7NzrhGE7J5jPdi0Aj7xi/Odxy0hGMgpaBLd/nL3N8O6i9pc4Gg3O8soOlciBG/6/xdfN3SzSStMYIN8nfZZMSq3xDDvz4YB7TcTBh4ik4wYhuC77gmT+HWOv5gLTNQ3EkZs5N3EAopy11zHNYU80yv1jtFGcluNPyXYttU5qU33jcp0Wuznac+t+AZHeSQy5vk8DyWorSGMiS+J4KNqSVlDs12EqXEqqJ0uA==</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">print </span><span style="color:#bf616a;">decrypt_RSA</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">priv.key</span><span style="color:#c0c5ce;">&#39;, flag)</span><span style="color:#c0c5ce;">
 </span></code></pre><h3 id="flag-6">flag</h3>
 <p>afctf{R54_|5_$0_B0rin9}</p>
 <h2 id="one-secret-two-encryption">One Secret, Two encryption</h2>
@@ -316,96 +317,96 @@ flag = &quot;</span><span style="color:#a3be8c;">GVd1d3viIXFfcHapEYuo5fAvIiUS83a
 <p>按这个名词去谷歌能搜到很多分析</p>
 <p>解密代码如下：</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#65737e;">#!/usr/bin/python
-## OTP - Recovering the private key from a set of messages that were encrypted w/ the same private key (Many time pad attack) - crypto100-many_time_secret @ alexctf 2017
-# Original code by jwomers: https://github.com/Jwomers/many-time-pad-attack/blob/master/attack.py)
-
-</span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">string
-</span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">collections
-</span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">sets, sys
-
-</span><span style="color:#65737e;"># 11 unknown ciphertexts (in hex format), all encrpyted with the same key
-
-</span><span style="color:#c0c5ce;">c1=&#39;</span><span style="color:#a3be8c;">25030206463d3d393131555f7f1d061d4052111a19544e2e5d</span><span style="color:#c0c5ce;">&#39;
-c2=&#39;</span><span style="color:#a3be8c;">0f020606150f203f307f5c0a7f24070747130e16545000035d</span><span style="color:#c0c5ce;">&#39;
-c3=&#39;</span><span style="color:#a3be8c;">1203075429152a7020365c167f390f1013170b1006481e1314</span><span style="color:#c0c5ce;">&#39;
-c4=&#39;</span><span style="color:#a3be8c;">0f4610170e1e2235787f7853372c0f065752111b15454e0e09</span><span style="color:#c0c5ce;">&#39;
-c5=&#39;</span><span style="color:#a3be8c;">081543000e1e6f3f3a3348533a270d064a02111a1b5f4e0a18</span><span style="color:#c0c5ce;">&#39;
-c6=&#39;</span><span style="color:#a3be8c;">0909075412132e247436425332281a1c561f04071d520f0b11</span><span style="color:#c0c5ce;">&#39;
-c7=&#39;</span><span style="color:#a3be8c;">4116111b101e2170203011113a69001b475206011552050219</span><span style="color:#c0c5ce;">&#39;
-c8=&#39;</span><span style="color:#a3be8c;">041006064612297020375453342c17545a01451811411a470e</span><span style="color:#c0c5ce;">&#39;
-c9=&#39;</span><span style="color:#a3be8c;">021311114a5b0335207f7c167f22001b44520c15544801125d</span><span style="color:#c0c5ce;">&#39;
-c10=&#39;</span><span style="color:#a3be8c;">06140611460c26243c7f5c167f3d015446010053005907145d</span><span style="color:#c0c5ce;">&#39;
-c11=&#39;</span><span style="color:#a3be8c;">0f05110d160f263f3a7f4210372c03111313090415481d49</span><span style="color:#c0c5ce;">&#39;
-ciphers = [c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11]
-</span><span style="color:#65737e;"># The target ciphertext we want to crack
-#target_cipher = &quot;0529242a631234122d2b36697f13272c207f2021283a6b0c7908&quot;
-
-# XORs two string
-</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">strxor</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">a</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">b</span><span style="color:#c0c5ce;">):     </span><span style="color:#65737e;"># xor two strings (trims the longer input)
-    </span><span style="color:#b48ead;">return </span><span style="color:#c0c5ce;">&quot;&quot;.</span><span style="color:#bf616a;">join</span><span style="color:#c0c5ce;">([</span><span style="color:#96b5b4;">chr</span><span style="color:#c0c5ce;">(</span><span style="color:#96b5b4;">ord</span><span style="color:#c0c5ce;">(x) ^ </span><span style="color:#96b5b4;">ord</span><span style="color:#c0c5ce;">(y)) </span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">(x, y) </span><span style="color:#b48ead;">in </span><span style="color:#96b5b4;">zip</span><span style="color:#c0c5ce;">(a, b)])
-
-</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">target_fix</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">target_cipher</span><span style="color:#c0c5ce;">):
-	</span><span style="color:#65737e;"># To store the final key
-	</span><span style="color:#c0c5ce;">final_key = [</span><span style="color:#d08770;">None</span><span style="color:#c0c5ce;">]*</span><span style="color:#d08770;">150
-	</span><span style="color:#65737e;"># To store the positions we know are broken
-	</span><span style="color:#c0c5ce;">known_key_positions = </span><span style="color:#bf616a;">set</span><span style="color:#c0c5ce;">()
-
-	</span><span style="color:#65737e;"># For each ciphertext
-	</span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">current_index, ciphertext </span><span style="color:#b48ead;">in </span><span style="color:#96b5b4;">enumerate</span><span style="color:#c0c5ce;">(ciphers):
-		counter = collections.</span><span style="color:#bf616a;">Counter</span><span style="color:#c0c5ce;">()
-		</span><span style="color:#65737e;"># for each other ciphertext
-		</span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">index, ciphertext2 </span><span style="color:#b48ead;">in </span><span style="color:#96b5b4;">enumerate</span><span style="color:#c0c5ce;">(ciphers):
-			</span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">current_index != index: </span><span style="color:#65737e;"># don&#39;t xor a ciphertext with itself
-				</span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">indexOfChar, char </span><span style="color:#b48ead;">in </span><span style="color:#96b5b4;">enumerate</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">strxor</span><span style="color:#c0c5ce;">(ciphertext.</span><span style="color:#bf616a;">decode</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">hex</span><span style="color:#c0c5ce;">&#39;), ciphertext2.</span><span style="color:#bf616a;">decode</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">hex</span><span style="color:#c0c5ce;">&#39;))): </span><span style="color:#65737e;"># Xor the two ciphertexts
-					# If a character in the xored result is a alphanumeric character, it means there was probably a space character in one of the plaintexts (we don&#39;t know which one)
-					</span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">char in string.printable and char.</span><span style="color:#bf616a;">isalpha</span><span style="color:#c0c5ce;">(): counter[indexOfChar] += </span><span style="color:#d08770;">1 </span><span style="color:#65737e;"># Increment the counter at this index
-		</span><span style="color:#c0c5ce;">knownSpaceIndexes = []
-
-		</span><span style="color:#65737e;"># Loop through all positions where a space character was possible in the current_index cipher
-		</span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">ind, val </span><span style="color:#b48ead;">in </span><span style="color:#c0c5ce;">counter.</span><span style="color:#bf616a;">items</span><span style="color:#c0c5ce;">():
-			</span><span style="color:#65737e;"># If a space was found at least 7 times at this index out of the 9 possible XORS, then the space character was likely from the current_index cipher!
-			</span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">val &gt;= </span><span style="color:#d08770;">7</span><span style="color:#c0c5ce;">: knownSpaceIndexes.</span><span style="color:#bf616a;">append</span><span style="color:#c0c5ce;">(ind)
-		</span><span style="color:#65737e;">#print knownSpaceIndexes # Shows all the positions where we now know the key!
-
-		# Now Xor the current_index with spaces, and at the knownSpaceIndexes positions we get the key back!
-		</span><span style="color:#c0c5ce;">xor_with_spaces = </span><span style="color:#bf616a;">strxor</span><span style="color:#c0c5ce;">(ciphertext.</span><span style="color:#bf616a;">decode</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">hex</span><span style="color:#c0c5ce;">&#39;),&#39; &#39;*</span><span style="color:#d08770;">150</span><span style="color:#c0c5ce;">)
-		</span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">index </span><span style="color:#b48ead;">in </span><span style="color:#c0c5ce;">knownSpaceIndexes:
-			</span><span style="color:#65737e;"># Store the key&#39;s value at the correct position
-			</span><span style="color:#c0c5ce;">final_key[index] = xor_with_spaces[index].</span><span style="color:#bf616a;">encode</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">hex</span><span style="color:#c0c5ce;">&#39;)
-			</span><span style="color:#65737e;"># Record that we known the key at this position
-			</span><span style="color:#c0c5ce;">known_key_positions.</span><span style="color:#bf616a;">add</span><span style="color:#c0c5ce;">(index)
-
-	</span><span style="color:#65737e;"># Construct a hex key from the currently known key, adding in &#39;00&#39; hex chars where we do not know (to make a complete hex string)
-	</span><span style="color:#c0c5ce;">final_key_hex = &#39;&#39;.</span><span style="color:#bf616a;">join</span><span style="color:#c0c5ce;">([val </span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">val is not </span><span style="color:#d08770;">None </span><span style="color:#b48ead;">else </span><span style="color:#c0c5ce;">&#39;</span><span style="color:#a3be8c;">00</span><span style="color:#c0c5ce;">&#39; </span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">val </span><span style="color:#b48ead;">in </span><span style="color:#c0c5ce;">final_key])
-	</span><span style="color:#65737e;"># Xor the currently known key with the target cipher
-	</span><span style="color:#c0c5ce;">output = </span><span style="color:#bf616a;">strxor</span><span style="color:#c0c5ce;">(target_cipher.</span><span style="color:#bf616a;">decode</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">hex</span><span style="color:#c0c5ce;">&#39;),final_key_hex.</span><span style="color:#bf616a;">decode</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">hex</span><span style="color:#c0c5ce;">&#39;))
-
-	</span><span style="color:#b48ead;">print </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">Fix this sentence:</span><span style="color:#c0c5ce;">&quot;
-	</span><span style="color:#b48ead;">print </span><span style="color:#c0c5ce;">&#39;&#39;.</span><span style="color:#bf616a;">join</span><span style="color:#c0c5ce;">([char </span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">index in known_key_positions </span><span style="color:#b48ead;">else </span><span style="color:#c0c5ce;">&#39;</span><span style="color:#a3be8c;">*</span><span style="color:#c0c5ce;">&#39; </span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">index, char </span><span style="color:#b48ead;">in </span><span style="color:#96b5b4;">enumerate</span><span style="color:#c0c5ce;">(output)])+&quot;</span><span style="color:#96b5b4;">\n</span><span style="color:#c0c5ce;">&quot;
-
-	</span><span style="color:#65737e;"># WAIT.. MANUAL STEP HERE 
-	# This output are printing a * if that character is not known yet
-	# fix the missing characters like this: &quot;Let*M**k*ow if *o{*a&quot; = &quot;cure, Let Me know if you a&quot;
-	# if is too hard, change the target_cipher to another one and try again
-	# and we have our key to fix the entire text!
-
-	#sys.exit(0) #comment and continue if u got a good key
-
-	</span><span style="color:#c0c5ce;">target_plaintext = &quot;</span><span style="color:#a3be8c;">cure, Let Me know if you a</span><span style="color:#c0c5ce;">&quot;
-	</span><span style="color:#b48ead;">print </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">Fixed:</span><span style="color:#c0c5ce;">&quot;
-	</span><span style="color:#b48ead;">print </span><span style="color:#c0c5ce;">target_plaintext+&quot;</span><span style="color:#96b5b4;">\n</span><span style="color:#c0c5ce;">&quot;
-
-	key = </span><span style="color:#bf616a;">strxor</span><span style="color:#c0c5ce;">(target_cipher.</span><span style="color:#bf616a;">decode</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">hex</span><span style="color:#c0c5ce;">&#39;),target_plaintext)
-
-	</span><span style="color:#b48ead;">print </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">Decrypted msg:</span><span style="color:#c0c5ce;">&quot;
-	</span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">cipher </span><span style="color:#b48ead;">in </span><span style="color:#c0c5ce;">ciphers:
-		</span><span style="color:#b48ead;">print </span><span style="color:#bf616a;">strxor</span><span style="color:#c0c5ce;">(cipher.</span><span style="color:#bf616a;">decode</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">hex</span><span style="color:#c0c5ce;">&#39;),key)
-
-	</span><span style="color:#b48ead;">print </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#96b5b4;">\n</span><span style="color:#a3be8c;">Private key recovered: </span><span style="color:#c0c5ce;">&quot;+key+&quot;</span><span style="color:#96b5b4;">\n</span><span style="color:#c0c5ce;">&quot;
-	
-</span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">i </span><span style="color:#b48ead;">in </span><span style="color:#c0c5ce;">ciphers:
-	</span><span style="color:#bf616a;">target_fix</span><span style="color:#c0c5ce;">(i)
+<code><span style="color:#65737e;">#!/usr/bin/python</span><span style="color:#65737e;">
+## OTP - Recovering the private key from a set of messages that were encrypted w/ the same private key (Many time pad attack) - crypto100-many_time_secret @ alexctf 2017</span><span style="color:#65737e;">
+# Original code by jwomers: https://github.com/Jwomers/many-time-pad-attack/blob/master/attack.py)</span><span style="color:#65737e;">
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">string</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">collections</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">sets, sys</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#65737e;"># 11 unknown ciphertexts (in hex format), all encrpyted with the same key</span><span style="color:#65737e;">
+</span><span style="color:#c0c5ce;">
+c1=&#39;</span><span style="color:#a3be8c;">25030206463d3d393131555f7f1d061d4052111a19544e2e5d</span><span style="color:#c0c5ce;">&#39;</span><span style="color:#c0c5ce;">
+c2=&#39;</span><span style="color:#a3be8c;">0f020606150f203f307f5c0a7f24070747130e16545000035d</span><span style="color:#c0c5ce;">&#39;</span><span style="color:#c0c5ce;">
+c3=&#39;</span><span style="color:#a3be8c;">1203075429152a7020365c167f390f1013170b1006481e1314</span><span style="color:#c0c5ce;">&#39;</span><span style="color:#c0c5ce;">
+c4=&#39;</span><span style="color:#a3be8c;">0f4610170e1e2235787f7853372c0f065752111b15454e0e09</span><span style="color:#c0c5ce;">&#39;</span><span style="color:#c0c5ce;">
+c5=&#39;</span><span style="color:#a3be8c;">081543000e1e6f3f3a3348533a270d064a02111a1b5f4e0a18</span><span style="color:#c0c5ce;">&#39;</span><span style="color:#c0c5ce;">
+c6=&#39;</span><span style="color:#a3be8c;">0909075412132e247436425332281a1c561f04071d520f0b11</span><span style="color:#c0c5ce;">&#39;</span><span style="color:#c0c5ce;">
+c7=&#39;</span><span style="color:#a3be8c;">4116111b101e2170203011113a69001b475206011552050219</span><span style="color:#c0c5ce;">&#39;</span><span style="color:#c0c5ce;">
+c8=&#39;</span><span style="color:#a3be8c;">041006064612297020375453342c17545a01451811411a470e</span><span style="color:#c0c5ce;">&#39;</span><span style="color:#c0c5ce;">
+c9=&#39;</span><span style="color:#a3be8c;">021311114a5b0335207f7c167f22001b44520c15544801125d</span><span style="color:#c0c5ce;">&#39;</span><span style="color:#c0c5ce;">
+c10=&#39;</span><span style="color:#a3be8c;">06140611460c26243c7f5c167f3d015446010053005907145d</span><span style="color:#c0c5ce;">&#39;</span><span style="color:#c0c5ce;">
+c11=&#39;</span><span style="color:#a3be8c;">0f05110d160f263f3a7f4210372c03111313090415481d49</span><span style="color:#c0c5ce;">&#39;</span><span style="color:#c0c5ce;">
+ciphers = [c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11]</span><span style="color:#c0c5ce;">
+</span><span style="color:#65737e;"># The target ciphertext we want to crack</span><span style="color:#65737e;">
+#target_cipher = &quot;0529242a631234122d2b36697f13272c207f2021283a6b0c7908&quot;</span><span style="color:#65737e;">
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#65737e;"># XORs two string</span><span style="color:#65737e;">
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">strxor</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">a</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">b</span><span style="color:#c0c5ce;">):     </span><span style="color:#65737e;"># xor two strings (trims the longer input)</span><span style="color:#65737e;">
+    </span><span style="color:#b48ead;">return </span><span style="color:#c0c5ce;">&quot;&quot;.</span><span style="color:#bf616a;">join</span><span style="color:#c0c5ce;">([</span><span style="color:#96b5b4;">chr</span><span style="color:#c0c5ce;">(</span><span style="color:#96b5b4;">ord</span><span style="color:#c0c5ce;">(x) ^ </span><span style="color:#96b5b4;">ord</span><span style="color:#c0c5ce;">(y)) </span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">(x, y) </span><span style="color:#b48ead;">in </span><span style="color:#96b5b4;">zip</span><span style="color:#c0c5ce;">(a, b)])</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">target_fix</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">target_cipher</span><span style="color:#c0c5ce;">):</span><span style="color:#c0c5ce;">
+	</span><span style="color:#65737e;"># To store the final key</span><span style="color:#65737e;">
+	</span><span style="color:#c0c5ce;">final_key = [</span><span style="color:#d08770;">None</span><span style="color:#c0c5ce;">]*</span><span style="color:#d08770;">150</span><span style="color:#c0c5ce;">
+	</span><span style="color:#65737e;"># To store the positions we know are broken</span><span style="color:#65737e;">
+	</span><span style="color:#c0c5ce;">known_key_positions = </span><span style="color:#bf616a;">set</span><span style="color:#c0c5ce;">()</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+	</span><span style="color:#65737e;"># For each ciphertext</span><span style="color:#65737e;">
+	</span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">current_index, ciphertext </span><span style="color:#b48ead;">in </span><span style="color:#96b5b4;">enumerate</span><span style="color:#c0c5ce;">(ciphers):</span><span style="color:#c0c5ce;">
+		counter = collections.</span><span style="color:#bf616a;">Counter</span><span style="color:#c0c5ce;">()</span><span style="color:#c0c5ce;">
+		</span><span style="color:#65737e;"># for each other ciphertext</span><span style="color:#65737e;">
+		</span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">index, ciphertext2 </span><span style="color:#b48ead;">in </span><span style="color:#96b5b4;">enumerate</span><span style="color:#c0c5ce;">(ciphers):</span><span style="color:#c0c5ce;">
+			</span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">current_index != index: </span><span style="color:#65737e;"># don&#39;t xor a ciphertext with itself</span><span style="color:#65737e;">
+				</span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">indexOfChar, char </span><span style="color:#b48ead;">in </span><span style="color:#96b5b4;">enumerate</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">strxor</span><span style="color:#c0c5ce;">(ciphertext.</span><span style="color:#bf616a;">decode</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">hex</span><span style="color:#c0c5ce;">&#39;), ciphertext2.</span><span style="color:#bf616a;">decode</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">hex</span><span style="color:#c0c5ce;">&#39;))): </span><span style="color:#65737e;"># Xor the two ciphertexts</span><span style="color:#65737e;">
+					# If a character in the xored result is a alphanumeric character, it means there was probably a space character in one of the plaintexts (we don&#39;t know which one)</span><span style="color:#65737e;">
+					</span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">char in string.printable and char.</span><span style="color:#bf616a;">isalpha</span><span style="color:#c0c5ce;">(): counter[indexOfChar] += </span><span style="color:#d08770;">1 </span><span style="color:#65737e;"># Increment the counter at this index</span><span style="color:#65737e;">
+		</span><span style="color:#c0c5ce;">knownSpaceIndexes = []</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+		</span><span style="color:#65737e;"># Loop through all positions where a space character was possible in the current_index cipher</span><span style="color:#65737e;">
+		</span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">ind, val </span><span style="color:#b48ead;">in </span><span style="color:#c0c5ce;">counter.</span><span style="color:#bf616a;">items</span><span style="color:#c0c5ce;">():</span><span style="color:#c0c5ce;">
+			</span><span style="color:#65737e;"># If a space was found at least 7 times at this index out of the 9 possible XORS, then the space character was likely from the current_index cipher!</span><span style="color:#65737e;">
+			</span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">val &gt;= </span><span style="color:#d08770;">7</span><span style="color:#c0c5ce;">: knownSpaceIndexes.</span><span style="color:#bf616a;">append</span><span style="color:#c0c5ce;">(ind)</span><span style="color:#c0c5ce;">
+		</span><span style="color:#65737e;">#print knownSpaceIndexes # Shows all the positions where we now know the key!</span><span style="color:#65737e;">
+</span><span style="color:#c0c5ce;">
+		</span><span style="color:#65737e;"># Now Xor the current_index with spaces, and at the knownSpaceIndexes positions we get the key back!</span><span style="color:#65737e;">
+		</span><span style="color:#c0c5ce;">xor_with_spaces = </span><span style="color:#bf616a;">strxor</span><span style="color:#c0c5ce;">(ciphertext.</span><span style="color:#bf616a;">decode</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">hex</span><span style="color:#c0c5ce;">&#39;),&#39; &#39;*</span><span style="color:#d08770;">150</span><span style="color:#c0c5ce;">)</span><span style="color:#c0c5ce;">
+		</span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">index </span><span style="color:#b48ead;">in </span><span style="color:#c0c5ce;">knownSpaceIndexes:</span><span style="color:#c0c5ce;">
+			</span><span style="color:#65737e;"># Store the key&#39;s value at the correct position</span><span style="color:#65737e;">
+			</span><span style="color:#c0c5ce;">final_key[index] = xor_with_spaces[index].</span><span style="color:#bf616a;">encode</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">hex</span><span style="color:#c0c5ce;">&#39;)</span><span style="color:#c0c5ce;">
+			</span><span style="color:#65737e;"># Record that we known the key at this position</span><span style="color:#65737e;">
+			</span><span style="color:#c0c5ce;">known_key_positions.</span><span style="color:#bf616a;">add</span><span style="color:#c0c5ce;">(index)</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+	</span><span style="color:#65737e;"># Construct a hex key from the currently known key, adding in &#39;00&#39; hex chars where we do not know (to make a complete hex string)</span><span style="color:#65737e;">
+	</span><span style="color:#c0c5ce;">final_key_hex = &#39;&#39;.</span><span style="color:#bf616a;">join</span><span style="color:#c0c5ce;">([val </span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">val is not </span><span style="color:#d08770;">None </span><span style="color:#b48ead;">else </span><span style="color:#c0c5ce;">&#39;</span><span style="color:#a3be8c;">00</span><span style="color:#c0c5ce;">&#39; </span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">val </span><span style="color:#b48ead;">in </span><span style="color:#c0c5ce;">final_key])</span><span style="color:#c0c5ce;">
+	</span><span style="color:#65737e;"># Xor the currently known key with the target cipher</span><span style="color:#65737e;">
+	</span><span style="color:#c0c5ce;">output = </span><span style="color:#bf616a;">strxor</span><span style="color:#c0c5ce;">(target_cipher.</span><span style="color:#bf616a;">decode</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">hex</span><span style="color:#c0c5ce;">&#39;),final_key_hex.</span><span style="color:#bf616a;">decode</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">hex</span><span style="color:#c0c5ce;">&#39;))</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+	</span><span style="color:#b48ead;">print </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">Fix this sentence:</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#c0c5ce;">
+	</span><span style="color:#b48ead;">print </span><span style="color:#c0c5ce;">&#39;&#39;.</span><span style="color:#bf616a;">join</span><span style="color:#c0c5ce;">([char </span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">index in known_key_positions </span><span style="color:#b48ead;">else </span><span style="color:#c0c5ce;">&#39;</span><span style="color:#a3be8c;">*</span><span style="color:#c0c5ce;">&#39; </span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">index, char </span><span style="color:#b48ead;">in </span><span style="color:#96b5b4;">enumerate</span><span style="color:#c0c5ce;">(output)])+&quot;</span><span style="color:#96b5b4;">\n</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+	</span><span style="color:#65737e;"># WAIT.. MANUAL STEP HERE </span><span style="color:#65737e;">
+	# This output are printing a * if that character is not known yet</span><span style="color:#65737e;">
+	# fix the missing characters like this: &quot;Let*M**k*ow if *o{*a&quot; = &quot;cure, Let Me know if you a&quot;</span><span style="color:#65737e;">
+	# if is too hard, change the target_cipher to another one and try again</span><span style="color:#65737e;">
+	# and we have our key to fix the entire text!</span><span style="color:#65737e;">
+</span><span style="color:#c0c5ce;">
+	</span><span style="color:#65737e;">#sys.exit(0) #comment and continue if u got a good key</span><span style="color:#65737e;">
+</span><span style="color:#c0c5ce;">
+	target_plaintext = &quot;</span><span style="color:#a3be8c;">cure, Let Me know if you a</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#c0c5ce;">
+	</span><span style="color:#b48ead;">print </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">Fixed:</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#c0c5ce;">
+	</span><span style="color:#b48ead;">print </span><span style="color:#c0c5ce;">target_plaintext+&quot;</span><span style="color:#96b5b4;">\n</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+	key = </span><span style="color:#bf616a;">strxor</span><span style="color:#c0c5ce;">(target_cipher.</span><span style="color:#bf616a;">decode</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">hex</span><span style="color:#c0c5ce;">&#39;),target_plaintext)</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+	</span><span style="color:#b48ead;">print </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">Decrypted msg:</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#c0c5ce;">
+	</span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">cipher </span><span style="color:#b48ead;">in </span><span style="color:#c0c5ce;">ciphers:</span><span style="color:#c0c5ce;">
+		</span><span style="color:#b48ead;">print </span><span style="color:#bf616a;">strxor</span><span style="color:#c0c5ce;">(cipher.</span><span style="color:#bf616a;">decode</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">hex</span><span style="color:#c0c5ce;">&#39;),key)</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+	</span><span style="color:#b48ead;">print </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#96b5b4;">\n</span><span style="color:#a3be8c;">Private key recovered: </span><span style="color:#c0c5ce;">&quot;+key+&quot;</span><span style="color:#96b5b4;">\n</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#c0c5ce;">
+	</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">i </span><span style="color:#b48ead;">in </span><span style="color:#c0c5ce;">ciphers:</span><span style="color:#c0c5ce;">
+	</span><span style="color:#bf616a;">target_fix</span><span style="color:#c0c5ce;">(i)</span><span style="color:#c0c5ce;">
 </span></code></pre><h3 id="flag-10">flag</h3>
 <p><code>afctf{OPT_1s_Int3rest1ng}</code></p>
 <h2 id="hua-kai-cang-bao-di">花开藏宝地</h2>
@@ -423,27 +424,27 @@ ciphers = [c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11]
 <p>任意取得三份后用bloom门限方案解，素数为题面的数字</p>
 <p>代码（取1/2/3）：</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">a1 =</span><span style="color:#d08770;">163305039963008322700958678938420655039108584848594236473036556130206292229761961459635355105529119955950769119000647821166302409987726181456624233820238004130596582552143052085826562771938653314722288583956794740182869336927141053110739981290237894112152720822014240230972011848683576402535994825309029822761855623903611335752059666683377536920052428648302389426609672118522003510398578217
-</span><span style="color:#c0c5ce;">d1 =</span><span style="color:#d08770;">347051559622463144539669950096658163425646411435797691973701513725701575100810446175849424000000075855070430240507732735393411493866540572679626172742301366146501862670272443070970511943485865887494229487420503750457974262802053722093905126235340380261828593508455621667309946361705530667957484731929151875527489478449361198648310684702574627199321092927111137398333029697068474762820813413
-</span><span style="color:#c0c5ce;">a2 =</span><span style="color:#d08770;">151758100093328024755534362157152644916689556800407091638077262152051356374687426002691308331360911658681675621180784078464300557713597658668737755275578303683512763651424490696663046659762209459401095803407234074793144034799798937463085989364658809489473016814564284374253047111285307568938011571482613761721746338619879940928380741377367381517427341679641871126076991209176935339058909863
-</span><span style="color:#c0c5ce;">d2 =</span><span style="color:#d08770;">347051559622463144539669950096658163425646411435797691973701513725701575100810446175849424000000075855070430240507732735393411493866540572679626172742301366146501862670272443070970511943485865887494229487420503750457974262802053722093905126235340380261828593508455621667309946361705530667957484731929151875527489478449361198648310684702574627199321092927111137398333029697068474762820818553
-</span><span style="color:#c0c5ce;">a3 = </span><span style="color:#d08770;">346077592068259399350080379767941982003794373736058097723728104020814800897686828693026215723695173898771936691822530717642440410239211631306801809213192374695040232378965389612021366734818648007275332322621064659199680848745242700755440206949465953441277866419617961232234201083716216031999849609543380477085554544227121956015035672626500140341901966363694497881768843758979050832435224875
-</span><span style="color:#c0c5ce;">d3 =</span><span style="color:#d08770;">347051559622463144539669950096658163425646411435797691973701513725701575100810446175849424000000075855070430240507732735393411493866540572679626172742301366146501862670272443070970511943485865887494229487420503750457974262802053722093905126235340380261828593508455621667309946361705530667957484731929151875527489478449361198648310684702574627199321092927111137398333029697068474762820819351
-
-</span><span style="color:#c0c5ce;">dd = d1*d2*d3
-t1 = </span><span style="color:#96b5b4;">pow</span><span style="color:#c0c5ce;">(dd//d1,d1-</span><span style="color:#d08770;">2</span><span style="color:#c0c5ce;">,d1)
-</span><span style="color:#b48ead;">assert</span><span style="color:#c0c5ce;">(t1*d2*d3%d1 == </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">)
-t2 = </span><span style="color:#96b5b4;">pow</span><span style="color:#c0c5ce;">(dd//d2,d2-</span><span style="color:#d08770;">2</span><span style="color:#c0c5ce;">,d2)
-</span><span style="color:#b48ead;">assert</span><span style="color:#c0c5ce;">(t2*d1*d3%d2 == </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">)
-t3 = </span><span style="color:#96b5b4;">pow</span><span style="color:#c0c5ce;">(dd//d3,d3-</span><span style="color:#d08770;">2</span><span style="color:#c0c5ce;">,d3)
-</span><span style="color:#b48ead;">assert</span><span style="color:#c0c5ce;">(t3*d2*d1%d3 == </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">)
-s = a1*t1*d2*d3+a2*t2*d1*d3+a3*t3*d1*d2
-p = </span><span style="color:#d08770;">80804238007977405688648566160504278593148666302626415149704905628622876270862865768337953835725801963142685182510812938072115996355782396318303927020705623120652014080032809421180400984242061592520733710243483947230962631945045134540159517488288781666622635328316972979183761952842010806304748313326215619695085380586052550443025074501971925005072999275628549710915357400946408857
-</span><span style="color:#c0c5ce;">s %= dd
-</span><span style="color:#96b5b4;">print</span><span style="color:#c0c5ce;">(s)
-s %= p
-</span><span style="color:#96b5b4;">print</span><span style="color:#c0c5ce;">(s)
-
+<code><span style="color:#c0c5ce;">a1 =</span><span style="color:#d08770;">163305039963008322700958678938420655039108584848594236473036556130206292229761961459635355105529119955950769119000647821166302409987726181456624233820238004130596582552143052085826562771938653314722288583956794740182869336927141053110739981290237894112152720822014240230972011848683576402535994825309029822761855623903611335752059666683377536920052428648302389426609672118522003510398578217</span><span style="color:#c0c5ce;">
+d1 =</span><span style="color:#d08770;">347051559622463144539669950096658163425646411435797691973701513725701575100810446175849424000000075855070430240507732735393411493866540572679626172742301366146501862670272443070970511943485865887494229487420503750457974262802053722093905126235340380261828593508455621667309946361705530667957484731929151875527489478449361198648310684702574627199321092927111137398333029697068474762820813413</span><span style="color:#c0c5ce;">
+a2 =</span><span style="color:#d08770;">151758100093328024755534362157152644916689556800407091638077262152051356374687426002691308331360911658681675621180784078464300557713597658668737755275578303683512763651424490696663046659762209459401095803407234074793144034799798937463085989364658809489473016814564284374253047111285307568938011571482613761721746338619879940928380741377367381517427341679641871126076991209176935339058909863</span><span style="color:#c0c5ce;">
+d2 =</span><span style="color:#d08770;">347051559622463144539669950096658163425646411435797691973701513725701575100810446175849424000000075855070430240507732735393411493866540572679626172742301366146501862670272443070970511943485865887494229487420503750457974262802053722093905126235340380261828593508455621667309946361705530667957484731929151875527489478449361198648310684702574627199321092927111137398333029697068474762820818553</span><span style="color:#c0c5ce;">
+a3 = </span><span style="color:#d08770;">346077592068259399350080379767941982003794373736058097723728104020814800897686828693026215723695173898771936691822530717642440410239211631306801809213192374695040232378965389612021366734818648007275332322621064659199680848745242700755440206949465953441277866419617961232234201083716216031999849609543380477085554544227121956015035672626500140341901966363694497881768843758979050832435224875</span><span style="color:#c0c5ce;">
+d3 =</span><span style="color:#d08770;">347051559622463144539669950096658163425646411435797691973701513725701575100810446175849424000000075855070430240507732735393411493866540572679626172742301366146501862670272443070970511943485865887494229487420503750457974262802053722093905126235340380261828593508455621667309946361705530667957484731929151875527489478449361198648310684702574627199321092927111137398333029697068474762820819351</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+dd = d1*d2*d3</span><span style="color:#c0c5ce;">
+t1 = </span><span style="color:#96b5b4;">pow</span><span style="color:#c0c5ce;">(dd//d1,d1-</span><span style="color:#d08770;">2</span><span style="color:#c0c5ce;">,d1)</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">assert</span><span style="color:#c0c5ce;">(t1*d2*d3%d1 == </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">)</span><span style="color:#c0c5ce;">
+t2 = </span><span style="color:#96b5b4;">pow</span><span style="color:#c0c5ce;">(dd//d2,d2-</span><span style="color:#d08770;">2</span><span style="color:#c0c5ce;">,d2)</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">assert</span><span style="color:#c0c5ce;">(t2*d1*d3%d2 == </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">)</span><span style="color:#c0c5ce;">
+t3 = </span><span style="color:#96b5b4;">pow</span><span style="color:#c0c5ce;">(dd//d3,d3-</span><span style="color:#d08770;">2</span><span style="color:#c0c5ce;">,d3)</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">assert</span><span style="color:#c0c5ce;">(t3*d2*d1%d3 == </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">)</span><span style="color:#c0c5ce;">
+s = a1*t1*d2*d3+a2*t2*d1*d3+a3*t3*d1*d2</span><span style="color:#c0c5ce;">
+p = </span><span style="color:#d08770;">80804238007977405688648566160504278593148666302626415149704905628622876270862865768337953835725801963142685182510812938072115996355782396318303927020705623120652014080032809421180400984242061592520733710243483947230962631945045134540159517488288781666622635328316972979183761952842010806304748313326215619695085380586052550443025074501971925005072999275628549710915357400946408857</span><span style="color:#c0c5ce;">
+s %= dd</span><span style="color:#c0c5ce;">
+</span><span style="color:#96b5b4;">print</span><span style="color:#c0c5ce;">(s)</span><span style="color:#c0c5ce;">
+s %= p</span><span style="color:#c0c5ce;">
+</span><span style="color:#96b5b4;">print</span><span style="color:#c0c5ce;">(s)</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
 </span></code></pre>
 <p>最后结果转HEX转ASCII即可</p>
 <p>题目生成代码有需要的邮件我叭</p>
@@ -459,104 +460,104 @@ s %= p
 <h3 id="jie-ti-si-lu-12">解题思路</h3>
 <p>这道题来自dctf2015</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#65737e;">#求出加密的比特位
-</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">decrypt</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">cipherText</span><span style="color:#c0c5ce;">):
-    guessed_bits = [&#39;</span><span style="color:#a3be8c;">?</span><span style="color:#c0c5ce;">&#39;] * </span><span style="color:#96b5b4;">len</span><span style="color:#c0c5ce;">(cipherText)
-    length = </span><span style="color:#96b5b4;">len</span><span style="color:#c0c5ce;">(cipherText)
-    i = </span><span style="color:#d08770;">0
-    </span><span style="color:#c0c5ce;">orded_cipher = [</span><span style="color:#96b5b4;">ord</span><span style="color:#c0c5ce;">(c) &amp; </span><span style="color:#d08770;">1 </span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">c </span><span style="color:#b48ead;">in </span><span style="color:#c0c5ce;">cipherText]
-    </span><span style="color:#bf616a;">decrypt_r</span><span style="color:#c0c5ce;">(orded_cipher, guessed_bits, i, length, </span><span style="color:#d08770;">10</span><span style="color:#c0c5ce;">)
-
-
-</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">try_guess</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">orded_cipher</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">guessedbits</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">i</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">length</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">guess</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">space</span><span style="color:#c0c5ce;">):
-    guessedbits = </span><span style="color:#bf616a;">list</span><span style="color:#c0c5ce;">(guessedbits)
-    guessedbits[i] = guess
-    </span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">i + space &lt; length - </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">:
-        nextndx = i + space
-    </span><span style="color:#b48ead;">else</span><span style="color:#c0c5ce;">:
-        nextndx = space
-
-    nextbit = orded_cipher[i] ^ guess
-    </span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">guess == </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">:
-        newspace = space + </span><span style="color:#d08770;">1
-    </span><span style="color:#b48ead;">else</span><span style="color:#c0c5ce;">:
-        newspace = space - </span><span style="color:#d08770;">1
-
-    </span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">guessedbits[nextndx] == &#39;</span><span style="color:#a3be8c;">?</span><span style="color:#c0c5ce;">&#39; or guessedbits[nextndx] == nextbit:
-        guessedbits[nextndx] = nextbit
-        </span><span style="color:#bf616a;">decrypt_r</span><span style="color:#c0c5ce;">(orded_cipher, guessedbits, i + </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">, length, newspace)
-
-</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">decrypt_r</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">orded_cipher</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">guessedbits</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">i</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">length</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">space</span><span style="color:#c0c5ce;">):
-    </span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">i &gt;= length:
-        </span><span style="color:#b48ead;">print </span><span style="color:#c0c5ce;">&#39;</span><span style="color:#a3be8c;">ok:</span><span style="color:#c0c5ce;">&#39;, &#39;&#39;.</span><span style="color:#bf616a;">join</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">str</span><span style="color:#c0c5ce;">(c) </span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">c </span><span style="color:#b48ead;">in </span><span style="color:#c0c5ce;">guessedbits)
-        </span><span style="color:#b48ead;">return
-    if </span><span style="color:#c0c5ce;">guessedbits[i] == &#39;</span><span style="color:#a3be8c;">?</span><span style="color:#c0c5ce;">&#39;:
-        </span><span style="color:#bf616a;">try_guess</span><span style="color:#c0c5ce;">(orded_cipher, guessedbits, i, length, </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">, space)
-        </span><span style="color:#bf616a;">try_guess</span><span style="color:#c0c5ce;">(orded_cipher, guessedbits, i, length, </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">, space)
-    </span><span style="color:#b48ead;">elif </span><span style="color:#c0c5ce;">guessedbits[i] == </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">:
-        </span><span style="color:#bf616a;">try_guess</span><span style="color:#c0c5ce;">(orded_cipher, guessedbits, i, length, </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">, space)
-    </span><span style="color:#b48ead;">elif </span><span style="color:#c0c5ce;">guessedbits[i] == </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">:
-        </span><span style="color:#bf616a;">try_guess</span><span style="color:#c0c5ce;">(orded_cipher, guessedbits, i, length, </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">, space)
-	</span><span style="color:#65737e;">#print &#39;&#39;.join(str(c) for c in guessedbits)
-
-
-</span><span style="color:#c0c5ce;">s=&#39;</span><span style="color:#a3be8c;">15120d1a0a0810010a031d3e31000d1d170d173b0d173b0c07060206</span><span style="color:#c0c5ce;">&#39;
-</span><span style="color:#65737e;">#print len(s)
-</span><span style="color:#c0c5ce;">s=s.</span><span style="color:#bf616a;">decode</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">hex</span><span style="color:#c0c5ce;">&#39;)
-</span><span style="color:#65737e;">#print len(s)
-
-</span><span style="color:#bf616a;">decrypt</span><span style="color:#c0c5ce;">(s)
-
-</span><span style="color:#65737e;">#求出明文
-</span><span style="color:#c0c5ce;">sln=&#39;</span><span style="color:#a3be8c;">1010011010010101111111101001</span><span style="color:#c0c5ce;">&#39;
-ciph=s
-</span><span style="color:#b48ead;">print </span><span style="color:#c0c5ce;">sln
-
-</span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">string
-slv = [</span><span style="color:#d08770;">None</span><span style="color:#c0c5ce;">] * </span><span style="color:#96b5b4;">len</span><span style="color:#c0c5ce;">(sln)
-</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">filling_pass</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">slv</span><span style="color:#c0c5ce;">):
-    </span><span style="color:#b48ead;">while </span><span style="color:#d08770;">True</span><span style="color:#c0c5ce;">:
-        </span><span style="color:#96b5b4;">any </span><span style="color:#c0c5ce;">= </span><span style="color:#d08770;">False
-        </span><span style="color:#c0c5ce;">space = </span><span style="color:#d08770;">10
-        </span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">i </span><span style="color:#b48ead;">in </span><span style="color:#96b5b4;">range</span><span style="color:#c0c5ce;">(</span><span style="color:#96b5b4;">len</span><span style="color:#c0c5ce;">(sln)):
-            </span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">i + space &lt; </span><span style="color:#96b5b4;">len</span><span style="color:#c0c5ce;">(sln) - </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">:
-                nx = i + space
-            </span><span style="color:#b48ead;">else</span><span style="color:#c0c5ce;">:
-                nx = space
-            </span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">sln[i] == &#39;</span><span style="color:#a3be8c;">0</span><span style="color:#c0c5ce;">&#39;:
-                space += </span><span style="color:#d08770;">1
-            </span><span style="color:#b48ead;">else</span><span style="color:#c0c5ce;">:
-                space -= </span><span style="color:#d08770;">1
-            </span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">slv[i] is not </span><span style="color:#d08770;">None</span><span style="color:#c0c5ce;">:
-                sn = </span><span style="color:#96b5b4;">ord</span><span style="color:#c0c5ce;">(slv[i]) ^ </span><span style="color:#96b5b4;">ord</span><span style="color:#c0c5ce;">(ciph[i])
-                </span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">slv[nx] is </span><span style="color:#d08770;">None</span><span style="color:#c0c5ce;">:
-                    slv[nx] = </span><span style="color:#96b5b4;">chr</span><span style="color:#c0c5ce;">(sn)
-                    </span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">(sn &gt;= </span><span style="color:#d08770;">32 </span><span style="color:#c0c5ce;">and sn &lt; </span><span style="color:#d08770;">127</span><span style="color:#c0c5ce;">) or sn == </span><span style="color:#d08770;">10 </span><span style="color:#c0c5ce;">or sn == </span><span style="color:#d08770;">13</span><span style="color:#c0c5ce;">:
-                        </span><span style="color:#96b5b4;">any </span><span style="color:#c0c5ce;">= </span><span style="color:#d08770;">True
-                    </span><span style="color:#b48ead;">else</span><span style="color:#c0c5ce;">:
-                        </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">False
-                </span><span style="color:#b48ead;">else</span><span style="color:#c0c5ce;">:
-                    </span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">slv[nx] != </span><span style="color:#96b5b4;">chr</span><span style="color:#c0c5ce;">(sn):
-                        </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">False
-        </span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">not </span><span style="color:#96b5b4;">any</span><span style="color:#c0c5ce;">:
-            </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">True
-
-</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">tryit</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">slvo</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">start</span><span style="color:#c0c5ce;">):
-    </span><span style="color:#b48ead;">while </span><span style="color:#c0c5ce;">slvo[start] is not </span><span style="color:#d08770;">None</span><span style="color:#c0c5ce;">:
-        start += </span><span style="color:#d08770;">1
-        </span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">start &gt;= </span><span style="color:#96b5b4;">len</span><span style="color:#c0c5ce;">(slvo):
-            </span><span style="color:#b48ead;">print </span><span style="color:#c0c5ce;">&#39;&#39;.</span><span style="color:#bf616a;">join</span><span style="color:#c0c5ce;">(&#39; &#39; </span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">c is </span><span style="color:#d08770;">None </span><span style="color:#b48ead;">else </span><span style="color:#c0c5ce;">&#39;</span><span style="color:#a3be8c;">.</span><span style="color:#c0c5ce;">&#39; </span><span style="color:#b48ead;">if </span><span style="color:#96b5b4;">ord</span><span style="color:#c0c5ce;">(c) &lt; </span><span style="color:#d08770;">32 </span><span style="color:#b48ead;">else </span><span style="color:#c0c5ce;">c </span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">c </span><span style="color:#b48ead;">in </span><span style="color:#c0c5ce;">slvo)
-            </span><span style="color:#b48ead;">return
-        continue
-    for </span><span style="color:#c0c5ce;">c </span><span style="color:#b48ead;">in </span><span style="color:#c0c5ce;">string.printable:
-        slv = </span><span style="color:#bf616a;">list</span><span style="color:#c0c5ce;">(slvo)
-        slv[start] = c
-        possible = </span><span style="color:#bf616a;">filling_pass</span><span style="color:#c0c5ce;">(slv)
-        </span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">possible:
-            </span><span style="color:#bf616a;">tryit</span><span style="color:#c0c5ce;">(slv, start)
-
-</span><span style="color:#b48ead;">print </span><span style="color:#bf616a;">tryit</span><span style="color:#c0c5ce;">(slv, </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">)
-
+<code><span style="color:#65737e;">#求出加密的比特位</span><span style="color:#65737e;">
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">decrypt</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">cipherText</span><span style="color:#c0c5ce;">):</span><span style="color:#c0c5ce;">
+    guessed_bits = [&#39;</span><span style="color:#a3be8c;">?</span><span style="color:#c0c5ce;">&#39;] * </span><span style="color:#96b5b4;">len</span><span style="color:#c0c5ce;">(cipherText)</span><span style="color:#c0c5ce;">
+    length = </span><span style="color:#96b5b4;">len</span><span style="color:#c0c5ce;">(cipherText)</span><span style="color:#c0c5ce;">
+    i = </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">
+    orded_cipher = [</span><span style="color:#96b5b4;">ord</span><span style="color:#c0c5ce;">(c) &amp; </span><span style="color:#d08770;">1 </span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">c </span><span style="color:#b48ead;">in </span><span style="color:#c0c5ce;">cipherText]</span><span style="color:#c0c5ce;">
+    </span><span style="color:#bf616a;">decrypt_r</span><span style="color:#c0c5ce;">(orded_cipher, guessed_bits, i, length, </span><span style="color:#d08770;">10</span><span style="color:#c0c5ce;">)</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">try_guess</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">orded_cipher</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">guessedbits</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">i</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">length</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">guess</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">space</span><span style="color:#c0c5ce;">):</span><span style="color:#c0c5ce;">
+    guessedbits = </span><span style="color:#bf616a;">list</span><span style="color:#c0c5ce;">(guessedbits)</span><span style="color:#c0c5ce;">
+    guessedbits[i] = guess</span><span style="color:#c0c5ce;">
+    </span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">i + space &lt; length - </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">:</span><span style="color:#c0c5ce;">
+        nextndx = i + space</span><span style="color:#c0c5ce;">
+    </span><span style="color:#b48ead;">else</span><span style="color:#c0c5ce;">:</span><span style="color:#c0c5ce;">
+        nextndx = space</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+    nextbit = orded_cipher[i] ^ guess</span><span style="color:#c0c5ce;">
+    </span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">guess == </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">:</span><span style="color:#c0c5ce;">
+        newspace = space + </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">
+    </span><span style="color:#b48ead;">else</span><span style="color:#c0c5ce;">:</span><span style="color:#c0c5ce;">
+        newspace = space - </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+    </span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">guessedbits[nextndx] == &#39;</span><span style="color:#a3be8c;">?</span><span style="color:#c0c5ce;">&#39; or guessedbits[nextndx] == nextbit:</span><span style="color:#c0c5ce;">
+        guessedbits[nextndx] = nextbit</span><span style="color:#c0c5ce;">
+        </span><span style="color:#bf616a;">decrypt_r</span><span style="color:#c0c5ce;">(orded_cipher, guessedbits, i + </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">, length, newspace)</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">decrypt_r</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">orded_cipher</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">guessedbits</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">i</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">length</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">space</span><span style="color:#c0c5ce;">):</span><span style="color:#c0c5ce;">
+    </span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">i &gt;= length:</span><span style="color:#c0c5ce;">
+        </span><span style="color:#b48ead;">print </span><span style="color:#c0c5ce;">&#39;</span><span style="color:#a3be8c;">ok:</span><span style="color:#c0c5ce;">&#39;, &#39;&#39;.</span><span style="color:#bf616a;">join</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">str</span><span style="color:#c0c5ce;">(c) </span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">c </span><span style="color:#b48ead;">in </span><span style="color:#c0c5ce;">guessedbits)</span><span style="color:#c0c5ce;">
+        </span><span style="color:#b48ead;">return</span><span style="color:#c0c5ce;">
+    </span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">guessedbits[i] == &#39;</span><span style="color:#a3be8c;">?</span><span style="color:#c0c5ce;">&#39;:</span><span style="color:#c0c5ce;">
+        </span><span style="color:#bf616a;">try_guess</span><span style="color:#c0c5ce;">(orded_cipher, guessedbits, i, length, </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">, space)</span><span style="color:#c0c5ce;">
+        </span><span style="color:#bf616a;">try_guess</span><span style="color:#c0c5ce;">(orded_cipher, guessedbits, i, length, </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">, space)</span><span style="color:#c0c5ce;">
+    </span><span style="color:#b48ead;">elif </span><span style="color:#c0c5ce;">guessedbits[i] == </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">:</span><span style="color:#c0c5ce;">
+        </span><span style="color:#bf616a;">try_guess</span><span style="color:#c0c5ce;">(orded_cipher, guessedbits, i, length, </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">, space)</span><span style="color:#c0c5ce;">
+    </span><span style="color:#b48ead;">elif </span><span style="color:#c0c5ce;">guessedbits[i] == </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">:</span><span style="color:#c0c5ce;">
+        </span><span style="color:#bf616a;">try_guess</span><span style="color:#c0c5ce;">(orded_cipher, guessedbits, i, length, </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">, space)</span><span style="color:#c0c5ce;">
+	</span><span style="color:#65737e;">#print &#39;&#39;.join(str(c) for c in guessedbits)</span><span style="color:#65737e;">
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+s=&#39;</span><span style="color:#a3be8c;">15120d1a0a0810010a031d3e31000d1d170d173b0d173b0c07060206</span><span style="color:#c0c5ce;">&#39;</span><span style="color:#c0c5ce;">
+</span><span style="color:#65737e;">#print len(s)</span><span style="color:#65737e;">
+</span><span style="color:#c0c5ce;">s=s.</span><span style="color:#bf616a;">decode</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">hex</span><span style="color:#c0c5ce;">&#39;)</span><span style="color:#c0c5ce;">
+</span><span style="color:#65737e;">#print len(s)</span><span style="color:#65737e;">
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#bf616a;">decrypt</span><span style="color:#c0c5ce;">(s)</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#65737e;">#求出明文</span><span style="color:#65737e;">
+</span><span style="color:#c0c5ce;">sln=&#39;</span><span style="color:#a3be8c;">1010011010010101111111101001</span><span style="color:#c0c5ce;">&#39;</span><span style="color:#c0c5ce;">
+ciph=s</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">print </span><span style="color:#c0c5ce;">sln</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">string</span><span style="color:#c0c5ce;">
+slv = [</span><span style="color:#d08770;">None</span><span style="color:#c0c5ce;">] * </span><span style="color:#96b5b4;">len</span><span style="color:#c0c5ce;">(sln)</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">filling_pass</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">slv</span><span style="color:#c0c5ce;">):</span><span style="color:#c0c5ce;">
+    </span><span style="color:#b48ead;">while </span><span style="color:#d08770;">True</span><span style="color:#c0c5ce;">:</span><span style="color:#c0c5ce;">
+        </span><span style="color:#96b5b4;">any </span><span style="color:#c0c5ce;">= </span><span style="color:#d08770;">False</span><span style="color:#c0c5ce;">
+        space = </span><span style="color:#d08770;">10</span><span style="color:#c0c5ce;">
+        </span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">i </span><span style="color:#b48ead;">in </span><span style="color:#96b5b4;">range</span><span style="color:#c0c5ce;">(</span><span style="color:#96b5b4;">len</span><span style="color:#c0c5ce;">(sln)):</span><span style="color:#c0c5ce;">
+            </span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">i + space &lt; </span><span style="color:#96b5b4;">len</span><span style="color:#c0c5ce;">(sln) - </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">:</span><span style="color:#c0c5ce;">
+                nx = i + space</span><span style="color:#c0c5ce;">
+            </span><span style="color:#b48ead;">else</span><span style="color:#c0c5ce;">:</span><span style="color:#c0c5ce;">
+                nx = space</span><span style="color:#c0c5ce;">
+            </span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">sln[i] == &#39;</span><span style="color:#a3be8c;">0</span><span style="color:#c0c5ce;">&#39;:</span><span style="color:#c0c5ce;">
+                space += </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">
+            </span><span style="color:#b48ead;">else</span><span style="color:#c0c5ce;">:</span><span style="color:#c0c5ce;">
+                space -= </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">
+            </span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">slv[i] is not </span><span style="color:#d08770;">None</span><span style="color:#c0c5ce;">:</span><span style="color:#c0c5ce;">
+                sn = </span><span style="color:#96b5b4;">ord</span><span style="color:#c0c5ce;">(slv[i]) ^ </span><span style="color:#96b5b4;">ord</span><span style="color:#c0c5ce;">(ciph[i])</span><span style="color:#c0c5ce;">
+                </span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">slv[nx] is </span><span style="color:#d08770;">None</span><span style="color:#c0c5ce;">:</span><span style="color:#c0c5ce;">
+                    slv[nx] = </span><span style="color:#96b5b4;">chr</span><span style="color:#c0c5ce;">(sn)</span><span style="color:#c0c5ce;">
+                    </span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">(sn &gt;= </span><span style="color:#d08770;">32 </span><span style="color:#c0c5ce;">and sn &lt; </span><span style="color:#d08770;">127</span><span style="color:#c0c5ce;">) or sn == </span><span style="color:#d08770;">10 </span><span style="color:#c0c5ce;">or sn == </span><span style="color:#d08770;">13</span><span style="color:#c0c5ce;">:</span><span style="color:#c0c5ce;">
+                        </span><span style="color:#96b5b4;">any </span><span style="color:#c0c5ce;">= </span><span style="color:#d08770;">True</span><span style="color:#c0c5ce;">
+                    </span><span style="color:#b48ead;">else</span><span style="color:#c0c5ce;">:</span><span style="color:#c0c5ce;">
+                        </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">False</span><span style="color:#c0c5ce;">
+                </span><span style="color:#b48ead;">else</span><span style="color:#c0c5ce;">:</span><span style="color:#c0c5ce;">
+                    </span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">slv[nx] != </span><span style="color:#96b5b4;">chr</span><span style="color:#c0c5ce;">(sn):</span><span style="color:#c0c5ce;">
+                        </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">False</span><span style="color:#c0c5ce;">
+        </span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">not </span><span style="color:#96b5b4;">any</span><span style="color:#c0c5ce;">:</span><span style="color:#c0c5ce;">
+            </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">True</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">tryit</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">slvo</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">start</span><span style="color:#c0c5ce;">):</span><span style="color:#c0c5ce;">
+    </span><span style="color:#b48ead;">while </span><span style="color:#c0c5ce;">slvo[start] is not </span><span style="color:#d08770;">None</span><span style="color:#c0c5ce;">:</span><span style="color:#c0c5ce;">
+        start += </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">
+        </span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">start &gt;= </span><span style="color:#96b5b4;">len</span><span style="color:#c0c5ce;">(slvo):</span><span style="color:#c0c5ce;">
+            </span><span style="color:#b48ead;">print </span><span style="color:#c0c5ce;">&#39;&#39;.</span><span style="color:#bf616a;">join</span><span style="color:#c0c5ce;">(&#39; &#39; </span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">c is </span><span style="color:#d08770;">None </span><span style="color:#b48ead;">else </span><span style="color:#c0c5ce;">&#39;</span><span style="color:#a3be8c;">.</span><span style="color:#c0c5ce;">&#39; </span><span style="color:#b48ead;">if </span><span style="color:#96b5b4;">ord</span><span style="color:#c0c5ce;">(c) &lt; </span><span style="color:#d08770;">32 </span><span style="color:#b48ead;">else </span><span style="color:#c0c5ce;">c </span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">c </span><span style="color:#b48ead;">in </span><span style="color:#c0c5ce;">slvo)</span><span style="color:#c0c5ce;">
+            </span><span style="color:#b48ead;">return</span><span style="color:#c0c5ce;">
+        </span><span style="color:#b48ead;">continue</span><span style="color:#c0c5ce;">
+    </span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">c </span><span style="color:#b48ead;">in </span><span style="color:#c0c5ce;">string.printable:</span><span style="color:#c0c5ce;">
+        slv = </span><span style="color:#bf616a;">list</span><span style="color:#c0c5ce;">(slvo)</span><span style="color:#c0c5ce;">
+        slv[start] = c</span><span style="color:#c0c5ce;">
+        possible = </span><span style="color:#bf616a;">filling_pass</span><span style="color:#c0c5ce;">(slv)</span><span style="color:#c0c5ce;">
+        </span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">possible:</span><span style="color:#c0c5ce;">
+            </span><span style="color:#bf616a;">tryit</span><span style="color:#c0c5ce;">(slv, start)</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">print </span><span style="color:#bf616a;">tryit</span><span style="color:#c0c5ce;">(slv, </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">)</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
 </span></code></pre><h3 id="flag-12">flag</h3>
 <p><code>afctf{cryptanalysis_is_hard}</code></p>
 <h2 id="fast-lfsr">Fast LFSR</h2>
@@ -582,7 +583,7 @@ slv = [</span><span style="color:#d08770;">None</span><span style="color:#c0c5ce
                 src="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;img&#x2F;avatar.png"
                 alt="CSUwangj" />
               
-              <p class="site-author-name">CSUwangj</p>
+              <p class="site-author-name unselectable">CSUwangj</p>
               <p class="site-author-quote">Just keep in mind that hacking is very rarely in a sequence.</p>
             </div>
             <div class="feed-link">

