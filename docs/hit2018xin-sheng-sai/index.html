@@ -14,7 +14,11 @@
       <link rel="stylesheet" href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;css&#x2F;lib&#x2F;font-awesome.min.css">
       <link rel="stylesheet" href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;site.css">
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+      <!-- js -->
+      <script defer type="text/javascript" src="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;elasticlunr.min.js"></script>
+      <script defer type="text/javascript" src="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;search_index.en.js"></script>
       <script type="text/javascript" charset="utf-8" src="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;js&#x2F;sidebar.js"></script>
+      <script type="text/javascript" charset="utf-8" src="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;js&#x2F;search.js"></script>
 
       
         <link rel="alternate" type="application/atom+xml" title="RSS" href="https://CSUwangj.github.io/atom.xml">
@@ -52,6 +56,15 @@
                   Archives
                 </a>
               
+              
+                <div class="nav-item-search search-container js-only">
+                  <input class="input" id="search" type="search" placeholder="Search">
+
+                  <div class="search-results box">
+                    <div class="search-results__items"></div>
+                  </div>
+                </div>
+              
             </nav>
           </div>
         </header>
@@ -62,10 +75,32 @@
           
   <div class="post">
     <h1 class="post-title">HIT2018新生赛部分WP</h1>
-    <span class="post-date">2018-02-03</span>
-    <p>只会写水题，要好好学习了</p>
-<span id="continue-reading"></span>
-<h2 id="baby-android">Baby Android</h2>
+    <div class="post-meta">
+      
+        <span class="post-meta-divider">|</span>
+        <span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i></span>
+        <span class="post-date">Posted on: </span>
+        <time datetime=2018-02-03T12:33:00+08:00 title="post created">2018-02-03</time>
+      
+      
+        <span class="post-meta-divider">|</span>
+        <span class="post-meta-item-icon"><i class="fa fa-calendar-check-o"></i></span>
+        <span class="modify-date">Posted modified: </span>
+        <time datetime=2020-08-07T01:48:37.573723+08:00 title="post modified">2020-08-07</time>
+      
+      
+        <span class="post-meta-divider">|</span>
+        <span class="post-meta-item-icon"><i class="fa fa-folder-o"></i></span>
+        <span class="in-category">In: </span>
+          
+            <a class="category" href="/category/WriteUp">WriteUp</a>
+          
+      
+      <span class="post-meta-divider">|</span>
+    </div>
+    <div class="post-body">
+      <p>只会写水题，要好好学习了</p>
+<span id="continue-reading"></span><h2 id="baby-android">Baby Android</h2>
 <p>安卓逆向助手打开，发现就是异或，两个字符串摘一下异或一下得到flag</p>
 <p><img src="https://CSUwangj.github.io/hit2018xin-sheng-sai/snipaste20180201_181332.jpg" alt="Baby_Android" /></p>
 <h2 id="easy-xor">Easy_XOR</h2>
@@ -92,7 +127,7 @@
 <h2 id="jian-pan-liu-liang-fen-xi">键盘流量分析</h2>
 <p>首先用命令</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">tshark -r keyboard.pcap -T field -e usb.capdata &gt; usbdata.txt</span><span style="color:#c0c5ce;">
+<code><span style="color:#c0c5ce;">tshark -r keyboard.pcap -T field -e usb.capdata &gt; usbdata.txt
 </span></code></pre>
 <p>把按键数据抓出来</p>
 <p>然后发现只有中间的是8字节的键盘数据，反正也不多就干脆看着敲出来了</p>
@@ -104,6 +139,7 @@
 <p><img src="https://CSUwangj.github.io/hit2018xin-sheng-sai/snipaste20180202_222509.jpg" alt="use_your_ida" /></p>
 <p>算是一种隐写吧，大概</p>
 
+    </div>
   </div>
 
         </div>

@@ -14,7 +14,11 @@
       <link rel="stylesheet" href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;css&#x2F;lib&#x2F;font-awesome.min.css">
       <link rel="stylesheet" href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;site.css">
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+      <!-- js -->
+      <script defer type="text/javascript" src="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;elasticlunr.min.js"></script>
+      <script defer type="text/javascript" src="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;search_index.en.js"></script>
       <script type="text/javascript" charset="utf-8" src="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;js&#x2F;sidebar.js"></script>
+      <script type="text/javascript" charset="utf-8" src="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;js&#x2F;search.js"></script>
 
       
         <link rel="alternate" type="application/atom+xml" title="RSS" href="https://CSUwangj.github.io/atom.xml">
@@ -52,6 +56,15 @@
                   Archives
                 </a>
               
+              
+                <div class="nav-item-search search-container js-only">
+                  <input class="input" id="search" type="search" placeholder="Search">
+
+                  <div class="search-results box">
+                    <div class="search-results__items"></div>
+                  </div>
+                </div>
+              
             </nav>
           </div>
         </header>
@@ -62,30 +75,53 @@
           
   <div class="post">
     <h1 class="post-title">关于散列函数的一点思考</h1>
-    <span class="post-date">2018-06-03</span>
-    <p>今天在ACM群灌水的时候因为一个题目引发了一些思考，题目是<a href="http://qscoj.cn/#/contest/show/220">比赛链接</a>的A题</p>
+    <div class="post-meta">
+      
+        <span class="post-meta-divider">|</span>
+        <span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i></span>
+        <span class="post-date">Posted on: </span>
+        <time datetime=2018-06-03T01:35:47+08:00 title="post created">2018-06-03</time>
+      
+      
+        <span class="post-meta-divider">|</span>
+        <span class="post-meta-item-icon"><i class="fa fa-calendar-check-o"></i></span>
+        <span class="modify-date">Posted modified: </span>
+        <time datetime=2020-08-07T01:48:37.612619+08:00 title="post modified">2020-08-07</time>
+      
+      
+        <span class="post-meta-divider">|</span>
+        <span class="post-meta-item-icon"><i class="fa fa-folder-o"></i></span>
+        <span class="in-category">In: </span>
+          
+            <a class="category" href="/category/Notes">Notes</a>
+          
+      
+      <span class="post-meta-divider">|</span>
+    </div>
+    <div class="post-body">
+      <p>今天在ACM群灌水的时候因为一个题目引发了一些思考，题目是<a href="http://qscoj.cn/#/contest/show/220">比赛链接</a>的A题</p>
 <span id="continue-reading"></span>
 <p>其实题目很明显，3e4的字符串总量，1e3的字符串长度上限，样例就显示了有字母、数字、符号，就10M内存，用字典树妥妥炸了。</p>
 <p>所以就哈希呗。</p>
 <p>幸运的是STL里就有自带的hash函数，于是就水过去了。</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#b48ead;">#include </span><span style="color:#c0c5ce;">&lt;</span><span style="color:#a3be8c;">bits/stdc++.h</span><span style="color:#c0c5ce;">&gt;</span><span style="color:#c0c5ce;">
-</span><span style="color:#b48ead;">using namespace</span><span style="color:#c0c5ce;"> std;</span><span style="color:#c0c5ce;">
-</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main</span><span style="color:#c0c5ce;">()</span><span style="color:#c0c5ce;">
-{</span><span style="color:#c0c5ce;">
-	ios::</span><span style="color:#bf616a;">sync_with_stdio</span><span style="color:#c0c5ce;">(</span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">);</span><span style="color:#c0c5ce;">
-	set&lt;</span><span style="color:#b48ead;">long long</span><span style="color:#c0c5ce;">&gt; m;</span><span style="color:#c0c5ce;">
-	hash&lt;string&gt; h;</span><span style="color:#c0c5ce;">
-	</span><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> n;</span><span style="color:#c0c5ce;">
-	string temp;</span><span style="color:#c0c5ce;">
-	cin&gt;&gt;n;</span><span style="color:#c0c5ce;">
-	</span><span style="color:#b48ead;">while</span><span style="color:#c0c5ce;">(n--){</span><span style="color:#c0c5ce;">
-		cin&gt;&gt;temp;</span><span style="color:#c0c5ce;">
-		m.</span><span style="color:#bf616a;">insert</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">h</span><span style="color:#c0c5ce;">(temp));</span><span style="color:#c0c5ce;">
-	}</span><span style="color:#c0c5ce;">
-	cout&lt;&lt;m.</span><span style="color:#bf616a;">size</span><span style="color:#c0c5ce;">()&lt;&lt;endl;</span><span style="color:#c0c5ce;">
-	</span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;</span><span style="color:#c0c5ce;">
-}</span><span style="color:#c0c5ce;">
+<code><span style="color:#b48ead;">#include </span><span style="color:#c0c5ce;">&lt;</span><span style="color:#a3be8c;">bits/stdc++.h</span><span style="color:#c0c5ce;">&gt;
+</span><span style="color:#b48ead;">using namespace</span><span style="color:#c0c5ce;"> std;
+</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main</span><span style="color:#c0c5ce;">()
+{
+	ios::</span><span style="color:#bf616a;">sync_with_stdio</span><span style="color:#c0c5ce;">(</span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">);
+	set&lt;</span><span style="color:#b48ead;">long long</span><span style="color:#c0c5ce;">&gt; m;
+	hash&lt;string&gt; h;
+	</span><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> n;
+	string temp;
+	cin&gt;&gt;n;
+	</span><span style="color:#b48ead;">while</span><span style="color:#c0c5ce;">(n--){
+		cin&gt;&gt;temp;
+		m.</span><span style="color:#bf616a;">insert</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">h</span><span style="color:#c0c5ce;">(temp));
+	}
+	cout&lt;&lt;m.</span><span style="color:#bf616a;">size</span><span style="color:#c0c5ce;">()&lt;&lt;endl;
+	</span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;
+}
 </span></code></pre>
 <p>因为其实3e4这个字符串数量还是比较大的，在群里聊起了碰撞的问题，然后发现还是有丶东西，索性写一篇博文分析一下。</p>
 <h2 id="san-lie-han-shu-jian-jie">散列函数简介</h2>
@@ -127,28 +163,28 @@
 <h3 id="zi-fu-chuan-hash-elfhash">字符串HASH——ELFHASH</h3>
 <p>这里直接放它的代码吧，十分简短。</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#65737e;">// ELF Hash Function  </span><span style="color:#65737e;">
-</span><span style="color:#b48ead;">unsigned int </span><span style="color:#8fa1b3;">ELFHash</span><span style="color:#c0c5ce;">(</span><span style="color:#b48ead;">char </span><span style="color:#c0c5ce;">*</span><span style="color:#bf616a;">str</span><span style="color:#c0c5ce;">)  </span><span style="color:#c0c5ce;">
-{  </span><span style="color:#c0c5ce;">
-    </span><span style="color:#b48ead;">unsigned int</span><span style="color:#c0c5ce;"> hash = </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;  </span><span style="color:#c0c5ce;">
-    </span><span style="color:#b48ead;">unsigned int</span><span style="color:#c0c5ce;"> x = </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;  </span><span style="color:#c0c5ce;">
-  </span><span style="color:#c0c5ce;">
-    </span><span style="color:#b48ead;">while </span><span style="color:#c0c5ce;">(*str)  </span><span style="color:#c0c5ce;">
-    {  </span><span style="color:#c0c5ce;">
-        hash = (hash &lt;&lt; </span><span style="color:#d08770;">4</span><span style="color:#c0c5ce;">) + (*str++);</span><span style="color:#65737e;">//hash左移4位，把当前字符ASCII存入hash低四位。   </span><span style="color:#65737e;">
-        </span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">((x = hash &amp; </span><span style="color:#d08770;">0xF0000000</span><span style="color:#b48ead;">L</span><span style="color:#c0c5ce;">) != </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">)  </span><span style="color:#c0c5ce;">
-        {  </span><span style="color:#c0c5ce;">
-            </span><span style="color:#65737e;">//如果最高的四位不为0，则说明字符多余7个，现在正在存第7个字符，如果不处理，再加下一个字符时，第一个字符会被移出，因此要有如下处理。  </span><span style="color:#65737e;">
-            //该处理，如果最高位为0，就会仅仅影响5-8位，否则会影响5-31位，因为C语言使用的算数移位  </span><span style="color:#65737e;">
-            //因为1-4位刚刚存储了新加入到字符，所以不能&gt;&gt;28  </span><span style="color:#65737e;">
-</span><span style="color:#c0c5ce;">            hash ^= (x &gt;&gt; </span><span style="color:#d08770;">24</span><span style="color:#c0c5ce;">);  </span><span style="color:#c0c5ce;">
-            </span><span style="color:#65737e;">//上面这行代码并不会对X有影响，本身X和hash的高4位相同，下面这行代码&amp;~即对28-31(高4位)位清零。  </span><span style="color:#65737e;">
-</span><span style="color:#c0c5ce;">            hash &amp;= ~x;  </span><span style="color:#c0c5ce;">
-        }  </span><span style="color:#c0c5ce;">
-    }  </span><span style="color:#c0c5ce;">
-    </span><span style="color:#65737e;">//返回一个符号位为0的数，即丢弃最高位，以免函数外产生影响。(我们可以考虑，如果只有字符，符号位不可能为负)  </span><span style="color:#65737e;">
-    </span><span style="color:#b48ead;">return </span><span style="color:#c0c5ce;">(hash &amp; </span><span style="color:#d08770;">0x7FFFFFFF</span><span style="color:#c0c5ce;">);  </span><span style="color:#c0c5ce;">
-}  </span><span style="color:#c0c5ce;">
+<code><span style="color:#65737e;">// ELF Hash Function  
+</span><span style="color:#b48ead;">unsigned int </span><span style="color:#8fa1b3;">ELFHash</span><span style="color:#c0c5ce;">(</span><span style="color:#b48ead;">char </span><span style="color:#c0c5ce;">*</span><span style="color:#bf616a;">str</span><span style="color:#c0c5ce;">)  
+{  
+    </span><span style="color:#b48ead;">unsigned int</span><span style="color:#c0c5ce;"> hash = </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;  
+    </span><span style="color:#b48ead;">unsigned int</span><span style="color:#c0c5ce;"> x = </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;  
+  
+    </span><span style="color:#b48ead;">while </span><span style="color:#c0c5ce;">(*str)  
+    {  
+        hash = (hash &lt;&lt; </span><span style="color:#d08770;">4</span><span style="color:#c0c5ce;">) + (*str++);</span><span style="color:#65737e;">//hash左移4位，把当前字符ASCII存入hash低四位。   
+        </span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">((x = hash &amp; </span><span style="color:#d08770;">0xF0000000</span><span style="color:#b48ead;">L</span><span style="color:#c0c5ce;">) != </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">)  
+        {  
+            </span><span style="color:#65737e;">//如果最高的四位不为0，则说明字符多余7个，现在正在存第7个字符，如果不处理，再加下一个字符时，第一个字符会被移出，因此要有如下处理。  
+            //该处理，如果最高位为0，就会仅仅影响5-8位，否则会影响5-31位，因为C语言使用的算数移位  
+            //因为1-4位刚刚存储了新加入到字符，所以不能&gt;&gt;28  
+</span><span style="color:#c0c5ce;">            hash ^= (x &gt;&gt; </span><span style="color:#d08770;">24</span><span style="color:#c0c5ce;">);  
+            </span><span style="color:#65737e;">//上面这行代码并不会对X有影响，本身X和hash的高4位相同，下面这行代码&amp;~即对28-31(高4位)位清零。  
+</span><span style="color:#c0c5ce;">            hash &amp;= ~x;  
+        }  
+    }  
+    </span><span style="color:#65737e;">//返回一个符号位为0的数，即丢弃最高位，以免函数外产生影响。(我们可以考虑，如果只有字符，符号位不可能为负)  
+    </span><span style="color:#b48ead;">return </span><span style="color:#c0c5ce;">(hash &amp; </span><span style="color:#d08770;">0x7FFFFFFF</span><span style="color:#c0c5ce;">);  
+}  
 </span></code></pre>
 <p>这个函数写起来十分简单。我把注释也复制过来了，就不多解释了。</p>
 <h2 id="san-lie-zhi-peng-zhuang-liao-zen-yao-ban">散列值碰撞了，怎么办？</h2>
@@ -163,14 +199,14 @@
 <p>基于散列函数的几个特性来说，我们得到值域内任意值的可能性都为$\frac1{2^{32}}$。那么，在计算不同的任意$n$个字符串候，这些散列值都不冲突的可能性就是$\frac{2^{32}-1}{2^{32}}×\frac{2^{32}-2}{2^{32}}×...×\frac{2^{32}-n+1}{2^{32}}$。</p>
 <p>对于题目给的数据，使用下面Python代码可以计算得不发生冲突的概率为$0.9005311337474664$即发生错误的可能性为$0.0994688662525336$。</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#65737e;"># a.py</span><span style="color:#65737e;">
-</span><span style="color:#c0c5ce;">a = </span><span style="color:#d08770;">1 </span><span style="color:#c0c5ce;">&lt;&lt; </span><span style="color:#d08770;">32</span><span style="color:#c0c5ce;">
-s = </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">
-</span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">i </span><span style="color:#b48ead;">in </span><span style="color:#96b5b4;">range</span><span style="color:#c0c5ce;">(</span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">30000</span><span style="color:#c0c5ce;">):</span><span style="color:#c0c5ce;">
-	s *= (a-i)/a</span><span style="color:#c0c5ce;">
-</span><span style="color:#96b5b4;">print</span><span style="color:#c0c5ce;">(s)</span><span style="color:#c0c5ce;">
-</span><span style="color:#65737e;">#python a.py</span><span style="color:#65737e;">
-#0.9005311337474664</span><span style="color:#65737e;">
+<code><span style="color:#65737e;"># a.py
+</span><span style="color:#c0c5ce;">a = </span><span style="color:#d08770;">1 </span><span style="color:#c0c5ce;">&lt;&lt; </span><span style="color:#d08770;">32
+</span><span style="color:#c0c5ce;">s = </span><span style="color:#d08770;">1
+</span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">i </span><span style="color:#b48ead;">in </span><span style="color:#96b5b4;">range</span><span style="color:#c0c5ce;">(</span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">30000</span><span style="color:#c0c5ce;">):
+	s *= (a-i)/a
+</span><span style="color:#96b5b4;">print</span><span style="color:#c0c5ce;">(s)
+</span><span style="color:#65737e;">#python a.py
+#0.9005311337474664
 </span></code></pre>
 <p>可见这个数字对于脸白的人来说是够了的。</p>
 <h3 id="jiao-lian-wo-lian-hei-duo-zhong-san-lie-han-shu">教练我脸黑——多重散列函数</h3>
@@ -186,22 +222,22 @@ s = </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">
 <h4 id="jiang-bu-tong-san-lie-zhi-fang-zai-bu-tong-rong-qi-li">将不同散列值放在不同容器里</h4>
 <p>考虑这样的比对算法</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#65737e;">//There is a bunch of set containers named s[0]/s[1]/etc</span><span style="color:#65737e;">
-</span><span style="color:#c0c5ce;">string str;</span><span style="color:#c0c5ce;">
-cin &gt;&gt;str;</span><span style="color:#c0c5ce;">
-temp = </span><span style="color:#bf616a;">hash</span><span style="color:#c0c5ce;">(str)</span><span style="color:#c0c5ce;">
-</span><span style="color:#b48ead;">if</span><span style="color:#c0c5ce;">(!s[</span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">].</span><span style="color:#bf616a;">count</span><span style="color:#c0c5ce;">(temp)){</span><span style="color:#c0c5ce;">
-	s[</span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">].</span><span style="color:#bf616a;">insert</span><span style="color:#c0c5ce;">(temp)</span><span style="color:#c0c5ce;">
-	count++</span><span style="color:#c0c5ce;">
-}</span><span style="color:#b48ead;">else</span><span style="color:#c0c5ce;">{</span><span style="color:#c0c5ce;">
-	temp = </span><span style="color:#bf616a;">hash</span><span style="color:#c0c5ce;">(str+&quot;</span><span style="color:#a3be8c;">salt1</span><span style="color:#c0c5ce;">&quot;)</span><span style="color:#c0c5ce;">
-	</span><span style="color:#b48ead;">if</span><span style="color:#c0c5ce;">(!s[</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">].</span><span style="color:#bf616a;">count</span><span style="color:#c0c5ce;">(temp)){</span><span style="color:#c0c5ce;">
-		s[</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">].</span><span style="color:#bf616a;">insert</span><span style="color:#c0c5ce;">(temp)</span><span style="color:#c0c5ce;">
-		count++</span><span style="color:#c0c5ce;">
-    }</span><span style="color:#b48ead;">else</span><span style="color:#c0c5ce;">{</span><span style="color:#c0c5ce;">
-		</span><span style="color:#65737e;">//etc</span><span style="color:#65737e;">
-    </span><span style="color:#c0c5ce;">}</span><span style="color:#c0c5ce;">
-}</span><span style="color:#c0c5ce;">
+<code><span style="color:#65737e;">//There is a bunch of set containers named s[0]/s[1]/etc
+</span><span style="color:#c0c5ce;">string str;
+cin &gt;&gt;str;
+temp = </span><span style="color:#bf616a;">hash</span><span style="color:#c0c5ce;">(str)
+</span><span style="color:#b48ead;">if</span><span style="color:#c0c5ce;">(!s[</span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">].</span><span style="color:#bf616a;">count</span><span style="color:#c0c5ce;">(temp)){
+	s[</span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">].</span><span style="color:#bf616a;">insert</span><span style="color:#c0c5ce;">(temp)
+	count++
+}</span><span style="color:#b48ead;">else</span><span style="color:#c0c5ce;">{
+	temp = </span><span style="color:#bf616a;">hash</span><span style="color:#c0c5ce;">(str+&quot;</span><span style="color:#a3be8c;">salt1</span><span style="color:#c0c5ce;">&quot;)
+	</span><span style="color:#b48ead;">if</span><span style="color:#c0c5ce;">(!s[</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">].</span><span style="color:#bf616a;">count</span><span style="color:#c0c5ce;">(temp)){
+		s[</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">].</span><span style="color:#bf616a;">insert</span><span style="color:#c0c5ce;">(temp)
+		count++
+    }</span><span style="color:#b48ead;">else</span><span style="color:#c0c5ce;">{
+		</span><span style="color:#65737e;">//etc
+    </span><span style="color:#c0c5ce;">}
+}
 </span></code></pre>
 <p>那么可能会发生这样的问题，就是字符串s在第一次比对时和a串冲突，在第二次比对时又和b串冲突。</p>
 <p>易知对于固定数量$n$的生日攻击来说，不发生冲突的概率$p$是一定的，假设多重散列函数就像我们所想的一样工作，那么该实验可以认为是一个成功率为$1-p$的伯努利实验。</p>
@@ -209,35 +245,35 @@ temp = </span><span style="color:#bf616a;">hash</span><span style="color:#c0c5ce
 <h4 id="jiang-ge-san-lie-zhi-bao-zhuang-cheng-yi-ge-zheng-ti">将各散列值包装成一个整体</h4>
 <p>也就是说算法改为</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#b48ead;">struct </span><span style="color:#c0c5ce;">hashv{</span><span style="color:#c0c5ce;">
-	size_t v[</span><span style="color:#d08770;">2</span><span style="color:#c0c5ce;">];</span><span style="color:#c0c5ce;">
-};</span><span style="color:#c0c5ce;">
-set&lt;hashv&gt; s;</span><span style="color:#c0c5ce;">
-</span><span style="color:#c0c5ce;">
-string str;</span><span style="color:#c0c5ce;">
-cin&gt;&gt;str;</span><span style="color:#c0c5ce;">
-hashv </span><span style="color:#8fa1b3;">temp</span><span style="color:#c0c5ce;">
-</span><span style="color:#8fa1b3;">temp</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">v</span><span style="color:#c0c5ce;">[</span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">] = </span><span style="color:#bf616a;">hash</span><span style="color:#c0c5ce;">(str)</span><span style="color:#c0c5ce;">
-temp.</span><span style="color:#bf616a;">v</span><span style="color:#c0c5ce;">[</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">] = </span><span style="color:#bf616a;">hash</span><span style="color:#c0c5ce;">(str+&quot;</span><span style="color:#a3be8c;">salt</span><span style="color:#c0c5ce;">&quot;)</span><span style="color:#c0c5ce;">
-</span><span style="color:#b48ead;">if</span><span style="color:#c0c5ce;">(!s.</span><span style="color:#bf616a;">count</span><span style="color:#c0c5ce;">(temp)){</span><span style="color:#c0c5ce;">
-    s.</span><span style="color:#bf616a;">insert</span><span style="color:#c0c5ce;">(temp);</span><span style="color:#c0c5ce;">
-    count++;</span><span style="color:#c0c5ce;">
-}</span><span style="color:#c0c5ce;">
+<code><span style="color:#b48ead;">struct </span><span style="color:#c0c5ce;">hashv{
+	size_t v[</span><span style="color:#d08770;">2</span><span style="color:#c0c5ce;">];
+};
+set&lt;hashv&gt; s;
+
+string str;
+cin&gt;&gt;str;
+hashv </span><span style="color:#8fa1b3;">temp
+temp</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">v</span><span style="color:#c0c5ce;">[</span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">] = </span><span style="color:#bf616a;">hash</span><span style="color:#c0c5ce;">(str)
+temp.</span><span style="color:#bf616a;">v</span><span style="color:#c0c5ce;">[</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">] = </span><span style="color:#bf616a;">hash</span><span style="color:#c0c5ce;">(str+&quot;</span><span style="color:#a3be8c;">salt</span><span style="color:#c0c5ce;">&quot;)
+</span><span style="color:#b48ead;">if</span><span style="color:#c0c5ce;">(!s.</span><span style="color:#bf616a;">count</span><span style="color:#c0c5ce;">(temp)){
+    s.</span><span style="color:#bf616a;">insert</span><span style="color:#c0c5ce;">(temp);
+    count++;
+}
 </span></code></pre>
 <p>理想状态下，此时发生单次冲突的概率为两次散列均冲突的概率，即两者的乘积，也就是$2^{64}-2^{33}+1$</p>
 <p>利用以下python代码计算得在题设情况下，不发生冲突的可能性为$0.9999999999999999999971601954045129840219384586382661991347799758614026869784477630643202473665079505271849114917935938025327598810920608449$ ，太强辣！</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#b48ead;">from </span><span style="color:#c0c5ce;">decimal </span><span style="color:#b48ead;">import </span><span style="color:#d08770;">*</span><span style="color:#c0c5ce;">
-a = </span><span style="color:#d08770;">1 </span><span style="color:#c0c5ce;">&lt;&lt; </span><span style="color:#d08770;">64 </span><span style="color:#c0c5ce;">- </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">&lt;&lt;</span><span style="color:#d08770;">33 </span><span style="color:#c0c5ce;">+</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">
-a = </span><span style="color:#bf616a;">Decimal</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">str</span><span style="color:#c0c5ce;">(a))</span><span style="color:#c0c5ce;">
-</span><span style="color:#96b5b4;">print</span><span style="color:#c0c5ce;">(a)</span><span style="color:#c0c5ce;">
-s = </span><span style="color:#bf616a;">Decimal</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">1</span><span style="color:#c0c5ce;">&quot;)</span><span style="color:#c0c5ce;">
-</span><span style="color:#bf616a;">getcontext</span><span style="color:#c0c5ce;">().prec = </span><span style="color:#d08770;">2000</span><span style="color:#c0c5ce;">
-</span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">i </span><span style="color:#b48ead;">in </span><span style="color:#96b5b4;">range</span><span style="color:#c0c5ce;">(</span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">30000</span><span style="color:#c0c5ce;">):</span><span style="color:#c0c5ce;">
-	</span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">not i% </span><span style="color:#d08770;">1000</span><span style="color:#c0c5ce;">:</span><span style="color:#c0c5ce;">
-		</span><span style="color:#96b5b4;">print</span><span style="color:#c0c5ce;">(i)</span><span style="color:#c0c5ce;">
-	s *= (a-</span><span style="color:#bf616a;">Decimal</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">str</span><span style="color:#c0c5ce;">(i)))/a</span><span style="color:#c0c5ce;">
-</span><span style="color:#96b5b4;">print</span><span style="color:#c0c5ce;">(s)</span><span style="color:#c0c5ce;">
+<code><span style="color:#b48ead;">from </span><span style="color:#c0c5ce;">decimal </span><span style="color:#b48ead;">import </span><span style="color:#d08770;">*
+</span><span style="color:#c0c5ce;">a = </span><span style="color:#d08770;">1 </span><span style="color:#c0c5ce;">&lt;&lt; </span><span style="color:#d08770;">64 </span><span style="color:#c0c5ce;">- </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">&lt;&lt;</span><span style="color:#d08770;">33 </span><span style="color:#c0c5ce;">+</span><span style="color:#d08770;">1
+</span><span style="color:#c0c5ce;">a = </span><span style="color:#bf616a;">Decimal</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">str</span><span style="color:#c0c5ce;">(a))
+</span><span style="color:#96b5b4;">print</span><span style="color:#c0c5ce;">(a)
+s = </span><span style="color:#bf616a;">Decimal</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">1</span><span style="color:#c0c5ce;">&quot;)
+</span><span style="color:#bf616a;">getcontext</span><span style="color:#c0c5ce;">().prec = </span><span style="color:#d08770;">2000
+</span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">i </span><span style="color:#b48ead;">in </span><span style="color:#96b5b4;">range</span><span style="color:#c0c5ce;">(</span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">30000</span><span style="color:#c0c5ce;">):
+	</span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">not i% </span><span style="color:#d08770;">1000</span><span style="color:#c0c5ce;">:
+		</span><span style="color:#96b5b4;">print</span><span style="color:#c0c5ce;">(i)
+	s *= (a-</span><span style="color:#bf616a;">Decimal</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">str</span><span style="color:#c0c5ce;">(i)))/a
+</span><span style="color:#96b5b4;">print</span><span style="color:#c0c5ce;">(s)
 </span></code></pre>
 <p>可以发现，这样做以后是几何倍数降低发生碰撞的可能性了。</p>
 <p>那么只有一个考虑了，就是这个结构体打算怎么写，不过这个问题就不是我操心的啦~</p>
@@ -245,6 +281,7 @@ s = </span><span style="color:#bf616a;">Decimal</span><span style="color:#c0c5ce
 <p>思考使我快乐，即便这篇文章很水嘻嘻嘻</p>
 <p>睡觉去啦~</p>
 
+    </div>
   </div>
 
         </div>

@@ -14,7 +14,11 @@
       <link rel="stylesheet" href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;css&#x2F;lib&#x2F;font-awesome.min.css">
       <link rel="stylesheet" href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;site.css">
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+      <!-- js -->
+      <script defer type="text/javascript" src="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;elasticlunr.min.js"></script>
+      <script defer type="text/javascript" src="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;search_index.en.js"></script>
       <script type="text/javascript" charset="utf-8" src="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;js&#x2F;sidebar.js"></script>
+      <script type="text/javascript" charset="utf-8" src="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;js&#x2F;search.js"></script>
 
       
         <link rel="alternate" type="application/atom+xml" title="RSS" href="https://CSUwangj.github.io/atom.xml">
@@ -52,6 +56,15 @@
                   Archives
                 </a>
               
+              
+                <div class="nav-item-search search-container js-only">
+                  <input class="input" id="search" type="search" placeholder="Search">
+
+                  <div class="search-results box">
+                    <div class="search-results__items"></div>
+                  </div>
+                </div>
+              
             </nav>
           </div>
         </header>
@@ -62,8 +75,31 @@
           
   <div class="post">
     <h1 class="post-title">OverTheWire-Bandit全攻略+解析</h1>
-    <span class="post-date">2018-08-23</span>
-    <ul>
+    <div class="post-meta">
+      
+        <span class="post-meta-divider">|</span>
+        <span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i></span>
+        <span class="post-date">Posted on: </span>
+        <time datetime=2018-08-23T16:10:57+08:00 title="post created">2018-08-23</time>
+      
+      
+        <span class="post-meta-divider">|</span>
+        <span class="post-meta-item-icon"><i class="fa fa-calendar-check-o"></i></span>
+        <span class="modify-date">Posted modified: </span>
+        <time datetime=2020-08-07T02:01:26.830854+08:00 title="post modified">2020-08-07</time>
+      
+      
+        <span class="post-meta-divider">|</span>
+        <span class="post-meta-item-icon"><i class="fa fa-folder-o"></i></span>
+        <span class="in-category">In: </span>
+          
+            <a class="category" href="/category/WriteUp">WriteUp</a>
+          
+      
+      <span class="post-meta-divider">|</span>
+    </div>
+    <div class="post-body">
+      <ul>
 <li>[x] <a href="http://overthewire.org/wargames/bandit/bandit0.html">Level 0</a></li>
 <li>[x] <a href="http://overthewire.org/wargames/bandit/bandit1.html">Level 0 → Level 1</a></li>
 <li>[x] <a href="http://overthewire.org/wargames/bandit/bandit2.html">Level 1 → Level 2</a></li>
@@ -100,62 +136,61 @@
 <li>[ ] <a href="http://overthewire.org/wargames/bandit/bandit33.html">Level 32 → Level 33</a></li>
 <li>[ ] <a href="http://overthewire.org/wargames/bandit/bandit34.html">Level 33 → Level 34</a></li>
 </ul>
-<span id="continue-reading"></span>
-<h1 id="level-0">Level 0</h1>
+<span id="continue-reading"></span><h1 id="level-0">Level 0</h1>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#bf616a;">ssh</span><span style="color:#c0c5ce;"> bandit.labs.overthewire.org</span><span style="color:#bf616a;"> -p</span><span style="color:#c0c5ce;"> 2220</span><span style="color:#bf616a;"> -l</span><span style="color:#c0c5ce;"> bandit0</span><span style="color:#c0c5ce;">
+<code><span style="color:#bf616a;">ssh</span><span style="color:#c0c5ce;"> bandit.labs.overthewire.org</span><span style="color:#bf616a;"> -p</span><span style="color:#c0c5ce;"> 2220</span><span style="color:#bf616a;"> -l</span><span style="color:#c0c5ce;"> bandit0
 </span></code></pre><h1 id="level-0-level-1">Level 0 → Level 1</h1>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">cat ~/readme</span><span style="color:#c0c5ce;">
+<code><span style="color:#c0c5ce;">cat ~/readme
 </span></code></pre><h1 id="level-1-level-2">Level 1 → Level 2</h1>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">cat ~/-</span><span style="color:#c0c5ce;">
+<code><span style="color:#c0c5ce;">cat ~/-
 </span></code></pre><h2 id="can-kao-zi-liao">参考资料</h2>
 <p>http://tldp.org/LDP/abs/html/special-chars.html</p>
 <h1 id="level-2-level-3">Level 2 → Level 3</h1>
 <p>这一关其实,,,应该关了tab补全</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#bf616a;">cat ~</span><span style="color:#c0c5ce;">/spaces</span><span style="color:#96b5b4;">\ </span><span style="color:#c0c5ce;">in</span><span style="color:#96b5b4;">\ </span><span style="color:#c0c5ce;">this</span><span style="color:#96b5b4;">\ </span><span style="color:#c0c5ce;">filename</span><span style="color:#c0c5ce;">
+<code><span style="color:#bf616a;">cat ~</span><span style="color:#c0c5ce;">/spaces</span><span style="color:#96b5b4;">\ </span><span style="color:#c0c5ce;">in</span><span style="color:#96b5b4;">\ </span><span style="color:#c0c5ce;">this</span><span style="color:#96b5b4;">\ </span><span style="color:#c0c5ce;">filename
 </span></code></pre>
 <p>或者在windows用命令行的方式也行</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#bf616a;">cat </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">/home/bandit2/spaces in this filename</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#c0c5ce;">
-</span><span style="color:#bf616a;">cat </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">space in this filename</span><span style="color:#a3be8c;">
+<code><span style="color:#bf616a;">cat </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">/home/bandit2/spaces in this filename</span><span style="color:#c0c5ce;">&quot;
+</span><span style="color:#bf616a;">cat </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">space in this filename
 </span></code></pre><h1 id="level-3-level-4">Level 3 → Level 4</h1>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#bf616a;">cat ~</span><span style="color:#c0c5ce;">/inhere/.hidden</span><span style="color:#c0c5ce;">
+<code><span style="color:#bf616a;">cat ~</span><span style="color:#c0c5ce;">/inhere/.hidden
 </span></code></pre><h1 id="level-4-level-5">Level 4 → Level 5</h1>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#bf616a;">i</span><span style="color:#c0c5ce;">=</span><span style="color:#a3be8c;">0</span><span style="color:#c0c5ce;">; </span><span style="color:#b48ead;">while </span><span style="color:#96b5b4;">[ </span><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">i -le</span><span style="color:#c0c5ce;"> 9 </span><span style="color:#96b5b4;">]</span><span style="color:#c0c5ce;">; </span><span style="color:#b48ead;">do </span><span style="color:#bf616a;">file </span><span style="color:#c0c5ce;">`</span><span style="color:#bf616a;">python -c </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">print &#39;/home/bandit4/inhere/-file%02d&#39; % </span><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">i</span><span style="color:#c0c5ce;">&quot;`; </span><span style="color:#bf616a;">i</span><span style="color:#c0c5ce;">=$</span><span style="color:#a3be8c;">((i</span><span style="color:#c0c5ce;">+</span><span style="color:#d08770;">1</span><span style="color:#a3be8c;">))</span><span style="color:#c0c5ce;">; </span><span style="color:#b48ead;">done</span><span style="color:#c0c5ce;">
+<code><span style="color:#bf616a;">i</span><span style="color:#c0c5ce;">=</span><span style="color:#a3be8c;">0</span><span style="color:#c0c5ce;">; </span><span style="color:#b48ead;">while </span><span style="color:#96b5b4;">[ </span><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">i -le</span><span style="color:#c0c5ce;"> 9 </span><span style="color:#96b5b4;">]</span><span style="color:#c0c5ce;">; </span><span style="color:#b48ead;">do </span><span style="color:#bf616a;">file </span><span style="color:#c0c5ce;">`</span><span style="color:#bf616a;">python -c </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">print &#39;/home/bandit4/inhere/-file%02d&#39; % </span><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">i</span><span style="color:#c0c5ce;">&quot;`; </span><span style="color:#bf616a;">i</span><span style="color:#c0c5ce;">=$</span><span style="color:#a3be8c;">((i</span><span style="color:#c0c5ce;">+</span><span style="color:#d08770;">1</span><span style="color:#a3be8c;">))</span><span style="color:#c0c5ce;">; </span><span style="color:#b48ead;">done
 </span></code></pre><h1 id="level-5-level-6">Level 5 → Level 6</h1>
 <p>难度不够啊，同大小的就一个...</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;"> </span><span style="color:#bf616a;">find</span><span style="color:#c0c5ce;"> .</span><span style="color:#bf616a;"> -type</span><span style="color:#c0c5ce;"> f</span><span style="color:#bf616a;"> -size</span><span style="color:#c0c5ce;"> 1033c</span><span style="color:#bf616a;"> -print </span><span style="color:#c0c5ce;">| </span><span style="color:#bf616a;">xargs</span><span style="color:#c0c5ce;"> cat</span><span style="color:#c0c5ce;">
+<code><span style="color:#c0c5ce;"> </span><span style="color:#bf616a;">find</span><span style="color:#c0c5ce;"> .</span><span style="color:#bf616a;"> -type</span><span style="color:#c0c5ce;"> f</span><span style="color:#bf616a;"> -size</span><span style="color:#c0c5ce;"> 1033c</span><span style="color:#bf616a;"> -print </span><span style="color:#c0c5ce;">| </span><span style="color:#bf616a;">xargs</span><span style="color:#c0c5ce;"> cat
 </span></code></pre>
 <p>还要过滤的话文件加-perm参数未必有用，目前考虑用ls -l和file命令做。</p>
 <h1 id="level-6-level-7">Level 6 → Level 7</h1>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#bf616a;">find</span><span style="color:#c0c5ce;"> /</span><span style="color:#bf616a;"> -user</span><span style="color:#c0c5ce;"> bandit7</span><span style="color:#bf616a;"> -group</span><span style="color:#c0c5ce;"> bandit6</span><span style="color:#bf616a;"> -size</span><span style="color:#c0c5ce;"> 33c </span><span style="color:#d08770;">2</span><span style="color:#c0c5ce;">&gt;/dev/null | </span><span style="color:#bf616a;">xargs</span><span style="color:#c0c5ce;"> cat</span><span style="color:#c0c5ce;">
+<code><span style="color:#bf616a;">find</span><span style="color:#c0c5ce;"> /</span><span style="color:#bf616a;"> -user</span><span style="color:#c0c5ce;"> bandit7</span><span style="color:#bf616a;"> -group</span><span style="color:#c0c5ce;"> bandit6</span><span style="color:#bf616a;"> -size</span><span style="color:#c0c5ce;"> 33c </span><span style="color:#d08770;">2</span><span style="color:#c0c5ce;">&gt;/dev/null | </span><span style="color:#bf616a;">xargs</span><span style="color:#c0c5ce;"> cat
 </span></code></pre>
 <p>很见鬼的是，-print后面放哪些东西会出问题...</p>
 <h1 id="level-7-level-8">Level 7 → Level 8</h1>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;"> </span><span style="color:#bf616a;">cat ~</span><span style="color:#c0c5ce;">/data.txt | </span><span style="color:#bf616a;">grep</span><span style="color:#c0c5ce;"> millionth</span><span style="color:#c0c5ce;">
+<code><span style="color:#c0c5ce;"> </span><span style="color:#bf616a;">cat ~</span><span style="color:#c0c5ce;">/data.txt | </span><span style="color:#bf616a;">grep</span><span style="color:#c0c5ce;"> millionth
 </span></code></pre><h1 id="level-8-level-9">Level 8 → Level 9</h1>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#bf616a;">sort ~</span><span style="color:#c0c5ce;">/data.txt | </span><span style="color:#bf616a;">uniq -u</span><span style="color:#c0c5ce;">
+<code><span style="color:#bf616a;">sort ~</span><span style="color:#c0c5ce;">/data.txt | </span><span style="color:#bf616a;">uniq -u
 </span></code></pre><h1 id="level-9-level-10">Level 9 → Level 10</h1>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#bf616a;">strings ~</span><span style="color:#c0c5ce;">/data.txt | </span><span style="color:#bf616a;">grep</span><span style="color:#c0c5ce;"> ==</span><span style="color:#c0c5ce;">
+<code><span style="color:#bf616a;">strings ~</span><span style="color:#c0c5ce;">/data.txt | </span><span style="color:#bf616a;">grep</span><span style="color:#c0c5ce;"> ==
 </span></code></pre><h1 id="level-10-level-11">Level 10 → Level 11</h1>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#bf616a;">base64 -d ~</span><span style="color:#c0c5ce;">/data.txt</span><span style="color:#c0c5ce;">
+<code><span style="color:#bf616a;">base64 -d ~</span><span style="color:#c0c5ce;">/data.txt
 </span></code></pre><h1 id="level-11-level-12">Level 11 → Level 12</h1>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;"> </span><span style="color:#bf616a;">cat ~</span><span style="color:#c0c5ce;">/data.txt | </span><span style="color:#bf616a;">tr </span><span style="color:#c0c5ce;">&#39;</span><span style="color:#a3be8c;">a-zA-Z</span><span style="color:#c0c5ce;">&#39; &#39;</span><span style="color:#a3be8c;">n-za-mN-ZA-M</span><span style="color:#c0c5ce;">&#39;</span><span style="color:#c0c5ce;">
+<code><span style="color:#c0c5ce;"> </span><span style="color:#bf616a;">cat ~</span><span style="color:#c0c5ce;">/data.txt | </span><span style="color:#bf616a;">tr </span><span style="color:#c0c5ce;">&#39;</span><span style="color:#a3be8c;">a-zA-Z</span><span style="color:#c0c5ce;">&#39; &#39;</span><span style="color:#a3be8c;">n-za-mN-ZA-M</span><span style="color:#c0c5ce;">&#39;
 </span></code></pre><h1 id="level-12-level-13">Level 12 → Level 13</h1>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#bf616a;">xxd -r ~</span><span style="color:#c0c5ce;">/data.txt | </span><span style="color:#bf616a;">gzip -d</span><span style="color:#c0c5ce;"> - | </span><span style="color:#bf616a;">bzip2 -d</span><span style="color:#c0c5ce;"> - | </span><span style="color:#bf616a;">gzip -d</span><span style="color:#c0c5ce;"> - | </span><span style="color:#bf616a;">tar -xOf</span><span style="color:#c0c5ce;"> - | </span><span style="color:#bf616a;">tar -xOf</span><span style="color:#c0c5ce;"> - | </span><span style="color:#bf616a;">bzip2 -d</span><span style="color:#c0c5ce;"> - | </span><span style="color:#bf616a;">tar -xOf</span><span style="color:#c0c5ce;"> - | </span><span style="color:#bf616a;">gzip -d</span><span style="color:#c0c5ce;"> -</span><span style="color:#c0c5ce;">
+<code><span style="color:#bf616a;">xxd -r ~</span><span style="color:#c0c5ce;">/data.txt | </span><span style="color:#bf616a;">gzip -d</span><span style="color:#c0c5ce;"> - | </span><span style="color:#bf616a;">bzip2 -d</span><span style="color:#c0c5ce;"> - | </span><span style="color:#bf616a;">gzip -d</span><span style="color:#c0c5ce;"> - | </span><span style="color:#bf616a;">tar -xOf</span><span style="color:#c0c5ce;"> - | </span><span style="color:#bf616a;">tar -xOf</span><span style="color:#c0c5ce;"> - | </span><span style="color:#bf616a;">bzip2 -d</span><span style="color:#c0c5ce;"> - | </span><span style="color:#bf616a;">tar -xOf</span><span style="color:#c0c5ce;"> - | </span><span style="color:#bf616a;">gzip -d</span><span style="color:#c0c5ce;"> -
 </span></code></pre><h1 id="level-13-level-14">Level 13 → Level 14</h1>
 <h1 id="level-14-level-15">Level 14 → Level 15</h1>
 <h1 id="level-15-level-16">Level 15 → Level 16</h1>
@@ -178,6 +213,7 @@
 <h1 id="level-32-level-33">Level 32 → Level 33</h1>
 <h1 id="level-33-level-34">Level 33 → Level 34</h1>
 
+    </div>
   </div>
 
         </div>

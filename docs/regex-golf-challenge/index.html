@@ -14,7 +14,11 @@
       <link rel="stylesheet" href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;css&#x2F;lib&#x2F;font-awesome.min.css">
       <link rel="stylesheet" href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;site.css">
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+      <!-- js -->
+      <script defer type="text/javascript" src="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;elasticlunr.min.js"></script>
+      <script defer type="text/javascript" src="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;search_index.en.js"></script>
       <script type="text/javascript" charset="utf-8" src="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;js&#x2F;sidebar.js"></script>
+      <script type="text/javascript" charset="utf-8" src="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;js&#x2F;search.js"></script>
 
       
         <link rel="alternate" type="application/atom+xml" title="RSS" href="https://CSUwangj.github.io/atom.xml">
@@ -52,6 +56,15 @@
                   Archives
                 </a>
               
+              
+                <div class="nav-item-search search-container js-only">
+                  <input class="input" id="search" type="search" placeholder="Search">
+
+                  <div class="search-results box">
+                    <div class="search-results__items"></div>
+                  </div>
+                </div>
+              
             </nav>
           </div>
         </header>
@@ -62,11 +75,33 @@
           
   <div class="post">
     <h1 class="post-title">Regex Golf Challenge</h1>
-    <span class="post-date">2019-03-18</span>
-    <p>Interesting challenges for regular expression newbie like me~</p>
+    <div class="post-meta">
+      
+        <span class="post-meta-divider">|</span>
+        <span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i></span>
+        <span class="post-date">Posted on: </span>
+        <time datetime=2019-03-18T21:23:34+08:00 title="post created">2019-03-18</time>
+      
+      
+        <span class="post-meta-divider">|</span>
+        <span class="post-meta-item-icon"><i class="fa fa-calendar-check-o"></i></span>
+        <span class="modify-date">Posted modified: </span>
+        <time datetime=2020-08-07T02:01:26.829857+08:00 title="post modified">2020-08-07</time>
+      
+      
+        <span class="post-meta-divider">|</span>
+        <span class="post-meta-item-icon"><i class="fa fa-folder-o"></i></span>
+        <span class="in-category">In: </span>
+          
+            <a class="category" href="/category/WriteUp">WriteUp</a>
+          
+      
+      <span class="post-meta-divider">|</span>
+    </div>
+    <div class="post-body">
+      <p>Interesting challenges for regular expression newbie like me~</p>
 <p>TBC...</p>
-<span id="continue-reading"></span>
-<h1 id="classic">Classic</h1>
+<span id="continue-reading"></span><h1 id="classic">Classic</h1>
 <h2 id="warmup">Warmup</h2>
 <p><code>foo</code></p>
 <h2 id="anchors">Anchors</h2>
@@ -110,6 +145,7 @@
 <h2 id="powers">Powers</h2>
 <p>^(?!(.(..)+)\1*$)`</p>
 
+    </div>
   </div>
 
         </div>

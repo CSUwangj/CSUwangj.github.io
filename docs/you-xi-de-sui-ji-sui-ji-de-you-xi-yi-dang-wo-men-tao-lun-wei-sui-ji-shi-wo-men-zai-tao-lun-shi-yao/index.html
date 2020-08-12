@@ -14,7 +14,11 @@
       <link rel="stylesheet" href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;css&#x2F;lib&#x2F;font-awesome.min.css">
       <link rel="stylesheet" href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;site.css">
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+      <!-- js -->
+      <script defer type="text/javascript" src="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;elasticlunr.min.js"></script>
+      <script defer type="text/javascript" src="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;search_index.en.js"></script>
       <script type="text/javascript" charset="utf-8" src="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;js&#x2F;sidebar.js"></script>
+      <script type="text/javascript" charset="utf-8" src="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;js&#x2F;search.js"></script>
 
       
         <link rel="alternate" type="application/atom+xml" title="RSS" href="https://CSUwangj.github.io/atom.xml">
@@ -52,6 +56,15 @@
                   Archives
                 </a>
               
+              
+                <div class="nav-item-search search-container js-only">
+                  <input class="input" id="search" type="search" placeholder="Search">
+
+                  <div class="search-results box">
+                    <div class="search-results__items"></div>
+                  </div>
+                </div>
+              
             </nav>
           </div>
         </header>
@@ -62,8 +75,31 @@
           
   <div class="post">
     <h1 class="post-title">游戏的随机，随机的游戏（一）：当我们讨论伪随机时我们在讨论什么</h1>
-    <span class="post-date">2020-05-18</span>
-    <p>我们生活的世界充满了随机，在娱乐时也是。从一次次抽卡、掉落物品，平A转出的暴击，甚至在每一次攻击，背后都有概率的影子。你是否曾看到“计算机里只有伪随机”，又看到有人说“伪随机抽奖机制确保中奖”？他们说的分别是什么？我为什么还抽不到想要的SSR？为什么她17张牌秒了我？</p>
+    <div class="post-meta">
+      
+        <span class="post-meta-divider">|</span>
+        <span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i></span>
+        <span class="post-date">Posted on: </span>
+        <time datetime=2020-05-18T14:14:17+08:00 title="post created">2020-05-18</time>
+      
+      
+        <span class="post-meta-divider">|</span>
+        <span class="post-meta-item-icon"><i class="fa fa-calendar-check-o"></i></span>
+        <span class="modify-date">Posted modified: </span>
+        <time datetime=2020-08-07T01:54:43.011682+08:00 title="post modified">2020-08-07</time>
+      
+      
+        <span class="post-meta-divider">|</span>
+        <span class="post-meta-item-icon"><i class="fa fa-folder-o"></i></span>
+        <span class="in-category">In: </span>
+          
+            <a class="category" href="/category/None">None</a>
+          
+      
+      <span class="post-meta-divider">|</span>
+    </div>
+    <div class="post-body">
+      <p>我们生活的世界充满了随机，在娱乐时也是。从一次次抽卡、掉落物品，平A转出的暴击，甚至在每一次攻击，背后都有概率的影子。你是否曾看到“计算机里只有伪随机”，又看到有人说“伪随机抽奖机制确保中奖”？他们说的分别是什么？我为什么还抽不到想要的SSR？为什么她17张牌秒了我？</p>
 <span id="continue-reading"></span>
 <p>其实上面的两句话都是正确的，但是两句话中的“伪随机”说的却不是一个东西：</p>
 <p>前者说的是“伪随机数生成器”生成的随机数，生成器就是负责在程序里掷骰子的那个部件。</p>
@@ -77,6 +113,7 @@
 <p>到这里这一节就完了。随机数除了应用在游戏中，还被应用到我们的通信中，被应用到和我们信息安全切身相关的地方。那么，我们为什么要说“伪”随机数生成器？什么是好的随机数生成器？为什么会有乘2加23的操作？</p>
 <p>这些问题就留到下一节来谈吧。上面个用到的算法其实是一个古老而有名的伪随机数生成器——线性同余方法，有兴趣的朋友可以自己先了解。</p>
 
+    </div>
   </div>
 
         </div>

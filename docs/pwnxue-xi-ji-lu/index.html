@@ -14,7 +14,11 @@
       <link rel="stylesheet" href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;css&#x2F;lib&#x2F;font-awesome.min.css">
       <link rel="stylesheet" href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;site.css">
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+      <!-- js -->
+      <script defer type="text/javascript" src="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;elasticlunr.min.js"></script>
+      <script defer type="text/javascript" src="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;search_index.en.js"></script>
       <script type="text/javascript" charset="utf-8" src="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;js&#x2F;sidebar.js"></script>
+      <script type="text/javascript" charset="utf-8" src="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;js&#x2F;search.js"></script>
 
       
         <link rel="alternate" type="application/atom+xml" title="RSS" href="https://CSUwangj.github.io/atom.xml">
@@ -52,6 +56,15 @@
                   Archives
                 </a>
               
+              
+                <div class="nav-item-search search-container js-only">
+                  <input class="input" id="search" type="search" placeholder="Search">
+
+                  <div class="search-results box">
+                    <div class="search-results__items"></div>
+                  </div>
+                </div>
+              
             </nav>
           </div>
         </header>
@@ -62,23 +75,45 @@
           
   <div class="post">
     <h1 class="post-title">PWN学习记录</h1>
-    <span class="post-date">2018-02-10</span>
-    <p>学习PWN的记录</p>
+    <div class="post-meta">
+      
+        <span class="post-meta-divider">|</span>
+        <span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i></span>
+        <span class="post-date">Posted on: </span>
+        <time datetime=2018-02-10T00:17:50+08:00 title="post created">2018-02-10</time>
+      
+      
+        <span class="post-meta-divider">|</span>
+        <span class="post-meta-item-icon"><i class="fa fa-calendar-check-o"></i></span>
+        <span class="modify-date">Posted modified: </span>
+        <time datetime=2020-08-07T01:54:43.006694+08:00 title="post modified">2020-08-07</time>
+      
+      
+        <span class="post-meta-divider">|</span>
+        <span class="post-meta-item-icon"><i class="fa fa-folder-o"></i></span>
+        <span class="in-category">In: </span>
+          
+            <a class="category" href="/category/Notes">Notes</a>
+          
+      
+      <span class="post-meta-divider">|</span>
+    </div>
+    <div class="post-body">
+      <p>学习PWN的记录</p>
 <p>可能会有路线，看填坑进度……</p>
-<span id="continue-reading"></span>
-<h1 id="huan-jing-pei-zhi">环境配置</h1>
+<span id="continue-reading"></span><h1 id="huan-jing-pei-zhi">环境配置</h1>
 <p>按理说第一篇是要说一下这个</p>
 <p>我是Kali 2.0，所以就按照如下指令输进去就行了</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#bf616a;">dpkg --add-architecture</span><span style="color:#c0c5ce;"> i386 </span><span style="color:#c0c5ce;">
-</span><span style="color:#bf616a;">apt-get</span><span style="color:#c0c5ce;"> update</span><span style="color:#c0c5ce;">
-</span><span style="color:#bf616a;">apt-get -f</span><span style="color:#c0c5ce;"> dist-upgrade </span><span style="color:#c0c5ce;">
-</span><span style="color:#bf616a;">apt-get</span><span style="color:#c0c5ce;"> install lib32c-dev lib32stdc++6 libc6:i386 gcc-multilib</span><span style="color:#c0c5ce;">
-</span><span style="color:#bf616a;">apt-get</span><span style="color:#c0c5ce;"> install python2.7 python-pip python-dev git libssl-dev libffi-dev build-essential</span><span style="color:#c0c5ce;">
-</span><span style="color:#bf616a;">pip</span><span style="color:#c0c5ce;"> install pwntools</span><span style="color:#c0c5ce;">
-</span><span style="color:#bf616a;">git</span><span style="color:#c0c5ce;"> clone https://github.com/pwndbg/pwndbg /opt/pwndbg</span><span style="color:#c0c5ce;">
-</span><span style="color:#96b5b4;">cd</span><span style="color:#c0c5ce;"> /opt/pwndbg</span><span style="color:#c0c5ce;">
-</span><span style="color:#bf616a;">./setup.sh</span><span style="color:#c0c5ce;">
+<code><span style="color:#bf616a;">dpkg --add-architecture</span><span style="color:#c0c5ce;"> i386 
+</span><span style="color:#bf616a;">apt-get</span><span style="color:#c0c5ce;"> update
+</span><span style="color:#bf616a;">apt-get -f</span><span style="color:#c0c5ce;"> dist-upgrade 
+</span><span style="color:#bf616a;">apt-get</span><span style="color:#c0c5ce;"> install lib32c-dev lib32stdc++6 libc6:i386 gcc-multilib
+</span><span style="color:#bf616a;">apt-get</span><span style="color:#c0c5ce;"> install python2.7 python-pip python-dev git libssl-dev libffi-dev build-essential
+</span><span style="color:#bf616a;">pip</span><span style="color:#c0c5ce;"> install pwntools
+</span><span style="color:#bf616a;">git</span><span style="color:#c0c5ce;"> clone https://github.com/pwndbg/pwndbg /opt/pwndbg
+</span><span style="color:#96b5b4;">cd</span><span style="color:#c0c5ce;"> /opt/pwndbg
+</span><span style="color:#bf616a;">./setup.sh
 </span></code></pre><h1 id="xue-xi-ji-lu-ji-wpdi-zhi">学习记录及WP地址</h1>
 <ul>
 <li>
@@ -133,6 +168,7 @@
 </li>
 </ul>
 
+    </div>
   </div>
 
         </div>

