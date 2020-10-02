@@ -10,7 +10,7 @@ highlight_code = true
 title = "LuckyDog | CSUwangj's Blog"
 
 # Whether to build a search index to be used later on by a JavaScript library
-build_search_index = true
+build_search_index = false
 theme = "DogFood"
 generate_feed = true
 feed_filename = "atom.xml"
