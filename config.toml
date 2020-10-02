@@ -25,11 +25,11 @@ taxonomies = [
 site_name = "LuckyDog"
 menu_items = [
   {url = "$BASE_URL", name = "Home", icon = "fa fa-home"},
-  {url = "$BASE_URL/about", name = "About", icon = "fa fa-user-circle-o"},
-  {url = "$BASE_URL/categories", name = "Categories", icon = "fa fa-book"},
-  {url = "$BASE_URL/tags", name = "Tags", icon = "fa fa-tags"},
-  {url = "$BASE_URL/archives", name = "Archives", icon = "fa fa-inbox"},
-  {url = "$BASE_URL/ZDaily", name = "DailyChallenge", icon = "fa fa-calendar-check-o"},
+  {url = "$BASE_URLabout", name = "About", icon = "fa fa-user-circle-o"},
+  {url = "$BASE_URLcategories", name = "Categories", icon = "fa fa-book"},
+  {url = "$BASE_URLtags", name = "Tags", icon = "fa fa-tags"},
+  {url = "$BASE_URLarchives", name = "Archives", icon = "fa fa-inbox"},
+  {url = "$BASE_URLZDaily/", name = "DailyChallenge", icon = "fa fa-calendar-check-o"},
 ]
 author = "CSUwangj"
 quote = "Just keep in mind that hacking is very rarely in a sequence."
