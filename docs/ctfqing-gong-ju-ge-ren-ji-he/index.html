@@ -122,8 +122,7 @@ renderMathInElement(document.body, katex_config);
     <div class="post-body">
       <p>持续更新ing</p>
 <p>可能以后还会重新整理</p>
-<span id="continue-reading"></span>
-<h1 id="gu-dian-mi-ma-xue-gong-ju">古典密码学工具</h1>
+<span id="continue-reading"></span><h1 id="gu-dian-mi-ma-xue-gong-ju">古典密码学工具</h1>
 <h2 id="zai-xian-jie-mi">在线解密</h2>
 <p>http://www.practicalcryptography.com/ciphers/</p>
 <p>直链列表：</p>
@@ -185,48 +184,48 @@ renderMathInElement(document.body, katex_config);
 <p>http://ocr.wdku.net/</p>
 <h1 id="basejia-zu-zi-dong-jie">base家族自动解</h1>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#65737e;"># -*- coding: utf-8 -*-</span><span style="color:#65737e;">
-# Python3</span><span style="color:#65737e;">
-# AutoBase.py</span><span style="color:#65737e;">
-</span><span style="color:#b48ead;">from </span><span style="color:#c0c5ce;">base64 </span><span style="color:#b48ead;">import </span><span style="color:#d08770;">*</span><span style="color:#c0c5ce;">
-s = </span><span style="color:#96b5b4;">input</span><span style="color:#c0c5ce;">()</span><span style="color:#c0c5ce;">
-lis1 = [s]</span><span style="color:#c0c5ce;">
-lis2 = []</span><span style="color:#c0c5ce;">
-lis3 = []</span><span style="color:#c0c5ce;">
-lis4 = []</span><span style="color:#c0c5ce;">
-</span><span style="color:#b48ead;">while</span><span style="color:#c0c5ce;">(</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">):</span><span style="color:#c0c5ce;">
-	</span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">a </span><span style="color:#b48ead;">in </span><span style="color:#c0c5ce;">lis1:</span><span style="color:#c0c5ce;">
-		ok = </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">
-		</span><span style="color:#b48ead;">try</span><span style="color:#c0c5ce;">:</span><span style="color:#c0c5ce;">
-			lis2.</span><span style="color:#bf616a;">append</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">b64decode</span><span style="color:#c0c5ce;">(a).</span><span style="color:#bf616a;">decode</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">ascii</span><span style="color:#c0c5ce;">&#39;))</span><span style="color:#c0c5ce;">
-			ok = </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">
-		</span><span style="color:#b48ead;">except</span><span style="color:#c0c5ce;">:</span><span style="color:#c0c5ce;">
-			</span><span style="color:#b48ead;">pass</span><span style="color:#c0c5ce;">
-		</span><span style="color:#b48ead;">try</span><span style="color:#c0c5ce;">:</span><span style="color:#c0c5ce;">
-			lis2.</span><span style="color:#bf616a;">append</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">b32decode</span><span style="color:#c0c5ce;">(a).</span><span style="color:#bf616a;">decode</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">ascii</span><span style="color:#c0c5ce;">&#39;))</span><span style="color:#c0c5ce;">
-			ok = </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">
-		</span><span style="color:#b48ead;">except</span><span style="color:#c0c5ce;">:</span><span style="color:#c0c5ce;">
-			</span><span style="color:#b48ead;">pass</span><span style="color:#c0c5ce;">
-		</span><span style="color:#b48ead;">try</span><span style="color:#c0c5ce;">:</span><span style="color:#c0c5ce;">
-			lis2.</span><span style="color:#bf616a;">append</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">b16decode</span><span style="color:#c0c5ce;">(a).</span><span style="color:#bf616a;">decode</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">ascii</span><span style="color:#c0c5ce;">&#39;))</span><span style="color:#c0c5ce;">
-			ok = </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">
-		</span><span style="color:#b48ead;">except</span><span style="color:#c0c5ce;">:</span><span style="color:#c0c5ce;">
-			</span><span style="color:#b48ead;">pass</span><span style="color:#c0c5ce;">
-		</span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">not ok:</span><span style="color:#c0c5ce;">
-			lis3.</span><span style="color:#bf616a;">append</span><span style="color:#c0c5ce;">(a)</span><span style="color:#c0c5ce;">
-	</span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">not </span><span style="color:#96b5b4;">len</span><span style="color:#c0c5ce;">(lis2):</span><span style="color:#c0c5ce;">
-		</span><span style="color:#b48ead;">break</span><span style="color:#c0c5ce;">
-	lis1=lis2.</span><span style="color:#bf616a;">copy</span><span style="color:#c0c5ce;">()</span><span style="color:#c0c5ce;">
-	lis2.</span><span style="color:#bf616a;">clear</span><span style="color:#c0c5ce;">()</span><span style="color:#c0c5ce;">
-</span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">a </span><span style="color:#b48ead;">in </span><span style="color:#96b5b4;">range</span><span style="color:#c0c5ce;">(</span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">,</span><span style="color:#96b5b4;">len</span><span style="color:#c0c5ce;">(lis3)):</span><span style="color:#c0c5ce;">
-	ok = </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">
-	</span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">b </span><span style="color:#b48ead;">in </span><span style="color:#c0c5ce;">lis3[a]:</span><span style="color:#c0c5ce;">
-		</span><span style="color:#b48ead;">if </span><span style="color:#96b5b4;">ord</span><span style="color:#c0c5ce;">(b)&gt;</span><span style="color:#d08770;">126 </span><span style="color:#c0c5ce;">or </span><span style="color:#96b5b4;">ord</span><span style="color:#c0c5ce;">(b)&lt;</span><span style="color:#d08770;">32</span><span style="color:#c0c5ce;">:</span><span style="color:#c0c5ce;">
-			ok = </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">
-			</span><span style="color:#b48ead;">break</span><span style="color:#c0c5ce;">
-	</span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">ok:</span><span style="color:#c0c5ce;">
-		lis4.</span><span style="color:#bf616a;">append</span><span style="color:#c0c5ce;">(lis3[a])</span><span style="color:#c0c5ce;">
-</span><span style="color:#96b5b4;">print</span><span style="color:#c0c5ce;">(lis4)</span><span style="color:#c0c5ce;">
+<code><span style="color:#65737e;"># -*- coding: utf-8 -*-
+# Python3
+# AutoBase.py
+</span><span style="color:#b48ead;">from </span><span style="color:#c0c5ce;">base64 </span><span style="color:#b48ead;">import </span><span style="color:#d08770;">*
+</span><span style="color:#c0c5ce;">s = </span><span style="color:#96b5b4;">input</span><span style="color:#c0c5ce;">()
+lis1 = [s]
+lis2 = []
+lis3 = []
+lis4 = []
+</span><span style="color:#b48ead;">while</span><span style="color:#c0c5ce;">(</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">):
+	</span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">a </span><span style="color:#b48ead;">in </span><span style="color:#c0c5ce;">lis1:
+		ok = </span><span style="color:#d08770;">0
+		</span><span style="color:#b48ead;">try</span><span style="color:#c0c5ce;">:
+			lis2.</span><span style="color:#bf616a;">append</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">b64decode</span><span style="color:#c0c5ce;">(a).</span><span style="color:#bf616a;">decode</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">ascii</span><span style="color:#c0c5ce;">&#39;))
+			ok = </span><span style="color:#d08770;">1
+		</span><span style="color:#b48ead;">except</span><span style="color:#c0c5ce;">:
+			</span><span style="color:#b48ead;">pass
+		try</span><span style="color:#c0c5ce;">:
+			lis2.</span><span style="color:#bf616a;">append</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">b32decode</span><span style="color:#c0c5ce;">(a).</span><span style="color:#bf616a;">decode</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">ascii</span><span style="color:#c0c5ce;">&#39;))
+			ok = </span><span style="color:#d08770;">1
+		</span><span style="color:#b48ead;">except</span><span style="color:#c0c5ce;">:
+			</span><span style="color:#b48ead;">pass
+		try</span><span style="color:#c0c5ce;">:
+			lis2.</span><span style="color:#bf616a;">append</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">b16decode</span><span style="color:#c0c5ce;">(a).</span><span style="color:#bf616a;">decode</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">ascii</span><span style="color:#c0c5ce;">&#39;))
+			ok = </span><span style="color:#d08770;">1
+		</span><span style="color:#b48ead;">except</span><span style="color:#c0c5ce;">:
+			</span><span style="color:#b48ead;">pass
+		if </span><span style="color:#c0c5ce;">not ok:
+			lis3.</span><span style="color:#bf616a;">append</span><span style="color:#c0c5ce;">(a)
+	</span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">not </span><span style="color:#96b5b4;">len</span><span style="color:#c0c5ce;">(lis2):
+		</span><span style="color:#b48ead;">break
+	</span><span style="color:#c0c5ce;">lis1=lis2.</span><span style="color:#bf616a;">copy</span><span style="color:#c0c5ce;">()
+	lis2.</span><span style="color:#bf616a;">clear</span><span style="color:#c0c5ce;">()
+</span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">a </span><span style="color:#b48ead;">in </span><span style="color:#96b5b4;">range</span><span style="color:#c0c5ce;">(</span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">,</span><span style="color:#96b5b4;">len</span><span style="color:#c0c5ce;">(lis3)):
+	ok = </span><span style="color:#d08770;">1
+	</span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">b </span><span style="color:#b48ead;">in </span><span style="color:#c0c5ce;">lis3[a]:
+		</span><span style="color:#b48ead;">if </span><span style="color:#96b5b4;">ord</span><span style="color:#c0c5ce;">(b)&gt;</span><span style="color:#d08770;">126 </span><span style="color:#c0c5ce;">or </span><span style="color:#96b5b4;">ord</span><span style="color:#c0c5ce;">(b)&lt;</span><span style="color:#d08770;">32</span><span style="color:#c0c5ce;">:
+			ok = </span><span style="color:#d08770;">0
+			</span><span style="color:#b48ead;">break
+	if </span><span style="color:#c0c5ce;">ok:
+		lis4.</span><span style="color:#bf616a;">append</span><span style="color:#c0c5ce;">(lis3[a])
+</span><span style="color:#96b5b4;">print</span><span style="color:#c0c5ce;">(lis4)
 </span></code></pre><h1 id="lou-dong-ping-tai">漏洞平台</h1>
 <p>http://www.cnnvd.org.cn/</p>
 <p>http://www.cnvd.org.cn/</p>

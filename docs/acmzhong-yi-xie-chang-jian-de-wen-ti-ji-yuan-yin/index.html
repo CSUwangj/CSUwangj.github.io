@@ -124,68 +124,67 @@ renderMathInElement(document.body, katex_config);
 <p>我觉得这篇文章阅读方式可以按照《C语言常见问题集》，遇到问题了来看看也行，电脑阅读的时候右边应该会有个目录可以跳转，顺着读一遍也行。</p>
 <p>文章只能慢慢更新，因为我并不想随意地对待这种难得的问题，然而工作在身并不能全身心投入。</p>
 <p>以下内容如无特殊声明，采用C99和C++11标准。</p>
-<span id="continue-reading"></span>
-<h1 id="wei-shi-yao-zai-du-ru-de-shi-hou-bu-jia-jing-chang-hui-re-dan-shi-shu-zu-ming-bu-jia-jiu-mei-wen-ti">为什么在读入的时候不加&amp;经常会 RE，但是数组名不加&amp;就没问题？</h1>
+<span id="continue-reading"></span><h1 id="wei-shi-yao-zai-du-ru-de-shi-hou-bu-jia-jing-chang-hui-re-dan-shi-shu-zu-ming-bu-jia-jiu-mei-wen-ti">为什么在读入的时候不加&amp;经常会 RE，但是数组名不加&amp;就没问题？</h1>
 <p>我们直接来看一段代码：</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#b48ead;">#include </span><span style="color:#c0c5ce;">&lt;</span><span style="color:#a3be8c;">stdio.h</span><span style="color:#c0c5ce;">&gt;</span><span style="color:#c0c5ce;">
-</span><span style="color:#c0c5ce;">
-</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main</span><span style="color:#c0c5ce;">()</span><span style="color:#c0c5ce;">
-{</span><span style="color:#c0c5ce;">
-    </span><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> a;</span><span style="color:#c0c5ce;">
-    </span><span style="color:#96b5b4;">scanf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#d08770;">%d</span><span style="color:#c0c5ce;">&quot;, a);</span><span style="color:#c0c5ce;">
-    </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;</span><span style="color:#c0c5ce;">
-}</span><span style="color:#c0c5ce;">
+<code><span style="color:#b48ead;">#include </span><span style="color:#c0c5ce;">&lt;</span><span style="color:#a3be8c;">stdio.h</span><span style="color:#c0c5ce;">&gt;
+
+</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main</span><span style="color:#c0c5ce;">()
+{
+    </span><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> a;
+    </span><span style="color:#96b5b4;">scanf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#d08770;">%d</span><span style="color:#c0c5ce;">&quot;, a);
+    </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;
+}
 </span></code></pre>
 <p>编译运行的结果基本是<code>Segmentation fault (core dumped)</code>，如果是在windows上用codeblocks、devcpp之类的写的程序，多半会看到<img src="https://CSUwangj.github.io/acmzhong-yi-xie-chang-jian-de-wen-ti-ji-yuan-yin/1573525655820.png" alt="1573525460495 %}或者{% asset_img 1573526342103.png 1573526342103 %}如果是devcpp，还可能是在一段时间的无响应后退出，同时返回值是一个大得惊人的数字{% asset_img 1573525655820.png 1573525655820" /></p>
 <p>这里我们需要对比一下<code>a</code>和<code>&amp;a</code>的区别，我们先直接把它们打印出来看一下。</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#b48ead;">#include </span><span style="color:#c0c5ce;">&lt;</span><span style="color:#a3be8c;">stdio.h</span><span style="color:#c0c5ce;">&gt;</span><span style="color:#c0c5ce;">
-</span><span style="color:#c0c5ce;">
-</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main</span><span style="color:#c0c5ce;">()</span><span style="color:#c0c5ce;">
-{</span><span style="color:#c0c5ce;">
-    </span><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> a;</span><span style="color:#c0c5ce;">
-    </span><span style="color:#96b5b4;">printf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#d08770;">%x</span><span style="color:#96b5b4;">\n</span><span style="color:#d08770;">%x</span><span style="color:#96b5b4;">\n</span><span style="color:#c0c5ce;">&quot;, a, &amp;a); </span><span style="color:#c0c5ce;">
-    </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;</span><span style="color:#c0c5ce;">
-}</span><span style="color:#c0c5ce;">
+<code><span style="color:#b48ead;">#include </span><span style="color:#c0c5ce;">&lt;</span><span style="color:#a3be8c;">stdio.h</span><span style="color:#c0c5ce;">&gt;
+
+</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main</span><span style="color:#c0c5ce;">()
+{
+    </span><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> a;
+    </span><span style="color:#96b5b4;">printf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#d08770;">%x</span><span style="color:#96b5b4;">\n</span><span style="color:#d08770;">%x</span><span style="color:#96b5b4;">\n</span><span style="color:#c0c5ce;">&quot;, a, &amp;a); 
+    </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;
+}
 </span></code></pre>
 <p><code>%x</code>的意思是按十六进制打印，运行我们应该会看到类似如下的结果：</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#bf616a;">➜</span><span style="color:#c0c5ce;">  ./format</span><span style="color:#c0c5ce;">
-</span><span style="color:#bf616a;">0  </span><span style="color:#65737e;"># 这里值不一定，也可能不是0</span><span style="color:#65737e;">
-</span><span style="color:#bf616a;">f35ab98c </span><span style="color:#65737e;"># 这里的值也不一定，但是通常会很大，比如这个十六进制转成十进制就是‭3759417480‬</span><span style="color:#65737e;">
+<code><span style="color:#bf616a;">➜</span><span style="color:#c0c5ce;">  ./format
+</span><span style="color:#bf616a;">0  </span><span style="color:#65737e;"># 这里值不一定，也可能不是0
+</span><span style="color:#bf616a;">f35ab98c </span><span style="color:#65737e;"># 这里的值也不一定，但是通常会很大，比如这个十六进制转成十进制就是‭3759417480‬
 </span></code></pre>
 <p>这里我们再进一步，做一个测试，首先我们改写程序，其次用系统工具查看一下系统调用。</p>
 <p>先介绍一下我们用到的工具：</p>
 <p><code>echo</code>是能将输入原样输出的一个程序，如果下面是一个运行的例子：</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#bf616a;">➜</span><span style="color:#c0c5ce;">  echo 12341234</span><span style="color:#c0c5ce;">
-</span><span style="color:#bf616a;">12341234</span><span style="color:#c0c5ce;">
+<code><span style="color:#bf616a;">➜</span><span style="color:#c0c5ce;">  echo 12341234
+</span><span style="color:#bf616a;">12341234
 </span></code></pre>
 <p><code>ltrace</code>是一个能跟踪库函数调用的工具，也就是说它能追踪到你程序调用的库里的类似<code>scanf</code>、<code>printf</code>这样的函数并且把调用函数的参数打印出来。</p>
 <p>然后我们对下面这段程序使用上面写的工具，把<code>1234 1234</code>作为输入喂给程序。</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#b48ead;">#include </span><span style="color:#c0c5ce;">&lt;</span><span style="color:#a3be8c;">stdio.h</span><span style="color:#c0c5ce;">&gt;</span><span style="color:#c0c5ce;">
-</span><span style="color:#c0c5ce;">
-</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main</span><span style="color:#c0c5ce;">()</span><span style="color:#c0c5ce;">
-{</span><span style="color:#c0c5ce;">
-    </span><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> a;</span><span style="color:#c0c5ce;">
-    </span><span style="color:#96b5b4;">printf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#d08770;">%d</span><span style="color:#c0c5ce;">&quot;, a);</span><span style="color:#c0c5ce;">
-    </span><span style="color:#96b5b4;">printf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#d08770;">%d</span><span style="color:#c0c5ce;">&quot;, &amp;a);</span><span style="color:#c0c5ce;">
-    </span><span style="color:#96b5b4;">scanf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#d08770;">%d</span><span style="color:#c0c5ce;">&quot;, &amp;a);</span><span style="color:#c0c5ce;">
-    </span><span style="color:#96b5b4;">scanf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#d08770;">%d</span><span style="color:#c0c5ce;">&quot;, a);</span><span style="color:#c0c5ce;">
-    </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;</span><span style="color:#c0c5ce;">
-}</span><span style="color:#c0c5ce;">
+<code><span style="color:#b48ead;">#include </span><span style="color:#c0c5ce;">&lt;</span><span style="color:#a3be8c;">stdio.h</span><span style="color:#c0c5ce;">&gt;
+
+</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main</span><span style="color:#c0c5ce;">()
+{
+    </span><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> a;
+    </span><span style="color:#96b5b4;">printf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#d08770;">%d</span><span style="color:#c0c5ce;">&quot;, a);
+    </span><span style="color:#96b5b4;">printf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#d08770;">%d</span><span style="color:#c0c5ce;">&quot;, &amp;a);
+    </span><span style="color:#96b5b4;">scanf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#d08770;">%d</span><span style="color:#c0c5ce;">&quot;, &amp;a);
+    </span><span style="color:#96b5b4;">scanf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#d08770;">%d</span><span style="color:#c0c5ce;">&quot;, a);
+    </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;
+}
 </span></code></pre>
 <p>运行结果如下：</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#bf616a;">➜</span><span style="color:#c0c5ce;">  echo &quot;</span><span style="color:#a3be8c;">1234 1234</span><span style="color:#c0c5ce;">&quot; | </span><span style="color:#bf616a;">ltrace</span><span style="color:#c0c5ce;"> ./format</span><span style="color:#c0c5ce;">
-</span><span style="color:#bf616a;">printf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">%d</span><span style="color:#c0c5ce;">&quot;, 0)                                             = </span><span style="color:#bf616a;">1</span><span style="color:#c0c5ce;">
-</span><span style="color:#bf616a;">printf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">%d</span><span style="color:#c0c5ce;">&quot;,</span><span style="color:#bf616a;"> -787805524</span><span style="color:#c0c5ce;">)                                    = </span><span style="color:#bf616a;">10</span><span style="color:#c0c5ce;">
-</span><span style="color:#bf616a;">__isoc99_scanf</span><span style="color:#c0c5ce;">(0x7fa859609004, 0x7fffd10b0aac, 0x7fa85959d8c0, 0) = </span><span style="color:#bf616a;">1</span><span style="color:#c0c5ce;">
-</span><span style="color:#bf616a;">__isoc99_scanf</span><span style="color:#c0c5ce;">(0x7fa859609004, 1234, 0x7fa85959d8d0, 16 &lt;no return ...&gt;</span><span style="color:#c0c5ce;">
-</span><span style="color:#bf616a;">---</span><span style="color:#c0c5ce;"> SIGSEGV (Segmentation fault) </span><span style="color:#bf616a;">---</span><span style="color:#c0c5ce;">
-</span><span style="color:#bf616a;">+++</span><span style="color:#c0c5ce;"> killed by SIGSEGV +++</span><span style="color:#c0c5ce;">
+<code><span style="color:#bf616a;">➜</span><span style="color:#c0c5ce;">  echo &quot;</span><span style="color:#a3be8c;">1234 1234</span><span style="color:#c0c5ce;">&quot; | </span><span style="color:#bf616a;">ltrace</span><span style="color:#c0c5ce;"> ./format
+</span><span style="color:#bf616a;">printf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">%d</span><span style="color:#c0c5ce;">&quot;, 0)                                             = </span><span style="color:#bf616a;">1
+printf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">%d</span><span style="color:#c0c5ce;">&quot;,</span><span style="color:#bf616a;"> -787805524</span><span style="color:#c0c5ce;">)                                    = </span><span style="color:#bf616a;">10
+__isoc99_scanf</span><span style="color:#c0c5ce;">(0x7fa859609004, 0x7fffd10b0aac, 0x7fa85959d8c0, 0) = </span><span style="color:#bf616a;">1
+__isoc99_scanf</span><span style="color:#c0c5ce;">(0x7fa859609004, 1234, 0x7fa85959d8d0, 16 &lt;no return ...&gt;
+--- SIGSEGV (Segmentation fault) </span><span style="color:#bf616a;">---
++++</span><span style="color:#c0c5ce;"> killed by SIGSEGV +++
 </span></code></pre>
 <p>我们可以看到，<code>printf</code>打印出了<code>a</code>的值，也就是<code>0</code>，同时第一个赋值没有出错，将<code>a</code>改为了1234，但是接下来的一行代码又出现了1234这个数字<code>__isoc99_scanf(0x7fa859609004, 1234, 0x7fa85959d8d0, 16 &lt;no return ...&gt;</code>。重复实验并且改变输入的数字，会发现这一行调用函数的第二个参数总是我们输入的第一个数字，也就是第一次给a赋值并成功的结果。</p>
 <p>学过操作系统的同学或者对计算机组成有所了解的同学会知道，程序运行时的各种所需都是存储在内存里的，变量也不例外，而它们在内存里都是有个地址的。基于这些知识和刚才实验的结果，我们可以推测，<code>scanf(&quot;%d&quot;, a);</code>是将a的值认为是一个指针的地址并尝试向里面写入数据，但是a的默认值并不一定是一块给写数据的内存空间，这时候就引发了一个错误。</p>
@@ -211,17 +210,17 @@ renderMathInElement(document.body, katex_config);
 <p>这里C语言熟练的朋友就知道，局部自动(auto)变量定义时候不会隐式初始化，所以a的值是不确定的，把它直接给scanf用的结果大抵相当于向野指针指的地方写数据。所以段错误什么的很正常吧，</p>
 <p>那么为什么下面这段代码不会出错呢？</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#b48ead;">#include </span><span style="color:#c0c5ce;">&lt;</span><span style="color:#a3be8c;">stdio.h</span><span style="color:#c0c5ce;">&gt;</span><span style="color:#c0c5ce;">
-</span><span style="color:#c0c5ce;">
-</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main</span><span style="color:#c0c5ce;">()</span><span style="color:#c0c5ce;">
-{</span><span style="color:#c0c5ce;">
-    </span><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> a[</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">];</span><span style="color:#c0c5ce;">
-    </span><span style="color:#96b5b4;">printf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#d08770;">%d</span><span style="color:#c0c5ce;">&quot;, a);</span><span style="color:#c0c5ce;">
-    </span><span style="color:#96b5b4;">printf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#d08770;">%d</span><span style="color:#c0c5ce;">&quot;, &amp;a);</span><span style="color:#c0c5ce;">
-    </span><span style="color:#96b5b4;">scanf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#d08770;">%d</span><span style="color:#c0c5ce;">&quot;, &amp;a);</span><span style="color:#c0c5ce;">
-    </span><span style="color:#96b5b4;">scanf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#d08770;">%d</span><span style="color:#c0c5ce;">&quot;, a);</span><span style="color:#c0c5ce;">
-    </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;</span><span style="color:#c0c5ce;">
-}</span><span style="color:#c0c5ce;">
+<code><span style="color:#b48ead;">#include </span><span style="color:#c0c5ce;">&lt;</span><span style="color:#a3be8c;">stdio.h</span><span style="color:#c0c5ce;">&gt;
+
+</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main</span><span style="color:#c0c5ce;">()
+{
+    </span><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> a[</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">];
+    </span><span style="color:#96b5b4;">printf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#d08770;">%d</span><span style="color:#c0c5ce;">&quot;, a);
+    </span><span style="color:#96b5b4;">printf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#d08770;">%d</span><span style="color:#c0c5ce;">&quot;, &amp;a);
+    </span><span style="color:#96b5b4;">scanf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#d08770;">%d</span><span style="color:#c0c5ce;">&quot;, &amp;a);
+    </span><span style="color:#96b5b4;">scanf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#d08770;">%d</span><span style="color:#c0c5ce;">&quot;, a);
+    </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;
+}
 </span></code></pre>
 <blockquote>
 <p>因为数组名是常量指针。</p>
@@ -230,126 +229,126 @@ renderMathInElement(document.body, katex_config);
 <h1 id="zai-han-shu-li-kai-bu-liao-da-shu-zu-ma">在函数里开不了大数组吗？</h1>
 <p>这里我们继续用代码做实验</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#b48ead;">#include </span><span style="color:#c0c5ce;">&lt;</span><span style="color:#a3be8c;">stdio.h</span><span style="color:#c0c5ce;">&gt;</span><span style="color:#c0c5ce;">
-</span><span style="color:#c0c5ce;">
-</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main</span><span style="color:#c0c5ce;">()</span><span style="color:#c0c5ce;">
-{</span><span style="color:#c0c5ce;">
-    </span><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> a[</span><span style="color:#d08770;">524288</span><span style="color:#c0c5ce;">];</span><span style="color:#c0c5ce;">
-    </span><span style="color:#96b5b4;">printf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">OK</span><span style="color:#96b5b4;">\n</span><span style="color:#c0c5ce;">&quot;);</span><span style="color:#c0c5ce;">
-    </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;</span><span style="color:#c0c5ce;">
-}</span><span style="color:#c0c5ce;">
+<code><span style="color:#b48ead;">#include </span><span style="color:#c0c5ce;">&lt;</span><span style="color:#a3be8c;">stdio.h</span><span style="color:#c0c5ce;">&gt;
+
+</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main</span><span style="color:#c0c5ce;">()
+{
+    </span><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> a[</span><span style="color:#d08770;">524288</span><span style="color:#c0c5ce;">];
+    </span><span style="color:#96b5b4;">printf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">OK</span><span style="color:#96b5b4;">\n</span><span style="color:#c0c5ce;">&quot;);
+    </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;
+}
 </span></code></pre>
 <p>编译运行，程序多半并不能让我们看到<code>OK</code>，而是会出现和前面一样的情况，也就是段错误。（如果没出现就把这个数字翻几倍就能看到效果了）。</p>
 <p>简单来说的话，函数中声明定义的非全局、非static，且没有使用<code>*alloc</code>、<code>new</code>产生的变量都会被放在栈上，栈的大小由编译选项决定，在我的电脑上大致就是能开500,000个int的大小。也可以在OJ上测试一下栈的大小，但同时并不建议在栈上开这么大，在ACM中还是全局的数组比较好用。</p>
 <h1 id="wo-kai-liao-yi-ge-hen-da-de-quan-ju-shu-zu-dan-shi-bian-yi-wu-fa-tong-guo-zhe-shi-wei-shi-yao">我开了一个很大的全局数组，但是编译无法通过，这是为什么？</h1>
 <p>编译器会阻止你开一个大小超过size_t表达范围的数组，也就是<code>sizeof</code>不会超过表达范围导致溢出的范围。而size_t是一个和平台相关的数据结构，在32位Linux机下，有以下结果：</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#bf616a;">root@vultr:~#</span><span style="color:#c0c5ce;"> cat test.c</span><span style="color:#c0c5ce;">
-</span><span style="color:#65737e;">#include&lt;stdio.h&gt;</span><span style="color:#65737e;">
-</span><span style="color:#bf616a;">int</span><span style="color:#c0c5ce;"> a</span><span style="color:#b48ead;">[</span><span style="color:#c0c5ce;">10000000000</span><span style="color:#b48ead;">]</span><span style="color:#c0c5ce;">;</span><span style="color:#c0c5ce;">
-</span><span style="color:#bf616a;">int</span><span style="color:#c0c5ce;"> main()</span><span style="color:#c0c5ce;">
-</span><span style="color:#bf616a;">{</span><span style="color:#c0c5ce;">
-        </span><span style="color:#bf616a;">printf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">%d\n%d</span><span style="color:#c0c5ce;">&quot;,sizeof(size_t)</span><span style="color:#bf616a;">,sizeof</span><span style="color:#c0c5ce;">(long long));</span><span style="color:#c0c5ce;">
-        </span><span style="color:#b48ead;">return</span><span style="color:#c0c5ce;"> 0;</span><span style="color:#c0c5ce;">
-}</span><span style="color:#c0c5ce;">
-</span><span style="color:#c0c5ce;">
-</span><span style="color:#bf616a;">root@vultr:~#</span><span style="color:#c0c5ce;"> gcc test.c</span><span style="color:#bf616a;">  -o</span><span style="color:#c0c5ce;"> test</span><span style="color:#c0c5ce;">
-</span><span style="color:#bf616a;">test.c:2:5:</span><span style="color:#c0c5ce;"> error: size of array ‘a’ is too large</span><span style="color:#c0c5ce;">
- </span><span style="color:#bf616a;">int</span><span style="color:#c0c5ce;"> a</span><span style="color:#b48ead;">[</span><span style="color:#c0c5ce;">10000000000</span><span style="color:#b48ead;">]</span><span style="color:#c0c5ce;">;</span><span style="color:#c0c5ce;">
-     </span><span style="color:#bf616a;">^</span><span style="color:#c0c5ce;">
+<code><span style="color:#bf616a;">root@vultr:~#</span><span style="color:#c0c5ce;"> cat test.c
+</span><span style="color:#65737e;">#include&lt;stdio.h&gt;
+</span><span style="color:#c0c5ce;">int a</span><span style="color:#b48ead;">[</span><span style="color:#c0c5ce;">10000000000</span><span style="color:#b48ead;">]</span><span style="color:#c0c5ce;">;
+</span><span style="color:#bf616a;">int</span><span style="color:#c0c5ce;"> main()
+{
+        </span><span style="color:#bf616a;">printf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">%d\n%d</span><span style="color:#c0c5ce;">&quot;,sizeof(size_t)</span><span style="color:#bf616a;">,sizeof</span><span style="color:#c0c5ce;">(long long));
+        </span><span style="color:#b48ead;">return</span><span style="color:#c0c5ce;"> 0;
+}
+
+</span><span style="color:#bf616a;">root@vultr:~#</span><span style="color:#c0c5ce;"> gcc test.c</span><span style="color:#bf616a;">  -o</span><span style="color:#c0c5ce;"> test
+</span><span style="color:#bf616a;">test.c:2:5:</span><span style="color:#c0c5ce;"> error: size of array ‘a’ is too large
+ </span><span style="color:#bf616a;">int</span><span style="color:#c0c5ce;"> a</span><span style="color:#b48ead;">[</span><span style="color:#c0c5ce;">10000000000</span><span style="color:#b48ead;">]</span><span style="color:#c0c5ce;">;
+     </span><span style="color:#bf616a;">^
 </span></code></pre>
 <p>而在64位Linux机下：</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#bf616a;">root@vultr:~#</span><span style="color:#c0c5ce;"> cat test.c</span><span style="color:#c0c5ce;">
-</span><span style="color:#65737e;">#include&lt;stdio.h&gt;</span><span style="color:#65737e;">
-</span><span style="color:#bf616a;">int</span><span style="color:#c0c5ce;"> a</span><span style="color:#b48ead;">[</span><span style="color:#c0c5ce;">10000000000</span><span style="color:#b48ead;">]</span><span style="color:#c0c5ce;">;</span><span style="color:#c0c5ce;">
-</span><span style="color:#bf616a;">int</span><span style="color:#c0c5ce;"> main()</span><span style="color:#c0c5ce;">
-</span><span style="color:#bf616a;">{</span><span style="color:#c0c5ce;">
-                </span><span style="color:#bf616a;">printf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">%d\n%d</span><span style="color:#c0c5ce;">&quot;,sizeof(size_t)</span><span style="color:#bf616a;">,sizeof</span><span style="color:#c0c5ce;">(long long));</span><span style="color:#c0c5ce;">
-                        </span><span style="color:#b48ead;">return</span><span style="color:#c0c5ce;"> 0;</span><span style="color:#c0c5ce;">
-}</span><span style="color:#c0c5ce;">
-</span><span style="color:#c0c5ce;">
-</span><span style="color:#bf616a;">root@vultr:~#</span><span style="color:#c0c5ce;"> gcc test.c</span><span style="color:#bf616a;"> -o</span><span style="color:#c0c5ce;"> test</span><span style="color:#c0c5ce;">
-</span><span style="color:#bf616a;">root@vultr:~#</span><span style="color:#c0c5ce;"> cat test2.c</span><span style="color:#c0c5ce;">
-</span><span style="color:#65737e;">#include&lt;stdio.h&gt;</span><span style="color:#65737e;">
-</span><span style="color:#bf616a;">int</span><span style="color:#c0c5ce;"> a</span><span style="color:#b48ead;">[</span><span style="color:#c0c5ce;">10000000000000000000</span><span style="color:#b48ead;">]</span><span style="color:#c0c5ce;">;</span><span style="color:#c0c5ce;">
-</span><span style="color:#bf616a;">int</span><span style="color:#c0c5ce;"> main()</span><span style="color:#c0c5ce;">
-</span><span style="color:#bf616a;">{</span><span style="color:#c0c5ce;">
-                </span><span style="color:#bf616a;">printf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">%d\n%d</span><span style="color:#c0c5ce;">&quot;,sizeof(size_t)</span><span style="color:#bf616a;">,sizeof</span><span style="color:#c0c5ce;">(long long));</span><span style="color:#c0c5ce;">
-                        </span><span style="color:#b48ead;">return</span><span style="color:#c0c5ce;"> 0;</span><span style="color:#c0c5ce;">
-}</span><span style="color:#c0c5ce;">
-</span><span style="color:#c0c5ce;">
-</span><span style="color:#bf616a;">root@vultr:~#</span><span style="color:#c0c5ce;"> gcc test2.c</span><span style="color:#bf616a;"> -o</span><span style="color:#c0c5ce;"> test2</span><span style="color:#c0c5ce;">
-</span><span style="color:#bf616a;">test2.c:2:5:</span><span style="color:#c0c5ce;"> error: size of array ‘a’ is too large</span><span style="color:#c0c5ce;">
- </span><span style="color:#bf616a;">int</span><span style="color:#c0c5ce;"> a</span><span style="color:#b48ead;">[</span><span style="color:#c0c5ce;">10000000000000000000</span><span style="color:#b48ead;">]</span><span style="color:#c0c5ce;">;</span><span style="color:#c0c5ce;">
-     </span><span style="color:#bf616a;">^</span><span style="color:#c0c5ce;">
+<code><span style="color:#bf616a;">root@vultr:~#</span><span style="color:#c0c5ce;"> cat test.c
+</span><span style="color:#65737e;">#include&lt;stdio.h&gt;
+</span><span style="color:#c0c5ce;">int a</span><span style="color:#b48ead;">[</span><span style="color:#c0c5ce;">10000000000</span><span style="color:#b48ead;">]</span><span style="color:#c0c5ce;">;
+</span><span style="color:#bf616a;">int</span><span style="color:#c0c5ce;"> main()
+{
+                </span><span style="color:#bf616a;">printf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">%d\n%d</span><span style="color:#c0c5ce;">&quot;,sizeof(size_t)</span><span style="color:#bf616a;">,sizeof</span><span style="color:#c0c5ce;">(long long));
+                        </span><span style="color:#b48ead;">return</span><span style="color:#c0c5ce;"> 0;
+}
+
+</span><span style="color:#bf616a;">root@vultr:~#</span><span style="color:#c0c5ce;"> gcc test.c</span><span style="color:#bf616a;"> -o</span><span style="color:#c0c5ce;"> test
+</span><span style="color:#bf616a;">root@vultr:~#</span><span style="color:#c0c5ce;"> cat test2.c
+</span><span style="color:#65737e;">#include&lt;stdio.h&gt;
+</span><span style="color:#c0c5ce;">int a</span><span style="color:#b48ead;">[</span><span style="color:#c0c5ce;">10000000000000000000</span><span style="color:#b48ead;">]</span><span style="color:#c0c5ce;">;
+</span><span style="color:#bf616a;">int</span><span style="color:#c0c5ce;"> main()
+{
+                </span><span style="color:#bf616a;">printf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">%d\n%d</span><span style="color:#c0c5ce;">&quot;,sizeof(size_t)</span><span style="color:#bf616a;">,sizeof</span><span style="color:#c0c5ce;">(long long));
+                        </span><span style="color:#b48ead;">return</span><span style="color:#c0c5ce;"> 0;
+}
+
+</span><span style="color:#bf616a;">root@vultr:~#</span><span style="color:#c0c5ce;"> gcc test2.c</span><span style="color:#bf616a;"> -o</span><span style="color:#c0c5ce;"> test2
+</span><span style="color:#bf616a;">test2.c:2:5:</span><span style="color:#c0c5ce;"> error: size of array ‘a’ is too large
+ </span><span style="color:#bf616a;">int</span><span style="color:#c0c5ce;"> a</span><span style="color:#b48ead;">[</span><span style="color:#c0c5ce;">10000000000000000000</span><span style="color:#b48ead;">]</span><span style="color:#c0c5ce;">;
+     </span><span style="color:#bf616a;">^
 </span></code></pre><h1 id="wo-kai-liao-yi-ge-shao-xiao-yi-xie-de-quan-ju-shu-zu-wei-shi-yao-bian-yi-huan-shi-shi-bai-liao-er-qie-cuo-wu-de-yuan-yin-fei-chang-fu-za">我开了一个稍小一些的全局数组，为什么编译还是失败了而且错误的原因非常复杂？</h1>
 <p>把错误名单上下拉动找一下，通常能看到下图类似的东西，说明你遇到的正是我现在要说的这个问题：</p>
 <p><img src="https://CSUwangj.github.io/acmzhong-yi-xie-chang-jian-de-wen-ti-ji-yuan-yin/1573571964453.png" alt="1573571964453" /></p>
 <p>首先需要了解的知识是一个可执行文件的文件格式，在Windows上的是PE文件格式（包括<code>.exe</code>、<code>.dll文</code>件），Linux上则是ELF文件。不过这里不做深入解析，大家只需要知道这些文件的一个构成部分是各种节。</p>
 <p>在Linux上使用<code>size</code>这个工具可以查看ELF文件的各个节的大小，这里我们准备三份代码，编译并使用size查看。</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#65737e;">// where_is_global.cpp</span><span style="color:#65737e;">
-</span><span style="color:#b48ead;">#include</span><span style="color:#c0c5ce;">&lt;</span><span style="color:#a3be8c;">stdio.h</span><span style="color:#c0c5ce;">&gt;</span><span style="color:#c0c5ce;">
-</span><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> a[</span><span style="color:#d08770;">1024</span><span style="color:#c0c5ce;">];</span><span style="color:#c0c5ce;">
-</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main</span><span style="color:#c0c5ce;">()</span><span style="color:#c0c5ce;">
-{</span><span style="color:#c0c5ce;">
-    </span><span style="color:#96b5b4;">printf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#d08770;">%O</span><span style="color:#a3be8c;">K</span><span style="color:#c0c5ce;">&quot;);</span><span style="color:#c0c5ce;">
-    </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;</span><span style="color:#c0c5ce;">
-}</span><span style="color:#c0c5ce;">
+<code><span style="color:#65737e;">// where_is_global.cpp
+</span><span style="color:#b48ead;">#include</span><span style="color:#c0c5ce;">&lt;</span><span style="color:#a3be8c;">stdio.h</span><span style="color:#c0c5ce;">&gt;
+</span><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> a[</span><span style="color:#d08770;">1024</span><span style="color:#c0c5ce;">];
+</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main</span><span style="color:#c0c5ce;">()
+{
+    </span><span style="color:#96b5b4;">printf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#d08770;">%O</span><span style="color:#a3be8c;">K</span><span style="color:#c0c5ce;">&quot;);
+    </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;
+}
 </span></code></pre><pre style="background-color:#2b303b;">
-<code><span style="color:#65737e;">// where_is_global2.cpp</span><span style="color:#65737e;">
-</span><span style="color:#b48ead;">#include</span><span style="color:#c0c5ce;">&lt;</span><span style="color:#a3be8c;">stdio.h</span><span style="color:#c0c5ce;">&gt;</span><span style="color:#c0c5ce;">
-</span><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> a[</span><span style="color:#d08770;">2048</span><span style="color:#c0c5ce;">];</span><span style="color:#c0c5ce;">
-</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main</span><span style="color:#c0c5ce;">()</span><span style="color:#c0c5ce;">
-{</span><span style="color:#c0c5ce;">
-    </span><span style="color:#96b5b4;">printf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#d08770;">%O</span><span style="color:#a3be8c;">K</span><span style="color:#c0c5ce;">&quot;);</span><span style="color:#c0c5ce;">
-    </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;</span><span style="color:#c0c5ce;">
-}</span><span style="color:#c0c5ce;">
+<code><span style="color:#65737e;">// where_is_global2.cpp
+</span><span style="color:#b48ead;">#include</span><span style="color:#c0c5ce;">&lt;</span><span style="color:#a3be8c;">stdio.h</span><span style="color:#c0c5ce;">&gt;
+</span><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> a[</span><span style="color:#d08770;">2048</span><span style="color:#c0c5ce;">];
+</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main</span><span style="color:#c0c5ce;">()
+{
+    </span><span style="color:#96b5b4;">printf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#d08770;">%O</span><span style="color:#a3be8c;">K</span><span style="color:#c0c5ce;">&quot;);
+    </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;
+}
 </span></code></pre><pre style="background-color:#2b303b;">
-<code><span style="color:#65737e;">// where_is_global3.cpp</span><span style="color:#65737e;">
-</span><span style="color:#b48ead;">#include</span><span style="color:#c0c5ce;">&lt;</span><span style="color:#a3be8c;">stdio.h</span><span style="color:#c0c5ce;">&gt;</span><span style="color:#c0c5ce;">
-</span><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> a[</span><span style="color:#d08770;">1024</span><span style="color:#c0c5ce;">] = {</span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">};</span><span style="color:#c0c5ce;">
-</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main</span><span style="color:#c0c5ce;">()</span><span style="color:#c0c5ce;">
-{</span><span style="color:#c0c5ce;">
-    </span><span style="color:#96b5b4;">printf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#d08770;">%O</span><span style="color:#a3be8c;">K</span><span style="color:#c0c5ce;">&quot;);</span><span style="color:#c0c5ce;">
-    </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;</span><span style="color:#c0c5ce;">
-}</span><span style="color:#c0c5ce;">
+<code><span style="color:#65737e;">// where_is_global3.cpp
+</span><span style="color:#b48ead;">#include</span><span style="color:#c0c5ce;">&lt;</span><span style="color:#a3be8c;">stdio.h</span><span style="color:#c0c5ce;">&gt;
+</span><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> a[</span><span style="color:#d08770;">1024</span><span style="color:#c0c5ce;">] = {</span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">};
+</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main</span><span style="color:#c0c5ce;">()
+{
+    </span><span style="color:#96b5b4;">printf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#d08770;">%O</span><span style="color:#a3be8c;">K</span><span style="color:#c0c5ce;">&quot;);
+    </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;
+}
 </span></code></pre><pre style="background-color:#2b303b;">
-<code><span style="color:#bf616a;">$</span><span style="color:#c0c5ce;"> size where_is_global</span><span style="color:#c0c5ce;">
-   </span><span style="color:#bf616a;">text</span><span style="color:#c0c5ce;">    data     bss     dec     hex filename</span><span style="color:#c0c5ce;">
-   </span><span style="color:#bf616a;">1467</span><span style="color:#c0c5ce;">     584    4128    6179    1823 where_is_global</span><span style="color:#c0c5ce;">
-</span><span style="color:#bf616a;">$</span><span style="color:#c0c5ce;"> size where_is_global2</span><span style="color:#c0c5ce;">
-   </span><span style="color:#bf616a;">text</span><span style="color:#c0c5ce;">    data     bss     dec     hex filename</span><span style="color:#c0c5ce;">
-   </span><span style="color:#bf616a;">1467</span><span style="color:#c0c5ce;">     584    8224   10275    2823 where_is_global2</span><span style="color:#c0c5ce;">
-</span><span style="color:#bf616a;">$</span><span style="color:#c0c5ce;"> size where_is_global3</span><span style="color:#c0c5ce;">
-   </span><span style="color:#bf616a;">text</span><span style="color:#c0c5ce;">    data     bss     dec     hex filename</span><span style="color:#c0c5ce;">
-   </span><span style="color:#bf616a;">1467</span><span style="color:#c0c5ce;">     584    4128    6179    1823 where_is_global3</span><span style="color:#c0c5ce;">
+<code><span style="color:#bf616a;">$</span><span style="color:#c0c5ce;"> size where_is_global
+   </span><span style="color:#bf616a;">text</span><span style="color:#c0c5ce;">    data     bss     dec     hex filename
+   </span><span style="color:#bf616a;">1467</span><span style="color:#c0c5ce;">     584    4128    6179    1823 where_is_global
+</span><span style="color:#bf616a;">$</span><span style="color:#c0c5ce;"> size where_is_global2
+   </span><span style="color:#bf616a;">text</span><span style="color:#c0c5ce;">    data     bss     dec     hex filename
+   </span><span style="color:#bf616a;">1467</span><span style="color:#c0c5ce;">     584    8224   10275    2823 where_is_global2
+</span><span style="color:#bf616a;">$</span><span style="color:#c0c5ce;"> size where_is_global3
+   </span><span style="color:#bf616a;">text</span><span style="color:#c0c5ce;">    data     bss     dec     hex filename
+   </span><span style="color:#bf616a;">1467</span><span style="color:#c0c5ce;">     584    4128    6179    1823 where_is_global3
 </span></code></pre>
 <p>可以看到区别仅在于bss所对应的数字，也就是说默认情况下，全局变量在编译后文件存放于.bss节，这也就是出现问题的原因。</p>
 <p>默认情况下gcc对节的大小做了限制，如果超过的情况下就会出现这样的错误。但是这个是可以通过编译选项调整的，所以在不同的OJ上可能有不同的结果，在不同的环境下也不一定都能触发这个错误，下面是一份能在我的电脑上（Windows10 1903 Build, devcpp）触发的代码：</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#b48ead;">#include</span><span style="color:#c0c5ce;">&lt;</span><span style="color:#a3be8c;">stdio.h</span><span style="color:#c0c5ce;">&gt;</span><span style="color:#c0c5ce;">
-</span><span style="color:#c0c5ce;">
-</span><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> a[</span><span style="color:#d08770;">1000000000000000000</span><span style="color:#b48ead;">L</span><span style="color:#c0c5ce;">];</span><span style="color:#c0c5ce;">
-</span><span style="color:#c0c5ce;">
-</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main</span><span style="color:#c0c5ce;">()</span><span style="color:#c0c5ce;">
-{</span><span style="color:#c0c5ce;">
-    </span><span style="color:#96b5b4;">printf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#d08770;">%d</span><span style="color:#a3be8c;">K</span><span style="color:#96b5b4;">\n</span><span style="color:#c0c5ce;">&quot;,</span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">);</span><span style="color:#c0c5ce;">
-    </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;</span><span style="color:#c0c5ce;">
-}</span><span style="color:#c0c5ce;">
+<code><span style="color:#b48ead;">#include</span><span style="color:#c0c5ce;">&lt;</span><span style="color:#a3be8c;">stdio.h</span><span style="color:#c0c5ce;">&gt;
+
+</span><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> a[</span><span style="color:#d08770;">1000000000000000000</span><span style="color:#b48ead;">L</span><span style="color:#c0c5ce;">];
+
+</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main</span><span style="color:#c0c5ce;">()
+{
+    </span><span style="color:#96b5b4;">printf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#d08770;">%d</span><span style="color:#a3be8c;">K</span><span style="color:#96b5b4;">\n</span><span style="color:#c0c5ce;">&quot;,</span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">);
+    </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;
+}
 </span></code></pre><h1 id="wo-kai-liao-yi-ge-hen-da-de-quan-ju-shu-zu-bing-qie-tong-guo-liao-bian-yi-ke-shi-wei-shi-yao-cheng-xu-yun-xing-yi-ran-reliao-deng-dai-geng-hao-de-da-an">我开了一个很大的全局数组并且通过了编译，可是为什么程序运行依然RE了？（等待更好的答案）</h1>
 <p>这里我也没有一个十分确定的答案，先直接给一个在我电脑上可以触发这样错误的程序</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#b48ead;">#include</span><span style="color:#c0c5ce;">&lt;</span><span style="color:#a3be8c;">stdio.h</span><span style="color:#c0c5ce;">&gt;</span><span style="color:#c0c5ce;">
-</span><span style="color:#c0c5ce;">
-</span><span style="color:#b48ead;">static int</span><span style="color:#c0c5ce;"> a[</span><span style="color:#d08770;">1000000000000</span><span style="color:#b48ead;">L</span><span style="color:#c0c5ce;">];</span><span style="color:#c0c5ce;">
-</span><span style="color:#c0c5ce;">
-</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main</span><span style="color:#c0c5ce;">()</span><span style="color:#c0c5ce;">
-{</span><span style="color:#c0c5ce;">
-    </span><span style="color:#96b5b4;">printf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#d08770;">%d</span><span style="color:#a3be8c;">K</span><span style="color:#96b5b4;">\n</span><span style="color:#c0c5ce;">&quot;,a[</span><span style="color:#d08770;">1000000000</span><span style="color:#b48ead;">L </span><span style="color:#c0c5ce;">- </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">]);</span><span style="color:#c0c5ce;">
-    </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;</span><span style="color:#c0c5ce;">
-}</span><span style="color:#c0c5ce;">
+<code><span style="color:#b48ead;">#include</span><span style="color:#c0c5ce;">&lt;</span><span style="color:#a3be8c;">stdio.h</span><span style="color:#c0c5ce;">&gt;
+
+</span><span style="color:#b48ead;">static int</span><span style="color:#c0c5ce;"> a[</span><span style="color:#d08770;">1000000000000</span><span style="color:#b48ead;">L</span><span style="color:#c0c5ce;">];
+
+</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main</span><span style="color:#c0c5ce;">()
+{
+    </span><span style="color:#96b5b4;">printf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#d08770;">%d</span><span style="color:#a3be8c;">K</span><span style="color:#96b5b4;">\n</span><span style="color:#c0c5ce;">&quot;,a[</span><span style="color:#d08770;">1000000000</span><span style="color:#b48ead;">L </span><span style="color:#c0c5ce;">- </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">]);
+    </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;
+}
 </span></code></pre>
 <p>接下来我们深入到程序编译成的汇编代码里调试看一下，发现RE是出现在<img src="https://CSUwangj.github.io/acmzhong-yi-xie-chang-jian-de-wen-ti-ji-yuan-yin/1573577931809.png" alt="1573579083511" /></p>
 <p>后来找了办法确定了RAX里存放的是数组的地址，但是除此之外也不知道为什么会出这个错。</p>
@@ -377,21 +376,21 @@ renderMathInElement(document.body, katex_config);
 <h1 id="wei-shi-yao-you-shi-hou-yue-jie-bu-hui-re-dan-shi-hui-tle-wa">为什么有时候越界不会 RE 但是会 TLE/WA？</h1>
 <p>在[第一个问题](#为什么在读入的时候不加&amp;经常会 RE，但是数组名不加&amp;就没问题？)中我们看到了，对程序进行的赋值操作其实也就是对对应内存的写入操作（不考虑利用寄存器优化的情况），同时我们可以用<code>printf(&quot;%p&quot;, &amp;a);</code>这样的语句来查看变量a所在内存的地址。那么有以下代码：</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#b48ead;">#include</span><span style="color:#c0c5ce;">&lt;</span><span style="color:#a3be8c;">stdio.h</span><span style="color:#c0c5ce;">&gt;</span><span style="color:#c0c5ce;">
-</span><span style="color:#c0c5ce;">
-</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main</span><span style="color:#c0c5ce;">()</span><span style="color:#c0c5ce;">
-{</span><span style="color:#c0c5ce;">
-    </span><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> a[</span><span style="color:#d08770;">16</span><span style="color:#c0c5ce;">], b[</span><span style="color:#d08770;">16</span><span style="color:#c0c5ce;">], t;</span><span style="color:#c0c5ce;">
-    </span><span style="color:#96b5b4;">printf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#d08770;">%p %p %p</span><span style="color:#96b5b4;">\n</span><span style="color:#c0c5ce;">&quot;, &amp;a, &amp;b, &amp;t);</span><span style="color:#c0c5ce;">
-    </span><span style="color:#b48ead;">for</span><span style="color:#c0c5ce;">(</span><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> i = </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">; i &lt; </span><span style="color:#d08770;">34 </span><span style="color:#c0c5ce;">; ++ i){</span><span style="color:#c0c5ce;">
-        a[i] = i;</span><span style="color:#c0c5ce;">
-    }</span><span style="color:#c0c5ce;">
-    </span><span style="color:#b48ead;">for</span><span style="color:#c0c5ce;">(</span><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> i = </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">; i &lt; </span><span style="color:#d08770;">16 </span><span style="color:#c0c5ce;">; ++ i){</span><span style="color:#c0c5ce;">
-        </span><span style="color:#96b5b4;">printf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#d08770;">%d </span><span style="color:#c0c5ce;">&quot;, a[i]);</span><span style="color:#c0c5ce;">
-    }</span><span style="color:#c0c5ce;">
-    </span><span style="color:#96b5b4;">printf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#d08770;">%d</span><span style="color:#96b5b4;">\n</span><span style="color:#c0c5ce;">&quot;, t);</span><span style="color:#c0c5ce;">
-    </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;</span><span style="color:#c0c5ce;">
-}</span><span style="color:#c0c5ce;">
+<code><span style="color:#b48ead;">#include</span><span style="color:#c0c5ce;">&lt;</span><span style="color:#a3be8c;">stdio.h</span><span style="color:#c0c5ce;">&gt;
+
+</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main</span><span style="color:#c0c5ce;">()
+{
+    </span><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> a[</span><span style="color:#d08770;">16</span><span style="color:#c0c5ce;">], b[</span><span style="color:#d08770;">16</span><span style="color:#c0c5ce;">], t;
+    </span><span style="color:#96b5b4;">printf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#d08770;">%p %p %p</span><span style="color:#96b5b4;">\n</span><span style="color:#c0c5ce;">&quot;, &amp;a, &amp;b, &amp;t);
+    </span><span style="color:#b48ead;">for</span><span style="color:#c0c5ce;">(</span><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> i = </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">; i &lt; </span><span style="color:#d08770;">34 </span><span style="color:#c0c5ce;">; ++ i){
+        a[i] = i;
+    }
+    </span><span style="color:#b48ead;">for</span><span style="color:#c0c5ce;">(</span><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> i = </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">; i &lt; </span><span style="color:#d08770;">16 </span><span style="color:#c0c5ce;">; ++ i){
+        </span><span style="color:#96b5b4;">printf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#d08770;">%d </span><span style="color:#c0c5ce;">&quot;, a[i]);
+    }
+    </span><span style="color:#96b5b4;">printf</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#d08770;">%d</span><span style="color:#96b5b4;">\n</span><span style="color:#c0c5ce;">&quot;, t);
+    </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;
+}
 </span></code></pre>
 <p>已知第一行输出为<code>000000000062FD90 000000000062FDD0 000000000062FE14</code>，那么第二行输出是什么？（不要忘记考虑在我电脑上<code>sizeof(int)==4</code>）</p>
 <p>答案是<code>16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 33</code></p>
@@ -400,7 +399,7 @@ renderMathInElement(document.body, katex_config);
 <h1 id="wo-zhi-ding-yi-guo-yi-ge-left-wei-shi-yao-bian-yi-qi-gao-su-wo-error-reference-to-left-is-ambiguous">我只定义过一个 left，为什么编译器告诉我<code>[Error] reference to 'left' is ambiguous</code>？</h1>
 <p>如果你仔细查看报错信息，应该会看到类似</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">916    3    {PATH}    [Note] std::ios_base&amp; std::left(std::ios_base&amp;)</span><span style="color:#c0c5ce;">
+<code><span style="color:#c0c5ce;">916    3    {PATH}    [Note] std::ios_base&amp; std::left(std::ios_base&amp;)
 </span></code></pre>
 <p>出现这种问题是因为引入的头文件中的变量，比如left这个是在<code>bits/ios_base.h</code>里，而<code>algorithm</code>里有count这样的函数。</p>
 <p>这些变量通常都在有两种方法可以解决，一是不要使用<code>using namespace std;</code>这个语句，另一个是不要用类似<code>left</code>, <code>count</code>这样的名称。从工程角度来说，第一个做法是比较合理的。</p>
