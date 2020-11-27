@@ -20,6 +20,9 @@ taxonomies = [
   {name = "archives", rss = true},
 ]
 
+[slugify]
+taxonomies = "off"
+
 
 [extra]
 site_name = "LuckyDog"
