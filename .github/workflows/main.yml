@@ -1,0 +1,32 @@
+name: build gh-page
+
+on:
+  [ pull_request, push ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v2
+        with:
+          submodules: "recursive"
+      - name: Build
+        uses: shalzz/zola-deploy-action@v0.12.0
+        env:
+          PAGES_BRANCH: master
+          BUILD_THEMES: false
+          BUILD_FLAGS: -o docs
+          BUILD_ONLY: true
+          TOKEN: ${{ secrets.TOKEN }}
+      - name: Commit
+        run: |
+          git config --global user.name "CSUwangj"
+          git config --global user.email "CSUwangj@protonmail.com"
+          git add docs
+          git commit -m "Build site at `TZ=Asia/Hong_Kong date --rfc-3339=seconds`"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.TOKEN }}
+          branch: master
