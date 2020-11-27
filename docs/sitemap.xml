@@ -40,16 +40,16 @@
         <loc>https://CSUwangj.github.io/categories/</loc>
     </url>
     <url>
-        <loc>https://CSUwangj.github.io/categories/none/</loc>
+        <loc>https://CSUwangj.github.io/categories/None/</loc>
     </url>
     <url>
-        <loc>https://CSUwangj.github.io/categories/notes/</loc>
+        <loc>https://CSUwangj.github.io/categories/Notes/</loc>
     </url>
     <url>
-        <loc>https://CSUwangj.github.io/categories/tools/</loc>
+        <loc>https://CSUwangj.github.io/categories/Tools/</loc>
     </url>
     <url>
-        <loc>https://CSUwangj.github.io/categories/writeup/</loc>
+        <loc>https://CSUwangj.github.io/categories/WriteUp/</loc>
     </url>
     <url>
         <loc>https://CSUwangj.github.io/cryptography-engineering-exercise/</loc>
@@ -141,31 +141,64 @@
         <loc>https://CSUwangj.github.io/tags/</loc>
     </url>
     <url>
-        <loc>https://CSUwangj.github.io/tags/acm/</loc>
+        <loc>https://CSUwangj.github.io/tags/ACM/</loc>
     </url>
     <url>
-        <loc>https://CSUwangj.github.io/tags/c-sharp/</loc>
+        <loc>https://CSUwangj.github.io/tags/CTF/</loc>
+    </url>
+    <url>
+        <loc>https://CSUwangj.github.io/tags/C_sharp/</loc>
+    </url>
+    <url>
+        <loc>https://CSUwangj.github.io/tags/Crypto/</loc>
+    </url>
+    <url>
+        <loc>https://CSUwangj.github.io/tags/Cryptography/</loc>
+    </url>
+    <url>
+        <loc>https://CSUwangj.github.io/tags/Engineering/</loc>
+    </url>
+    <url>
+        <loc>https://CSUwangj.github.io/tags/Forensics/</loc>
+    </url>
+    <url>
+        <loc>https://CSUwangj.github.io/tags/Graduation/</loc>
+    </url>
+    <url>
+        <loc>https://CSUwangj.github.io/tags/LinuxNotes/</loc>
+    </url>
+    <url>
+        <loc>https://CSUwangj.github.io/tags/Misc/</loc>
+    </url>
+    <url>
+        <loc>https://CSUwangj.github.io/tags/PPC/</loc>
+    </url>
+    <url>
+        <loc>https://CSUwangj.github.io/tags/PWN/</loc>
+    </url>
+    <url>
+        <loc>https://CSUwangj.github.io/tags/Project Management/</loc>
+    </url>
+    <url>
+        <loc>https://CSUwangj.github.io/tags/RegularExpression/</loc>
+    </url>
+    <url>
+        <loc>https://CSUwangj.github.io/tags/Rev/</loc>
+    </url>
+    <url>
+        <loc>https://CSUwangj.github.io/tags/Software/</loc>
+    </url>
+    <url>
+        <loc>https://CSUwangj.github.io/tags/WARGAME/</loc>
+    </url>
+    <url>
+        <loc>https://CSUwangj.github.io/tags/Web/</loc>
     </url>
     <url>
         <loc>https://CSUwangj.github.io/tags/cpp/</loc>
     </url>
     <url>
-        <loc>https://CSUwangj.github.io/tags/crypto/</loc>
-    </url>
-    <url>
-        <loc>https://CSUwangj.github.io/tags/cryptography/</loc>
-    </url>
-    <url>
-        <loc>https://CSUwangj.github.io/tags/ctf/</loc>
-    </url>
-    <url>
-        <loc>https://CSUwangj.github.io/tags/engineering/</loc>
-    </url>
-    <url>
         <loc>https://CSUwangj.github.io/tags/environment/</loc>
-    </url>
-    <url>
-        <loc>https://CSUwangj.github.io/tags/forensics/</loc>
     </url>
     <url>
         <loc>https://CSUwangj.github.io/tags/formatstring/</loc>
@@ -174,55 +207,22 @@
         <loc>https://CSUwangj.github.io/tags/fuck/</loc>
     </url>
     <url>
-        <loc>https://CSUwangj.github.io/tags/graduation/</loc>
-    </url>
-    <url>
         <loc>https://CSUwangj.github.io/tags/heapoverflow/</loc>
-    </url>
-    <url>
-        <loc>https://CSUwangj.github.io/tags/linuxnotes/</loc>
-    </url>
-    <url>
-        <loc>https://CSUwangj.github.io/tags/misc/</loc>
     </url>
     <url>
         <loc>https://CSUwangj.github.io/tags/mitigation/</loc>
     </url>
     <url>
-        <loc>https://CSUwangj.github.io/tags/open-xml-sdk/</loc>
+        <loc>https://CSUwangj.github.io/tags/open_xml_sdk/</loc>
     </url>
     <url>
-        <loc>https://CSUwangj.github.io/tags/ppc/</loc>
-    </url>
-    <url>
-        <loc>https://CSUwangj.github.io/tags/project-management/</loc>
-    </url>
-    <url>
-        <loc>https://CSUwangj.github.io/tags/pwn/</loc>
-    </url>
-    <url>
-        <loc>https://CSUwangj.github.io/tags/regularexpression/</loc>
-    </url>
-    <url>
-        <loc>https://CSUwangj.github.io/tags/rev/</loc>
-    </url>
-    <url>
-        <loc>https://CSUwangj.github.io/tags/software-development/</loc>
-    </url>
-    <url>
-        <loc>https://CSUwangj.github.io/tags/software/</loc>
+        <loc>https://CSUwangj.github.io/tags/software_development/</loc>
     </url>
     <url>
         <loc>https://CSUwangj.github.io/tags/stackoverflow/</loc>
     </url>
     <url>
         <loc>https://CSUwangj.github.io/tags/unlink/</loc>
-    </url>
-    <url>
-        <loc>https://CSUwangj.github.io/tags/wargame/</loc>
-    </url>
-    <url>
-        <loc>https://CSUwangj.github.io/tags/web/</loc>
     </url>
     <url>
         <loc>https://CSUwangj.github.io/xiang-zuo-xiang-mu-yi-yang-zuo-bi-she/</loc>
