@@ -37,18 +37,11 @@ menu_items = [
 author = "CSUwangj"
 quote = "Just keep in mind that hacking is very rarely in a sequence."
 links = [
-  {name = "领路人JDchen学长", url = "http://www.cnblogs.com/0xJDchen/"},
-  {name = "吉祥物", url = "https://www.cnblogs.com/0xHack/"},
-  {name = "社会我王哥", url = "https://wangyx-max.github.io/"},
   {name = "WolfBolin", url = "https://wolfbolin.com/"},
   {name = "bocity", url = "https://haolovej.com/"},
   {name = "长门有希", url = "https://blog.yuki-nagato.com/"},
-  {name = "郁离歌", url = "http://yulige.top/"},
-  {name = "Error404", url = "https://www.jianshu.com/u/fa23d591f030"},
-  {name = "王一航", url = "https://www.jianshu.com/u/bf30f18c872c"},
-  {name = "伍尚国", url = "http://www.cnblogs.com/wushangguo/"},
   {name = "Porlockz", url = "http://www.porlockz.com/"},
-  {name = "黄含绦", url = "https://huanghantao.github.io/"},
+  {name = "松鼠", url = "https://sosusosu.icu/"},
   {name = "ZickShen", url = "https://zickshen.github.io/"},
 ]
 author_links = [
