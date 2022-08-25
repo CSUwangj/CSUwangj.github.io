@@ -15,7 +15,7 @@ archives = [ "archive",]
 
 我在上个月花了半个月的时间补充相关知识后，在这个月花了几天时间写出了一个将给定 markdown 按照一定格式渲染成 .docx 文件的工具，代码已经开源在[github](https://github.com/CSUwangj/md2docx-csharp)上。但是这个项目目的只是给中南信安学子使用，而且封面格式只按照某个老师的要求来的，如果有定制的需求，还是需要自己动手，那么这里就写一篇文章简单介绍一下完成这个过程中可能用到的资料、工具和可能踩到的坑。
 
-行文中会将用到的资源用超链接放在里面，但为了方便，也会在末尾用[一个列表](#参考资料)把资料列出来。
+行文中会将用到的资源用超链接放在里面，但为了方便，也会在末尾用[一个列表](#can-kao-zi-liao)把资料列出来。
 
 文章会先介绍 .docx文件和 markdown，是相对比较底层的简单介绍，如果只是关心程序是如何完成的，则完全可以跳过这部分。然后文章会介绍实现里的一些细节，我的实现用了 C#，开发时用的是 Visual Studio，使用的库为 Microsoft.Community.Toolkit（markdown parser）和 Open XML SDK（操作.docx文件）。
 
@@ -23,11 +23,11 @@ archives = [ "archive",]
 
 .docx 这个后缀所对应的文件格式全写是 [Office Open XML](https://en.wikipedia.org/wiki/Office_Open_XML_file_formats)。实质上就是一个包含了一系列有一定结构的 xml 文件的zip包，只需修改后缀名就可以用通用的解压软件将其解压并观察到里面的结构。
 
-正如在维基页面所示，Office Open XML 对应了几种文件格式，分别是document, presentation, workbook，也就是我们常说的word, ppt, excel。在 Office Open XML 文件里，会用到几种不同的标识语言，有兴趣的在维基页面可以进一步了解。基于以上信息，不难想到我们最主要需要了解是 Office Open XML document 的文件格式，和其中被大量用到的 WordprocessingML 语言。从这一步开始，维基页面上的内容就比较深入并且主要由各种标准文件组成，从这里开始我推荐从[微软的文档](https://docs.microsoft.com/en-us/office/open-xml/structure-of-a-wordprocessingml-document)或者[officeopenxml.com](http://officeopenxml.com/anatomyofOOXML.php)，如果倾向看视频了解并且不介意英文视频，那么可以考虑[Eric 的博客](http://www.ericwhite.com/blog/introduction-to-wordprocessingml-series/)，他是曾经在微软开发 Open XML SDK 的开发人员，并且离职以后依然在空闲时间继续这方面的工作。在这一节的末尾将会简单介绍 Open XML SDK，在[之后的章节](#编程实现)展开介绍。
+正如在维基页面所示，Office Open XML 对应了几种文件格式，分别是document, presentation, workbook，也就是我们常说的word, ppt, excel。在 Office Open XML 文件里，会用到几种不同的标识语言，有兴趣的在维基页面可以进一步了解。基于以上信息，不难想到我们最主要需要了解是 Office Open XML document 的文件格式，和其中被大量用到的 WordprocessingML 语言。从这一步开始，维基页面上的内容就比较深入并且主要由各种标准文件组成，从这里开始我推荐从[微软的文档](https://docs.microsoft.com/en-us/office/open-xml/structure-of-a-wordprocessingml-document)或者[officeopenxml.com](http://officeopenxml.com/anatomyofOOXML.php)，如果倾向看视频了解并且不介意英文视频，那么可以考虑[Eric 的博客](http://www.ericwhite.com/blog/introduction-to-wordprocessingml-series/)，他是曾经在微软开发 Open XML SDK 的开发人员，并且离职以后依然在空闲时间继续这方面的工作。在这一节的末尾将会简单介绍 Open XML SDK，在[之后的章节](#bian-cheng-shi-xian)展开介绍。
 
 为了完成我们的目标，Office Open XML 中各组成部分最主要需要关注的是 Main Document、Style Definitions，若是需要页眉、页脚，则还需要 Header、Footer 这两个部分。其他没有提及的内容并非无意义，而只是与目标相关性没有这么高，所以有需要的请自行翻阅文档。剩下不会继续介绍的部分有 Comments、Document Settings、Endnotes、Footnotes、Glossary Document。
 
-Style Definitions 包含了和格式相关的各种东西，仅仅从复用的角度来说，也应当将格式作为存入这里而不是设置一个可以把某一段变成某种格式的函数。具体如何操作这部分的内容来达到我们所需的效果将在[之后](#参考资料)具体说。其中除了寻常可见的各种格式如正文、多级标题之外，还有一种特殊的元素值得留意，就是 latentStyles。Office 内置了相当多的格式（大概200多种），如果每一个格式都将其存放在每一个文档里，显然是没必要的，但是也不能就将其直接删去让软件自己从自己的库里读取，这也就是 latentStyles 起作用的地方。原文说的是
+Style Definitions 包含了和格式相关的各种东西，仅仅从复用的角度来说，也应当将格式作为存入这里而不是设置一个可以把某一段变成某种格式的函数。具体如何操作这部分的内容来达到我们所需的效果将在[之后](#can-kao-zi-liao)具体说。其中除了寻常可见的各种格式如正文、多级标题之外，还有一种特殊的元素值得留意，就是 latentStyles。Office 内置了相当多的格式（大概200多种），如果每一个格式都将其存放在每一个文档里，显然是没必要的，但是也不能就将其直接删去让软件自己从自己的库里读取，这也就是 latentStyles 起作用的地方。原文说的是
 
 > *延迟样式*引用任何一组已知的应用程序的未包括在当前文档中的样式定义。
 

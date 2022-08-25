@@ -19,7 +19,7 @@ archives = [ "archive",]
 
 <!-- more -->
 
-# 为什么在读入的时候不加&经常会 RE，但是数组名不加&就没问题？
+# 为什么在读入的时候不加&经常会RE，但是数组名不加&就没问题？
 
 我们直接来看一段代码：
 
@@ -332,13 +332,13 @@ int main()
 
 详细展开的话，如果是对函数里的局部变量进行了越界写，那么可能会破坏程序运行时的调用栈，导致返回地址改变，这类情况也可以归结为栈溢出，而且这个名称同时也对应了历史上一类很有名的漏洞——[栈溢出漏洞](https://www.52pojie.cn/thread-974510-1-1.html)。
 
-如果是对static变量、局部变量、使用new或者\*alloc分配的变量进行越界写，因为它们分配在堆上，造成的问题也就是堆溢出，同样的，堆溢出也对应了[堆溢出漏洞](https://cloud.tencent.com/developer/article/1083866)。
+如果是对static变量、局部变量、使用new或者\*alloc分配的变量进行越界写，因为它们分配在堆上，造成的问题也就是堆溢出，同样的，堆溢出也对应了[堆溢出漏洞](https://ciphersaw.me/ctf-wiki/pwn/linux/heap/heapoverflow_basic/)。
 
 除此之外还有一种情况就是OJ的编译器对于越界做了特殊的判断，导致一旦出现越界写程序就会强制报错并结束，这样的情况虽然越界写没有对程序运行造成影响，也还是报了RE。
 
 # 为什么有时候越界不会 RE 但是会 TLE/WA？
 
-在[第一个问题](#为什么在读入的时候不加&经常会 RE，但是数组名不加&就没问题？)中我们看到了，对程序进行的赋值操作其实也就是对对应内存的写入操作（不考虑利用寄存器优化的情况），同时我们可以用`printf("%p", &a);`这样的语句来查看变量a所在内存的地址。那么有以下代码：
+在[第一个问题](#wei-shi-yao-zai-du-ru-de-shi-hou-bu-jia-jing-chang-hui-re-dan-shi-shu-zu-ming-bu-jia-jiu-mei-wen-ti)中我们看到了，对程序进行的赋值操作其实也就是对对应内存的写入操作（不考虑利用寄存器优化的情况），同时我们可以用`printf("%p", &a);`这样的语句来查看变量a所在内存的地址。那么有以下代码：
 
 ```c
 #include<stdio.h>
@@ -388,7 +388,7 @@ int main()
 
 ![1573620431685](1573620431685.png)
 
-见[我开了一个稍小一些的全局数组，为什么编译还是失败了而且错误的原因非常复杂？](#我开了一个稍小一些的全局数组，为什么编译还是失败了而且错误的原因非常复杂？)
+见[我开了一个稍小一些的全局数组，为什么编译还是失败了而且错误的原因非常复杂？](#wo-kai-liao-yi-ge-shao-xiao-yi-xie-de-quan-ju-shu-zu-wei-shi-yao-bian-yi-huan-shi-shi-bai-liao-er-qie-cuo-wu-de-yuan-yin-fei-chang-fu-za)
 
 ## undefined reference to `WinMain'
 
