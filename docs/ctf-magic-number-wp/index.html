@@ -11,14 +11,14 @@
       <title>LuckyDog | CSUwangj&#x27;s Blog</title>
 
       <!-- CSS -->
-      <link rel="stylesheet" href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;css&#x2F;lib&#x2F;font-awesome.min.css">
-      <link rel="stylesheet" href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;site.css">
+      <link rel="stylesheet" href="https://CSUwangj.github.io/css/lib/font-awesome.min.css">
+      <link rel="stylesheet" href="https://CSUwangj.github.io/site.css">
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Noto+Serif+SC">
       
-<link rel="stylesheet" href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;custom.css">
+<link rel="stylesheet" href="https://CSUwangj.github.io/custom.css">
 
       <!-- js -->
-      <script type="text/javascript" charset="utf-8" src="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;js&#x2F;sidebar.js"></script>
+      <script type="text/javascript" charset="utf-8" src="https://CSUwangj.github.io/js/sidebar.js"></script>
       
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css" crossorigin="anonymous">
@@ -78,7 +78,7 @@ renderMathInElement(document.body, katex_config);
                   <span><i class="fa fa-inbox"></i> Archives</span>
                 </a>
               
-                <a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;ZDaily&#x2F;" class="nav-item-dailychallenge unselectable">
+                <a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;ZDaily" class="nav-item-dailychallenge unselectable">
                   <span><i class="fa fa-calendar-check-o"></i> DailyChallenge</span>
                 </a>
               
@@ -122,33 +122,32 @@ renderMathInElement(document.body, katex_config);
 <span id="continue-reading"></span>
 <p><img src="https://CSUwangj.github.io/ctf-magic-number-wp/1524837016603.png" alt="伪代码" /></p>
 <p>于是可以写出代码</p>
-<pre style="background-color:#2b303b;">
-<code><span style="color:#65737e;">#!/bin/python3
+<pre data-lang="python" class="language-python "><code class="language-python" data-lang="python">#!&#x2F;bin&#x2F;python3
 
-</span><span style="color:#b48ead;">from </span><span style="color:#c0c5ce;">pwn </span><span style="color:#b48ead;">import </span><span style="color:#d08770;">*
-</span><span style="color:#c0c5ce;">r = </span><span style="color:#bf616a;">remote</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">47.89.18.224</span><span style="color:#c0c5ce;">&quot;, </span><span style="color:#d08770;">10011</span><span style="color:#c0c5ce;">)
+from pwn import *
+r = remote(&quot;47.89.18.224&quot;, 10011)
 
 
 nums = []
 
 
-</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">query</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">l</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">r</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">rm</span><span style="color:#c0c5ce;">):
-    </span><span style="color:#65737e;">&quot;&quot;&quot;
+def query(l, r, rm):
+    &quot;&quot;&quot;
     Send the query and get answer
     :param l: &lt;int&gt; left bound
     :param r: &lt;int&gt; Right bound
     :param rm: &lt;remote&gt; Remote process
     :return: Amount of numbers
     &quot;&quot;&quot;
-    </span><span style="color:#c0c5ce;">payload =&quot;</span><span style="color:#a3be8c;">? </span><span style="color:#c0c5ce;">&quot; + </span><span style="color:#bf616a;">str</span><span style="color:#c0c5ce;">(l) + &quot; &quot; + </span><span style="color:#bf616a;">str</span><span style="color:#c0c5ce;">(r) + &quot;</span><span style="color:#96b5b4;">\n</span><span style="color:#c0c5ce;">&quot;
-    rm.</span><span style="color:#bf616a;">send</span><span style="color:#c0c5ce;">(payload)
-    res = </span><span style="color:#bf616a;">int</span><span style="color:#c0c5ce;">(rm.</span><span style="color:#bf616a;">recv</span><span style="color:#c0c5ce;">())
-    </span><span style="color:#b48ead;">print </span><span style="color:#c0c5ce;">payload + </span><span style="color:#bf616a;">str</span><span style="color:#c0c5ce;">(res)
-    </span><span style="color:#b48ead;">return </span><span style="color:#c0c5ce;">res
+    payload =&quot;? &quot; + str(l) + &quot; &quot; + str(r) + &quot;\n&quot;
+    rm.send(payload)
+    res = int(rm.recv())
+    print payload + str(res)
+    return res
 
 
-</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">find</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">l</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">r</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">k</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">rm</span><span style="color:#c0c5ce;">):
-    </span><span style="color:#65737e;">&quot;&quot;&quot;
+def find(l, r, k, rm):
+    &quot;&quot;&quot;
     Guess numbers
     :param l: &lt;int&gt; Left bound
     :param r: &lt;int&gt; Right bound
@@ -156,40 +155,41 @@ nums = []
     :param rm: &lt;remote&gt; Remote process
     :return: None
     &quot;&quot;&quot;
-    </span><span style="color:#b48ead;">global </span><span style="color:#c0c5ce;">nums
-    </span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">l == r - </span><span style="color:#d08770;">1 </span><span style="color:#c0c5ce;">and k == </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">:
-        nums.</span><span style="color:#bf616a;">append</span><span style="color:#c0c5ce;">(l)
-        </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">None
-    </span><span style="color:#c0c5ce;">m = (l + r) // </span><span style="color:#d08770;">2
-    </span><span style="color:#c0c5ce;">K = </span><span style="color:#bf616a;">query</span><span style="color:#c0c5ce;">(l, m, rm)
-    </span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">K:
-        </span><span style="color:#bf616a;">find</span><span style="color:#c0c5ce;">(l, m, K, rm)
-    </span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">K - k:
-        </span><span style="color:#bf616a;">find</span><span style="color:#c0c5ce;">(m, r, k - K, rm)
+    global nums
+    if l == r - 1 and k == 1:
+        nums.append(l)
+        return None
+    m = (l + r) &#x2F;&#x2F; 2
+    K = query(l, m, rm)
+    if K:
+        find(l, m, K, rm)
+    if K - k:
+        find(m, r, k - K, rm)
 
 
-</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">gate</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">rm</span><span style="color:#c0c5ce;">):
-    </span><span style="color:#65737e;">&quot;&quot;&quot;
+def gate(rm):
+    &quot;&quot;&quot;
     gate
     :param rm: &lt;remote&gt; Remote process
     :return: None
     &quot;&quot;&quot;
-    </span><span style="color:#b48ead;">global </span><span style="color:#c0c5ce;">nums
-    rm.</span><span style="color:#bf616a;">recvuntil</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">n = </span><span style="color:#c0c5ce;">&quot;)
-    k = </span><span style="color:#bf616a;">int</span><span style="color:#c0c5ce;">(rm.</span><span style="color:#bf616a;">recv</span><span style="color:#c0c5ce;">())
+    global nums
+    rm.recvuntil(&quot;n = &quot;)
+    k = int(rm.recv())
     nums = []
-    </span><span style="color:#bf616a;">find</span><span style="color:#c0c5ce;">(</span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">1024</span><span style="color:#c0c5ce;">, k, r)
-    nums.</span><span style="color:#bf616a;">sort</span><span style="color:#c0c5ce;">()
-    </span><span style="color:#96b5b4;">print</span><span style="color:#c0c5ce;">(nums)
-    rm.</span><span style="color:#bf616a;">interactive</span><span style="color:#c0c5ce;">()
+    find(0, 1024, k, r)
+    nums.sort()
+    print(nums)
+    rm.interactive()
 
 
-</span><span style="color:#bf616a;">gate</span><span style="color:#c0c5ce;">(r)
-</span><span style="color:#bf616a;">gate</span><span style="color:#c0c5ce;">(r)
-</span><span style="color:#bf616a;">gate</span><span style="color:#c0c5ce;">(r)
+gate(r)
+gate(r)
+gate(r)
 
-</span><span style="color:#65737e;"># 这里gate(r)一次就过一关，多少关我也忘了
-</span></code></pre>
+# 这里gate(r)一次就过一关，多少关我也忘了
+</code></pre>
+
     </div>
   </div>
 
@@ -201,7 +201,7 @@ nums = []
             <div class="site-author" itemprop="author" itemtype="https://schema.org/Person">
               
               <img class="site-author-image" itemprop="image"
-                src="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;img&#x2F;avatar.png"
+                src="https://CSUwangj.github.io/images/avatar.png"
                 alt="CSUwangj" />
               
               <p class="site-author-name unselectable">CSUwangj</p>
@@ -246,7 +246,7 @@ nums = []
       
         <footer name="footer">
           <div class="copyright">
-            <span item="copyrightYear">© 2018-2021</span>
+            <span item="copyrightYear">© 2018-2022</span>
             <span class="author">CSUwangj</span>
           </div>
           <div class="powered-by">

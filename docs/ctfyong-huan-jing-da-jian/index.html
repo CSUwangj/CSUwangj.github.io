@@ -11,14 +11,14 @@
       <title>LuckyDog | CSUwangj&#x27;s Blog</title>
 
       <!-- CSS -->
-      <link rel="stylesheet" href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;css&#x2F;lib&#x2F;font-awesome.min.css">
-      <link rel="stylesheet" href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;site.css">
+      <link rel="stylesheet" href="https://CSUwangj.github.io/css/lib/font-awesome.min.css">
+      <link rel="stylesheet" href="https://CSUwangj.github.io/site.css">
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Noto+Serif+SC">
       
-<link rel="stylesheet" href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;custom.css">
+<link rel="stylesheet" href="https://CSUwangj.github.io/custom.css">
 
       <!-- js -->
-      <script type="text/javascript" charset="utf-8" src="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;js&#x2F;sidebar.js"></script>
+      <script type="text/javascript" charset="utf-8" src="https://CSUwangj.github.io/js/sidebar.js"></script>
       
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css" crossorigin="anonymous">
@@ -78,7 +78,7 @@ renderMathInElement(document.body, katex_config);
                   <span><i class="fa fa-inbox"></i> Archives</span>
                 </a>
               
-                <a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;ZDaily&#x2F;" class="nav-item-dailychallenge unselectable">
+                <a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;ZDaily" class="nav-item-dailychallenge unselectable">
                   <span><i class="fa fa-calendar-check-o"></i> DailyChallenge</span>
                 </a>
               
@@ -170,33 +170,32 @@ request </li>
 <span id="continue-reading"></span><h1 id="zheng-wen">正文</h1>
 <h2 id="huan-jing-1">环境</h2>
 <h3 id="86jia-gou-ji-qi-ge-bie-ji-ben-ku">86架构及其个别基本库</h3>
-<pre style="background-color:#2b303b;">
-<code><span style="color:#bf616a;">dpkg --add-architecture</span><span style="color:#c0c5ce;"> i386 
-</span><span style="color:#bf616a;">apt-get</span><span style="color:#c0c5ce;"> update
-</span><span style="color:#bf616a;">apt-get -f</span><span style="color:#c0c5ce;"> dist-upgrade 
-</span><span style="color:#bf616a;">apt-get</span><span style="color:#c0c5ce;"> update
-</span><span style="color:#bf616a;">apt-get</span><span style="color:#c0c5ce;"> install lib32c-dev lib32stdc++6  
-</span></code></pre><h3 id="wine32">wine32</h3>
-<pre style="background-color:#2b303b;">
-<code><span style="color:#bf616a;">apt-get</span><span style="color:#c0c5ce;"> install wine32
-</span></code></pre><h2 id="an-zhuang-shi-1">安装式</h2>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">dpkg --add-architecture i386 
+apt-get update
+apt-get -f dist-upgrade 
+apt-get update
+apt-get install lib32c-dev lib32stdc++6  
+</code></pre>
+<h3 id="wine32">wine32</h3>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">apt-get install wine32
+</code></pre>
+<h2 id="an-zhuang-shi-1">安装式</h2>
 <h3 id="pwndbg">pwndbg</h3>
-<pre style="background-color:#2b303b;">
-<code><span style="color:#bf616a;">apt-get</span><span style="color:#c0c5ce;"> install python3.7-dev
-</span><span style="color:#bf616a;">git</span><span style="color:#c0c5ce;"> clone https://github.com/pwndbg/pwndbg /opt/pwndbg
-</span><span style="color:#96b5b4;">cd</span><span style="color:#c0c5ce;"> /opt/pwndbg
-</span><span style="color:#bf616a;">./setup.sh 
-</span></code></pre>
-<p>如果对pip无法用的时候怎么安装感兴趣，可以戳<a href="http://csuwangj.top/2018/07/21/%E5%9C%A8pip%E8%BF%9E%E4%B8%8D%E4%B8%8A%E7%BD%91%E7%9A%84%E6%97%B6%E5%80%99%E5%AE%89%E8%A3%85pwntools/">这里</a></p>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">apt-get install python3.7-dev
+git clone https:&#x2F;&#x2F;github.com&#x2F;pwndbg&#x2F;pwndbg &#x2F;opt&#x2F;pwndbg
+cd &#x2F;opt&#x2F;pwndbg
+.&#x2F;setup.sh 
+</code></pre>
+<p>如果对pip无法用的时候怎么安装感兴趣，可以戳<a rel="noopener nofollow noreferrer" target="_blank" href="http://csuwangj.top/2018/07/21/%E5%9C%A8pip%E8%BF%9E%E4%B8%8D%E4%B8%8A%E7%BD%91%E7%9A%84%E6%97%B6%E5%80%99%E5%AE%89%E8%A3%85pwntools/">这里</a></p>
 <h3 id="r2">r2</h3>
-<pre style="background-color:#2b303b;">
-<code><span style="color:#bf616a;">git</span><span style="color:#c0c5ce;"> clone https://github.com/radare/radare2.git /opt/r2
-</span><span style="color:#96b5b4;">cd</span><span style="color:#c0c5ce;"> /opt/r2/
-</span><span style="color:#bf616a;">sys/install.sh 
-</span></code></pre><h3 id="audacity">Audacity</h3>
-<pre style="background-color:#2b303b;">
-<code><span style="color:#bf616a;">apt-get</span><span style="color:#c0c5ce;"> install audacity
-</span></code></pre><h2 id="fei-an-zhuang-shi-1">非安装式</h2>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">git clone https:&#x2F;&#x2F;github.com&#x2F;radare&#x2F;radare2.git &#x2F;opt&#x2F;r2
+cd &#x2F;opt&#x2F;r2&#x2F;
+sys&#x2F;install.sh 
+</code></pre>
+<h3 id="audacity">Audacity</h3>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">apt-get install audacity
+</code></pre>
+<h2 id="fei-an-zhuang-shi-1">非安装式</h2>
 <table><thead><tr><th>工具</th><th>指令</th><th>备注</th></tr></thead><tbody>
 <tr><td>rsatool</td><td><code>git clone https://github.com/ius/rsatool.git /opt/Crypto/rsatool</code></td><td>Openssl RSA密钥生成</td></tr>
 <tr><td>cloacked-pixel</td><td><code>git clone https://github.com/livz/cloacked-pixel /opt/Steganography/cloacked-pixel</code></td><td>图像隐写</td></tr>
@@ -226,7 +225,7 @@ request </li>
             <div class="site-author" itemprop="author" itemtype="https://schema.org/Person">
               
               <img class="site-author-image" itemprop="image"
-                src="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;img&#x2F;avatar.png"
+                src="https://CSUwangj.github.io/images/avatar.png"
                 alt="CSUwangj" />
               
               <p class="site-author-name unselectable">CSUwangj</p>
@@ -271,7 +270,7 @@ request </li>
       
         <footer name="footer">
           <div class="copyright">
-            <span item="copyrightYear">© 2018-2021</span>
+            <span item="copyrightYear">© 2018-2022</span>
             <span class="author">CSUwangj</span>
           </div>
           <div class="powered-by">
