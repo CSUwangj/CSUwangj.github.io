@@ -54,8 +54,8 @@ links = [
   {name = "ZickShen", url = "https://zickshen.github.io/"},
 ]
 author_links = [
-  {name = "Github", url = "https://github.com/CSUwangj", favion = "fa fw fa-github"},
-  {name = "EMail", url = "mailto:CSUwangj@protonmail.com", favion = "fa fw fa-envelope"},
+  {name = "Github", url = "https://github.com/CSUwangj", favion = "fa-brands fa-github"},
+  {name = "EMail", url = "mailto:CSUwangj@protonmail.com", favion = "fa-solid fa-envelope"},
 ]
 copyright_year = "2018-2022"
 avatar = "images/avatar.png"
