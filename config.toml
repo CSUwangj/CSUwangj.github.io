@@ -39,6 +39,7 @@ menu_items = [
   {url = "$BASE_URLcategories", name = "Categories", icon = "fa-solid fa-book"},
   {url = "$BASE_URLtags", name = "Tags", icon = "fa-solid fa-tags"},
   {url = "$BASE_URLarchives", name = "Archives", icon = "fa-solid fa-inbox"},
+  {url = "$BASE_URLZDaily", name = "DailyChallenge", icon = "fa-solid fa-calendar-check"},
   {url = "$BASE_URLWebtools", name = "Webtools", icon = "fa-solid fa-toolbox"},
 ]
 author = "CSUwangj"
