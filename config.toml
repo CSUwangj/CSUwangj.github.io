@@ -46,10 +46,11 @@ author = "CSUwangj"
 quote = "Just keep in mind that hacking is very rarely in a sequence."
 links = [
   {name = "WolfBolin", url = "https://wolfbolin.com/"},
-  {name = "bocity", url = "https://haolovej.com/"},
   {name = "长门有希", url = "https://blog.yuki-nagato.com/"},
   {name = "Porlockz", url = "http://www.porlockz.com/"},
-  {name = "Phodphorus", url = "https://way.lu/"},
+  {name = "Phosphorus", url = "https://way.lu/"},
+  {name = "Edwardzcn", url = "https://edwardzcn.github.io/"},
+  {name = "吕少", url = "https://www.cnblogs.com/csu-lmw/"},
   {name = "ZickShen", url = "https://zickshen.github.io/"},
 ]
 author_links = [
