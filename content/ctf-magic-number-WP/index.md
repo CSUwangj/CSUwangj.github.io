@@ -10,6 +10,7 @@ tags = [ "CTF", "PPC",]
 categories = [ "WriteUp",]
 archives = [ "archive",]
 +++
+
 99次内猜14个[0,1023]内的数，那肯定是不仅二分而且要整体二分了
 
 简单说来是

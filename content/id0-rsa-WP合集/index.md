@@ -10,7 +10,8 @@ tags = [ "CTF", "Crypto",]
 categories = [ "WriteUp",]
 archives = [ "archive",]
 +++
-忙里偷闲做做题wwwwwwwwwwwww
+
+$1忙里偷闲做做题wwwwwwwwwwwww
 
 
 <!-- more -->

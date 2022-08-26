@@ -10,7 +10,8 @@ tags = [ "PWN",]
 categories = [ "Notes",]
 archives = [ "archive",]
 +++
-本文描述了这样一种特殊情况下安装pwntools的解决方案：有方法联网，但是pip连不上网。 
+
+$1本文描述了这样一种特殊情况下安装pwntools的解决方案：有方法联网，但是pip连不上网。 
 
 <!-- more -->
 

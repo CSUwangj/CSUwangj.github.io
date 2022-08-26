@@ -9,7 +9,8 @@ tags = [ "RegularExpression", "WARGAME",]
 categories = [ "WriteUp",]
 archives = [ "archive",]
 +++
-Interesting challenges for regular expression newbie like me~
+
+$1Interesting challenges for regular expression newbie like me~
 
 TBC...
 

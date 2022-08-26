@@ -10,7 +10,8 @@ tags = [ "CTF", "Web", "PWN", "Misc", "Crypto", "Rev",]
 categories = [ "WriteUp",]
 archives = [ "archive",]
 +++
-因为预感进度表会很长，所以不放了
+
+$1因为预感进度表会很长，所以不放了
 
 <!-- more -->
 # 不资瓷跳转的进度表
