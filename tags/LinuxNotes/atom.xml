@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title>LuckyDog | CSUwangj&#x27;s Blog - LinuxNotes</title>
+	<link href="https://CSUwangj.github.io/tags/LinuxNotes/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://CSUwangj.github.io/"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2020-08-07T02:01:26.830854+08:00</updated>
+	<id>https://CSUwangj.github.io/tags/LinuxNotes/atom.xml</id>
+	<entry xml:lang="en">
+		<title>OverTheWire-Bandit全攻略+解析</title>
+		<published>2018-08-23T16:10:57+08:00</published>
+		<updated>2020-08-07T02:01:26.830854+08:00</updated>
+		<link rel="alternate" href="https://CSUwangj.github.io/overthewire-banditquan-gong-lue-jie-xi/" type="text/html"/>
+		<id>https://CSUwangj.github.io/overthewire-banditquan-gong-lue-jie-xi/</id>
+		<content type="html">&lt;ul&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;overthewire.org&#x2F;wargames&#x2F;bandit&#x2F;bandit0.html&quot;&gt;Level 0&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;overthewire.org&#x2F;wargames&#x2F;bandit&#x2F;bandit1.html&quot;&gt;Level 0 → Level 1&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;overthewire.org&#x2F;wargames&#x2F;bandit&#x2F;bandit2.html&quot;&gt;Level 1 → Level 2&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;overthewire.org&#x2F;wargames&#x2F;bandit&#x2F;bandit3.html&quot;&gt;Level 2 → Level 3&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;overthewire.org&#x2F;wargames&#x2F;bandit&#x2F;bandit4.html&quot;&gt;Level 3 → Level 4&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;overthewire.org&#x2F;wargames&#x2F;bandit&#x2F;bandit5.html&quot;&gt;Level 4 → Level 5&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;overthewire.org&#x2F;wargames&#x2F;bandit&#x2F;bandit6.html&quot;&gt;Level 5 → Level 6&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;overthewire.org&#x2F;wargames&#x2F;bandit&#x2F;bandit7.html&quot;&gt;Level 6 → Level 7&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;overthewire.org&#x2F;wargames&#x2F;bandit&#x2F;bandit8.html&quot;&gt;Level 7 → Level 8&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;overthewire.org&#x2F;wargames&#x2F;bandit&#x2F;bandit9.html&quot;&gt;Level 8 → Level 9&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;overthewire.org&#x2F;wargames&#x2F;bandit&#x2F;bandit10.html&quot;&gt;Level 9 → Level 10&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;overthewire.org&#x2F;wargames&#x2F;bandit&#x2F;bandit11.html&quot;&gt;Level 10 → Level 11&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;overthewire.org&#x2F;wargames&#x2F;bandit&#x2F;bandit12.html&quot;&gt;Level 11 → Level 12&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;overthewire.org&#x2F;wargames&#x2F;bandit&#x2F;bandit13.html&quot;&gt;Level 12 → Level 13&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;overthewire.org&#x2F;wargames&#x2F;bandit&#x2F;bandit14.html&quot;&gt;Level 13 → Level 14&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;overthewire.org&#x2F;wargames&#x2F;bandit&#x2F;bandit15.html&quot;&gt;Level 14 → Level 15&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;overthewire.org&#x2F;wargames&#x2F;bandit&#x2F;bandit16.html&quot;&gt;Level 15 → Level 16&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;overthewire.org&#x2F;wargames&#x2F;bandit&#x2F;bandit17.html&quot;&gt;Level 16 → Level 17&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;overthewire.org&#x2F;wargames&#x2F;bandit&#x2F;bandit18.html&quot;&gt;Level 17 → Level 18&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;overthewire.org&#x2F;wargames&#x2F;bandit&#x2F;bandit19.html&quot;&gt;Level 18 → Level 19&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;overthewire.org&#x2F;wargames&#x2F;bandit&#x2F;bandit20.html&quot;&gt;Level 19 → Level 20&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;overthewire.org&#x2F;wargames&#x2F;bandit&#x2F;bandit21.html&quot;&gt;Level 20 → Level 21&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;overthewire.org&#x2F;wargames&#x2F;bandit&#x2F;bandit22.html&quot;&gt;Level 21 → Level 22&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;overthewire.org&#x2F;wargames&#x2F;bandit&#x2F;bandit23.html&quot;&gt;Level 22 → Level 23&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;overthewire.org&#x2F;wargames&#x2F;bandit&#x2F;bandit24.html&quot;&gt;Level 23 → Level 24&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;overthewire.org&#x2F;wargames&#x2F;bandit&#x2F;bandit25.html&quot;&gt;Level 24 → Level 25&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;overthewire.org&#x2F;wargames&#x2F;bandit&#x2F;bandit26.html&quot;&gt;Level 25 → Level 26&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;overthewire.org&#x2F;wargames&#x2F;bandit&#x2F;bandit27.html&quot;&gt;Level 26 → Level 27&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;overthewire.org&#x2F;wargames&#x2F;bandit&#x2F;bandit28.html&quot;&gt;Level 27 → Level 28&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;overthewire.org&#x2F;wargames&#x2F;bandit&#x2F;bandit29.html&quot;&gt;Level 28 → Level 29&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;overthewire.org&#x2F;wargames&#x2F;bandit&#x2F;bandit30.html&quot;&gt;Level 29 → Level 30&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;overthewire.org&#x2F;wargames&#x2F;bandit&#x2F;bandit31.html&quot;&gt;Level 30 → Level 31&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;overthewire.org&#x2F;wargames&#x2F;bandit&#x2F;bandit32.html&quot;&gt;Level 31 → Level 32&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;overthewire.org&#x2F;wargames&#x2F;bandit&#x2F;bandit33.html&quot;&gt;Level 32 → Level 33&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;overthewire.org&#x2F;wargames&#x2F;bandit&#x2F;bandit34.html&quot;&gt;Level 33 → Level 34&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;&lt;h1 id=&quot;level-0&quot;&gt;Level 0&lt;&#x2F;h1&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;ssh bandit.labs.overthewire.org -p 2220 -l bandit0
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h1 id=&quot;level-0-level-1&quot;&gt;Level 0 → Level 1&lt;&#x2F;h1&gt;
+&lt;pre&gt;&lt;code&gt;cat ~&amp;#x2F;readme
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h1 id=&quot;level-1-level-2&quot;&gt;Level 1 → Level 2&lt;&#x2F;h1&gt;
+&lt;pre&gt;&lt;code&gt;cat ~&amp;#x2F;-
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;can-kao-zi-liao&quot;&gt;参考资料&lt;&#x2F;h2&gt;
+&lt;p&gt;http:&#x2F;&#x2F;tldp.org&#x2F;LDP&#x2F;abs&#x2F;html&#x2F;special-chars.html&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;level-2-level-3&quot;&gt;Level 2 → Level 3&lt;&#x2F;h1&gt;
+&lt;p&gt;这一关其实,,,应该关了tab补全&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;cat ~&amp;#x2F;spaces\ in\ this\ filename
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;或者在windows用命令行的方式也行&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;cat &amp;quot;&amp;#x2F;home&amp;#x2F;bandit2&amp;#x2F;spaces in this filename&amp;quot;
+cat &amp;quot;space in this filename
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h1 id=&quot;level-3-level-4&quot;&gt;Level 3 → Level 4&lt;&#x2F;h1&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;cat ~&amp;#x2F;inhere&amp;#x2F;.hidden
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h1 id=&quot;level-4-level-5&quot;&gt;Level 4 → Level 5&lt;&#x2F;h1&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;i=0; while [ $i -le 9 ]; do file `python -c &amp;quot;print &amp;#x27;&amp;#x2F;home&amp;#x2F;bandit4&amp;#x2F;inhere&amp;#x2F;-file%02d&amp;#x27; % $i&amp;quot;`; i=$((i+1)); done
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h1 id=&quot;level-5-level-6&quot;&gt;Level 5 → Level 6&lt;&#x2F;h1&gt;
+&lt;p&gt;难度不够啊，同大小的就一个...&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt; find . -type f -size 1033c -print | xargs cat
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;还要过滤的话文件加-perm参数未必有用，目前考虑用ls -l和file命令做。&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;level-6-level-7&quot;&gt;Level 6 → Level 7&lt;&#x2F;h1&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;find &amp;#x2F; -user bandit7 -group bandit6 -size 33c 2&amp;gt;&amp;#x2F;dev&amp;#x2F;null | xargs cat
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;很见鬼的是，-print后面放哪些东西会出问题...&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;level-7-level-8&quot;&gt;Level 7 → Level 8&lt;&#x2F;h1&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt; cat ~&amp;#x2F;data.txt | grep millionth
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h1 id=&quot;level-8-level-9&quot;&gt;Level 8 → Level 9&lt;&#x2F;h1&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sort ~&amp;#x2F;data.txt | uniq -u
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h1 id=&quot;level-9-level-10&quot;&gt;Level 9 → Level 10&lt;&#x2F;h1&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;strings ~&amp;#x2F;data.txt | grep ==
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h1 id=&quot;level-10-level-11&quot;&gt;Level 10 → Level 11&lt;&#x2F;h1&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;base64 -d ~&amp;#x2F;data.txt
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h1 id=&quot;level-11-level-12&quot;&gt;Level 11 → Level 12&lt;&#x2F;h1&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt; cat ~&amp;#x2F;data.txt | tr &amp;#x27;a-zA-Z&amp;#x27; &amp;#x27;n-za-mN-ZA-M&amp;#x27;
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h1 id=&quot;level-12-level-13&quot;&gt;Level 12 → Level 13&lt;&#x2F;h1&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;xxd -r ~&amp;#x2F;data.txt | gzip -d - | bzip2 -d - | gzip -d - | tar -xOf - | tar -xOf - | bzip2 -d - | tar -xOf - | gzip -d -
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h1 id=&quot;level-13-level-14&quot;&gt;Level 13 → Level 14&lt;&#x2F;h1&gt;
+&lt;h1 id=&quot;level-14-level-15&quot;&gt;Level 14 → Level 15&lt;&#x2F;h1&gt;
+&lt;h1 id=&quot;level-15-level-16&quot;&gt;Level 15 → Level 16&lt;&#x2F;h1&gt;
+&lt;h1 id=&quot;level-16-level-17&quot;&gt;Level 16 → Level 17&lt;&#x2F;h1&gt;
+&lt;h1 id=&quot;level-17-level-18&quot;&gt;Level 17 → Level 18&lt;&#x2F;h1&gt;
+&lt;h1 id=&quot;level-18-level-19&quot;&gt;Level 18 → Level 19&lt;&#x2F;h1&gt;
+&lt;h1 id=&quot;level-19-level-20&quot;&gt;Level 19 → Level 20&lt;&#x2F;h1&gt;
+&lt;h1 id=&quot;level-20-level-21&quot;&gt;Level 20 → Level 21&lt;&#x2F;h1&gt;
+&lt;h1 id=&quot;level-21-level-22&quot;&gt;Level 21 → Level 22&lt;&#x2F;h1&gt;
+&lt;h1 id=&quot;level-22-level-23&quot;&gt;Level 22 → Level 23&lt;&#x2F;h1&gt;
+&lt;h1 id=&quot;level-23-level-24&quot;&gt;Level 23 → Level 24&lt;&#x2F;h1&gt;
+&lt;h1 id=&quot;level-24-level-25&quot;&gt;Level 24 → Level 25&lt;&#x2F;h1&gt;
+&lt;h1 id=&quot;level-25-level-26&quot;&gt;Level 25 → Level 26&lt;&#x2F;h1&gt;
+&lt;h1 id=&quot;level-26-level-27&quot;&gt;Level 26 → Level 27&lt;&#x2F;h1&gt;
+&lt;h1 id=&quot;level-27-level-28&quot;&gt;Level 27 → Level 28&lt;&#x2F;h1&gt;
+&lt;h1 id=&quot;level-28-level-29&quot;&gt;Level 28 → Level 29&lt;&#x2F;h1&gt;
+&lt;h1 id=&quot;level-29-level-30&quot;&gt;Level 29 → Level 30&lt;&#x2F;h1&gt;
+&lt;h1 id=&quot;level-30-level-31&quot;&gt;Level 30 → Level 31&lt;&#x2F;h1&gt;
+&lt;h1 id=&quot;level-31-level-32&quot;&gt;Level 31 → Level 32&lt;&#x2F;h1&gt;
+&lt;h1 id=&quot;level-32-level-33&quot;&gt;Level 32 → Level 33&lt;&#x2F;h1&gt;
+&lt;h1 id=&quot;level-33-level-34&quot;&gt;Level 33 → Level 34&lt;&#x2F;h1&gt;
+</content>
+	</entry>
+</feed>

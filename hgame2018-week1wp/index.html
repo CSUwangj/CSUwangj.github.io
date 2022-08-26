@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10, viewport-fit=cover">
+
+      <title>LuckyDog | CSUwangj&#x27;s Blog</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://CSUwangj.github.io/css/lib/font-awesome.min.css">
+      <link rel="stylesheet" href="https://CSUwangj.github.io/site.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Noto+Serif+SC">
+      
+<link rel="stylesheet" href="https://CSUwangj.github.io/custom.css">
+
+      <!-- js -->
+      <script type="text/javascript" charset="utf-8" src="https://CSUwangj.github.io/js/sidebar.js"></script>
+      
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css" crossorigin="anonymous">
+<script type="module">
+import renderMathInElement from "https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/auto-render.mjs";
+const katex_config = {
+  delimiters: [
+    { left: "$$", right: "$$", display: true },
+    { left: "$", right: "$", display: false },
+  ],
+  macros: {
+    // Functions
+    arccot: '\\operatorname{arccot}',
+    arcsec: '\\operatorname{arcsec}',
+    arccsc: '\\operatorname{arccsc}',
+  }
+}
+renderMathInElement(document.body, katex_config);
+</script>
+
+
+      
+
+      
+        <link rel="alternate" type="application/atom+xml" title="RSS" href="https://CSUwangj.github.io/atom.xml">
+      
+
+      
+      
+    </head>
+
+    <body>
+      
+      
+        <header name="header">
+          <div>
+            <div class="logo"><a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;">LuckyDog</a></div>
+            <nav class="menu">
+              
+                <a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;" class="nav-item-home unselectable">
+                  <span><i class="fa-solid fa-house"></i> Home</span>
+                </a>
+              
+                <a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;about" class="nav-item-about unselectable">
+                  <span><i class="fa-solid fa-user-circle"></i> About</span>
+                </a>
+              
+                <a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;categories" class="nav-item-categories unselectable">
+                  <span><i class="fa-solid fa-book"></i> Categories</span>
+                </a>
+              
+                <a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;tags" class="nav-item-tags unselectable">
+                  <span><i class="fa-solid fa-tags"></i> Tags</span>
+                </a>
+              
+                <a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;archives" class="nav-item-archives unselectable">
+                  <span><i class="fa-solid fa-inbox"></i> Archives</span>
+                </a>
+              
+                <a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;Webtools" class="nav-item-webtools unselectable">
+                  <span><i class="fa-solid fa-toolbox"></i> Webtools</span>
+                </a>
+              
+              
+            </nav>
+          </div>
+        </header>
+      
+
+      <main class="content container" name="main">
+        <div class="content-wrapper">
+          
+  <div class="post">
+    <h1 class="post-title">HGAME2018-week1WP</h1>
+    <div class="post-meta">
+      
+        <span class="post-meta-divider">|</span>
+        <span class="post-meta-item-icon"><i class="fa-solid fa-calendar"></i></span>
+        <span class="post-date">Posted on: </span>
+        <time datetime=2018-02-08T10:17:34+08:00 title="post created">2018-02-08</time>
+      
+      
+        <span class="post-meta-divider">|</span>
+        <span class="post-meta-item-icon"><i class="fa-solid fa-calendar-check"></i></span>
+        <span class="modify-date">Posted modified: </span>
+        <time datetime=2020-08-07T01:48:37.52286+08:00 title="post modified">2020-08-07</time>
+      
+      
+        <span class="post-meta-divider">|</span>
+        <span class="post-meta-item-icon"><i class="fa-solid fa-folder"></i></span>
+        <span class="in-category">In: </span>
+          
+            <a class="category" href="/category/WriteUp">WriteUp</a>
+          
+      
+      <span class="post-meta-divider">|</span>
+    </div>
+    <div class="post-body">
+      <p>第一周难度还是挺温柔，居然让我AK了，好开心呀</p>
+<p>对了，这篇是先在本地生成的，周日才传上博客的。</p>
+<span id="continue-reading"></span><h1 id="web">Web</h1>
+<h2 id="are-you-from-europe">Are you from Europe?</h2>
+<p>第一次做这种题，还学到了一点浏览器console的用法……
+直接看源码，最开始发现在F12的console里输入quartz +=100000000有用
+然后很开心地抽卡，抽了半天感觉不对，仔细看了下概率……淦哦我是不是傻</p>
+<p>翻到最底下有个函数，看着就是和flag有关的样子
+<img src="https://CSUwangj.github.io/hgame2018-week1wp/snipaste20180205_010720.png" alt="Are_you_from_Europe?1" />
+代码美化一哈
+<img src="https://CSUwangj.github.io/hgame2018-week1wp/snipaste20180205_010751.png" alt="Are_you_from_Europe?2" /></p>
+<h2 id="special-number">special number</h2>
+<p>源码已经放了出来</p>
+<pre data-lang="PHP" class="language-PHP "><code class="language-PHP" data-lang="PHP">include_once(&quot;flag.php&quot;);
+if(isset($_GET[&#x27;key&#x27;])){
+    $pattern = &#x27;&#x2F;^(?=.*[0-9].*)(?=.*[a-zA-Z].*).{7,}$&#x2F; &#x27;;
+    $key = $_GET[&#x27;key&#x27;];
+    if(preg_match($pattern,$key)===0){
+        echo &quot;格式错误&quot;;
+    }else{
+        $lock=&quot;******************&quot;;
+        $b = json_decode($key);
+        if($b==$lock)
+            echo $flag;
+        else
+            echo &quot;this is no special number&quot;;
+    }
+}
+</code></pre>
+<p>这个题的考点就是PHP弱类型中0==string这个情况（PHP混乱邪恶无疑
+就是要让json_decode出来的结果是0，于是在沙盒http://sandbox.onlinephpfunctions[.]com/里实验出了结果
+<img src="https://CSUwangj.github.io/hgame2018-week1wp/snipaste20180205_215726.png" alt="special_number1" />
+然后去原网页的时候还失败了一次……
+<img src="https://CSUwangj.github.io/hgame2018-week1wp/snipaste20180205_215734.png" alt="special_number2" />
+因为传入的时候会再加对引号……
+<img src="https://CSUwangj.github.io/hgame2018-week1wp/snipaste20180205_215746.png" alt="special_number3" />
+这里必须感谢一下飘零大大指点的，一开始光想着怎么绕过正则，反而偏离了正轨
+顺便正则的效果大概是需要传入的字符串既有数字又有字母长度大于6就行</p>
+<h2 id="can-u-find-me">can u find me?</h2>
+<blockquote>
+<p>Description 
+only robot know where is the flag</p>
+</blockquote>
+<p>那当然是robots.txt啦，这不是送？
+<img src="https://CSUwangj.github.io/hgame2018-week1wp/snipaste20180204_201235.png" alt="can_u_find_me?1" />
+直接访问看到
+<img src="https://CSUwangj.github.io/hgame2018-week1wp/snipaste20180208_104340.png" alt="can_u_find_me?2" />
+抓包看看，发现Cookie里有个user=
+补上，发出，得flag
+<img src="https://CSUwangj.github.io/hgame2018-week1wp/snipaste20180204_201018.png" alt="can_u_find_me?3" /></p>
+<h2 id="tell-me-what-you-want">tell me what you want</h2>
+<p>这个题就是纯练改HTTP头的
+点进去问你想要啥，你输flag告诉你用POST更好，然后之后每改一次都会告诉你新的要改的地方，全改完得到flag
+<img src="https://CSUwangj.github.io/hgame2018-week1wp/snipaste20180204_202350.png" alt="tell_me_what_you_want" /></p>
+<h2 id="wo-men-bu-yi-yang">我们不一样</h2>
+<p>还是源码放出，还是弱类型</p>
+<pre data-lang="PHP" class="language-PHP "><code class="language-PHP" data-lang="PHP">include_once(&quot;flag.php&quot;);
+if (isset($_POST[&#x27;str1&#x27;]) &amp;&amp; isset($_POST[&#x27;str2&#x27;])) {
+
+	if ($_POST[&#x27;str1&#x27;] != $_POST[&#x27;str2&#x27;] &amp;&amp; strcmp($_POST[&#x27;str1&#x27;], $_POST[&#x27;str2&#x27;]) == 0) {
+		echo &quot;flag is:&quot;.$flag;
+		exit();
+	} else {
+		echo &quot;Something wrong..&quot;;
+	}
+}
+</code></pre>
+<p>这里的弱类型在于string和非string的strcmp返回0，而array!=string成立
+<img src="https://CSUwangj.github.io/hgame2018-week1wp/snipaste20180204_231047.png" alt="我们不一样" /></p>
+<h1 id="rev">Rev</h1>
+<h2 id="re0">re0</h2>
+<p>拖进IDA，F5出flag
+<img src="https://CSUwangj.github.io/hgame2018-week1wp/snipaste20180204_230513.png" alt="re0" /></p>
+<h2 id="baby-crack">baby_crack</h2>
+<p>拖进IDA，F5，读代码。发现对操作做了这样的操作：</p>
+<ul>
+<li>按位置进行循环移位<img src="https://CSUwangj.github.io/hgame2018-week1wp/snipaste20180208_110243.png" alt="baby_crack1" /></li>
+<li>将输入的每个通过一个映射转到另一个<img src="https://CSUwangj.github.io/hgame2018-week1wp/snipaste20180205_110549.png" alt="baby_crack2" /></li>
+<li>进行几轮交换<img src="https://CSUwangj.github.io/hgame2018-week1wp/snipaste20180205_110559.png" alt="baby_crack3" /></li>
+<li>与flag进行同意操作得到的结果进行比较
+于是写出反着来的操作</li>
+</ul>
+<pre data-lang="cpp" class="language-cpp "><code class="language-cpp" data-lang="cpp">&#x2F;&#x2F;baby1.cpp
+#include &lt;bits&#x2F;stdc++.h&gt;
+using namespace std;
+int indx[]={17,191,186,15,213,204,188,30,25,1,135,27,150,195,134,26,126,107,90,141,251,194,139,179,177,221,239,10,75,248,85,38,118,171,193,100,23,201,175,97,103,74,202,18,36,225,174,80,58,112,55,237,224,119,183,46,161,45,50,123,137,207,240,148,33,101,11,63,125,41,59,5,81,231,129,110,51,198,215,172,60,154,34,220,122,8,106,151,241,95,142,98,111,19,138,130,140,42,73,57,24,104,208,131,180,66,54,113,12,87,16,243,40,212,52,14,228,255,6,173,92,252,219,222,218,159,234,53,94,120,82,217,79,109,187,168,176,21,67,144,37,166,84,254,13,235,169,253,233,93,22,203,47,78,189,197,9,70,247,192,31,89,211,2,35,157,96,4,132,246,164,29,49,76,200,155,199,223,102,44,236,121,115,48,105,99,149,214,190,68,232,165,242,153,216,56,160,227,143,210,83,61,86,146,114,250,184,167,205,238,147,133,108,127,170,178,71,206,128,32,28,124,7,226,185,145,69,116,152,245,62,3,196,65,1,43,72,39,230,91,244,156,136,117,162,182,20,209,229,77,64,249,158,88,163};
+int arr[]={166,78,5,162,182,8,162,206,140,238,32,194,152,160,208,205,35,166,106,130};
+int main()
+{
+&#x2F;&#x2F;	int a;
+&#x2F;&#x2F;	while(cin&gt;&gt;a){
+&#x2F;&#x2F;		cout&lt;&lt;indx[a]&lt;&lt;endl;
+&#x2F;&#x2F;	}
+	for(int i=0;i&lt;20;++i){
+		for(int j=0;j&lt;256;++j){
+			if(indx[j]==arr[i]){
+				cout&lt;&lt;int(*(char*)(&amp;j))&lt;&lt;&#x27;,&#x27;;
+			}
+		}
+	}
+	return 0;
+}
+</code></pre>
+<pre data-lang="cpp" class="language-cpp "><code class="language-cpp" data-lang="cpp">&#x2F;&#x2F;baby2.cpp
+#include &lt;bits&#x2F;stdc++.h&gt;
+using namespace std;
+int arr[]={141,153,71,245,246,85,245,217,96,209,219,21,228,196,102,208,164,141,86,95};
+int main()
+{
+&#x2F;&#x2F;	for(int i=0;i&lt;20;++i){
+&#x2F;&#x2F;		newa[indx[i]]=arr[i];
+&#x2F;&#x2F;	}
+&#x2F;&#x2F;	for(int i=0;i&lt;20;++i){
+&#x2F;&#x2F;		cout&lt;&lt;newa[i]&lt;&lt;&#x27;,&#x27;;
+&#x2F;&#x2F;	}
+	swap(arr[10],arr[15]);
+	swap(arr[10],arr[6]);
+	swap(arr[6],arr[3]);
+	swap(arr[3],arr[1]);
+	swap(arr[0],arr[1]);
+	for(int i=0;i&lt;20;++i){
+		printf(&quot;%d,&quot;,arr[i]);
+	}
+	return 0;
+}
+</code></pre>
+<pre data-lang="cpp" class="language-cpp "><code class="language-cpp" data-lang="cpp">&#x2F;&#x2F;baby3.cpp
+#include &lt;bits&#x2F;stdc++.h&gt;
+using namespace std;
+uint8_t arr[]={208,141,71,153,246,85,245,217,96,209,245,21,228,196,102,219,164,141,86,95};
+unsigned char flg[22]=&quot;&quot;;
+int main()
+{
+	for(int i=0;i&lt;20;++i){
+		bitset&lt;8&gt; a(arr[i]);
+		cout&lt;&lt;a&lt;&lt;endl;
+		if(i%4==1){
+			a=(a&lt;&lt;6)|(a&gt;&gt;2);
+		}else if(i%4==2){
+			a=(a&gt;&gt;4)|(a&lt;&lt;4);
+		}else if(i%4==3){
+			a=(a&lt;&lt;2)|(a&gt;&gt;6);
+		}else{
+			a=(a&gt;&gt;1)|(a&lt;&lt;7);
+		}
+		cout&lt;&lt;a&lt;&lt;&#x27; &#x27;&lt;&lt;a.to_ulong()&lt;&lt;endl;
+		flg[i]=a.to_ulong();
+	}
+	for(int i=0;i&lt;20;++i){
+		cout&lt;&lt;char(flg[i]);
+	}
+}
+</code></pre>
+<p>这里需要说一下……
+C/C++的左右移有毒！换bitset保平安！</p>
+<h2 id="nop-pop">nop_pop</h2>
+<p>一月霸权当然是我pop team epic啦！食我粪作！
+EXEinfo显示是PE文件，那就运行一下看
+<img src="https://CSUwangj.github.io/hgame2018-week1wp/snipaste20180208_110751.png" alt="nop_pop1" />
+打开OD搜一下
+<img src="https://CSUwangj.github.io/hgame2018-week1wp/snipaste20180204_233230.png" alt="nop_pop2" />
+先是把跳转nop掉，然后出来那个Con...的，联系出题人，出题人表示是要nop掉pop子
+于是再看，然后发现上面有个nop_me（提示真明显wwwww）
+nop掉，程序发给出题人，得到flag</p>
+<h2 id="sc2-player">sc2_player</h2>
+<p>看了一下程序F5出来的东西大概做了这几步操作</p>
+<ul>
+<li>arr=(index%7+35)^special</li>
+<li>special(index%7)=special^0x34</li>
+<li>arr=input^ index^(index/7)
+这几个都是长度为28的数组，arr是最后用来比对的数组，input是输入的flag，special是一个程序存储的数组
+所以前两步有什么意义……</li>
+</ul>
+<pre data-lang="cpp" class="language-cpp "><code class="language-cpp" data-lang="cpp">&#x2F;&#x2F;sc2.cpp
+#include &lt;bits&#x2F;stdc++.h&gt;
+using namespace std;
+char arr[29]={104,98,118,101,127,72,50,127,86,124,99,63,82,101,72,108,77,116,101,32,114,115,74,96,115,127,124,101};
+int main()
+{
+	for(int i=0;i&lt;28;++i){
+		arr[i]=arr[i]^i^(i&#x2F;7);
+	}
+	for(int i=0;i&lt;28;++i){
+		putchar(arr[i]);
+	}
+}
+</code></pre>
+<h1 id="pwn">PWN</h1>
+<p>前两题做的时候不在家，借朋友电脑用了下</p>
+<h2 id="guess-number">guess_number</h2>
+<p>其实是很明显的溢出，scanf这个东西不安全，可以直接覆盖到比较的数字
+<img src="https://CSUwangj.github.io/hgame2018-week1wp/snipaste20180207_222045.png" alt="guess_number" /></p>
+<h2 id="flag-server">flag_server</h2>
+<p>还是输入超限，不过一开始要输入长度而且还不能大于63，后面的对比又用!=（继续吐槽我那个超喜欢用!=的队友
+所以输入一个负数就好了
+然后就可以覆盖到猜测的数字了
+<img src="https://CSUwangj.github.io/hgame2018-week1wp/snipaste20180207_221248.png" alt="flag_server" /></p>
+<h2 id="zazahui">zazahui</h2>
+<p>先看整个流程，发现它先把flag读进了一个固定地址
+这次换成了read，但是大小却是188，于是还是能搞事，直接用地址覆盖后面的*s就能输出flag了
+<img src="https://CSUwangj.github.io/hgame2018-week1wp/snipaste20180208_112204.png" alt="zazahui1" />
+本机测试过关直接发payload了，顺便*s后面是计数器，所以可以覆盖可以不覆盖，但是不能改成0，那样就直接退出了
+<img src="https://CSUwangj.github.io/hgame2018-week1wp/snipaste20180207_220202.png" alt="zazahui2" /></p>
+<h1 id="misc">Misc</h1>
+<h2 id="bai-cai-1">白菜1</h2>
+<p>先用stegsolver打开看了一遍，都没东西
+于是考虑lsb（算是常规套路了吧）
+<img src="https://CSUwangj.github.io/hgame2018-week1wp/snipaste20180205_012851.png" alt="白菜1_1" />
+然后文件头不熟练的我还跑了下binwalk,wwwwwww
+<img src="https://CSUwangj.github.io/hgame2018-week1wp/snipaste20180205_013254.png" alt="白菜1_2" />
+就是个zip包，解压出来就是flag</p>
+<h2 id="bai-cai-2">白菜2</h2>
+<p>跑一下binwalk，发现有东西
+然后就得到了flag
+<img src="https://CSUwangj.github.io/hgame2018-week1wp/snipaste20180204_230153.png" alt="白菜2" /></p>
+<h2 id="pacp1">pacp1</h2>
+<p>搜下flag
+<img src="https://CSUwangj.github.io/hgame2018-week1wp/snipaste20180204_225419.png" alt="pacp1_1" />
+看最后这个返回200的分组
+<img src="https://CSUwangj.github.io/hgame2018-week1wp/snipaste20180204_225549.png" alt="pacp1_2" /></p>
+<h1 id="crypto">Crypto</h1>
+<p>知识点全部给出来了哇，真系给力</p>
+<h2 id="easy-caesar">easy Caesar</h2>
+<p>一开始题目还有错，于是找出题人说，拿到了1血（然而改错没加分wwww）
+直接上工具
+<img src="https://CSUwangj.github.io/hgame2018-week1wp/snipaste20180208_113617.png" alt="easy_Caesar" />
+然后数字也有变过，那么按照常识判断，就是qu1ck,4x,la2y,br0wn
+于是有了flag</p>
+<h2 id="polybius">Polybius</h2>
+<p>看到的时候就反应过来了，可惜当时没找到工具手解的……
+看它给的提示网址https://www.wikiwand[.]com/en/Polybius#/Cryptography就行了，这种出题真的很照顾人了</p>
+<h2 id="hill">Hill</h2>
+<p>学到了一种新的加密方式，不过要算数论中矩阵的逆，如果阶数高了，感觉就是灾难啊……
+顺便我又没找到工具一开始还没仔细看链接，矩阵的逆还是手算的……淦了
+同样的https://www.wikiwand[.]com/en/Hill_cipher
+<img src="https://CSUwangj.github.io/hgame2018-week1wp/snipaste20180204_221038.png" alt="Hill" /></p>
+<h2 id="confusion">confusion</h2>
+<p>这个题就比较舒服，不就是大杂烩嘛，上工具~
+<img src="https://CSUwangj.github.io/hgame2018-week1wp/snipaste20180204_211631.png" alt="confusion1" />
+<img src="https://CSUwangj.github.io/hgame2018-week1wp/snipaste20180204_211959.png" alt="confusion2" />
+<img src="https://CSUwangj.github.io/hgame2018-week1wp/snipaste20180204_212008.png" alt="confusion3" />
+<img src="https://CSUwangj.github.io/hgame2018-week1wp/snipaste20180204_212027.png" alt="confusion4" /></p>
+<h2 id="baby-step">baby step</h2>
+<p>刚学完密码学，然而不想自己手写
+网上直接找的python脚本太腊鸡了……慢得不行
+最后换ACM大佬博客找的就好了
+解出来基础解是191091022097，然后加上i个0x1111111111模0x976693344d的逆元就好，顺便后面这个数是质数，所以逆元可以用费马小定理算</p>
+
+    </div>
+  </div>
+
+        </div>
+
+        
+          <button class="sidebar-toggle" onclick="openSidebar()">O</button>
+          <aside class="sidebar" name="sidebar">
+            <div class="site-author" itemprop="author" itemtype="https://schema.org/Person">
+              
+              <img class="site-author-image" itemprop="image"
+                src="https://CSUwangj.github.io/images/avatar.png"
+                alt="CSUwangj" />
+              
+              <p class="site-author-name unselectable">CSUwangj</p>
+              <p class="site-author-quote">Just keep in mind that hacking is very rarely in a sequence.</p>
+            </div>
+            <div class="feed-link">
+              
+                <a rel="alternate" type="application/atom+xml" title="RSS" href="https://CSUwangj.github.io/atom.xml">
+                  RSS
+                </a>
+              
+            </div>
+            <div class="links-of-author">
+              
+                <a href="https:&#x2F;&#x2F;github.com&#x2F;CSUwangj" title="Github" class="author-link">
+                  <i class="fa fw fa-github"></i>
+                </a>
+              
+                <a href="mailto:CSUwangj@protonmail.com" title="EMail" class="author-link">
+                  <i class="fa fw fa-envelope"></i>
+                </a>
+              
+            </div>
+            <div class="links-of-blogroll">
+              
+                <a href="https:&#x2F;&#x2F;wolfbolin.com&#x2F;">WolfBolin</a>
+              
+                <a href="https:&#x2F;&#x2F;haolovej.com&#x2F;">bocity</a>
+              
+                <a href="https:&#x2F;&#x2F;blog.yuki-nagato.com&#x2F;">长门有希</a>
+              
+                <a href="http:&#x2F;&#x2F;www.porlockz.com&#x2F;">Porlockz</a>
+              
+                <a href="https:&#x2F;&#x2F;way.lu&#x2F;">Phodphorus</a>
+              
+                <a href="https:&#x2F;&#x2F;zickshen.github.io&#x2F;">ZickShen</a>
+              
+            </div>
+          </aside>
+        
+
+      </main>
+
+      
+        <footer name="footer">
+          <div class="copyright">
+            <span item="copyrightYear">© 2018-2022</span>
+            <span class="author">CSUwangj</span>
+          </div>
+          <div class="powered-by">
+            Powered by <a href="https://www.getzola.org/">Zola</a> Theme <a href="https://github.com/CSUwangj/DogFood">DogFood</a>
+          </div>
+        </footer>
+      
+    </body>
+
+</html>

