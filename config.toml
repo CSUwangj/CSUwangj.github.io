@@ -47,15 +47,15 @@ quote = "Just keep in mind that hacking is very rarely in a sequence."
 links = [
   {name = "WolfBolin", url = "https://wolfbolin.com/"},
   {name = "长门有希", url = "https://blog.yuki-nagato.com/"},
-  {name = "Porlockz", url = "http://www.porlockz.com/"},
+  {name = "Porlockz", url = "https://www.porlockz.com/"},
   {name = "Phosphorus", url = "https://way.lu/"},
   {name = "Edwardzcn", url = "https://edwardzcn.github.io/"},
   {name = "吕少", url = "https://www.cnblogs.com/csu-lmw/"},
   {name = "ZickShen", url = "https://zickshen.github.io/"},
 ]
 author_links = [
-  {name = "Github", url = "https://github.com/CSUwangj", favion = "fa-brands fa-github"},
-  {name = "EMail", url = "mailto:CSUwangj@protonmail.com", favion = "fa-solid fa-envelope"},
+  {name = "Github", url = "https://github.com/CSUwangj", favicon = "fa-brands fa-github"},
+  {name = "EMail", url = "mailto:CSUwangj@protonmail.com", favicon = "fa-solid fa-envelope"},
 ]
 copyright_year = "2018-2022"
 avatar = "images/avatar.png"
