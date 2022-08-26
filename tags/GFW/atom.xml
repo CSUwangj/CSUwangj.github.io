@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title>LuckyDog | CSUwangj&#x27;s Blog - GFW</title>
+	<link href="https://CSUwangj.github.io/tags/GFW/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://CSUwangj.github.io/"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2022-08-19T01:22:08+08:00</updated>
+	<id>https://CSUwangj.github.io/tags/GFW/atom.xml</id>
+	<entry xml:lang="en">
+		<title>How I deploy Calibre-Web and tweak it</title>
+		<published>2022-08-19T01:22:08+08:00</published>
+		<updated>2022-08-19T01:22:08+08:00</updated>
+		<link rel="alternate" href="https://CSUwangj.github.io/how-i-deploy-calibre-web-and-tweak-it/" type="text/html"/>
+		<id>https://CSUwangj.github.io/how-i-deploy-calibre-web-and-tweak-it/</id>
+		<content type="html">&lt;h1 id=&quot;tl-dr&quot;&gt;TL;DR&lt;&#x2F;h1&gt;
+&lt;p&gt;I managed to host a calibre-web with self signed certificate at non-standard port, and let it fetch metadata through proxy(fuck GFW).&lt;&#x2F;p&gt;
+&lt;p&gt;And I found a solution to bulk upload my eBooks onto it.&lt;&#x2F;p&gt;
+&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;&lt;h1 id=&quot;originate-from-an-ip&quot;&gt;Originate from an IP&lt;&#x2F;h1&gt;
+&lt;p&gt;After moving place and settling down, I managed to have a publicly accessable IP. When you have a server, you want an IP. When you have an IP, you want a domain. When you have a domain, wow, you have all great things in the internet in your pocket(if your server can be that small like a NUC).&lt;&#x2F;p&gt;
+&lt;p&gt;So I began to found services can be deployed on my server through an &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;awesome-selfhosted&#x2F;awesome-selfhosted&quot;&gt;awesome-list&lt;&#x2F;a&gt;. &lt;&#x2F;p&gt;
+&lt;h1 id=&quot;&quot;&gt;&lt;&#x2F;h1&gt;
+&lt;h1 id=&quot;todo&quot;&gt;TODO&lt;&#x2F;h1&gt;
+&lt;p&gt;There is still some improvement to be done, but don&#x27;t know where to start, I&#x27;ll update this article as soon as I have done that.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+</feed>
