@@ -12,7 +12,7 @@
 		<updated>2020-08-07T02:01:26.830854+08:00</updated>
 		<link rel="alternate" href="https://CSUwangj.github.io/how-to-recover-des-master-key-from-round-key/" type="text/html"/>
 		<id>https://CSUwangj.github.io/how-to-recover-des-master-key-from-round-key/</id>
-		<content type="html">&lt;h1 id=&quot;tldr&quot;&gt;TLDR&lt;&#x2F;h1&gt;
+		<content type="html">&lt;p&gt;$1# TLDR&lt;&#x2F;p&gt;
 &lt;p&gt;Reverse the picking(or called compressing) process where extract round key from part of master key to get most of master key(56bits), use parity to recover last 8bits.&lt;&#x2F;p&gt;
 &lt;p&gt;If the dumbass&#x2F;fuckhead&#x2F;shithead who created this question forgot or not known parity, just fuck it.&lt;&#x2F;p&gt;
 &lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;&lt;h1 id=&quot;we-got-the-key&quot;&gt;We Got the Key!&lt;&#x2F;h1&gt;

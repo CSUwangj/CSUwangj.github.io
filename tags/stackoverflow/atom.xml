@@ -77,7 +77,7 @@ uid=20000 gid=20000 groups=20000
 		<updated>2020-08-07T02:01:26.830854+08:00</updated>
 		<link rel="alternate" href="https://CSUwangj.github.io/exploit-exercise-protostarquan-gong-lue-jie-xi/" type="text/html"/>
 		<id>https://CSUwangj.github.io/exploit-exercise-protostarquan-gong-lue-jie-xi/</id>
-		<content type="html">&lt;p&gt;目前进度：&lt;&#x2F;p&gt;
+		<content type="html">&lt;p&gt;$1目前进度：&lt;&#x2F;p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
 Stack 0&lt;&#x2F;li&gt;

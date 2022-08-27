@@ -12,7 +12,7 @@
 		<updated>2020-08-07T02:01:26.829857+08:00</updated>
 		<link rel="alternate" href="https://CSUwangj.github.io/regex-golf-challenge/" type="text/html"/>
 		<id>https://CSUwangj.github.io/regex-golf-challenge/</id>
-		<content type="html">&lt;p&gt;Interesting challenges for regular expression newbie like me~&lt;&#x2F;p&gt;
+		<content type="html">&lt;p&gt;$1Interesting challenges for regular expression newbie like me~&lt;&#x2F;p&gt;
 &lt;p&gt;TBC...&lt;&#x2F;p&gt;
 &lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;&lt;h1 id=&quot;classic&quot;&gt;Classic&lt;&#x2F;h1&gt;
 &lt;h2 id=&quot;warmup&quot;&gt;Warmup&lt;&#x2F;h2&gt;
@@ -421,9 +421,8 @@ int main() {
 		<updated>2020-08-07T02:01:26.830854+08:00</updated>
 		<link rel="alternate" href="https://CSUwangj.github.io/overthewire-banditquan-gong-lue-jie-xi/" type="text/html"/>
 		<id>https://CSUwangj.github.io/overthewire-banditquan-gong-lue-jie-xi/</id>
-		<content type="html">&lt;ul&gt;
-&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
-&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;overthewire.org&#x2F;wargames&#x2F;bandit&#x2F;bandit0.html&quot;&gt;Level 0&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+		<content type="html">&lt;p&gt;$1- [x] &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;overthewire.org&#x2F;wargames&#x2F;bandit&#x2F;bandit0.html&quot;&gt;Level 0&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;ul&gt;
 &lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
 &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;overthewire.org&#x2F;wargames&#x2F;bandit&#x2F;bandit1.html&quot;&gt;Level 0 → Level 1&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
@@ -639,7 +638,7 @@ uid=20000 gid=20000 groups=20000
 		<updated>2020-08-07T02:01:26.830854+08:00</updated>
 		<link rel="alternate" href="https://CSUwangj.github.io/exploit-exercise-protostarquan-gong-lue-jie-xi/" type="text/html"/>
 		<id>https://CSUwangj.github.io/exploit-exercise-protostarquan-gong-lue-jie-xi/</id>
-		<content type="html">&lt;p&gt;目前进度：&lt;&#x2F;p&gt;
+		<content type="html">&lt;p&gt;$1目前进度：&lt;&#x2F;p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
 Stack 0&lt;&#x2F;li&gt;
@@ -1896,7 +1895,7 @@ print tryit(slv, 0)
 		<updated>2020-08-07T01:54:43.005696+08:00</updated>
 		<link rel="alternate" href="https://CSUwangj.github.io/jarvisoj-wphe-ji/" type="text/html"/>
 		<id>https://CSUwangj.github.io/jarvisoj-wphe-ji/</id>
-		<content type="html">&lt;p&gt;因为预感进度表会很长，所以不放了&lt;&#x2F;p&gt;
+		<content type="html">&lt;p&gt;$1因为预感进度表会很长，所以不放了&lt;&#x2F;p&gt;
 &lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;&lt;h1 id=&quot;bu-zi-ci-tiao-zhuan-de-jin-du-biao&quot;&gt;不资瓷跳转的进度表&lt;&#x2F;h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
@@ -2401,7 +2400,7 @@ gate(r)
 		<updated>2020-08-07T01:48:37.604640+08:00</updated>
 		<link rel="alternate" href="https://CSUwangj.github.io/id0-rsa-wphe-ji/" type="text/html"/>
 		<id>https://CSUwangj.github.io/id0-rsa-wphe-ji/</id>
-		<content type="html">&lt;p&gt;忙里偷闲做做题wwwwwwwwwwwww&lt;&#x2F;p&gt;
+		<content type="html">&lt;p&gt;$1忙里偷闲做做题wwwwwwwwwwwww&lt;&#x2F;p&gt;
 &lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;&lt;h1 id=&quot;jin-du-biao&quot;&gt;进度表&lt;&#x2F;h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;

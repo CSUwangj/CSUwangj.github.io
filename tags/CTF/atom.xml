@@ -12,7 +12,7 @@
 		<updated>2020-08-07T02:01:26.830854+08:00</updated>
 		<link rel="alternate" href="https://CSUwangj.github.io/how-to-recover-des-master-key-from-round-key/" type="text/html"/>
 		<id>https://CSUwangj.github.io/how-to-recover-des-master-key-from-round-key/</id>
-		<content type="html">&lt;h1 id=&quot;tldr&quot;&gt;TLDR&lt;&#x2F;h1&gt;
+		<content type="html">&lt;p&gt;$1# TLDR&lt;&#x2F;p&gt;
 &lt;p&gt;Reverse the picking(or called compressing) process where extract round key from part of master key to get most of master key(56bits), use parity to recover last 8bits.&lt;&#x2F;p&gt;
 &lt;p&gt;If the dumbass&#x2F;fuckhead&#x2F;shithead who created this question forgot or not known parity, just fuck it.&lt;&#x2F;p&gt;
 &lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;&lt;h1 id=&quot;we-got-the-key&quot;&gt;We Got the Key!&lt;&#x2F;h1&gt;
@@ -1061,7 +1061,7 @@ print tryit(slv, 0)
 		<updated>2020-08-07T01:54:43.005696+08:00</updated>
 		<link rel="alternate" href="https://CSUwangj.github.io/jarvisoj-wphe-ji/" type="text/html"/>
 		<id>https://CSUwangj.github.io/jarvisoj-wphe-ji/</id>
-		<content type="html">&lt;p&gt;因为预感进度表会很长，所以不放了&lt;&#x2F;p&gt;
+		<content type="html">&lt;p&gt;$1因为预感进度表会很长，所以不放了&lt;&#x2F;p&gt;
 &lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;&lt;h1 id=&quot;bu-zi-ci-tiao-zhuan-de-jin-du-biao&quot;&gt;不资瓷跳转的进度表&lt;&#x2F;h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
@@ -1566,7 +1566,7 @@ gate(r)
 		<updated>2020-08-07T01:48:37.604640+08:00</updated>
 		<link rel="alternate" href="https://CSUwangj.github.io/id0-rsa-wphe-ji/" type="text/html"/>
 		<id>https://CSUwangj.github.io/id0-rsa-wphe-ji/</id>
-		<content type="html">&lt;p&gt;忙里偷闲做做题wwwwwwwwwwwww&lt;&#x2F;p&gt;
+		<content type="html">&lt;p&gt;$1忙里偷闲做做题wwwwwwwwwwwww&lt;&#x2F;p&gt;
 &lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;&lt;h1 id=&quot;jin-du-biao&quot;&gt;进度表&lt;&#x2F;h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
@@ -2597,7 +2597,7 @@ for i in s:
 		<updated>2020-08-07T01:54:43.006694+08:00</updated>
 		<link rel="alternate" href="https://CSUwangj.github.io/pwnxue-xi-ji-lu/" type="text/html"/>
 		<id>https://CSUwangj.github.io/pwnxue-xi-ji-lu/</id>
-		<content type="html">&lt;p&gt;学习PWN的记录&lt;&#x2F;p&gt;
+		<content type="html">&lt;p&gt;$1学习PWN的记录&lt;&#x2F;p&gt;
 &lt;p&gt;可能会有路线，看填坑进度……&lt;&#x2F;p&gt;
 &lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;&lt;h1 id=&quot;huan-jing-pei-zhi&quot;&gt;环境配置&lt;&#x2F;h1&gt;
 &lt;p&gt;按理说第一篇是要说一下这个&lt;&#x2F;p&gt;

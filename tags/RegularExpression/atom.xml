@@ -12,7 +12,7 @@
 		<updated>2020-08-07T02:01:26.829857+08:00</updated>
 		<link rel="alternate" href="https://CSUwangj.github.io/regex-golf-challenge/" type="text/html"/>
 		<id>https://CSUwangj.github.io/regex-golf-challenge/</id>
-		<content type="html">&lt;p&gt;Interesting challenges for regular expression newbie like me~&lt;&#x2F;p&gt;
+		<content type="html">&lt;p&gt;$1Interesting challenges for regular expression newbie like me~&lt;&#x2F;p&gt;
 &lt;p&gt;TBC...&lt;&#x2F;p&gt;
 &lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;&lt;h1 id=&quot;classic&quot;&gt;Classic&lt;&#x2F;h1&gt;
 &lt;h2 id=&quot;warmup&quot;&gt;Warmup&lt;&#x2F;h2&gt;

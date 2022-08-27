@@ -12,9 +12,8 @@
 		<updated>2020-08-07T02:01:26.830854+08:00</updated>
 		<link rel="alternate" href="https://CSUwangj.github.io/overthewire-banditquan-gong-lue-jie-xi/" type="text/html"/>
 		<id>https://CSUwangj.github.io/overthewire-banditquan-gong-lue-jie-xi/</id>
-		<content type="html">&lt;ul&gt;
-&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
-&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;overthewire.org&#x2F;wargames&#x2F;bandit&#x2F;bandit0.html&quot;&gt;Level 0&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+		<content type="html">&lt;p&gt;$1- [x] &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;overthewire.org&#x2F;wargames&#x2F;bandit&#x2F;bandit0.html&quot;&gt;Level 0&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;ul&gt;
 &lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
 &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;overthewire.org&#x2F;wargames&#x2F;bandit&#x2F;bandit1.html&quot;&gt;Level 0 → Level 1&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;

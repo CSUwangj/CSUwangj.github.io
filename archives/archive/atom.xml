@@ -59,16 +59,53 @@
 	<entry xml:lang="en">
 		<title>How I deploy Calibre-Web and tweak it</title>
 		<published>2022-08-19T01:22:08+08:00</published>
-		<updated>2022-08-19T01:22:08+08:00</updated>
+		<updated>2022-08-28T03:57:23+08:00</updated>
 		<link rel="alternate" href="https://CSUwangj.github.io/how-i-deploy-calibre-web-and-tweak-it/" type="text/html"/>
 		<id>https://CSUwangj.github.io/how-i-deploy-calibre-web-and-tweak-it/</id>
 		<content type="html">&lt;h1 id=&quot;tl-dr&quot;&gt;TL;DR&lt;&#x2F;h1&gt;
 &lt;p&gt;I managed to host a calibre-web with self signed certificate at non-standard port, and let it fetch metadata through proxy(fuck GFW).&lt;&#x2F;p&gt;
 &lt;p&gt;And I found a solution to bulk upload my eBooks onto it.&lt;&#x2F;p&gt;
 &lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;&lt;h1 id=&quot;originate-from-an-ip&quot;&gt;Originate from an IP&lt;&#x2F;h1&gt;
-&lt;p&gt;After moving place and settling down, I managed to have a publicly accessable IP. When you have a server, you want an IP. When you have an IP, you want a domain. When you have a domain, wow, you have all great things in the internet in your pocket(if your server can be that small like a NUC).&lt;&#x2F;p&gt;
-&lt;p&gt;So I began to found services can be deployed on my server through an &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;awesome-selfhosted&#x2F;awesome-selfhosted&quot;&gt;awesome-list&lt;&#x2F;a&gt;. &lt;&#x2F;p&gt;
-&lt;h1 id=&quot;&quot;&gt;&lt;&#x2F;h1&gt;
+&lt;p&gt;After moving place and settling down, I managed to have a publicly accessable IP. When you have a server, you want an IP. When you have an IP, you want a domain. When you have a domain, wow, you have all the great things on the internet in your pocket(if your server can be that small as a NUC).&lt;&#x2F;p&gt;
+&lt;p&gt;So I began to find services that can be deployed on my server through an &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;awesome-selfhosted&#x2F;awesome-selfhosted#document-management---e-books&quot;&gt;awesome-list&lt;&#x2F;a&gt;. I want a document management server that can:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;access through web&lt;&#x2F;li&gt;
+&lt;li&gt;can fetch metadata by ISBN&lt;&#x2F;li&gt;
+&lt;li&gt;(best to have) user authentication&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;And that&#x27;s where I found calibre-web.&lt;&#x2F;p&gt;
+&lt;p&gt;I used calibre before, and it&#x27;s worked perfectly as a desktop software, but it&#x27;s built-in server just sucks. Maybe my word is too mean, it works as a just adequate E-book reader.&lt;&#x2F;p&gt;
+&lt;p&gt;Calibre-web has user management so I can share books with my friends, and I can also get their collections. Calibre supports multiple formats for a book, so I can put source code on it. I can&#x27;t find a reason stop me choosing it.&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;let-s-deploy-it&quot;&gt;Let&#x27;s deploy it&lt;&#x2F;h1&gt;
+&lt;p&gt;I love docker, and thankfully Calibre-web come with a &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;linuxserver&#x2F;docker-calibre-web&quot;&gt;docker image&lt;&#x2F;a&gt; built by LinuxServer.io team, and that&#x27;s where nightmare comes.&lt;&#x2F;p&gt;
+&lt;p&gt;This docker image download and install most of its dependencies during build phase, in one &lt;code&gt;RUN&lt;&#x2F;code&gt; command, which should be a good practice because it can reduce redundant docker image layers.&lt;&#x2F;p&gt;
+&lt;p&gt;But I&#x27;m in China, we got a Great Fire Wall to pass. Dependencies can fail for no reason at any download process, curl&#x2F;apt&#x2F;pip&#x2F;etc. So I rewrite the Dockerfile, separate every download process into one &lt;code&gt;RUN&lt;&#x2F;code&gt; command, and build it several times.&lt;&#x2F;p&gt;
+&lt;p&gt;Image ready, all I need to do is run and see the success log... At least that&#x27;s what I thought.&lt;&#x2F;p&gt;
+&lt;p&gt;For users who want to perform book conversion, they should run docker image with an extra environment variable &lt;code&gt;DOCKER_MODS=linuxserver&#x2F;mods:universal-calibre&lt;&#x2F;code&gt;, which will download it from internet, every f**king time you boot the image.&lt;&#x2F;p&gt;
+&lt;p&gt;I know it&#x27;s not my or thier faults, fuck the GFW and its team, but problem should be solved. I download them and mounted them as docker volume. Finally, it runs successfully!&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;proxies-cannot-be-used-with-advocate&quot;&gt;Proxies cannot be used with Advocate&lt;&#x2F;h1&gt;
+&lt;p&gt;Everything was fine, login, admin, uploading. I upload a book and try to fetch metadata from internet, it succeed to fetch data, but failed to save the data. It shows &lt;code&gt;Error editing book: Proxies cannot be used with Advocate&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Jesus, I know I&#x27;m using a proxy, but if I don&#x27;t use a proxy, I cannot get access to Google Book, which is crucial for fetching metadata.&lt;&#x2F;p&gt;
+&lt;p&gt;I searched on the internel and all I found is a github issue &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;gshang2017&#x2F;docker&#x2F;issues&#x2F;120&quot;&gt;https:&#x2F;&#x2F;github.com&#x2F;gshang2017&#x2F;docker&#x2F;issues&#x2F;120&lt;&#x2F;a&gt; which is absolutely another Chinese fired, a Chinese who faced the same problem as me.&lt;&#x2F;p&gt;
+&lt;p&gt;It&#x27;s 4 am, my mind is blowing, I gave up.&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;read-the-fucking-source-code&quot;&gt;Read the fucking source code&lt;&#x2F;h1&gt;
+&lt;p&gt;The day after that day, I remembered that I can check where disable proxy usaga, at least I can write my own service that can be used with a proxy.&lt;&#x2F;p&gt;
+&lt;p&gt;Then I found &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;JordanMilne&#x2F;Advocate&#x2F;blob&#x2F;74594fb8d65c20fd1bf5f2eda75619605d340533&#x2F;advocate&#x2F;adapters.py#L31&quot;&gt;https:&#x2F;&#x2F;github.com&#x2F;JordanMilne&#x2F;Advocate&#x2F;blob&#x2F;74594fb8d65c20fd1bf5f2eda75619605d340533&#x2F;advocate&#x2F;adapters.py#L31&lt;&#x2F;a&gt;. Seems that &lt;code&gt;advocate&lt;&#x2F;code&gt; just doesn&#x27;t support proxy. Maybe I can write proxy support for it? I look around and found something interesting in its &lt;code&gt;README&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;how-i-deploy-calibre-web-and-tweak-it&#x2F;.&#x2F;advocate.png&quot; alt=&quot;advocate README&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Okey, why can&#x27;t I replace it with &lt;code&gt;requests&lt;&#x2F;code&gt;? I checked&lt;code&gt;calibre-web&lt;&#x2F;code&gt; and found &lt;img src=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;how-i-deploy-calibre-web-and-tweak-it&#x2F;.&#x2F;helper.png&quot; alt=&quot;requests&quot; &#x2F;&gt;. That what I need exactly, so I wrote a small script which can help me replace &lt;code&gt;advocate&lt;&#x2F;code&gt; with &lt;code&gt;requests&lt;&#x2F;code&gt; and put it into &lt;code&gt;&#x2F;config&#x2F;custom-cont-init.d&lt;&#x2F;code&gt;:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;#!&amp;#x2F;bin&amp;#x2F;bash
+
+echo &amp;quot;**** patching calibre-web - removing advocate for proxy ****&amp;quot;
+sed -i &amp;quot;s&amp;#x2F;import advocate&amp;#x2F;raise ImportError(\&amp;quot;no advocate\&amp;quot;)&amp;#x2F;&amp;quot; &amp;#x2F;app&amp;#x2F;calibre-web&amp;#x2F;cps&amp;#x2F;helper.py
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Though cover uploads will failed due to absence of &lt;code&gt;advocate&lt;&#x2F;code&gt;, but check the error message, it&#x27;s at &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;janeczku&#x2F;calibre-web&#x2F;blob&#x2F;68e21e1098aab8dcbfcf024cc296bc43936bfe3c&#x2F;cps&#x2F;helper.py#L811&quot;&gt;https:&#x2F;&#x2F;github.com&#x2F;janeczku&#x2F;calibre-web&#x2F;blob&#x2F;68e21e1098aab8dcbfcf024cc296bc43936bfe3c&#x2F;cps&#x2F;helper.py#L811&lt;&#x2F;a&gt;, we can add an environment variable &lt;code&gt;CALIBRE_LOCALHOST=1&lt;&#x2F;code&gt; which solve this problem.&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;i-ll-reclaim-my-lost-souls&quot;&gt;I&#x27;ll reclaim my lost souls.&lt;&#x2F;h1&gt;
+&lt;p&gt;Bulk add through web interface seems amazing and complex, so it doesn&#x27;t have this feature. But remember what I&#x27;m using? It&#x27;s &lt;strong&gt;Calibre&lt;&#x2F;strong&gt;-web, it has the same library structure as Calibre.&lt;&#x2F;p&gt;
+&lt;p&gt;I mounted the library folder on my laptop, open library with Calibre and add all my E-book collections into it. &lt;&#x2F;p&gt;
+&lt;p&gt;There&#x27;s no better thing for both a bibliomaniac and a programmer, looking through all the books on the service I deployed.&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;conclusion&quot;&gt;Conclusion&lt;&#x2F;h1&gt;
+&lt;p&gt;Fuck GFW.&lt;&#x2F;p&gt;
+&lt;p&gt;And always remember that source code is your best friend.&lt;&#x2F;p&gt;
 &lt;h1 id=&quot;todo&quot;&gt;TODO&lt;&#x2F;h1&gt;
 &lt;p&gt;There is still some improvement to be done, but don&#x27;t know where to start, I&#x27;ll update this article as soon as I have done that.&lt;&#x2F;p&gt;
 </content>
@@ -156,7 +193,7 @@
 		<updated>2020-08-07T02:01:26.830854+08:00</updated>
 		<link rel="alternate" href="https://CSUwangj.github.io/how-to-recover-des-master-key-from-round-key/" type="text/html"/>
 		<id>https://CSUwangj.github.io/how-to-recover-des-master-key-from-round-key/</id>
-		<content type="html">&lt;h1 id=&quot;tldr&quot;&gt;TLDR&lt;&#x2F;h1&gt;
+		<content type="html">&lt;p&gt;$1# TLDR&lt;&#x2F;p&gt;
 &lt;p&gt;Reverse the picking(or called compressing) process where extract round key from part of master key to get most of master key(56bits), use parity to recover last 8bits.&lt;&#x2F;p&gt;
 &lt;p&gt;If the dumbass&#x2F;fuckhead&#x2F;shithead who created this question forgot or not known parity, just fuck it.&lt;&#x2F;p&gt;
 &lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;&lt;h1 id=&quot;we-got-the-key&quot;&gt;We Got the Key!&lt;&#x2F;h1&gt;
@@ -273,7 +310,8 @@ print(&amp;#x27;&amp;#x27;.join([chr(int(key[i:i+8],2)) for i in range(0, len(ke
 		<updated>2020-08-07T01:54:43.014672+08:00</updated>
 		<link rel="alternate" href="https://CSUwangj.github.io/bian-cheng-shi-hen-hao-wan-de-md2docxshi-zen-yao-xie-chu-lai-de/" type="text/html"/>
 		<id>https://CSUwangj.github.io/bian-cheng-shi-hen-hao-wan-de-md2docxshi-zen-yao-xie-chu-lai-de/</id>
-		<content type="html">&lt;p&gt;花了一个多月写了一个工具，写一点东西帮助想重新造轮子的朋友~&lt;&#x2F;p&gt;
+		<content type="html">&lt;p&gt;花
+花了一个多月写了一个工具，写一点东西帮助想重新造轮子的朋友~&lt;&#x2F;p&gt;
 &lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
 &lt;p&gt;我在上个月花了半个月的时间补充相关知识后，在这个月花了几天时间写出了一个将给定 markdown 按照一定格式渲染成 .docx 文件的工具，代码已经开源在&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;CSUwangj&#x2F;md2docx-csharp&quot;&gt;github&lt;&#x2F;a&gt;上。但是这个项目目的只是给中南信安学子使用，而且封面格式只按照某个老师的要求来的，如果有定制的需求，还是需要自己动手，那么这里就写一篇文章简单介绍一下完成这个过程中可能用到的资料、工具和可能踩到的坑。&lt;&#x2F;p&gt;
 &lt;p&gt;行文中会将用到的资源用超链接放在里面，但为了方便，也会在末尾用&lt;a href=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;bian-cheng-shi-hen-hao-wan-de-md2docxshi-zen-yao-xie-chu-lai-de&#x2F;#can-kao-zi-liao&quot;&gt;一个列表&lt;&#x2F;a&gt;把资料列出来。&lt;&#x2F;p&gt;
@@ -468,7 +506,7 @@ static void dfs(MarkdownInline inline)
 		<updated>2020-08-07T02:01:26.829857+08:00</updated>
 		<link rel="alternate" href="https://CSUwangj.github.io/regex-golf-challenge/" type="text/html"/>
 		<id>https://CSUwangj.github.io/regex-golf-challenge/</id>
-		<content type="html">&lt;p&gt;Interesting challenges for regular expression newbie like me~&lt;&#x2F;p&gt;
+		<content type="html">&lt;p&gt;$1Interesting challenges for regular expression newbie like me~&lt;&#x2F;p&gt;
 &lt;p&gt;TBC...&lt;&#x2F;p&gt;
 &lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;&lt;h1 id=&quot;classic&quot;&gt;Classic&lt;&#x2F;h1&gt;
 &lt;h2 id=&quot;warmup&quot;&gt;Warmup&lt;&#x2F;h2&gt;
@@ -1208,7 +1246,7 @@ int main()
 		<updated>2020-08-07T01:54:43.009683+08:00</updated>
 		<link rel="alternate" href="https://CSUwangj.github.io/you-yi-ci-zhuang-ji/" type="text/html"/>
 		<id>https://CSUwangj.github.io/you-yi-ci-zhuang-ji/</id>
-		<content type="html">&lt;p&gt;更新了固态硬盘，所以又要重装电脑啦~
+		<content type="html">&lt;p&gt;$1更新了固态硬盘，所以又要重装电脑啦~
 记录一蛤装机过程，主要还是给自己以后参考用。&lt;&#x2F;p&gt;
 &lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;&lt;h1 id=&quot;zhun-bei-gong-zuo&quot;&gt;准备工作&lt;&#x2F;h1&gt;
 &lt;p&gt;到&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.microsoft.com&#x2F;software-download&#x2F;windows10&quot;&gt;Download Windows 10 Disc Image (ISO File) - Microsoft&lt;&#x2F;a&gt;下载创建安装盘的工具&lt;&#x2F;p&gt;
@@ -1250,9 +1288,8 @@ int main()
 		<updated>2020-08-07T02:01:26.830854+08:00</updated>
 		<link rel="alternate" href="https://CSUwangj.github.io/overthewire-banditquan-gong-lue-jie-xi/" type="text/html"/>
 		<id>https://CSUwangj.github.io/overthewire-banditquan-gong-lue-jie-xi/</id>
-		<content type="html">&lt;ul&gt;
-&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
-&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;overthewire.org&#x2F;wargames&#x2F;bandit&#x2F;bandit0.html&quot;&gt;Level 0&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+		<content type="html">&lt;p&gt;$1- [x] &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;overthewire.org&#x2F;wargames&#x2F;bandit&#x2F;bandit0.html&quot;&gt;Level 0&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;ul&gt;
 &lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
 &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;overthewire.org&#x2F;wargames&#x2F;bandit&#x2F;bandit1.html&quot;&gt;Level 0 → Level 1&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
@@ -1468,7 +1505,7 @@ uid=20000 gid=20000 groups=20000
 		<updated>2020-08-07T02:01:26.830854+08:00</updated>
 		<link rel="alternate" href="https://CSUwangj.github.io/exploit-exercise-protostarquan-gong-lue-jie-xi/" type="text/html"/>
 		<id>https://CSUwangj.github.io/exploit-exercise-protostarquan-gong-lue-jie-xi/</id>
-		<content type="html">&lt;p&gt;目前进度：&lt;&#x2F;p&gt;
+		<content type="html">&lt;p&gt;$1目前进度：&lt;&#x2F;p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
 Stack 0&lt;&#x2F;li&gt;
@@ -2253,7 +2290,7 @@ uid=0(root) gid=0(root) groups=0(root)
 		<updated>2020-08-07T01:48:37.615611+08:00</updated>
 		<link rel="alternate" href="https://CSUwangj.github.io/zai-piplian-bu-shang-wang-de-shi-hou-an-zhuang-pwntools/" type="text/html"/>
 		<id>https://CSUwangj.github.io/zai-piplian-bu-shang-wang-de-shi-hou-an-zhuang-pwntools/</id>
-		<content type="html">&lt;p&gt;本文描述了这样一种特殊情况下安装pwntools的解决方案：有方法联网，但是pip连不上网。 &lt;&#x2F;p&gt;
+		<content type="html">&lt;p&gt;$1本文描述了这样一种特殊情况下安装pwntools的解决方案：有方法联网，但是pip连不上网。 &lt;&#x2F;p&gt;
 &lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
 &lt;p&gt;解决方法很简单，就是将pwntools和其依赖包下载下来，然后手动安装。选择对应版本，有whl直接下载whl，没有就下载源代码用命令python setup install安装，安装的时候可能会遇到有预先依赖，那就先安装依赖的包就行。 &lt;&#x2F;p&gt;
 &lt;p&gt;下图是我在2018年7月22日下载的一套，有需要的度盘链接：https:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;1efC82WX_TdAMoS7aVBFi1w 密码：lnv8&lt;&#x2F;p&gt;
@@ -2372,7 +2409,7 @@ sys&amp;#x2F;install.sh
 		<updated>2020-08-07T01:48:37.612619+08:00</updated>
 		<link rel="alternate" href="https://CSUwangj.github.io/guan-yu-san-lie-han-shu-de-yi-dian-si-kao/" type="text/html"/>
 		<id>https://CSUwangj.github.io/guan-yu-san-lie-han-shu-de-yi-dian-si-kao/</id>
-		<content type="html">&lt;p&gt;今天在ACM群灌水的时候因为一个题目引发了一些思考，题目是&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;qscoj.cn&#x2F;#&#x2F;contest&#x2F;show&#x2F;220&quot;&gt;比赛链接&lt;&#x2F;a&gt;的A题&lt;&#x2F;p&gt;
+		<content type="html">&lt;p&gt;$1今天在ACM群灌水的时候因为一个题目引发了一些思考，题目是&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;qscoj.cn&#x2F;#&#x2F;contest&#x2F;show&#x2F;220&quot;&gt;比赛链接&lt;&#x2F;a&gt;的A题&lt;&#x2F;p&gt;
 &lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
 &lt;p&gt;其实题目很明显，3e4的字符串总量，1e3的字符串长度上限，样例就显示了有字母、数字、符号，就10M内存，用字典树妥妥炸了。&lt;&#x2F;p&gt;
 &lt;p&gt;所以就哈希呗。&lt;&#x2F;p&gt;
@@ -3027,7 +3064,7 @@ print tryit(slv, 0)
 		<updated>2020-08-07T01:54:43.005696+08:00</updated>
 		<link rel="alternate" href="https://CSUwangj.github.io/jarvisoj-wphe-ji/" type="text/html"/>
 		<id>https://CSUwangj.github.io/jarvisoj-wphe-ji/</id>
-		<content type="html">&lt;p&gt;因为预感进度表会很长，所以不放了&lt;&#x2F;p&gt;
+		<content type="html">&lt;p&gt;$1因为预感进度表会很长，所以不放了&lt;&#x2F;p&gt;
 &lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;&lt;h1 id=&quot;bu-zi-ci-tiao-zhuan-de-jin-du-biao&quot;&gt;不资瓷跳转的进度表&lt;&#x2F;h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
@@ -3532,7 +3569,7 @@ gate(r)
 		<updated>2020-08-07T01:48:37.604640+08:00</updated>
 		<link rel="alternate" href="https://CSUwangj.github.io/id0-rsa-wphe-ji/" type="text/html"/>
 		<id>https://CSUwangj.github.io/id0-rsa-wphe-ji/</id>
-		<content type="html">&lt;p&gt;忙里偷闲做做题wwwwwwwwwwwww&lt;&#x2F;p&gt;
+		<content type="html">&lt;p&gt;$1忙里偷闲做做题wwwwwwwwwwwww&lt;&#x2F;p&gt;
 &lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;&lt;h1 id=&quot;jin-du-biao&quot;&gt;进度表&lt;&#x2F;h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
@@ -4315,7 +4352,7 @@ DECIMAL       HEXADECIMAL     DESCRIPTION
 		<updated>2020-08-07T01:48:37.619600+08:00</updated>
 		<link rel="alternate" href="https://CSUwangj.github.io/an-zhuang-shi-gong-ju-ji-he/" type="text/html"/>
 		<id>https://CSUwangj.github.io/an-zhuang-shi-gong-ju-ji-he/</id>
-		<content type="html">&lt;p&gt;持续更新ing&lt;&#x2F;p&gt;
+		<content type="html">&lt;p&gt;$1持续更新ing&lt;&#x2F;p&gt;
 &lt;p&gt;可能以后还会重新整理&lt;&#x2F;p&gt;
 &lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;&lt;h1 id=&quot;ying-yu-gong-ju&quot;&gt;英语工具&lt;&#x2F;h1&gt;
 &lt;p&gt;http:&#x2F;&#x2F;www.1checker.com&#x2F;Products&#x2F;DownLoad&lt;&#x2F;p&gt;
@@ -4576,7 +4613,7 @@ for i in s:
 		<updated>2020-08-07T01:54:43.006694+08:00</updated>
 		<link rel="alternate" href="https://CSUwangj.github.io/pwnxue-xi-ji-lu/" type="text/html"/>
 		<id>https://CSUwangj.github.io/pwnxue-xi-ji-lu/</id>
-		<content type="html">&lt;p&gt;学习PWN的记录&lt;&#x2F;p&gt;
+		<content type="html">&lt;p&gt;$1学习PWN的记录&lt;&#x2F;p&gt;
 &lt;p&gt;可能会有路线，看填坑进度……&lt;&#x2F;p&gt;
 &lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;&lt;h1 id=&quot;huan-jing-pei-zhi&quot;&gt;环境配置&lt;&#x2F;h1&gt;
 &lt;p&gt;按理说第一篇是要说一下这个&lt;&#x2F;p&gt;
@@ -4673,7 +4710,7 @@ ez_shellcode_ver2&lt;&#x2F;li&gt;
 		<updated>2020-08-07T01:48:37.628576+08:00</updated>
 		<link rel="alternate" href="https://CSUwangj.github.io/qing-gong-ju-ge-ren-ji-he/" type="text/html"/>
 		<id>https://CSUwangj.github.io/qing-gong-ju-ge-ren-ji-he/</id>
-		<content type="html">&lt;p&gt;持续更新ing&lt;&#x2F;p&gt;
+		<content type="html">&lt;p&gt;$1持续更新ing&lt;&#x2F;p&gt;
 &lt;p&gt;可能以后还会重新整理&lt;&#x2F;p&gt;
 &lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;&lt;h1 id=&quot;cppzai-xian-sha-he-bian-yi-qi&quot;&gt;cpp在线沙盒编译器&lt;&#x2F;h1&gt;
 &lt;p&gt;https:&#x2F;&#x2F;wandbox.org&#x2F;&lt;&#x2F;p&gt;

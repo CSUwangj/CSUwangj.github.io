@@ -343,7 +343,7 @@ int main()
 		<updated>2020-08-07T01:48:37.612619+08:00</updated>
 		<link rel="alternate" href="https://CSUwangj.github.io/guan-yu-san-lie-han-shu-de-yi-dian-si-kao/" type="text/html"/>
 		<id>https://CSUwangj.github.io/guan-yu-san-lie-han-shu-de-yi-dian-si-kao/</id>
-		<content type="html">&lt;p&gt;今天在ACM群灌水的时候因为一个题目引发了一些思考，题目是&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;qscoj.cn&#x2F;#&#x2F;contest&#x2F;show&#x2F;220&quot;&gt;比赛链接&lt;&#x2F;a&gt;的A题&lt;&#x2F;p&gt;
+		<content type="html">&lt;p&gt;$1今天在ACM群灌水的时候因为一个题目引发了一些思考，题目是&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;qscoj.cn&#x2F;#&#x2F;contest&#x2F;show&#x2F;220&quot;&gt;比赛链接&lt;&#x2F;a&gt;的A题&lt;&#x2F;p&gt;
 &lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
 &lt;p&gt;其实题目很明显，3e4的字符串总量，1e3的字符串长度上限，样例就显示了有字母、数字、符号，就10M内存，用字典树妥妥炸了。&lt;&#x2F;p&gt;
 &lt;p&gt;所以就哈希呗。&lt;&#x2F;p&gt;
