@@ -10,7 +10,7 @@ categories = [ "WriteUp",]
 archives = [ "archive",]
 +++
 
-$1- [x] [Level 0](http://overthewire.org/wargames/bandit/bandit0.html)
+- [x] [Level 0](http://overthewire.org/wargames/bandit/bandit0.html)
 - [x] [Level 0 → Level 1](http://overthewire.org/wargames/bandit/bandit1.html)
 - [x] [Level 1 → Level 2](http://overthewire.org/wargames/bandit/bandit2.html)
 - [x] [Level 2 → Level 3](http://overthewire.org/wargames/bandit/bandit3.html)

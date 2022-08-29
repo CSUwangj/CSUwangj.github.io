@@ -326,7 +326,7 @@ __ACTF{L15e_1da_d0_rEveR53}__
 
 最开始的这一段分析需要掌握栈帧以及函数调用约定的相关知识，这里直接给出分析的结果：
 
-```assembly
+```asm
    0x0006fa <+0>:	push   rbp
    0x0006fb <+1>:	mov    rbp,rsp
    0x0006fe <+4>:	mov    QWORD PTR [rbp-0x18],rdi
@@ -344,7 +344,7 @@ int func(char *input){
 
 我们将``[rbp-0x4]``假设为int型变量i，``[rbp-0x18]``假设为指向用户输入字符串首地址的指针input，往后看:
 
-```assembly
+```asm
  0x000709 <+15>:	jmp    0x75d <func+99>
  ...
  0x00075d <+99>:	cmp    DWORD PTR [rbp-0x4],0x15
@@ -353,7 +353,7 @@ int func(char *input){
 
 跳转到<func+99>后将``[rbp-0x4]``中的值（也就是i）与``0x15``比较，只要不大于``0x15``就会跳转到<func+17>处。因为i的初值为``0x0``，所以会实现跳转。
 
-```assembly
+```asm
  0x00070b <+17>:	mov    eax,DWORD PTR [rbp-0x4]
  0x00070e <+20>:	movsxd rdx,eax
  0x000711 <+23>:	mov    rax,QWORD PTR [rbp-0x18]
@@ -363,7 +363,7 @@ int func(char *input){
 
 根据先前的假设，前四行相当于完成了``(input+i)``,使input指向第i位字符；再看最后的``movzx  edx,BYTE PTR [rax]``,这里实现了寻址到``(input+i)``所表示的地址处并将此地址内存储的值传给edx，写成伪c代码相当于``edx = *(input + i)`` 。
 
-```assembly
+```asm
  0x00071b <+33>:	mov    eax,DWORD PTR [rbp-0x4]
  0x00071e <+36>:	movsxd rcx,eax
  0x000721 <+39>:	mov    rax,QWORD PTR [rbp-0x18]
@@ -374,7 +374,7 @@ int func(char *input){
 
 这里是比较关键的一个点，前四行进行的是与上一段相同的工作，到了第五行出现了使``edx``的值加7的操作，而在之前的分析中此时``edx``中存放的是``*(input+i)``，最后一行则是将加7之后的结果赋给原``(input+i)``的地址处。综上，上面的两段汇编实现了:  `` *(input+i) += 7``，继续往下看：
 
-```assembly
+```asm
    0x00072d <+51>:	mov    eax,DWORD PTR [rbp-0x4]
    0x000730 <+54>:	movsxd rdx,eax
    0x000733 <+57>:	mov    rax,QWORD PTR [rbp-0x18]
@@ -388,7 +388,7 @@ int func(char *input){
 
 前5行做的是一样的事，写成伪代码就是 ``ecx = *(input + i)`` ; 之后2行则为``rdx = i``; 最后2行比较关键，`` lea    rax,[rip+0x2008f6] ``所做的是将simple.c中给出的字符数组``enstr``的首地址存入``rax``，而后综合前面的分析可以得出伪代码`` eax = *(enstr + i)``，之后是比较和跳转操作：
 
-```assembly
+```asm
    0x00074e <+84>:	cmp    cl,al
    0x000750 <+86>:	je     0x759 <func+95>
    0x000752 <+88>:	mov    eax,0x1

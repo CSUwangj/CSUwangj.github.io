@@ -40,7 +40,7 @@ I love docker, and thankfully Calibre-web come with a [docker image](https://git
 
 This docker image download and install most of its dependencies during build phase, in one `RUN` command, which should be a good practice because it can reduce redundant docker image layers.
 
-But I'm in China, we got a Great Fire Wall to pass. Dependencies can fail for no reason at any download process, curl/apt/pip/etc. So I rewrite the Dockerfile, separate every download process into one `RUN` command, and build it several times.
+But I'm in China, we got a Great Fire Wall to pass. Dependencies can fail for no reason at any download process, curl/apt/pip/etc. So I rewrite the Dockerfile, separate each download command into one `RUN` command, and build it several times.
 
 Image ready, all I need to do is run and see the success log... At least that's what I thought.
 
@@ -56,11 +56,11 @@ Jesus, I know I'm using a proxy, but if I don't use a proxy, I cannot get access
 
 I searched on the internel and all I found is a github issue <https://github.com/gshang2017/docker/issues/120> which is absolutely another Chinese fired, a Chinese who faced the same problem as me.
 
-It's 4 am, my mind is blowing, I gave up.
+It was 4 am, my mind is blowing, I gave up.
 
 # Read the fucking source code
 
-The day after that day, I remembered that I can check where disable proxy usaga, at least I can write my own service that can be used with a proxy.
+The day after that day, I remembered that I can check source code to find where disable proxy usaga, at least I can write my own service that can be used with a proxy.
 
 Then I found <https://github.com/JordanMilne/Advocate/blob/74594fb8d65c20fd1bf5f2eda75619605d340533/advocate/adapters.py#L31>. Seems that `advocate` just doesn't support proxy. Maybe I can write proxy support for it? I look around and found something interesting in its `README`.
 

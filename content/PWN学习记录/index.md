@@ -10,7 +10,7 @@ categories = [ "Notes",]
 archives = [ "archive",]
 +++
 
-$1学习PWN的记录
+学习PWN的记录
 
 可能会有路线，看填坑进度……
 

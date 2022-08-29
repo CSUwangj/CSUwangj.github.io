@@ -11,8 +11,7 @@ categories = [ "WriteUp",]
 archives = [ "archive",]
 +++
 
-$1忙里偷闲做做题wwwwwwwwwwwww
-
+忙里偷闲做做题wwwwwwwwwwwww
 
 <!-- more -->
 

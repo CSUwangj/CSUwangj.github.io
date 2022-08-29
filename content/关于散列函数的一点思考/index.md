@@ -11,7 +11,7 @@ categories = [ "Notes",]
 archives = [ "archive",]
 +++
 
-$1今天在ACM群灌水的时候因为一个题目引发了一些思考，题目是[比赛链接](http://qscoj.cn/#/contest/show/220)的A题
+今天在ACM群灌水的时候因为一个题目引发了一些思考，题目是[比赛链接](http://qscoj.cn/#/contest/show/220)的A题
 
 <!-- more -->
 

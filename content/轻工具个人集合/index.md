@@ -10,7 +10,7 @@ categories = [ "Tools",]
 archives = [ "archive",]
 +++
 
-$1持续更新ing
+持续更新ing
 
 可能以后还会重新整理
 

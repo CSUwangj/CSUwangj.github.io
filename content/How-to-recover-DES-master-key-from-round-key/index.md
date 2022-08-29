@@ -10,7 +10,7 @@ categories = [ "Notes",]
 archives = [ "archive",]
 +++
 
-$1# TLDR
+# TLDR
 
 Reverse the picking(or called compressing) process where extract round key from part of master key to get most of master key(56bits), use parity to recover last 8bits.
 
