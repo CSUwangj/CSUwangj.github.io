@@ -43,7 +43,7 @@ renderMathInElement(document.body, katex_config);
       
 
       
-        <link rel="alternate" type="application/atom+xml" title="RSS" href="https://CSUwangj.github.io/atom.xml">
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="https://CSUwangj.github.io/rss.xml">
       
       
         <link rel="icon" type="image/x-icon" href="https://CSUwangj.github.io/images/favicon.ico">
@@ -124,8 +124,7 @@ renderMathInElement(document.body, katex_config);
       <span class="post-meta-divider">|</span>
     </div>
     <div class="post-body">
-      <p>花
-花了一个多月写了一个工具，写一点东西帮助想重新造轮子的朋友~</p>
+      <p>花了一个多月写了一个工具，写一点东西帮助想重新造轮子的朋友~</p>
 <span id="continue-reading"></span>
 <p>我在上个月花了半个月的时间补充相关知识后，在这个月花了几天时间写出了一个将给定 markdown 按照一定格式渲染成 .docx 文件的工具，代码已经开源在<a rel="noopener nofollow noreferrer" target="_blank" href="https://github.com/CSUwangj/md2docx-csharp">github</a>上。但是这个项目目的只是给中南信安学子使用，而且封面格式只按照某个老师的要求来的，如果有定制的需求，还是需要自己动手，那么这里就写一篇文章简单介绍一下完成这个过程中可能用到的资料、工具和可能踩到的坑。</p>
 <p>行文中会将用到的资源用超链接放在里面，但为了方便，也会在末尾用<a href="https://CSUwangj.github.io/bian-cheng-shi-hen-hao-wan-de-md2docxshi-zen-yao-xie-chu-lai-de/#can-kao-zi-liao">一个列表</a>把资料列出来。</p>
@@ -186,64 +185,64 @@ renderMathInElement(document.body, katex_config);
 <p>通过以上关系，我考虑得到的结果是下面这个图</p>
 <p><img src="https://CSUwangj.github.io/bian-cheng-shi-hen-hao-wan-de-md2docxshi-zen-yao-xie-chu-lai-de/design.jpg" alt="Correspondence" /></p>
 <p>处理嵌套、交错的 MarkdownInline 其实挺简单，只需要一个简单的 DFS，遇到新的非 TextRunInline 的话就加上心的格式，然后继续DFS。下面是一个简单的示例代码</p>
-<pre data-lang="c#" class="language-c# "><code class="language-c#" data-lang="c#">&#x2F;&#x2F; 输出嵌套的类HTML样子的（伪）渲染效果
-static void dfs(MarkdownInline inline)
-{
-    if (inline is TextRunInline txt)
-    {
-        Console.Write($&quot;txt{txt.Text}&quot;);
-    }
-    else if (inline is CodeInline code)
-    {
-        Console.Write($&quot;code{code.Text}&quot;);
-    }
-    else if (inline is BoldTextInline bd)
-    {
-        foreach(var e in bd.Inlines)
-        {
-            Console.Write(&quot;&lt;Bold&gt;&quot;);
-            dfs(e);
-            Console.Write(&quot;&lt;&#x2F;Bold&gt;&quot;);
-        }
-    }
-    else if (inline is ItalicTextInline it)
-    {
-        foreach(var e in it.Inlines)
-        {
-            Console.Write(&quot;&lt;Italic&gt;&quot;);
-            dfs(e);
-            Console.Write(&quot;&lt;&#x2F;Italic&gt;&quot;);
-        }
-    }
-    else if (inline is StrikethroughTextInline st)
-    {
-        foreach (var e in st.Inlines)
-        {
-            Console.Write(&quot;&lt;Strike&gt;&quot;);
-            dfs(e);
-            Console.Write(&quot;&lt;&#x2F;Strike&gt;&quot;);
-        }
-    }
-    else if (inline is SubscriptTextInline ss)
-    {
-        foreach (var e in ss.Inlines)
-        {
-            Console.Write(&quot;&lt;Subs&gt;&quot;);
-            dfs(e);
-            Console.Write(&quot;&lt;&#x2F;Subs&gt;&quot;);
-        }
-    }
-    else if (inline is SuperscriptTextInline sp)
-    {
-        foreach (var e in sp.Inlines)
-        {
-            Console.Write(&quot;&lt;Super&gt;&quot;);
-            dfs(e);
-            Console.Write(&quot;&lt;&#x2F;Super&gt;&quot;);
-        }
-    }
-}
-</code></pre>
+<pre data-lang="c#" style="background-color:#2b303b;color:#c0c5ce;" class="language-c# "><code class="language-c#" data-lang="c#"><span style="color:#65737e;">// 输出嵌套的类HTML样子的（伪）渲染效果
+</span><span style="color:#b48ead;">static void </span><span style="color:#8fa1b3;">dfs</span><span>(MarkdownInline </span><span style="color:#bf616a;">inline</span><span>)
+</span><span>{
+</span><span>    </span><span style="color:#b48ead;">if </span><span>(</span><span style="color:#bf616a;">inline </span><span>is TextRunInline </span><span style="color:#bf616a;">txt</span><span>)
+</span><span>    {
+</span><span>        </span><span style="color:#bf616a;">Console</span><span>.</span><span style="color:#bf616a;">Write</span><span>($&quot;</span><span style="color:#a3be8c;">txt</span><span>{</span><span style="color:#bf616a;">txt</span><span>.</span><span style="color:#bf616a;">Text</span><span>}&quot;);
+</span><span>    }
+</span><span>    </span><span style="color:#b48ead;">else if </span><span>(</span><span style="color:#bf616a;">inline </span><span>is CodeInline </span><span style="color:#bf616a;">code</span><span>)
+</span><span>    {
+</span><span>        </span><span style="color:#bf616a;">Console</span><span>.</span><span style="color:#bf616a;">Write</span><span>($&quot;</span><span style="color:#a3be8c;">code</span><span>{</span><span style="color:#bf616a;">code</span><span>.</span><span style="color:#bf616a;">Text</span><span>}&quot;);
+</span><span>    }
+</span><span>    </span><span style="color:#b48ead;">else if </span><span>(</span><span style="color:#bf616a;">inline </span><span>is BoldTextInline </span><span style="color:#bf616a;">bd</span><span>)
+</span><span>    {
+</span><span>        </span><span style="color:#b48ead;">foreach</span><span>(</span><span style="color:#b48ead;">var </span><span style="color:#bf616a;">e </span><span style="color:#b48ead;">in </span><span style="color:#bf616a;">bd</span><span>.</span><span style="color:#bf616a;">Inlines</span><span>)
+</span><span>        {
+</span><span>            </span><span style="color:#bf616a;">Console</span><span>.</span><span style="color:#bf616a;">Write</span><span>(&quot;</span><span style="color:#a3be8c;">&lt;Bold&gt;</span><span>&quot;);
+</span><span>            </span><span style="color:#bf616a;">dfs</span><span>(</span><span style="color:#bf616a;">e</span><span>);
+</span><span>            </span><span style="color:#bf616a;">Console</span><span>.</span><span style="color:#bf616a;">Write</span><span>(&quot;</span><span style="color:#a3be8c;">&lt;/Bold&gt;</span><span>&quot;);
+</span><span>        }
+</span><span>    }
+</span><span>    </span><span style="color:#b48ead;">else if </span><span>(</span><span style="color:#bf616a;">inline </span><span>is ItalicTextInline </span><span style="color:#bf616a;">it</span><span>)
+</span><span>    {
+</span><span>        </span><span style="color:#b48ead;">foreach</span><span>(</span><span style="color:#b48ead;">var </span><span style="color:#bf616a;">e </span><span style="color:#b48ead;">in </span><span style="color:#bf616a;">it</span><span>.</span><span style="color:#bf616a;">Inlines</span><span>)
+</span><span>        {
+</span><span>            </span><span style="color:#bf616a;">Console</span><span>.</span><span style="color:#bf616a;">Write</span><span>(&quot;</span><span style="color:#a3be8c;">&lt;Italic&gt;</span><span>&quot;);
+</span><span>            </span><span style="color:#bf616a;">dfs</span><span>(</span><span style="color:#bf616a;">e</span><span>);
+</span><span>            </span><span style="color:#bf616a;">Console</span><span>.</span><span style="color:#bf616a;">Write</span><span>(&quot;</span><span style="color:#a3be8c;">&lt;/Italic&gt;</span><span>&quot;);
+</span><span>        }
+</span><span>    }
+</span><span>    </span><span style="color:#b48ead;">else if </span><span>(</span><span style="color:#bf616a;">inline </span><span>is StrikethroughTextInline </span><span style="color:#bf616a;">st</span><span>)
+</span><span>    {
+</span><span>        </span><span style="color:#b48ead;">foreach </span><span>(</span><span style="color:#b48ead;">var </span><span style="color:#bf616a;">e </span><span style="color:#b48ead;">in </span><span style="color:#bf616a;">st</span><span>.</span><span style="color:#bf616a;">Inlines</span><span>)
+</span><span>        {
+</span><span>            </span><span style="color:#bf616a;">Console</span><span>.</span><span style="color:#bf616a;">Write</span><span>(&quot;</span><span style="color:#a3be8c;">&lt;Strike&gt;</span><span>&quot;);
+</span><span>            </span><span style="color:#bf616a;">dfs</span><span>(</span><span style="color:#bf616a;">e</span><span>);
+</span><span>            </span><span style="color:#bf616a;">Console</span><span>.</span><span style="color:#bf616a;">Write</span><span>(&quot;</span><span style="color:#a3be8c;">&lt;/Strike&gt;</span><span>&quot;);
+</span><span>        }
+</span><span>    }
+</span><span>    </span><span style="color:#b48ead;">else if </span><span>(</span><span style="color:#bf616a;">inline </span><span>is SubscriptTextInline </span><span style="color:#bf616a;">ss</span><span>)
+</span><span>    {
+</span><span>        </span><span style="color:#b48ead;">foreach </span><span>(</span><span style="color:#b48ead;">var </span><span style="color:#bf616a;">e </span><span style="color:#b48ead;">in </span><span style="color:#bf616a;">ss</span><span>.</span><span style="color:#bf616a;">Inlines</span><span>)
+</span><span>        {
+</span><span>            </span><span style="color:#bf616a;">Console</span><span>.</span><span style="color:#bf616a;">Write</span><span>(&quot;</span><span style="color:#a3be8c;">&lt;Subs&gt;</span><span>&quot;);
+</span><span>            </span><span style="color:#bf616a;">dfs</span><span>(</span><span style="color:#bf616a;">e</span><span>);
+</span><span>            </span><span style="color:#bf616a;">Console</span><span>.</span><span style="color:#bf616a;">Write</span><span>(&quot;</span><span style="color:#a3be8c;">&lt;/Subs&gt;</span><span>&quot;);
+</span><span>        }
+</span><span>    }
+</span><span>    </span><span style="color:#b48ead;">else if </span><span>(</span><span style="color:#bf616a;">inline </span><span>is SuperscriptTextInline </span><span style="color:#bf616a;">sp</span><span>)
+</span><span>    {
+</span><span>        </span><span style="color:#b48ead;">foreach </span><span>(</span><span style="color:#b48ead;">var </span><span style="color:#bf616a;">e </span><span style="color:#b48ead;">in </span><span style="color:#bf616a;">sp</span><span>.</span><span style="color:#bf616a;">Inlines</span><span>)
+</span><span>        {
+</span><span>            </span><span style="color:#bf616a;">Console</span><span>.</span><span style="color:#bf616a;">Write</span><span>(&quot;</span><span style="color:#a3be8c;">&lt;Super&gt;</span><span>&quot;);
+</span><span>            </span><span style="color:#bf616a;">dfs</span><span>(</span><span style="color:#bf616a;">e</span><span>);
+</span><span>            </span><span style="color:#bf616a;">Console</span><span>.</span><span style="color:#bf616a;">Write</span><span>(&quot;</span><span style="color:#a3be8c;">&lt;/Super&gt;</span><span>&quot;);
+</span><span>        }
+</span><span>    }
+</span><span>}
+</span></code></pre>
 <p>现在处理思路也有了，对应关系也找了，接下来再把操作 .docx 文件解决了这个软件也就完成了。</p>
 <h2 id="open-xml-sdk">Open XML SDK</h2>
 <p>Open XML SDK 是由微软开发维护的用于在 Office Word, Excel, and PowerPoint 上进行编程的工具，整个 SDK 已经开源在 <a rel="noopener nofollow noreferrer" target="_blank" href="https://github.com/OfficeDev/Open-XML-SDK">github</a> 上。至于文档，则如 README 所言</p>
@@ -332,7 +331,7 @@ static void dfs(MarkdownInline inline)
             </div>
             <div class="feed-link">
               
-                <a rel="alternate" type="application/atom+xml" title="RSS" href="https://CSUwangj.github.io/atom.xml">
+                <a rel="alternate" type="application/rss+xml" title="RSS" href="https://CSUwangj.github.io/rss.xml">
                   RSS
                 </a>
               

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>LuckyDog | CSUwangj&#x27;s Blog - fuck</title>
+        <link>https://CSUwangj.github.io/</link>
+        <description></description>
+        <generator>Zola</generator>
+        <language>en</language>
+        <atom:link href="https://CSUwangj.github.io/tags/fuck/rss.xml" rel="self" type="application/rss+xml"/>
+        <lastBuildDate>Fri, 07 Aug 2020 02:01:26 +0800</lastBuildDate>
+        <item>
+            <title>How to recover DES master key from round key</title>
+            <pubDate>Sat, 09 Nov 2019 22:13:16 +0800</pubDate>
+            <link>https://CSUwangj.github.io/how-to-recover-des-master-key-from-round-key/</link>
+            <guid>https://CSUwangj.github.io/how-to-recover-des-master-key-from-round-key/</guid>
+            <description>&lt;h1 id=&quot;tldr&quot;&gt;TLDR&lt;&#x2F;h1&gt;
+&lt;p&gt;Reverse the picking(or called compressing) process where extract round key from part of master key to get most of master key(56bits), use parity to recover last 8bits.&lt;&#x2F;p&gt;
+&lt;p&gt;If the dumbass&#x2F;fuckhead&#x2F;shithead who created this question forgot or not known parity, just fuck it.&lt;&#x2F;p&gt;
+</description>
+        </item>
+    </channel>
+</rss>

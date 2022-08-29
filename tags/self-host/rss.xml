@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>LuckyDog | CSUwangj&#x27;s Blog - self-host</title>
+        <link>https://CSUwangj.github.io/</link>
+        <description></description>
+        <generator>Zola</generator>
+        <language>en</language>
+        <atom:link href="https://CSUwangj.github.io/tags/self-host/rss.xml" rel="self" type="application/rss+xml"/>
+        <lastBuildDate>Sun, 28 Aug 2022 03:57:23 +0800</lastBuildDate>
+        <item>
+            <title>How I deploy Calibre-Web and tweak it</title>
+            <pubDate>Fri, 19 Aug 2022 01:22:08 +0800</pubDate>
+            <link>https://CSUwangj.github.io/how-i-deploy-calibre-web-and-tweak-it/</link>
+            <guid>https://CSUwangj.github.io/how-i-deploy-calibre-web-and-tweak-it/</guid>
+            <description>&lt;h1 id=&quot;tl-dr&quot;&gt;TL;DR&lt;&#x2F;h1&gt;
+&lt;p&gt;I managed to host a calibre-web with self signed certificate at non-standard port, and let it fetch metadata through proxy(fuck GFW).&lt;&#x2F;p&gt;
+&lt;p&gt;And I found a solution to bulk upload my eBooks onto it.&lt;&#x2F;p&gt;
+</description>
+        </item>
+    </channel>
+</rss>

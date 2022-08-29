@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>LuckyDog | CSUwangj&#x27;s Blog - Notes</title>
+        <link>https://CSUwangj.github.io/</link>
+        <description></description>
+        <generator>Zola</generator>
+        <language>en</language>
+        <atom:link href="https://CSUwangj.github.io/categories/Notes/rss.xml" rel="self" type="application/rss+xml"/>
+        <lastBuildDate>Tue, 19 Dec 8102 10:36:02 +0800</lastBuildDate>
+        <item>
+            <title>博文整理</title>
+            <pubDate>Tue, 19 Dec 8102 10:36:02 +0800</pubDate>
+            <link>https://CSUwangj.github.io/bo-wen-zheng-li/</link>
+            <guid>https://CSUwangj.github.io/bo-wen-zheng-li/</guid>
+            <description>&lt;p&gt;打算专门搞个整理用的东西，顺便可以看看自己有多少挖完没填的坑。&lt;&#x2F;p&gt;
+</description>
+        </item>
+        <item>
+            <title>How I deploy Calibre-Web and tweak it</title>
+            <pubDate>Fri, 19 Aug 2022 01:22:08 +0800</pubDate>
+            <link>https://CSUwangj.github.io/how-i-deploy-calibre-web-and-tweak-it/</link>
+            <guid>https://CSUwangj.github.io/how-i-deploy-calibre-web-and-tweak-it/</guid>
+            <description>&lt;h1 id=&quot;tl-dr&quot;&gt;TL;DR&lt;&#x2F;h1&gt;
+&lt;p&gt;I managed to host a calibre-web with self signed certificate at non-standard port, and let it fetch metadata through proxy(fuck GFW).&lt;&#x2F;p&gt;
+&lt;p&gt;And I found a solution to bulk upload my eBooks onto it.&lt;&#x2F;p&gt;
+</description>
+        </item>
+        <item>
+            <title>像做项目一样做毕设</title>
+            <pubDate>Wed, 22 Jul 2020 20:57:08 +0800</pubDate>
+            <link>https://CSUwangj.github.io/xiang-zuo-xiang-mu-yi-yang-zuo-bi-she/</link>
+            <guid>https://CSUwangj.github.io/xiang-zuo-xiang-mu-yi-yang-zuo-bi-she/</guid>
+            <description>&lt;h1 id=&quot;xu-lun&quot;&gt;绪论&lt;&#x2F;h1&gt;
+&lt;p&gt;整理自己在学校的东西，看到自己为了毕业设计开的项目，觉得自己的这份经验值得分享一下，所以整理一下发出来，帮助学弟学妹开始自己的毕设。&lt;&#x2F;p&gt;
+&lt;p&gt;本文主要分为两个部分，一个是工作流，另一个是小技巧：工作流包括了我从联系导师、确认选题到最后完成设计、申请推优的大流程；小技巧则是我认为在毕设过程中提升了我工作效率的一些设计、软件。&lt;&#x2F;p&gt;
+</description>
+        </item>
+        <item>
+            <title>How to recover DES master key from round key</title>
+            <pubDate>Sat, 09 Nov 2019 22:13:16 +0800</pubDate>
+            <link>https://CSUwangj.github.io/how-to-recover-des-master-key-from-round-key/</link>
+            <guid>https://CSUwangj.github.io/how-to-recover-des-master-key-from-round-key/</guid>
+            <description>&lt;h1 id=&quot;tldr&quot;&gt;TLDR&lt;&#x2F;h1&gt;
+&lt;p&gt;Reverse the picking(or called compressing) process where extract round key from part of master key to get most of master key(56bits), use parity to recover last 8bits.&lt;&#x2F;p&gt;
+&lt;p&gt;If the dumbass&#x2F;fuckhead&#x2F;shithead who created this question forgot or not known parity, just fuck it.&lt;&#x2F;p&gt;
+</description>
+        </item>
+        <item>
+            <title>编程是很好玩的--md2docx是怎么写出来的</title>
+            <pubDate>Mon, 19 Aug 2019 21:18:08 +0800</pubDate>
+            <link>https://CSUwangj.github.io/bian-cheng-shi-hen-hao-wan-de-md2docxshi-zen-yao-xie-chu-lai-de/</link>
+            <guid>https://CSUwangj.github.io/bian-cheng-shi-hen-hao-wan-de-md2docxshi-zen-yao-xie-chu-lai-de/</guid>
+            <description>&lt;p&gt;花了一个多月写了一个工具，写一点东西帮助想重新造轮子的朋友~&lt;&#x2F;p&gt;
+</description>
+        </item>
+        <item>
+            <title>ACM中一些常见的问题及原因</title>
+            <pubDate>Wed, 30 Jan 2019 17:23:34 +0800</pubDate>
+            <link>https://CSUwangj.github.io/acmzhong-yi-xie-chang-jian-de-wen-ti-ji-yuan-yin/</link>
+            <guid>https://CSUwangj.github.io/acmzhong-yi-xie-chang-jian-de-wen-ti-ji-yuan-yin/</guid>
+            <description>&lt;p&gt;最近在 ACM 群灌水，顺便解决了一点问题，感觉可能会成为日经系列，寻思可以写个博文专门写写，正好也是对自己学习知识的检验。&lt;&#x2F;p&gt;
+&lt;p&gt;我觉得这篇文章阅读方式可以按照《C语言常见问题集》，遇到问题了来看看也行，电脑阅读的时候右边应该会有个目录可以跳转，顺着读一遍也行。&lt;&#x2F;p&gt;
+&lt;p&gt;文章只能慢慢更新，因为我并不想随意地对待这种难得的问题，然而工作在身并不能全身心投入。&lt;&#x2F;p&gt;
+&lt;p&gt;以下内容如无特殊声明，采用C99和C++11标准。&lt;&#x2F;p&gt;
+</description>
+        </item>
+        <item>
+            <title>又一次装机</title>
+            <pubDate>Mon, 21 Jan 2019 10:41:05 +0800</pubDate>
+            <link>https://CSUwangj.github.io/you-yi-ci-zhuang-ji/</link>
+            <guid>https://CSUwangj.github.io/you-yi-ci-zhuang-ji/</guid>
+            <description>&lt;p&gt;更新了固态硬盘，所以又要重装电脑啦~
+记录一蛤装机过程，主要还是给自己以后参考用。&lt;&#x2F;p&gt;
+</description>
+        </item>
+        <item>
+            <title>Cryptography_Engineering_Exercise</title>
+            <pubDate>Fri, 24 Aug 2018 00:42:29 +0800</pubDate>
+            <link>https://CSUwangj.github.io/cryptography-engineering-exercise/</link>
+            <guid>https://CSUwangj.github.io/cryptography-engineering-exercise/</guid>
+            <description>&lt;p&gt;Cryptography Engineer在目前看来是一本十分不错的讲密码学的书。既然书名都叫密码学工程了，那就更应该动手做点练习了，这里就是用于存放部分练习以及索引的。&lt;&#x2F;p&gt;
+</description>
+        </item>
+        <item>
+            <title>在pip连不上网的时候安装pwntools</title>
+            <pubDate>Sat, 21 Jul 2018 14:38:02 +0800</pubDate>
+            <link>https://CSUwangj.github.io/zai-piplian-bu-shang-wang-de-shi-hou-an-zhuang-pwntools/</link>
+            <guid>https://CSUwangj.github.io/zai-piplian-bu-shang-wang-de-shi-hou-an-zhuang-pwntools/</guid>
+            <description>&lt;p&gt;本文描述了这样一种特殊情况下安装pwntools的解决方案：有方法联网，但是pip连不上网。 &lt;&#x2F;p&gt;
+</description>
+        </item>
+        <item>
+            <title>CTF用环境搭建</title>
+            <pubDate>Fri, 20 Jul 2018 14:57:49 +0800</pubDate>
+            <link>https://CSUwangj.github.io/ctfyong-huan-jing-da-jian/</link>
+            <guid>https://CSUwangj.github.io/ctfyong-huan-jing-da-jian/</guid>
+            <description>&lt;h1 id=&quot;mu-qian-gong-ju-ji-he&quot;&gt;目前工具集合&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;huan-jing&quot;&gt;环境&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+86架构及基本库&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+wine32&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;an-zhuang-shi&quot;&gt;安装式&lt;&#x2F;h2&gt;
+&lt;p&gt;这里的话就是那种安装以后直接用的，也有的是插件&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+pwndbg&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+r2&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+Audacity&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;fei-an-zhuang-shi&quot;&gt;非安装式&lt;&#x2F;h2&gt;
+&lt;p&gt;这里的是不用&#x2F;不能安装的库，比如脚本等&lt;&#x2F;p&gt;
+&lt;p&gt;统一放置在&#x2F;opt&#x2F;目录下，可能根据类别再分&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+rsatool&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+cloacked-pixel&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+volatility&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+routerpassview&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+Stegsolve &lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+CTFcrackTools&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;pythonku&quot;&gt;Python库&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+pwntools&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+gmpy2&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+unicorn&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+zio&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+angr&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+request &lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</description>
+        </item>
+        <item>
+            <title>关于散列函数的一点思考</title>
+            <pubDate>Sun, 03 Jun 2018 01:35:47 +0800</pubDate>
+            <link>https://CSUwangj.github.io/guan-yu-san-lie-han-shu-de-yi-dian-si-kao/</link>
+            <guid>https://CSUwangj.github.io/guan-yu-san-lie-han-shu-de-yi-dian-si-kao/</guid>
+            <description>&lt;p&gt;今天在ACM群灌水的时候因为一个题目引发了一些思考，题目是&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;qscoj.cn&#x2F;#&#x2F;contest&#x2F;show&#x2F;220&quot;&gt;比赛链接&lt;&#x2F;a&gt;的A题&lt;&#x2F;p&gt;
+</description>
+        </item>
+        <item>
+            <title>PWN学习记录</title>
+            <pubDate>Sat, 10 Feb 2018 00:17:50 +0800</pubDate>
+            <link>https://CSUwangj.github.io/pwnxue-xi-ji-lu/</link>
+            <guid>https://CSUwangj.github.io/pwnxue-xi-ji-lu/</guid>
+            <description>&lt;p&gt;学习PWN的记录&lt;&#x2F;p&gt;
+&lt;p&gt;可能会有路线，看填坑进度……&lt;&#x2F;p&gt;
+</description>
+        </item>
+    </channel>
+</rss>

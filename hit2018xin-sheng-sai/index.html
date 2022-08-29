@@ -43,7 +43,7 @@ renderMathInElement(document.body, katex_config);
       
 
       
-        <link rel="alternate" type="application/atom+xml" title="RSS" href="https://CSUwangj.github.io/atom.xml">
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="https://CSUwangj.github.io/rss.xml">
       
       
         <link rel="icon" type="image/x-icon" href="https://CSUwangj.github.io/images/favicon.ico">
@@ -151,8 +151,8 @@ renderMathInElement(document.body, katex_config);
 <p><img src="https://CSUwangj.github.io/hit2018xin-sheng-sai/snipaste20180201_093215.jpg" alt="攻击流量分析2" /></p>
 <h2 id="jian-pan-liu-liang-fen-xi">键盘流量分析</h2>
 <p>首先用命令</p>
-<pre><code>tshark -r keyboard.pcap -T field -e usb.capdata &gt; usbdata.txt
-</code></pre>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>tshark -r keyboard.pcap -T field -e usb.capdata &gt; usbdata.txt
+</span></code></pre>
 <p>把按键数据抓出来</p>
 <p>然后发现只有中间的是8字节的键盘数据，反正也不多就干脆看着敲出来了</p>
 <p>用第三个字节查表，首字节的02表示上档键，这个不知道也可以猜出来</p>
@@ -182,7 +182,7 @@ renderMathInElement(document.body, katex_config);
             </div>
             <div class="feed-link">
               
-                <a rel="alternate" type="application/atom+xml" title="RSS" href="https://CSUwangj.github.io/atom.xml">
+                <a rel="alternate" type="application/rss+xml" title="RSS" href="https://CSUwangj.github.io/rss.xml">
                   RSS
                 </a>
               

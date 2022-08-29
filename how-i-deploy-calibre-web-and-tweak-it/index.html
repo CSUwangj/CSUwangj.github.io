@@ -43,7 +43,7 @@ renderMathInElement(document.body, katex_config);
       
 
       
-        <link rel="alternate" type="application/atom+xml" title="RSS" href="https://CSUwangj.github.io/atom.xml">
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="https://CSUwangj.github.io/rss.xml">
       
       
         <link rel="icon" type="image/x-icon" href="https://CSUwangj.github.io/images/favicon.ico">
@@ -141,7 +141,7 @@ renderMathInElement(document.body, katex_config);
 <h1 id="let-s-deploy-it">Let's deploy it</h1>
 <p>I love docker, and thankfully Calibre-web come with a <a rel="noopener nofollow noreferrer" target="_blank" href="https://github.com/linuxserver/docker-calibre-web">docker image</a> built by LinuxServer.io team, and that's where nightmare comes.</p>
 <p>This docker image download and install most of its dependencies during build phase, in one <code>RUN</code> command, which should be a good practice because it can reduce redundant docker image layers.</p>
-<p>But I'm in China, we got a Great Fire Wall to pass. Dependencies can fail for no reason at any download process, curl/apt/pip/etc. So I rewrite the Dockerfile, separate every download process into one <code>RUN</code> command, and build it several times.</p>
+<p>But I'm in China, we got a Great Fire Wall to pass. Dependencies can fail for no reason at any download process, curl/apt/pip/etc. So I rewrite the Dockerfile, separate each download command into one <code>RUN</code> command, and build it several times.</p>
 <p>Image ready, all I need to do is run and see the success log... At least that's what I thought.</p>
 <p>For users who want to perform book conversion, they should run docker image with an extra environment variable <code>DOCKER_MODS=linuxserver/mods:universal-calibre</code>, which will download it from internet, every f**king time you boot the image.</p>
 <p>I know it's not my or thier faults, fuck the GFW and its team, but problem should be solved. I download them and mounted them as docker volume. Finally, it runs successfully!</p>
@@ -149,17 +149,17 @@ renderMathInElement(document.body, katex_config);
 <p>Everything was fine, login, admin, uploading. I upload a book and try to fetch metadata from internet, it succeed to fetch data, but failed to save the data. It shows <code>Error editing book: Proxies cannot be used with Advocate</code>.</p>
 <p>Jesus, I know I'm using a proxy, but if I don't use a proxy, I cannot get access to Google Book, which is crucial for fetching metadata.</p>
 <p>I searched on the internel and all I found is a github issue <a rel="noopener nofollow noreferrer" target="_blank" href="https://github.com/gshang2017/docker/issues/120">https://github.com/gshang2017/docker/issues/120</a> which is absolutely another Chinese fired, a Chinese who faced the same problem as me.</p>
-<p>It's 4 am, my mind is blowing, I gave up.</p>
+<p>It was 4 am, my mind is blowing, I gave up.</p>
 <h1 id="read-the-fucking-source-code">Read the fucking source code</h1>
-<p>The day after that day, I remembered that I can check where disable proxy usaga, at least I can write my own service that can be used with a proxy.</p>
+<p>The day after that day, I remembered that I can check source code to find where disable proxy usaga, at least I can write my own service that can be used with a proxy.</p>
 <p>Then I found <a rel="noopener nofollow noreferrer" target="_blank" href="https://github.com/JordanMilne/Advocate/blob/74594fb8d65c20fd1bf5f2eda75619605d340533/advocate/adapters.py#L31">https://github.com/JordanMilne/Advocate/blob/74594fb8d65c20fd1bf5f2eda75619605d340533/advocate/adapters.py#L31</a>. Seems that <code>advocate</code> just doesn't support proxy. Maybe I can write proxy support for it? I look around and found something interesting in its <code>README</code>.</p>
 <p><img src="https://CSUwangj.github.io/how-i-deploy-calibre-web-and-tweak-it/./advocate.png" alt="advocate README" /></p>
 <p>Okey, why can't I replace it with <code>requests</code>? I checked<code>calibre-web</code> and found <img src="https://CSUwangj.github.io/how-i-deploy-calibre-web-and-tweak-it/./helper.png" alt="requests" />. That what I need exactly, so I wrote a small script which can help me replace <code>advocate</code> with <code>requests</code> and put it into <code>/config/custom-cont-init.d</code>:</p>
-<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">#!&#x2F;bin&#x2F;bash
-
-echo &quot;**** patching calibre-web - removing advocate for proxy ****&quot;
-sed -i &quot;s&#x2F;import advocate&#x2F;raise ImportError(\&quot;no advocate\&quot;)&#x2F;&quot; &#x2F;app&#x2F;calibre-web&#x2F;cps&#x2F;helper.py
-</code></pre>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#65737e;">#!/bin/bash
+</span><span>
+</span><span style="color:#96b5b4;">echo </span><span>&quot;</span><span style="color:#a3be8c;">**** patching calibre-web - removing advocate for proxy ****</span><span>&quot;
+</span><span style="color:#bf616a;">sed -i </span><span>&quot;</span><span style="color:#a3be8c;">s/import advocate/raise ImportError(</span><span style="color:#96b5b4;">\&quot;</span><span style="color:#a3be8c;">no advocate</span><span style="color:#96b5b4;">\&quot;</span><span style="color:#a3be8c;">)/</span><span>&quot; /app/calibre-web/cps/helper.py
+</span></code></pre>
 <p>Though cover uploads will failed due to absence of <code>advocate</code>, but check the error message, it's at <a rel="noopener nofollow noreferrer" target="_blank" href="https://github.com/janeczku/calibre-web/blob/68e21e1098aab8dcbfcf024cc296bc43936bfe3c/cps/helper.py#L811">https://github.com/janeczku/calibre-web/blob/68e21e1098aab8dcbfcf024cc296bc43936bfe3c/cps/helper.py#L811</a>, we can add an environment variable <code>CALIBRE_LOCALHOST=1</code> which solve this problem.</p>
 <h1 id="i-ll-reclaim-my-lost-souls">I'll reclaim my lost souls.</h1>
 <p>Bulk add through web interface seems amazing and complex, so it doesn't have this feature. But remember what I'm using? It's <strong>Calibre</strong>-web, it has the same library structure as Calibre.</p>
@@ -190,7 +190,7 @@ sed -i &quot;s&#x2F;import advocate&#x2F;raise ImportError(\&quot;no advocate\&q
             </div>
             <div class="feed-link">
               
-                <a rel="alternate" type="application/atom+xml" title="RSS" href="https://CSUwangj.github.io/atom.xml">
+                <a rel="alternate" type="application/rss+xml" title="RSS" href="https://CSUwangj.github.io/rss.xml">
                   RSS
                 </a>
               

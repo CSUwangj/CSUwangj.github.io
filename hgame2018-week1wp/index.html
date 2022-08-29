@@ -43,7 +43,7 @@ renderMathInElement(document.body, katex_config);
       
 
       
-        <link rel="alternate" type="application/atom+xml" title="RSS" href="https://CSUwangj.github.io/atom.xml">
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="https://CSUwangj.github.io/rss.xml">
       
       
         <link rel="icon" type="image/x-icon" href="https://CSUwangj.github.io/images/favicon.ico">
@@ -137,22 +137,22 @@ renderMathInElement(document.body, katex_config);
 <img src="https://CSUwangj.github.io/hgame2018-week1wp/snipaste20180205_010751.png" alt="Are_you_from_Europe?2" /></p>
 <h2 id="special-number">special number</h2>
 <p>源码已经放了出来</p>
-<pre data-lang="PHP" class="language-PHP "><code class="language-PHP" data-lang="PHP">include_once(&quot;flag.php&quot;);
-if(isset($_GET[&#x27;key&#x27;])){
-    $pattern = &#x27;&#x2F;^(?=.*[0-9].*)(?=.*[a-zA-Z].*).{7,}$&#x2F; &#x27;;
-    $key = $_GET[&#x27;key&#x27;];
-    if(preg_match($pattern,$key)===0){
-        echo &quot;格式错误&quot;;
-    }else{
-        $lock=&quot;******************&quot;;
-        $b = json_decode($key);
-        if($b==$lock)
-            echo $flag;
-        else
-            echo &quot;this is no special number&quot;;
-    }
-}
-</code></pre>
+<pre data-lang="PHP" style="background-color:#2b303b;color:#c0c5ce;" class="language-PHP "><code class="language-PHP" data-lang="PHP"><span>include_once(&quot;flag.php&quot;);
+</span><span>if(isset($_GET[&#39;key&#39;])){
+</span><span>    $pattern = &#39;/^(?=.*[0-9].*)(?=.*[a-zA-Z].*).{7,}$/ &#39;;
+</span><span>    $key = $_GET[&#39;key&#39;];
+</span><span>    if(preg_match($pattern,$key)===0){
+</span><span>        echo &quot;格式错误&quot;;
+</span><span>    }else{
+</span><span>        $lock=&quot;******************&quot;;
+</span><span>        $b = json_decode($key);
+</span><span>        if($b==$lock)
+</span><span>            echo $flag;
+</span><span>        else
+</span><span>            echo &quot;this is no special number&quot;;
+</span><span>    }
+</span><span>}
+</span></code></pre>
 <p>这个题的考点就是PHP弱类型中0==string这个情况（PHP混乱邪恶无疑
 就是要让json_decode出来的结果是0，于是在沙盒http://sandbox.onlinephpfunctions[.]com/里实验出了结果
 <img src="https://CSUwangj.github.io/hgame2018-week1wp/snipaste20180205_215726.png" alt="special_number1" />
@@ -180,17 +180,17 @@ only robot know where is the flag</p>
 <img src="https://CSUwangj.github.io/hgame2018-week1wp/snipaste20180204_202350.png" alt="tell_me_what_you_want" /></p>
 <h2 id="wo-men-bu-yi-yang">我们不一样</h2>
 <p>还是源码放出，还是弱类型</p>
-<pre data-lang="PHP" class="language-PHP "><code class="language-PHP" data-lang="PHP">include_once(&quot;flag.php&quot;);
-if (isset($_POST[&#x27;str1&#x27;]) &amp;&amp; isset($_POST[&#x27;str2&#x27;])) {
-
-	if ($_POST[&#x27;str1&#x27;] != $_POST[&#x27;str2&#x27;] &amp;&amp; strcmp($_POST[&#x27;str1&#x27;], $_POST[&#x27;str2&#x27;]) == 0) {
-		echo &quot;flag is:&quot;.$flag;
-		exit();
-	} else {
-		echo &quot;Something wrong..&quot;;
-	}
-}
-</code></pre>
+<pre data-lang="PHP" style="background-color:#2b303b;color:#c0c5ce;" class="language-PHP "><code class="language-PHP" data-lang="PHP"><span>include_once(&quot;flag.php&quot;);
+</span><span>if (isset($_POST[&#39;str1&#39;]) &amp;&amp; isset($_POST[&#39;str2&#39;])) {
+</span><span>
+</span><span>	if ($_POST[&#39;str1&#39;] != $_POST[&#39;str2&#39;] &amp;&amp; strcmp($_POST[&#39;str1&#39;], $_POST[&#39;str2&#39;]) == 0) {
+</span><span>		echo &quot;flag is:&quot;.$flag;
+</span><span>		exit();
+</span><span>	} else {
+</span><span>		echo &quot;Something wrong..&quot;;
+</span><span>	}
+</span><span>}
+</span></code></pre>
 <p>这里的弱类型在于string和非string的strcmp返回0，而array!=string成立
 <img src="https://CSUwangj.github.io/hgame2018-week1wp/snipaste20180204_231047.png" alt="我们不一样" /></p>
 <h1 id="rev">Rev</h1>
@@ -206,77 +206,77 @@ if (isset($_POST[&#x27;str1&#x27;]) &amp;&amp; isset($_POST[&#x27;str2&#x27;])) 
 <li>与flag进行同意操作得到的结果进行比较
 于是写出反着来的操作</li>
 </ul>
-<pre data-lang="cpp" class="language-cpp "><code class="language-cpp" data-lang="cpp">&#x2F;&#x2F;baby1.cpp
-#include &lt;bits&#x2F;stdc++.h&gt;
-using namespace std;
-int indx[]={17,191,186,15,213,204,188,30,25,1,135,27,150,195,134,26,126,107,90,141,251,194,139,179,177,221,239,10,75,248,85,38,118,171,193,100,23,201,175,97,103,74,202,18,36,225,174,80,58,112,55,237,224,119,183,46,161,45,50,123,137,207,240,148,33,101,11,63,125,41,59,5,81,231,129,110,51,198,215,172,60,154,34,220,122,8,106,151,241,95,142,98,111,19,138,130,140,42,73,57,24,104,208,131,180,66,54,113,12,87,16,243,40,212,52,14,228,255,6,173,92,252,219,222,218,159,234,53,94,120,82,217,79,109,187,168,176,21,67,144,37,166,84,254,13,235,169,253,233,93,22,203,47,78,189,197,9,70,247,192,31,89,211,2,35,157,96,4,132,246,164,29,49,76,200,155,199,223,102,44,236,121,115,48,105,99,149,214,190,68,232,165,242,153,216,56,160,227,143,210,83,61,86,146,114,250,184,167,205,238,147,133,108,127,170,178,71,206,128,32,28,124,7,226,185,145,69,116,152,245,62,3,196,65,1,43,72,39,230,91,244,156,136,117,162,182,20,209,229,77,64,249,158,88,163};
-int arr[]={166,78,5,162,182,8,162,206,140,238,32,194,152,160,208,205,35,166,106,130};
-int main()
-{
-&#x2F;&#x2F;	int a;
-&#x2F;&#x2F;	while(cin&gt;&gt;a){
-&#x2F;&#x2F;		cout&lt;&lt;indx[a]&lt;&lt;endl;
-&#x2F;&#x2F;	}
-	for(int i=0;i&lt;20;++i){
-		for(int j=0;j&lt;256;++j){
-			if(indx[j]==arr[i]){
-				cout&lt;&lt;int(*(char*)(&amp;j))&lt;&lt;&#x27;,&#x27;;
-			}
-		}
-	}
-	return 0;
-}
-</code></pre>
-<pre data-lang="cpp" class="language-cpp "><code class="language-cpp" data-lang="cpp">&#x2F;&#x2F;baby2.cpp
-#include &lt;bits&#x2F;stdc++.h&gt;
-using namespace std;
-int arr[]={141,153,71,245,246,85,245,217,96,209,219,21,228,196,102,208,164,141,86,95};
-int main()
-{
-&#x2F;&#x2F;	for(int i=0;i&lt;20;++i){
-&#x2F;&#x2F;		newa[indx[i]]=arr[i];
-&#x2F;&#x2F;	}
-&#x2F;&#x2F;	for(int i=0;i&lt;20;++i){
-&#x2F;&#x2F;		cout&lt;&lt;newa[i]&lt;&lt;&#x27;,&#x27;;
-&#x2F;&#x2F;	}
-	swap(arr[10],arr[15]);
-	swap(arr[10],arr[6]);
-	swap(arr[6],arr[3]);
-	swap(arr[3],arr[1]);
-	swap(arr[0],arr[1]);
-	for(int i=0;i&lt;20;++i){
-		printf(&quot;%d,&quot;,arr[i]);
-	}
-	return 0;
-}
-</code></pre>
-<pre data-lang="cpp" class="language-cpp "><code class="language-cpp" data-lang="cpp">&#x2F;&#x2F;baby3.cpp
-#include &lt;bits&#x2F;stdc++.h&gt;
-using namespace std;
-uint8_t arr[]={208,141,71,153,246,85,245,217,96,209,245,21,228,196,102,219,164,141,86,95};
-unsigned char flg[22]=&quot;&quot;;
-int main()
-{
-	for(int i=0;i&lt;20;++i){
-		bitset&lt;8&gt; a(arr[i]);
-		cout&lt;&lt;a&lt;&lt;endl;
-		if(i%4==1){
-			a=(a&lt;&lt;6)|(a&gt;&gt;2);
-		}else if(i%4==2){
-			a=(a&gt;&gt;4)|(a&lt;&lt;4);
-		}else if(i%4==3){
-			a=(a&lt;&lt;2)|(a&gt;&gt;6);
-		}else{
-			a=(a&gt;&gt;1)|(a&lt;&lt;7);
-		}
-		cout&lt;&lt;a&lt;&lt;&#x27; &#x27;&lt;&lt;a.to_ulong()&lt;&lt;endl;
-		flg[i]=a.to_ulong();
-	}
-	for(int i=0;i&lt;20;++i){
-		cout&lt;&lt;char(flg[i]);
-	}
-}
-</code></pre>
+<pre data-lang="cpp" style="background-color:#2b303b;color:#c0c5ce;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="color:#65737e;">//baby1.cpp
+</span><span style="color:#b48ead;">#include </span><span>&lt;</span><span style="color:#a3be8c;">bits/stdc++.h</span><span>&gt;
+</span><span style="color:#b48ead;">using namespace</span><span> std;
+</span><span style="color:#b48ead;">int</span><span> indx[]={</span><span style="color:#d08770;">17</span><span>,</span><span style="color:#d08770;">191</span><span>,</span><span style="color:#d08770;">186</span><span>,</span><span style="color:#d08770;">15</span><span>,</span><span style="color:#d08770;">213</span><span>,</span><span style="color:#d08770;">204</span><span>,</span><span style="color:#d08770;">188</span><span>,</span><span style="color:#d08770;">30</span><span>,</span><span style="color:#d08770;">25</span><span>,</span><span style="color:#d08770;">1</span><span>,</span><span style="color:#d08770;">135</span><span>,</span><span style="color:#d08770;">27</span><span>,</span><span style="color:#d08770;">150</span><span>,</span><span style="color:#d08770;">195</span><span>,</span><span style="color:#d08770;">134</span><span>,</span><span style="color:#d08770;">26</span><span>,</span><span style="color:#d08770;">126</span><span>,</span><span style="color:#d08770;">107</span><span>,</span><span style="color:#d08770;">90</span><span>,</span><span style="color:#d08770;">141</span><span>,</span><span style="color:#d08770;">251</span><span>,</span><span style="color:#d08770;">194</span><span>,</span><span style="color:#d08770;">139</span><span>,</span><span style="color:#d08770;">179</span><span>,</span><span style="color:#d08770;">177</span><span>,</span><span style="color:#d08770;">221</span><span>,</span><span style="color:#d08770;">239</span><span>,</span><span style="color:#d08770;">10</span><span>,</span><span style="color:#d08770;">75</span><span>,</span><span style="color:#d08770;">248</span><span>,</span><span style="color:#d08770;">85</span><span>,</span><span style="color:#d08770;">38</span><span>,</span><span style="color:#d08770;">118</span><span>,</span><span style="color:#d08770;">171</span><span>,</span><span style="color:#d08770;">193</span><span>,</span><span style="color:#d08770;">100</span><span>,</span><span style="color:#d08770;">23</span><span>,</span><span style="color:#d08770;">201</span><span>,</span><span style="color:#d08770;">175</span><span>,</span><span style="color:#d08770;">97</span><span>,</span><span style="color:#d08770;">103</span><span>,</span><span style="color:#d08770;">74</span><span>,</span><span style="color:#d08770;">202</span><span>,</span><span style="color:#d08770;">18</span><span>,</span><span style="color:#d08770;">36</span><span>,</span><span style="color:#d08770;">225</span><span>,</span><span style="color:#d08770;">174</span><span>,</span><span style="color:#d08770;">80</span><span>,</span><span style="color:#d08770;">58</span><span>,</span><span style="color:#d08770;">112</span><span>,</span><span style="color:#d08770;">55</span><span>,</span><span style="color:#d08770;">237</span><span>,</span><span style="color:#d08770;">224</span><span>,</span><span style="color:#d08770;">119</span><span>,</span><span style="color:#d08770;">183</span><span>,</span><span style="color:#d08770;">46</span><span>,</span><span style="color:#d08770;">161</span><span>,</span><span style="color:#d08770;">45</span><span>,</span><span style="color:#d08770;">50</span><span>,</span><span style="color:#d08770;">123</span><span>,</span><span style="color:#d08770;">137</span><span>,</span><span style="color:#d08770;">207</span><span>,</span><span style="color:#d08770;">240</span><span>,</span><span style="color:#d08770;">148</span><span>,</span><span style="color:#d08770;">33</span><span>,</span><span style="color:#d08770;">101</span><span>,</span><span style="color:#d08770;">11</span><span>,</span><span style="color:#d08770;">63</span><span>,</span><span style="color:#d08770;">125</span><span>,</span><span style="color:#d08770;">41</span><span>,</span><span style="color:#d08770;">59</span><span>,</span><span style="color:#d08770;">5</span><span>,</span><span style="color:#d08770;">81</span><span>,</span><span style="color:#d08770;">231</span><span>,</span><span style="color:#d08770;">129</span><span>,</span><span style="color:#d08770;">110</span><span>,</span><span style="color:#d08770;">51</span><span>,</span><span style="color:#d08770;">198</span><span>,</span><span style="color:#d08770;">215</span><span>,</span><span style="color:#d08770;">172</span><span>,</span><span style="color:#d08770;">60</span><span>,</span><span style="color:#d08770;">154</span><span>,</span><span style="color:#d08770;">34</span><span>,</span><span style="color:#d08770;">220</span><span>,</span><span style="color:#d08770;">122</span><span>,</span><span style="color:#d08770;">8</span><span>,</span><span style="color:#d08770;">106</span><span>,</span><span style="color:#d08770;">151</span><span>,</span><span style="color:#d08770;">241</span><span>,</span><span style="color:#d08770;">95</span><span>,</span><span style="color:#d08770;">142</span><span>,</span><span style="color:#d08770;">98</span><span>,</span><span style="color:#d08770;">111</span><span>,</span><span style="color:#d08770;">19</span><span>,</span><span style="color:#d08770;">138</span><span>,</span><span style="color:#d08770;">130</span><span>,</span><span style="color:#d08770;">140</span><span>,</span><span style="color:#d08770;">42</span><span>,</span><span style="color:#d08770;">73</span><span>,</span><span style="color:#d08770;">57</span><span>,</span><span style="color:#d08770;">24</span><span>,</span><span style="color:#d08770;">104</span><span>,</span><span style="color:#d08770;">208</span><span>,</span><span style="color:#d08770;">131</span><span>,</span><span style="color:#d08770;">180</span><span>,</span><span style="color:#d08770;">66</span><span>,</span><span style="color:#d08770;">54</span><span>,</span><span style="color:#d08770;">113</span><span>,</span><span style="color:#d08770;">12</span><span>,</span><span style="color:#d08770;">87</span><span>,</span><span style="color:#d08770;">16</span><span>,</span><span style="color:#d08770;">243</span><span>,</span><span style="color:#d08770;">40</span><span>,</span><span style="color:#d08770;">212</span><span>,</span><span style="color:#d08770;">52</span><span>,</span><span style="color:#d08770;">14</span><span>,</span><span style="color:#d08770;">228</span><span>,</span><span style="color:#d08770;">255</span><span>,</span><span style="color:#d08770;">6</span><span>,</span><span style="color:#d08770;">173</span><span>,</span><span style="color:#d08770;">92</span><span>,</span><span style="color:#d08770;">252</span><span>,</span><span style="color:#d08770;">219</span><span>,</span><span style="color:#d08770;">222</span><span>,</span><span style="color:#d08770;">218</span><span>,</span><span style="color:#d08770;">159</span><span>,</span><span style="color:#d08770;">234</span><span>,</span><span style="color:#d08770;">53</span><span>,</span><span style="color:#d08770;">94</span><span>,</span><span style="color:#d08770;">120</span><span>,</span><span style="color:#d08770;">82</span><span>,</span><span style="color:#d08770;">217</span><span>,</span><span style="color:#d08770;">79</span><span>,</span><span style="color:#d08770;">109</span><span>,</span><span style="color:#d08770;">187</span><span>,</span><span style="color:#d08770;">168</span><span>,</span><span style="color:#d08770;">176</span><span>,</span><span style="color:#d08770;">21</span><span>,</span><span style="color:#d08770;">67</span><span>,</span><span style="color:#d08770;">144</span><span>,</span><span style="color:#d08770;">37</span><span>,</span><span style="color:#d08770;">166</span><span>,</span><span style="color:#d08770;">84</span><span>,</span><span style="color:#d08770;">254</span><span>,</span><span style="color:#d08770;">13</span><span>,</span><span style="color:#d08770;">235</span><span>,</span><span style="color:#d08770;">169</span><span>,</span><span style="color:#d08770;">253</span><span>,</span><span style="color:#d08770;">233</span><span>,</span><span style="color:#d08770;">93</span><span>,</span><span style="color:#d08770;">22</span><span>,</span><span style="color:#d08770;">203</span><span>,</span><span style="color:#d08770;">47</span><span>,</span><span style="color:#d08770;">78</span><span>,</span><span style="color:#d08770;">189</span><span>,</span><span style="color:#d08770;">197</span><span>,</span><span style="color:#d08770;">9</span><span>,</span><span style="color:#d08770;">70</span><span>,</span><span style="color:#d08770;">247</span><span>,</span><span style="color:#d08770;">192</span><span>,</span><span style="color:#d08770;">31</span><span>,</span><span style="color:#d08770;">89</span><span>,</span><span style="color:#d08770;">211</span><span>,</span><span style="color:#d08770;">2</span><span>,</span><span style="color:#d08770;">35</span><span>,</span><span style="color:#d08770;">157</span><span>,</span><span style="color:#d08770;">96</span><span>,</span><span style="color:#d08770;">4</span><span>,</span><span style="color:#d08770;">132</span><span>,</span><span style="color:#d08770;">246</span><span>,</span><span style="color:#d08770;">164</span><span>,</span><span style="color:#d08770;">29</span><span>,</span><span style="color:#d08770;">49</span><span>,</span><span style="color:#d08770;">76</span><span>,</span><span style="color:#d08770;">200</span><span>,</span><span style="color:#d08770;">155</span><span>,</span><span style="color:#d08770;">199</span><span>,</span><span style="color:#d08770;">223</span><span>,</span><span style="color:#d08770;">102</span><span>,</span><span style="color:#d08770;">44</span><span>,</span><span style="color:#d08770;">236</span><span>,</span><span style="color:#d08770;">121</span><span>,</span><span style="color:#d08770;">115</span><span>,</span><span style="color:#d08770;">48</span><span>,</span><span style="color:#d08770;">105</span><span>,</span><span style="color:#d08770;">99</span><span>,</span><span style="color:#d08770;">149</span><span>,</span><span style="color:#d08770;">214</span><span>,</span><span style="color:#d08770;">190</span><span>,</span><span style="color:#d08770;">68</span><span>,</span><span style="color:#d08770;">232</span><span>,</span><span style="color:#d08770;">165</span><span>,</span><span style="color:#d08770;">242</span><span>,</span><span style="color:#d08770;">153</span><span>,</span><span style="color:#d08770;">216</span><span>,</span><span style="color:#d08770;">56</span><span>,</span><span style="color:#d08770;">160</span><span>,</span><span style="color:#d08770;">227</span><span>,</span><span style="color:#d08770;">143</span><span>,</span><span style="color:#d08770;">210</span><span>,</span><span style="color:#d08770;">83</span><span>,</span><span style="color:#d08770;">61</span><span>,</span><span style="color:#d08770;">86</span><span>,</span><span style="color:#d08770;">146</span><span>,</span><span style="color:#d08770;">114</span><span>,</span><span style="color:#d08770;">250</span><span>,</span><span style="color:#d08770;">184</span><span>,</span><span style="color:#d08770;">167</span><span>,</span><span style="color:#d08770;">205</span><span>,</span><span style="color:#d08770;">238</span><span>,</span><span style="color:#d08770;">147</span><span>,</span><span style="color:#d08770;">133</span><span>,</span><span style="color:#d08770;">108</span><span>,</span><span style="color:#d08770;">127</span><span>,</span><span style="color:#d08770;">170</span><span>,</span><span style="color:#d08770;">178</span><span>,</span><span style="color:#d08770;">71</span><span>,</span><span style="color:#d08770;">206</span><span>,</span><span style="color:#d08770;">128</span><span>,</span><span style="color:#d08770;">32</span><span>,</span><span style="color:#d08770;">28</span><span>,</span><span style="color:#d08770;">124</span><span>,</span><span style="color:#d08770;">7</span><span>,</span><span style="color:#d08770;">226</span><span>,</span><span style="color:#d08770;">185</span><span>,</span><span style="color:#d08770;">145</span><span>,</span><span style="color:#d08770;">69</span><span>,</span><span style="color:#d08770;">116</span><span>,</span><span style="color:#d08770;">152</span><span>,</span><span style="color:#d08770;">245</span><span>,</span><span style="color:#d08770;">62</span><span>,</span><span style="color:#d08770;">3</span><span>,</span><span style="color:#d08770;">196</span><span>,</span><span style="color:#d08770;">65</span><span>,</span><span style="color:#d08770;">1</span><span>,</span><span style="color:#d08770;">43</span><span>,</span><span style="color:#d08770;">72</span><span>,</span><span style="color:#d08770;">39</span><span>,</span><span style="color:#d08770;">230</span><span>,</span><span style="color:#d08770;">91</span><span>,</span><span style="color:#d08770;">244</span><span>,</span><span style="color:#d08770;">156</span><span>,</span><span style="color:#d08770;">136</span><span>,</span><span style="color:#d08770;">117</span><span>,</span><span style="color:#d08770;">162</span><span>,</span><span style="color:#d08770;">182</span><span>,</span><span style="color:#d08770;">20</span><span>,</span><span style="color:#d08770;">209</span><span>,</span><span style="color:#d08770;">229</span><span>,</span><span style="color:#d08770;">77</span><span>,</span><span style="color:#d08770;">64</span><span>,</span><span style="color:#d08770;">249</span><span>,</span><span style="color:#d08770;">158</span><span>,</span><span style="color:#d08770;">88</span><span>,</span><span style="color:#d08770;">163</span><span>};
+</span><span style="color:#b48ead;">int</span><span> arr[]={</span><span style="color:#d08770;">166</span><span>,</span><span style="color:#d08770;">78</span><span>,</span><span style="color:#d08770;">5</span><span>,</span><span style="color:#d08770;">162</span><span>,</span><span style="color:#d08770;">182</span><span>,</span><span style="color:#d08770;">8</span><span>,</span><span style="color:#d08770;">162</span><span>,</span><span style="color:#d08770;">206</span><span>,</span><span style="color:#d08770;">140</span><span>,</span><span style="color:#d08770;">238</span><span>,</span><span style="color:#d08770;">32</span><span>,</span><span style="color:#d08770;">194</span><span>,</span><span style="color:#d08770;">152</span><span>,</span><span style="color:#d08770;">160</span><span>,</span><span style="color:#d08770;">208</span><span>,</span><span style="color:#d08770;">205</span><span>,</span><span style="color:#d08770;">35</span><span>,</span><span style="color:#d08770;">166</span><span>,</span><span style="color:#d08770;">106</span><span>,</span><span style="color:#d08770;">130</span><span>};
+</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main</span><span>()
+</span><span>{
+</span><span style="color:#65737e;">//	int a;
+</span><span style="color:#65737e;">//	while(cin&gt;&gt;a){
+</span><span style="color:#65737e;">//		cout&lt;&lt;indx[a]&lt;&lt;endl;
+</span><span style="color:#65737e;">//	}
+</span><span>	</span><span style="color:#b48ead;">for</span><span>(</span><span style="color:#b48ead;">int</span><span> i=</span><span style="color:#d08770;">0</span><span>;i&lt;</span><span style="color:#d08770;">20</span><span>;++i){
+</span><span>		</span><span style="color:#b48ead;">for</span><span>(</span><span style="color:#b48ead;">int</span><span> j=</span><span style="color:#d08770;">0</span><span>;j&lt;</span><span style="color:#d08770;">256</span><span>;++j){
+</span><span>			</span><span style="color:#b48ead;">if</span><span>(indx[j]==arr[i]){
+</span><span>				cout&lt;&lt;</span><span style="color:#b48ead;">int</span><span>(*(</span><span style="color:#b48ead;">char</span><span>*)(&amp;j))&lt;&lt;&#39;</span><span style="color:#a3be8c;">,</span><span>&#39;;
+</span><span>			}
+</span><span>		}
+</span><span>	}
+</span><span>	</span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span>;
+</span><span>}
+</span></code></pre>
+<pre data-lang="cpp" style="background-color:#2b303b;color:#c0c5ce;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="color:#65737e;">//baby2.cpp
+</span><span style="color:#b48ead;">#include </span><span>&lt;</span><span style="color:#a3be8c;">bits/stdc++.h</span><span>&gt;
+</span><span style="color:#b48ead;">using namespace</span><span> std;
+</span><span style="color:#b48ead;">int</span><span> arr[]={</span><span style="color:#d08770;">141</span><span>,</span><span style="color:#d08770;">153</span><span>,</span><span style="color:#d08770;">71</span><span>,</span><span style="color:#d08770;">245</span><span>,</span><span style="color:#d08770;">246</span><span>,</span><span style="color:#d08770;">85</span><span>,</span><span style="color:#d08770;">245</span><span>,</span><span style="color:#d08770;">217</span><span>,</span><span style="color:#d08770;">96</span><span>,</span><span style="color:#d08770;">209</span><span>,</span><span style="color:#d08770;">219</span><span>,</span><span style="color:#d08770;">21</span><span>,</span><span style="color:#d08770;">228</span><span>,</span><span style="color:#d08770;">196</span><span>,</span><span style="color:#d08770;">102</span><span>,</span><span style="color:#d08770;">208</span><span>,</span><span style="color:#d08770;">164</span><span>,</span><span style="color:#d08770;">141</span><span>,</span><span style="color:#d08770;">86</span><span>,</span><span style="color:#d08770;">95</span><span>};
+</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main</span><span>()
+</span><span>{
+</span><span style="color:#65737e;">//	for(int i=0;i&lt;20;++i){
+</span><span style="color:#65737e;">//		newa[indx[i]]=arr[i];
+</span><span style="color:#65737e;">//	}
+</span><span style="color:#65737e;">//	for(int i=0;i&lt;20;++i){
+</span><span style="color:#65737e;">//		cout&lt;&lt;newa[i]&lt;&lt;&#39;,&#39;;
+</span><span style="color:#65737e;">//	}
+</span><span>	</span><span style="color:#bf616a;">swap</span><span>(arr[</span><span style="color:#d08770;">10</span><span>],arr[</span><span style="color:#d08770;">15</span><span>]);
+</span><span>	</span><span style="color:#bf616a;">swap</span><span>(arr[</span><span style="color:#d08770;">10</span><span>],arr[</span><span style="color:#d08770;">6</span><span>]);
+</span><span>	</span><span style="color:#bf616a;">swap</span><span>(arr[</span><span style="color:#d08770;">6</span><span>],arr[</span><span style="color:#d08770;">3</span><span>]);
+</span><span>	</span><span style="color:#bf616a;">swap</span><span>(arr[</span><span style="color:#d08770;">3</span><span>],arr[</span><span style="color:#d08770;">1</span><span>]);
+</span><span>	</span><span style="color:#bf616a;">swap</span><span>(arr[</span><span style="color:#d08770;">0</span><span>],arr[</span><span style="color:#d08770;">1</span><span>]);
+</span><span>	</span><span style="color:#b48ead;">for</span><span>(</span><span style="color:#b48ead;">int</span><span> i=</span><span style="color:#d08770;">0</span><span>;i&lt;</span><span style="color:#d08770;">20</span><span>;++i){
+</span><span>		</span><span style="color:#96b5b4;">printf</span><span>(&quot;</span><span style="color:#d08770;">%d</span><span style="color:#a3be8c;">,</span><span>&quot;,arr[i]);
+</span><span>	}
+</span><span>	</span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span>;
+</span><span>}
+</span></code></pre>
+<pre data-lang="cpp" style="background-color:#2b303b;color:#c0c5ce;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="color:#65737e;">//baby3.cpp
+</span><span style="color:#b48ead;">#include </span><span>&lt;</span><span style="color:#a3be8c;">bits/stdc++.h</span><span>&gt;
+</span><span style="color:#b48ead;">using namespace</span><span> std;
+</span><span>uint8_t arr[]={</span><span style="color:#d08770;">208</span><span>,</span><span style="color:#d08770;">141</span><span>,</span><span style="color:#d08770;">71</span><span>,</span><span style="color:#d08770;">153</span><span>,</span><span style="color:#d08770;">246</span><span>,</span><span style="color:#d08770;">85</span><span>,</span><span style="color:#d08770;">245</span><span>,</span><span style="color:#d08770;">217</span><span>,</span><span style="color:#d08770;">96</span><span>,</span><span style="color:#d08770;">209</span><span>,</span><span style="color:#d08770;">245</span><span>,</span><span style="color:#d08770;">21</span><span>,</span><span style="color:#d08770;">228</span><span>,</span><span style="color:#d08770;">196</span><span>,</span><span style="color:#d08770;">102</span><span>,</span><span style="color:#d08770;">219</span><span>,</span><span style="color:#d08770;">164</span><span>,</span><span style="color:#d08770;">141</span><span>,</span><span style="color:#d08770;">86</span><span>,</span><span style="color:#d08770;">95</span><span>};
+</span><span style="color:#b48ead;">unsigned char</span><span> flg[</span><span style="color:#d08770;">22</span><span>]=&quot;&quot;;
+</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main</span><span>()
+</span><span>{
+</span><span>	</span><span style="color:#b48ead;">for</span><span>(</span><span style="color:#b48ead;">int</span><span> i=</span><span style="color:#d08770;">0</span><span>;i&lt;</span><span style="color:#d08770;">20</span><span>;++i){
+</span><span>		bitset&lt;</span><span style="color:#d08770;">8</span><span>&gt; </span><span style="color:#bf616a;">a</span><span>(arr[i]);
+</span><span>		cout&lt;&lt;a&lt;&lt;endl;
+</span><span>		</span><span style="color:#b48ead;">if</span><span>(i%</span><span style="color:#d08770;">4</span><span>==</span><span style="color:#d08770;">1</span><span>){
+</span><span>			a=(a&lt;&lt;</span><span style="color:#d08770;">6</span><span>)|(a&gt;&gt;</span><span style="color:#d08770;">2</span><span>);
+</span><span>		}</span><span style="color:#b48ead;">else if</span><span>(i%</span><span style="color:#d08770;">4</span><span>==</span><span style="color:#d08770;">2</span><span>){
+</span><span>			a=(a&gt;&gt;</span><span style="color:#d08770;">4</span><span>)|(a&lt;&lt;</span><span style="color:#d08770;">4</span><span>);
+</span><span>		}</span><span style="color:#b48ead;">else if</span><span>(i%</span><span style="color:#d08770;">4</span><span>==</span><span style="color:#d08770;">3</span><span>){
+</span><span>			a=(a&lt;&lt;</span><span style="color:#d08770;">2</span><span>)|(a&gt;&gt;</span><span style="color:#d08770;">6</span><span>);
+</span><span>		}</span><span style="color:#b48ead;">else</span><span>{
+</span><span>			a=(a&gt;&gt;</span><span style="color:#d08770;">1</span><span>)|(a&lt;&lt;</span><span style="color:#d08770;">7</span><span>);
+</span><span>		}
+</span><span>		cout&lt;&lt;a&lt;&lt;&#39; &#39;&lt;&lt;a.</span><span style="color:#bf616a;">to_ulong</span><span>()&lt;&lt;endl;
+</span><span>		flg[i]=a.</span><span style="color:#bf616a;">to_ulong</span><span>();
+</span><span>	}
+</span><span>	</span><span style="color:#b48ead;">for</span><span>(</span><span style="color:#b48ead;">int</span><span> i=</span><span style="color:#d08770;">0</span><span>;i&lt;</span><span style="color:#d08770;">20</span><span>;++i){
+</span><span>		cout&lt;&lt;</span><span style="color:#b48ead;">char</span><span>(flg[i]);
+</span><span>	}
+</span><span>}
+</span></code></pre>
 <p>这里需要说一下……
 C/C++的左右移有毒！换bitset保平安！</p>
 <h2 id="nop-pop">nop_pop</h2>
@@ -297,20 +297,20 @@ nop掉，程序发给出题人，得到flag</p>
 这几个都是长度为28的数组，arr是最后用来比对的数组，input是输入的flag，special是一个程序存储的数组
 所以前两步有什么意义……</li>
 </ul>
-<pre data-lang="cpp" class="language-cpp "><code class="language-cpp" data-lang="cpp">&#x2F;&#x2F;sc2.cpp
-#include &lt;bits&#x2F;stdc++.h&gt;
-using namespace std;
-char arr[29]={104,98,118,101,127,72,50,127,86,124,99,63,82,101,72,108,77,116,101,32,114,115,74,96,115,127,124,101};
-int main()
-{
-	for(int i=0;i&lt;28;++i){
-		arr[i]=arr[i]^i^(i&#x2F;7);
-	}
-	for(int i=0;i&lt;28;++i){
-		putchar(arr[i]);
-	}
-}
-</code></pre>
+<pre data-lang="cpp" style="background-color:#2b303b;color:#c0c5ce;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="color:#65737e;">//sc2.cpp
+</span><span style="color:#b48ead;">#include </span><span>&lt;</span><span style="color:#a3be8c;">bits/stdc++.h</span><span>&gt;
+</span><span style="color:#b48ead;">using namespace</span><span> std;
+</span><span style="color:#b48ead;">char</span><span> arr[</span><span style="color:#d08770;">29</span><span>]={</span><span style="color:#d08770;">104</span><span>,</span><span style="color:#d08770;">98</span><span>,</span><span style="color:#d08770;">118</span><span>,</span><span style="color:#d08770;">101</span><span>,</span><span style="color:#d08770;">127</span><span>,</span><span style="color:#d08770;">72</span><span>,</span><span style="color:#d08770;">50</span><span>,</span><span style="color:#d08770;">127</span><span>,</span><span style="color:#d08770;">86</span><span>,</span><span style="color:#d08770;">124</span><span>,</span><span style="color:#d08770;">99</span><span>,</span><span style="color:#d08770;">63</span><span>,</span><span style="color:#d08770;">82</span><span>,</span><span style="color:#d08770;">101</span><span>,</span><span style="color:#d08770;">72</span><span>,</span><span style="color:#d08770;">108</span><span>,</span><span style="color:#d08770;">77</span><span>,</span><span style="color:#d08770;">116</span><span>,</span><span style="color:#d08770;">101</span><span>,</span><span style="color:#d08770;">32</span><span>,</span><span style="color:#d08770;">114</span><span>,</span><span style="color:#d08770;">115</span><span>,</span><span style="color:#d08770;">74</span><span>,</span><span style="color:#d08770;">96</span><span>,</span><span style="color:#d08770;">115</span><span>,</span><span style="color:#d08770;">127</span><span>,</span><span style="color:#d08770;">124</span><span>,</span><span style="color:#d08770;">101</span><span>};
+</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main</span><span>()
+</span><span>{
+</span><span>	</span><span style="color:#b48ead;">for</span><span>(</span><span style="color:#b48ead;">int</span><span> i=</span><span style="color:#d08770;">0</span><span>;i&lt;</span><span style="color:#d08770;">28</span><span>;++i){
+</span><span>		arr[i]=arr[i]^i^(i/</span><span style="color:#d08770;">7</span><span>);
+</span><span>	}
+</span><span>	</span><span style="color:#b48ead;">for</span><span>(</span><span style="color:#b48ead;">int</span><span> i=</span><span style="color:#d08770;">0</span><span>;i&lt;</span><span style="color:#d08770;">28</span><span>;++i){
+</span><span>		</span><span style="color:#96b5b4;">putchar</span><span>(arr[i]);
+</span><span>	}
+</span><span>}
+</span></code></pre>
 <h1 id="pwn">PWN</h1>
 <p>前两题做的时候不在家，借朋友电脑用了下</p>
 <h2 id="guess-number">guess_number</h2>
@@ -391,7 +391,7 @@ int main()
             </div>
             <div class="feed-link">
               
-                <a rel="alternate" type="application/atom+xml" title="RSS" href="https://CSUwangj.github.io/atom.xml">
+                <a rel="alternate" type="application/rss+xml" title="RSS" href="https://CSUwangj.github.io/rss.xml">
                   RSS
                 </a>
               

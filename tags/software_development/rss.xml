@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>LuckyDog | CSUwangj&#x27;s Blog - software_development</title>
+        <link>https://CSUwangj.github.io/</link>
+        <description></description>
+        <generator>Zola</generator>
+        <language>en</language>
+        <atom:link href="https://CSUwangj.github.io/tags/software_development/rss.xml" rel="self" type="application/rss+xml"/>
+        <lastBuildDate>Fri, 07 Aug 2020 01:48:37 +0800</lastBuildDate>
+        <item>
+            <title>轻工具个人集合</title>
+            <pubDate>Thu, 08 Feb 2018 23:17:31 +0800</pubDate>
+            <link>https://CSUwangj.github.io/qing-gong-ju-ge-ren-ji-he/</link>
+            <guid>https://CSUwangj.github.io/qing-gong-ju-ge-ren-ji-he/</guid>
+            <description>&lt;p&gt;持续更新ing&lt;&#x2F;p&gt;
+&lt;p&gt;可能以后还会重新整理&lt;&#x2F;p&gt;
+</description>
+        </item>
+    </channel>
+</rss>

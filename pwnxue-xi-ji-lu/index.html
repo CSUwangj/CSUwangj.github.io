@@ -43,7 +43,7 @@ renderMathInElement(document.body, katex_config);
       
 
       
-        <link rel="alternate" type="application/atom+xml" title="RSS" href="https://CSUwangj.github.io/atom.xml">
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="https://CSUwangj.github.io/rss.xml">
       
       
         <link rel="icon" type="image/x-icon" href="https://CSUwangj.github.io/images/favicon.ico">
@@ -124,21 +124,21 @@ renderMathInElement(document.body, katex_config);
       <span class="post-meta-divider">|</span>
     </div>
     <div class="post-body">
-      <p>$1学习PWN的记录</p>
+      <p>学习PWN的记录</p>
 <p>可能会有路线，看填坑进度……</p>
 <span id="continue-reading"></span><h1 id="huan-jing-pei-zhi">环境配置</h1>
 <p>按理说第一篇是要说一下这个</p>
 <p>我是Kali 2.0，所以就按照如下指令输进去就行了</p>
-<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">dpkg --add-architecture i386 
-apt-get update
-apt-get -f dist-upgrade 
-apt-get install lib32c-dev lib32stdc++6 libc6:i386 gcc-multilib
-apt-get install python2.7 python-pip python-dev git libssl-dev libffi-dev build-essential
-pip install pwntools
-git clone https:&#x2F;&#x2F;github.com&#x2F;pwndbg&#x2F;pwndbg &#x2F;opt&#x2F;pwndbg
-cd &#x2F;opt&#x2F;pwndbg
-.&#x2F;setup.sh
-</code></pre>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">dpkg --add-architecture</span><span> i386 
+</span><span style="color:#bf616a;">apt-get</span><span> update
+</span><span style="color:#bf616a;">apt-get -f</span><span> dist-upgrade 
+</span><span style="color:#bf616a;">apt-get</span><span> install lib32c-dev lib32stdc++6 libc6:i386 gcc-multilib
+</span><span style="color:#bf616a;">apt-get</span><span> install python2.7 python-pip python-dev git libssl-dev libffi-dev build-essential
+</span><span style="color:#bf616a;">pip</span><span> install pwntools
+</span><span style="color:#bf616a;">git</span><span> clone https://github.com/pwndbg/pwndbg /opt/pwndbg
+</span><span style="color:#96b5b4;">cd</span><span> /opt/pwndbg
+</span><span style="color:#bf616a;">./setup.sh
+</span></code></pre>
 <h1 id="xue-xi-ji-lu-ji-wpdi-zhi">学习记录及WP地址</h1>
 <ul>
 <li>
@@ -233,7 +233,7 @@ ez_shellcode_ver2</li>
             </div>
             <div class="feed-link">
               
-                <a rel="alternate" type="application/atom+xml" title="RSS" href="https://CSUwangj.github.io/atom.xml">
+                <a rel="alternate" type="application/rss+xml" title="RSS" href="https://CSUwangj.github.io/rss.xml">
                   RSS
                 </a>
               

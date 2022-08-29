@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>LuckyDog | CSUwangj&#x27;s Blog - ACM</title>
+        <link>https://CSUwangj.github.io/</link>
+        <description></description>
+        <generator>Zola</generator>
+        <language>en</language>
+        <atom:link href="https://CSUwangj.github.io/tags/ACM/rss.xml" rel="self" type="application/rss+xml"/>
+        <lastBuildDate>Fri, 07 Aug 2020 01:54:42 +0800</lastBuildDate>
+        <item>
+            <title>ACM中一些常见的问题及原因</title>
+            <pubDate>Wed, 30 Jan 2019 17:23:34 +0800</pubDate>
+            <link>https://CSUwangj.github.io/acmzhong-yi-xie-chang-jian-de-wen-ti-ji-yuan-yin/</link>
+            <guid>https://CSUwangj.github.io/acmzhong-yi-xie-chang-jian-de-wen-ti-ji-yuan-yin/</guid>
+            <description>&lt;p&gt;最近在 ACM 群灌水，顺便解决了一点问题，感觉可能会成为日经系列，寻思可以写个博文专门写写，正好也是对自己学习知识的检验。&lt;&#x2F;p&gt;
+&lt;p&gt;我觉得这篇文章阅读方式可以按照《C语言常见问题集》，遇到问题了来看看也行，电脑阅读的时候右边应该会有个目录可以跳转，顺着读一遍也行。&lt;&#x2F;p&gt;
+&lt;p&gt;文章只能慢慢更新，因为我并不想随意地对待这种难得的问题，然而工作在身并不能全身心投入。&lt;&#x2F;p&gt;
+&lt;p&gt;以下内容如无特殊声明，采用C99和C++11标准。&lt;&#x2F;p&gt;
+</description>
+        </item>
+        <item>
+            <title>关于散列函数的一点思考</title>
+            <pubDate>Sun, 03 Jun 2018 01:35:47 +0800</pubDate>
+            <link>https://CSUwangj.github.io/guan-yu-san-lie-han-shu-de-yi-dian-si-kao/</link>
+            <guid>https://CSUwangj.github.io/guan-yu-san-lie-han-shu-de-yi-dian-si-kao/</guid>
+            <description>&lt;p&gt;今天在ACM群灌水的时候因为一个题目引发了一些思考，题目是&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;qscoj.cn&#x2F;#&#x2F;contest&#x2F;show&#x2F;220&quot;&gt;比赛链接&lt;&#x2F;a&gt;的A题&lt;&#x2F;p&gt;
+</description>
+        </item>
+    </channel>
+</rss>

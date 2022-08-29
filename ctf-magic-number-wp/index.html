@@ -43,7 +43,7 @@ renderMathInElement(document.body, katex_config);
       
 
       
-        <link rel="alternate" type="application/atom+xml" title="RSS" href="https://CSUwangj.github.io/atom.xml">
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="https://CSUwangj.github.io/rss.xml">
       
       
         <link rel="icon" type="image/x-icon" href="https://CSUwangj.github.io/images/favicon.ico">
@@ -129,73 +129,73 @@ renderMathInElement(document.body, katex_config);
 <span id="continue-reading"></span>
 <p><img src="https://CSUwangj.github.io/ctf-magic-number-wp/1524837016603.png" alt="伪代码" /></p>
 <p>于是可以写出代码</p>
-<pre data-lang="python" class="language-python "><code class="language-python" data-lang="python">#!&#x2F;bin&#x2F;python3
-
-from pwn import *
-r = remote(&quot;47.89.18.224&quot;, 10011)
-
-
-nums = []
-
-
-def query(l, r, rm):
-    &quot;&quot;&quot;
-    Send the query and get answer
-    :param l: &lt;int&gt; left bound
-    :param r: &lt;int&gt; Right bound
-    :param rm: &lt;remote&gt; Remote process
-    :return: Amount of numbers
-    &quot;&quot;&quot;
-    payload =&quot;? &quot; + str(l) + &quot; &quot; + str(r) + &quot;\n&quot;
-    rm.send(payload)
-    res = int(rm.recv())
-    print payload + str(res)
-    return res
-
-
-def find(l, r, k, rm):
-    &quot;&quot;&quot;
-    Guess numbers
-    :param l: &lt;int&gt; Left bound
-    :param r: &lt;int&gt; Right bound
-    :param k: &lt;int&gt; Amount of numbers
-    :param rm: &lt;remote&gt; Remote process
-    :return: None
-    &quot;&quot;&quot;
-    global nums
-    if l == r - 1 and k == 1:
-        nums.append(l)
-        return None
-    m = (l + r) &#x2F;&#x2F; 2
-    K = query(l, m, rm)
-    if K:
-        find(l, m, K, rm)
-    if K - k:
-        find(m, r, k - K, rm)
-
-
-def gate(rm):
-    &quot;&quot;&quot;
-    gate
-    :param rm: &lt;remote&gt; Remote process
-    :return: None
-    &quot;&quot;&quot;
-    global nums
-    rm.recvuntil(&quot;n = &quot;)
-    k = int(rm.recv())
-    nums = []
-    find(0, 1024, k, r)
-    nums.sort()
-    print(nums)
-    rm.interactive()
-
-
-gate(r)
-gate(r)
-gate(r)
-
-# 这里gate(r)一次就过一关，多少关我也忘了
-</code></pre>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#65737e;">#!/bin/python3
+</span><span>
+</span><span style="color:#b48ead;">from </span><span>pwn </span><span style="color:#b48ead;">import </span><span style="color:#d08770;">*
+</span><span>r = </span><span style="color:#bf616a;">remote</span><span>(&quot;</span><span style="color:#a3be8c;">47.89.18.224</span><span>&quot;, </span><span style="color:#d08770;">10011</span><span>)
+</span><span>
+</span><span>
+</span><span>nums = []
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">query</span><span>(</span><span style="color:#bf616a;">l</span><span>, </span><span style="color:#bf616a;">r</span><span>, </span><span style="color:#bf616a;">rm</span><span>):
+</span><span>    </span><span style="color:#65737e;">&quot;&quot;&quot;
+</span><span style="color:#65737e;">    Send the query and get answer
+</span><span style="color:#65737e;">    :param l: &lt;int&gt; left bound
+</span><span style="color:#65737e;">    :param r: &lt;int&gt; Right bound
+</span><span style="color:#65737e;">    :param rm: &lt;remote&gt; Remote process
+</span><span style="color:#65737e;">    :return: Amount of numbers
+</span><span style="color:#65737e;">    &quot;&quot;&quot;
+</span><span>    payload =&quot;</span><span style="color:#a3be8c;">? </span><span>&quot; + </span><span style="color:#bf616a;">str</span><span>(l) + &quot; &quot; + </span><span style="color:#bf616a;">str</span><span>(r) + &quot;</span><span style="color:#96b5b4;">\n</span><span>&quot;
+</span><span>    rm.</span><span style="color:#bf616a;">send</span><span>(payload)
+</span><span>    res = </span><span style="color:#bf616a;">int</span><span>(rm.</span><span style="color:#bf616a;">recv</span><span>())
+</span><span>    </span><span style="color:#b48ead;">print </span><span>payload + </span><span style="color:#bf616a;">str</span><span>(res)
+</span><span>    </span><span style="color:#b48ead;">return </span><span>res
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">find</span><span>(</span><span style="color:#bf616a;">l</span><span>, </span><span style="color:#bf616a;">r</span><span>, </span><span style="color:#bf616a;">k</span><span>, </span><span style="color:#bf616a;">rm</span><span>):
+</span><span>    </span><span style="color:#65737e;">&quot;&quot;&quot;
+</span><span style="color:#65737e;">    Guess numbers
+</span><span style="color:#65737e;">    :param l: &lt;int&gt; Left bound
+</span><span style="color:#65737e;">    :param r: &lt;int&gt; Right bound
+</span><span style="color:#65737e;">    :param k: &lt;int&gt; Amount of numbers
+</span><span style="color:#65737e;">    :param rm: &lt;remote&gt; Remote process
+</span><span style="color:#65737e;">    :return: None
+</span><span style="color:#65737e;">    &quot;&quot;&quot;
+</span><span>    </span><span style="color:#b48ead;">global </span><span>nums
+</span><span>    </span><span style="color:#b48ead;">if </span><span>l == r - </span><span style="color:#d08770;">1 </span><span>and k == </span><span style="color:#d08770;">1</span><span>:
+</span><span>        nums.</span><span style="color:#bf616a;">append</span><span>(l)
+</span><span>        </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">None
+</span><span>    m = (l + r) // </span><span style="color:#d08770;">2
+</span><span>    K = </span><span style="color:#bf616a;">query</span><span>(l, m, rm)
+</span><span>    </span><span style="color:#b48ead;">if </span><span>K:
+</span><span>        </span><span style="color:#bf616a;">find</span><span>(l, m, K, rm)
+</span><span>    </span><span style="color:#b48ead;">if </span><span>K - k:
+</span><span>        </span><span style="color:#bf616a;">find</span><span>(m, r, k - K, rm)
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">gate</span><span>(</span><span style="color:#bf616a;">rm</span><span>):
+</span><span>    </span><span style="color:#65737e;">&quot;&quot;&quot;
+</span><span style="color:#65737e;">    gate
+</span><span style="color:#65737e;">    :param rm: &lt;remote&gt; Remote process
+</span><span style="color:#65737e;">    :return: None
+</span><span style="color:#65737e;">    &quot;&quot;&quot;
+</span><span>    </span><span style="color:#b48ead;">global </span><span>nums
+</span><span>    rm.</span><span style="color:#bf616a;">recvuntil</span><span>(&quot;</span><span style="color:#a3be8c;">n = </span><span>&quot;)
+</span><span>    k = </span><span style="color:#bf616a;">int</span><span>(rm.</span><span style="color:#bf616a;">recv</span><span>())
+</span><span>    nums = []
+</span><span>    </span><span style="color:#bf616a;">find</span><span>(</span><span style="color:#d08770;">0</span><span>, </span><span style="color:#d08770;">1024</span><span>, k, r)
+</span><span>    nums.</span><span style="color:#bf616a;">sort</span><span>()
+</span><span>    </span><span style="color:#96b5b4;">print</span><span>(nums)
+</span><span>    rm.</span><span style="color:#bf616a;">interactive</span><span>()
+</span><span>
+</span><span>
+</span><span style="color:#bf616a;">gate</span><span>(r)
+</span><span style="color:#bf616a;">gate</span><span>(r)
+</span><span style="color:#bf616a;">gate</span><span>(r)
+</span><span>
+</span><span style="color:#65737e;"># 这里gate(r)一次就过一关，多少关我也忘了
+</span></code></pre>
 
     </div>
   </div>
@@ -216,7 +216,7 @@ gate(r)
             </div>
             <div class="feed-link">
               
-                <a rel="alternate" type="application/atom+xml" title="RSS" href="https://CSUwangj.github.io/atom.xml">
+                <a rel="alternate" type="application/rss+xml" title="RSS" href="https://CSUwangj.github.io/rss.xml">
                   RSS
                 </a>
               

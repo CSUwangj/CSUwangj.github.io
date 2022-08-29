@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>LuckyDog | CSUwangj&#x27;s Blog - Rev</title>
+        <link>https://CSUwangj.github.io/</link>
+        <description></description>
+        <generator>Zola</generator>
+        <language>en</language>
+        <atom:link href="https://CSUwangj.github.io/tags/Rev/rss.xml" rel="self" type="application/rss+xml"/>
+        <lastBuildDate>Fri, 07 Aug 2020 01:54:43 +0800</lastBuildDate>
+        <item>
+            <title>JarvisOJ-WP合集</title>
+            <pubDate>Thu, 10 May 2018 09:11:00 +0800</pubDate>
+            <link>https://CSUwangj.github.io/jarvisoj-wphe-ji/</link>
+            <guid>https://CSUwangj.github.io/jarvisoj-wphe-ji/</guid>
+            <description>&lt;p&gt;因为预感进度表会很长，所以不放了&lt;&#x2F;p&gt;
+</description>
+        </item>
+        <item>
+            <title>HGAME2018-week1WP</title>
+            <pubDate>Thu, 08 Feb 2018 10:17:34 +0800</pubDate>
+            <link>https://CSUwangj.github.io/hgame2018-week1wp/</link>
+            <guid>https://CSUwangj.github.io/hgame2018-week1wp/</guid>
+            <description>&lt;p&gt;第一周难度还是挺温柔，居然让我AK了，好开心呀&lt;&#x2F;p&gt;
+&lt;p&gt;对了，这篇是先在本地生成的，周日才传上博客的。&lt;&#x2F;p&gt;
+</description>
+        </item>
+        <item>
+            <title>HIT2018新生赛部分WP</title>
+            <pubDate>Sat, 03 Feb 2018 12:33:00 +0800</pubDate>
+            <link>https://CSUwangj.github.io/hit2018xin-sheng-sai/</link>
+            <guid>https://CSUwangj.github.io/hit2018xin-sheng-sai/</guid>
+            <description>&lt;p&gt;只会写水题，要好好学习了&lt;&#x2F;p&gt;
+</description>
+        </item>
+    </channel>
+</rss>

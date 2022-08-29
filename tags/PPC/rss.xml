@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>LuckyDog | CSUwangj&#x27;s Blog - PPC</title>
+        <link>https://CSUwangj.github.io/</link>
+        <description></description>
+        <generator>Zola</generator>
+        <language>en</language>
+        <atom:link href="https://CSUwangj.github.io/tags/PPC/rss.xml" rel="self" type="application/rss+xml"/>
+        <lastBuildDate>Fri, 07 Aug 2020 01:48:37 +0800</lastBuildDate>
+        <item>
+            <title>*ctf magic_number WP</title>
+            <pubDate>Fri, 27 Apr 2018 21:48:19 +0800</pubDate>
+            <link>https://CSUwangj.github.io/ctf-magic-number-wp/</link>
+            <guid>https://CSUwangj.github.io/ctf-magic-number-wp/</guid>
+            <description>&lt;p&gt;99次内猜14个[0,1023]内的数，那肯定是不仅二分而且要整体二分了&lt;&#x2F;p&gt;
+&lt;p&gt;简单说来是&lt;&#x2F;p&gt;
+</description>
+        </item>
+    </channel>
+</rss>

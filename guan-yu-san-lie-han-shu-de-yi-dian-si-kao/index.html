@@ -43,7 +43,7 @@ renderMathInElement(document.body, katex_config);
       
 
       
-        <link rel="alternate" type="application/atom+xml" title="RSS" href="https://CSUwangj.github.io/atom.xml">
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="https://CSUwangj.github.io/rss.xml">
       
       
         <link rel="icon" type="image/x-icon" href="https://CSUwangj.github.io/images/favicon.ico">
@@ -124,29 +124,29 @@ renderMathInElement(document.body, katex_config);
       <span class="post-meta-divider">|</span>
     </div>
     <div class="post-body">
-      <p>$1今天在ACM群灌水的时候因为一个题目引发了一些思考，题目是<a rel="noopener nofollow noreferrer" target="_blank" href="http://qscoj.cn/#/contest/show/220">比赛链接</a>的A题</p>
+      <p>今天在ACM群灌水的时候因为一个题目引发了一些思考，题目是<a rel="noopener nofollow noreferrer" target="_blank" href="http://qscoj.cn/#/contest/show/220">比赛链接</a>的A题</p>
 <span id="continue-reading"></span>
 <p>其实题目很明显，3e4的字符串总量，1e3的字符串长度上限，样例就显示了有字母、数字、符号，就10M内存，用字典树妥妥炸了。</p>
 <p>所以就哈希呗。</p>
 <p>幸运的是STL里就有自带的hash函数，于是就水过去了。</p>
-<pre data-lang="cpp" class="language-cpp "><code class="language-cpp" data-lang="cpp">#include &lt;bits&#x2F;stdc++.h&gt;
-using namespace std;
-int main()
-{
-	ios::sync_with_stdio(0);
-	set&lt;long long&gt; m;
-	hash&lt;string&gt; h;
-	int n;
-	string temp;
-	cin&gt;&gt;n;
-	while(n--){
-		cin&gt;&gt;temp;
-		m.insert(h(temp));
-	}
-	cout&lt;&lt;m.size()&lt;&lt;endl;
-	return 0;
-}
-</code></pre>
+<pre data-lang="cpp" style="background-color:#2b303b;color:#c0c5ce;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="color:#b48ead;">#include </span><span>&lt;</span><span style="color:#a3be8c;">bits/stdc++.h</span><span>&gt;
+</span><span style="color:#b48ead;">using namespace</span><span> std;
+</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main</span><span>()
+</span><span>{
+</span><span>	ios::</span><span style="color:#bf616a;">sync_with_stdio</span><span>(</span><span style="color:#d08770;">0</span><span>);
+</span><span>	set&lt;</span><span style="color:#b48ead;">long long</span><span>&gt; m;
+</span><span>	hash&lt;string&gt; h;
+</span><span>	</span><span style="color:#b48ead;">int</span><span> n;
+</span><span>	string temp;
+</span><span>	cin&gt;&gt;n;
+</span><span>	</span><span style="color:#b48ead;">while</span><span>(n--){
+</span><span>		cin&gt;&gt;temp;
+</span><span>		m.</span><span style="color:#bf616a;">insert</span><span>(</span><span style="color:#bf616a;">h</span><span>(temp));
+</span><span>	}
+</span><span>	cout&lt;&lt;m.</span><span style="color:#bf616a;">size</span><span>()&lt;&lt;endl;
+</span><span>	</span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span>;
+</span><span>}
+</span></code></pre>
 <p>因为其实3e4这个字符串数量还是比较大的，在群里聊起了碰撞的问题，然后发现还是有丶东西，索性写一篇博文分析一下。</p>
 <h2 id="san-lie-han-shu-jian-jie">散列函数简介</h2>
 <p>散列函数，也称哈希函数，是一种将任意大小数据映射到固定长度数字的单向函数。</p>
@@ -186,29 +186,29 @@ int main()
 <p>同样的，对于一个纯字母的字符串来说，也可以进行这样的转换。就是将一个字符串视为二十六进制的数字，然后求这个数字的十进制值，因为可能会溢出，就模上一个素数如$1000000007$这样的。</p>
 <h3 id="zi-fu-chuan-hash-elfhash">字符串HASH——ELFHASH</h3>
 <p>这里直接放它的代码吧，十分简短。</p>
-<pre data-lang="cpp" class="language-cpp "><code class="language-cpp" data-lang="cpp">&#x2F;&#x2F; ELF Hash Function  
-unsigned int ELFHash(char *str)  
-{  
-    unsigned int hash = 0;  
-    unsigned int x = 0;  
-  
-    while (*str)  
-    {  
-        hash = (hash &lt;&lt; 4) + (*str++);&#x2F;&#x2F;hash左移4位，把当前字符ASCII存入hash低四位。   
-        if ((x = hash &amp; 0xF0000000L) != 0)  
-        {  
-            &#x2F;&#x2F;如果最高的四位不为0，则说明字符多余7个，现在正在存第7个字符，如果不处理，再加下一个字符时，第一个字符会被移出，因此要有如下处理。  
-            &#x2F;&#x2F;该处理，如果最高位为0，就会仅仅影响5-8位，否则会影响5-31位，因为C语言使用的算数移位  
-            &#x2F;&#x2F;因为1-4位刚刚存储了新加入到字符，所以不能&gt;&gt;28  
-            hash ^= (x &gt;&gt; 24);  
-            &#x2F;&#x2F;上面这行代码并不会对X有影响，本身X和hash的高4位相同，下面这行代码&amp;~即对28-31(高4位)位清零。  
-            hash &amp;= ~x;  
-        }  
-    }  
-    &#x2F;&#x2F;返回一个符号位为0的数，即丢弃最高位，以免函数外产生影响。(我们可以考虑，如果只有字符，符号位不可能为负)  
-    return (hash &amp; 0x7FFFFFFF);  
-}  
-</code></pre>
+<pre data-lang="cpp" style="background-color:#2b303b;color:#c0c5ce;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="color:#65737e;">// ELF Hash Function  
+</span><span style="color:#b48ead;">unsigned int </span><span style="color:#8fa1b3;">ELFHash</span><span>(</span><span style="color:#b48ead;">char </span><span>*</span><span style="color:#bf616a;">str</span><span>)  
+</span><span>{  
+</span><span>    </span><span style="color:#b48ead;">unsigned int</span><span> hash = </span><span style="color:#d08770;">0</span><span>;  
+</span><span>    </span><span style="color:#b48ead;">unsigned int</span><span> x = </span><span style="color:#d08770;">0</span><span>;  
+</span><span>  
+</span><span>    </span><span style="color:#b48ead;">while </span><span>(*str)  
+</span><span>    {  
+</span><span>        hash = (hash &lt;&lt; </span><span style="color:#d08770;">4</span><span>) + (*str++);</span><span style="color:#65737e;">//hash左移4位，把当前字符ASCII存入hash低四位。   
+</span><span>        </span><span style="color:#b48ead;">if </span><span>((x = hash &amp; </span><span style="color:#d08770;">0xF0000000</span><span style="color:#b48ead;">L</span><span>) != </span><span style="color:#d08770;">0</span><span>)  
+</span><span>        {  
+</span><span>            </span><span style="color:#65737e;">//如果最高的四位不为0，则说明字符多余7个，现在正在存第7个字符，如果不处理，再加下一个字符时，第一个字符会被移出，因此要有如下处理。  
+</span><span>            </span><span style="color:#65737e;">//该处理，如果最高位为0，就会仅仅影响5-8位，否则会影响5-31位，因为C语言使用的算数移位  
+</span><span>            </span><span style="color:#65737e;">//因为1-4位刚刚存储了新加入到字符，所以不能&gt;&gt;28  
+</span><span>            hash ^= (x &gt;&gt; </span><span style="color:#d08770;">24</span><span>);  
+</span><span>            </span><span style="color:#65737e;">//上面这行代码并不会对X有影响，本身X和hash的高4位相同，下面这行代码&amp;~即对28-31(高4位)位清零。  
+</span><span>            hash &amp;= ~x;  
+</span><span>        }  
+</span><span>    }  
+</span><span>    </span><span style="color:#65737e;">//返回一个符号位为0的数，即丢弃最高位，以免函数外产生影响。(我们可以考虑，如果只有字符，符号位不可能为负)  
+</span><span>    </span><span style="color:#b48ead;">return </span><span>(hash &amp; </span><span style="color:#d08770;">0x7FFFFFFF</span><span>);  
+</span><span>}  
+</span></code></pre>
 <p>这个函数写起来十分简单。我把注释也复制过来了，就不多解释了。</p>
 <h2 id="san-lie-zhi-peng-zhuang-liao-zen-yao-ban">散列值碰撞了，怎么办？</h2>
 <p>扯了那么多前篇，终于到这篇博文真实目的了，不过估计会很短……</p>
@@ -221,15 +221,15 @@ unsigned int ELFHash(char *str)
 <p><img src="https://CSUwangj.github.io/guan-yu-san-lie-han-shu-de-yi-dian-si-kao/1527960903963.png" alt="cpp reference" /></p>
 <p>基于散列函数的几个特性来说，我们得到值域内任意值的可能性都为$\frac1{2^{32}}$。那么，在计算不同的任意$n$个字符串候，这些散列值都不冲突的可能性就是$\frac{2^{32}-1}{2^{32}}×\frac{2^{32}-2}{2^{32}}×...×\frac{2^{32}-n+1}{2^{32}}$。</p>
 <p>对于题目给的数据，使用下面Python代码可以计算得不发生冲突的概率为$0.9005311337474664$即发生错误的可能性为$0.0994688662525336$。</p>
-<pre data-lang="python" class="language-python "><code class="language-python" data-lang="python"># a.py
-a = 1 &lt;&lt; 32
-s = 1
-for i in range(0, 30000):
-	s *= (a-i)&#x2F;a
-print(s)
-#python a.py
-#0.9005311337474664
-</code></pre>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#65737e;"># a.py
+</span><span>a = </span><span style="color:#d08770;">1 </span><span>&lt;&lt; </span><span style="color:#d08770;">32
+</span><span>s = </span><span style="color:#d08770;">1
+</span><span style="color:#b48ead;">for </span><span>i </span><span style="color:#b48ead;">in </span><span style="color:#96b5b4;">range</span><span>(</span><span style="color:#d08770;">0</span><span>, </span><span style="color:#d08770;">30000</span><span>):
+</span><span>	s *= (a-i)/a
+</span><span style="color:#96b5b4;">print</span><span>(s)
+</span><span style="color:#65737e;">#python a.py
+</span><span style="color:#65737e;">#0.9005311337474664
+</span></code></pre>
 <p>可见这个数字对于脸白的人来说是够了的。</p>
 <h3 id="jiao-lian-wo-lian-hei-duo-zhong-san-lie-han-shu">教练我脸黑——多重散列函数</h3>
 <p>那么我们就要考虑找路子了，这里又有两条分支了：</p>
@@ -243,57 +243,57 @@ print(s)
 <p>考虑理想状况，我们将多个盐值对应的不同散列值作为比对的标准，我们就能在一定程度上解决冲突，这里又能分出两条线。</p>
 <h4 id="jiang-bu-tong-san-lie-zhi-fang-zai-bu-tong-rong-qi-li">将不同散列值放在不同容器里</h4>
 <p>考虑这样的比对算法</p>
-<pre data-lang="cpp" class="language-cpp "><code class="language-cpp" data-lang="cpp">&#x2F;&#x2F;There is a bunch of set containers named s[0]&#x2F;s[1]&#x2F;etc
-string str;
-cin &gt;&gt;str;
-temp = hash(str)
-if(!s[0].count(temp)){
-	s[0].insert(temp)
-	count++
-}else{
-	temp = hash(str+&quot;salt1&quot;)
-	if(!s[1].count(temp)){
-		s[1].insert(temp)
-		count++
-    }else{
-		&#x2F;&#x2F;etc
-    }
-}
-</code></pre>
+<pre data-lang="cpp" style="background-color:#2b303b;color:#c0c5ce;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="color:#65737e;">//There is a bunch of set containers named s[0]/s[1]/etc
+</span><span>string str;
+</span><span>cin &gt;&gt;str;
+</span><span>temp = </span><span style="color:#bf616a;">hash</span><span>(str)
+</span><span style="color:#b48ead;">if</span><span>(!s[</span><span style="color:#d08770;">0</span><span>].</span><span style="color:#bf616a;">count</span><span>(temp)){
+</span><span>	s[</span><span style="color:#d08770;">0</span><span>].</span><span style="color:#bf616a;">insert</span><span>(temp)
+</span><span>	count++
+</span><span>}</span><span style="color:#b48ead;">else</span><span>{
+</span><span>	temp = </span><span style="color:#bf616a;">hash</span><span>(str+&quot;</span><span style="color:#a3be8c;">salt1</span><span>&quot;)
+</span><span>	</span><span style="color:#b48ead;">if</span><span>(!s[</span><span style="color:#d08770;">1</span><span>].</span><span style="color:#bf616a;">count</span><span>(temp)){
+</span><span>		s[</span><span style="color:#d08770;">1</span><span>].</span><span style="color:#bf616a;">insert</span><span>(temp)
+</span><span>		count++
+</span><span>    }</span><span style="color:#b48ead;">else</span><span>{
+</span><span>		</span><span style="color:#65737e;">//etc
+</span><span>    }
+</span><span>}
+</span></code></pre>
 <p>那么可能会发生这样的问题，就是字符串s在第一次比对时和a串冲突，在第二次比对时又和b串冲突。</p>
 <p>易知对于固定数量$n$的生日攻击来说，不发生冲突的概率$p$是一定的，假设多重散列函数就像我们所想的一样工作，那么该实验可以认为是一个成功率为$1-p$的伯努利实验。</p>
 <p>在$m$重散列函数的情况下，均发生冲突的可能性是$P_0(m)=C_m^0(1-p)^m$，取这次题目的数据来说，两重散列函数发生冲突的概率为$0.009894055353564416$。</p>
 <h4 id="jiang-ge-san-lie-zhi-bao-zhuang-cheng-yi-ge-zheng-ti">将各散列值包装成一个整体</h4>
 <p>也就是说算法改为</p>
-<pre data-lang="c++" class="language-c++ "><code class="language-c++" data-lang="c++">struct hashv{
-	size_t v[2];
-};
-set&lt;hashv&gt; s;
-
-string str;
-cin&gt;&gt;str;
-hashv temp
-temp.v[0] = hash(str)
-temp.v[1] = hash(str+&quot;salt&quot;)
-if(!s.count(temp)){
-    s.insert(temp);
-    count++;
-}
-</code></pre>
+<pre data-lang="c++" style="background-color:#2b303b;color:#c0c5ce;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#b48ead;">struct </span><span>hashv{
+</span><span>	size_t v[</span><span style="color:#d08770;">2</span><span>];
+</span><span>};
+</span><span>set&lt;hashv&gt; s;
+</span><span>
+</span><span>string str;
+</span><span>cin&gt;&gt;str;
+</span><span>hashv </span><span style="color:#8fa1b3;">temp
+</span><span style="color:#8fa1b3;">temp</span><span>.</span><span style="color:#bf616a;">v</span><span>[</span><span style="color:#d08770;">0</span><span>] = </span><span style="color:#bf616a;">hash</span><span>(str)
+</span><span>temp.</span><span style="color:#bf616a;">v</span><span>[</span><span style="color:#d08770;">1</span><span>] = </span><span style="color:#bf616a;">hash</span><span>(str+&quot;</span><span style="color:#a3be8c;">salt</span><span>&quot;)
+</span><span style="color:#b48ead;">if</span><span>(!s.</span><span style="color:#bf616a;">count</span><span>(temp)){
+</span><span>    s.</span><span style="color:#bf616a;">insert</span><span>(temp);
+</span><span>    count++;
+</span><span>}
+</span></code></pre>
 <p>理想状态下，此时发生单次冲突的概率为两次散列均冲突的概率，即两者的乘积，也就是$2^{64}-2^{33}+1$</p>
 <p>利用以下python代码计算得在题设情况下，不发生冲突的可能性为$0.9999999999999999999971601954045129840219384586382661991347799758614026869784477630643202473665079505271849114917935938025327598810920608449$ ，太强辣！</p>
-<pre data-lang="python" class="language-python "><code class="language-python" data-lang="python">from decimal import *
-a = 1 &lt;&lt; 64 - 1&lt;&lt;33 +1
-a = Decimal(str(a))
-print(a)
-s = Decimal(&quot;1&quot;)
-getcontext().prec = 2000
-for i in range(0, 30000):
-	if not i% 1000:
-		print(i)
-	s *= (a-Decimal(str(i)))&#x2F;a
-print(s)
-</code></pre>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">from </span><span>decimal </span><span style="color:#b48ead;">import </span><span style="color:#d08770;">*
+</span><span>a = </span><span style="color:#d08770;">1 </span><span>&lt;&lt; </span><span style="color:#d08770;">64 </span><span>- </span><span style="color:#d08770;">1</span><span>&lt;&lt;</span><span style="color:#d08770;">33 </span><span>+</span><span style="color:#d08770;">1
+</span><span>a = </span><span style="color:#bf616a;">Decimal</span><span>(</span><span style="color:#bf616a;">str</span><span>(a))
+</span><span style="color:#96b5b4;">print</span><span>(a)
+</span><span>s = </span><span style="color:#bf616a;">Decimal</span><span>(&quot;</span><span style="color:#a3be8c;">1</span><span>&quot;)
+</span><span style="color:#bf616a;">getcontext</span><span>().prec = </span><span style="color:#d08770;">2000
+</span><span style="color:#b48ead;">for </span><span>i </span><span style="color:#b48ead;">in </span><span style="color:#96b5b4;">range</span><span>(</span><span style="color:#d08770;">0</span><span>, </span><span style="color:#d08770;">30000</span><span>):
+</span><span>	</span><span style="color:#b48ead;">if </span><span>not i% </span><span style="color:#d08770;">1000</span><span>:
+</span><span>		</span><span style="color:#96b5b4;">print</span><span>(i)
+</span><span>	s *= (a-</span><span style="color:#bf616a;">Decimal</span><span>(</span><span style="color:#bf616a;">str</span><span>(i)))/a
+</span><span style="color:#96b5b4;">print</span><span>(s)
+</span></code></pre>
 <p>可以发现，这样做以后是几何倍数降低发生碰撞的可能性了。</p>
 <p>那么只有一个考虑了，就是这个结构体打算怎么写，不过这个问题就不是我操心的啦~</p>
 <h2 id="hou-ji">后记</h2>
@@ -319,7 +319,7 @@ print(s)
             </div>
             <div class="feed-link">
               
-                <a rel="alternate" type="application/atom+xml" title="RSS" href="https://CSUwangj.github.io/atom.xml">
+                <a rel="alternate" type="application/rss+xml" title="RSS" href="https://CSUwangj.github.io/rss.xml">
                   RSS
                 </a>
               

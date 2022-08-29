@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>LuckyDog | CSUwangj&#x27;s Blog - Graduation</title>
+        <link>https://CSUwangj.github.io/</link>
+        <description></description>
+        <generator>Zola</generator>
+        <language>en</language>
+        <atom:link href="https://CSUwangj.github.io/tags/Graduation/rss.xml" rel="self" type="application/rss+xml"/>
+        <lastBuildDate>Fri, 07 Aug 2020 02:01:26 +0800</lastBuildDate>
+        <item>
+            <title>像做项目一样做毕设</title>
+            <pubDate>Wed, 22 Jul 2020 20:57:08 +0800</pubDate>
+            <link>https://CSUwangj.github.io/xiang-zuo-xiang-mu-yi-yang-zuo-bi-she/</link>
+            <guid>https://CSUwangj.github.io/xiang-zuo-xiang-mu-yi-yang-zuo-bi-she/</guid>
+            <description>&lt;h1 id=&quot;xu-lun&quot;&gt;绪论&lt;&#x2F;h1&gt;
+&lt;p&gt;整理自己在学校的东西，看到自己为了毕业设计开的项目，觉得自己的这份经验值得分享一下，所以整理一下发出来，帮助学弟学妹开始自己的毕设。&lt;&#x2F;p&gt;
+&lt;p&gt;本文主要分为两个部分，一个是工作流，另一个是小技巧：工作流包括了我从联系导师、确认选题到最后完成设计、申请推优的大流程；小技巧则是我认为在毕设过程中提升了我工作效率的一些设计、软件。&lt;&#x2F;p&gt;
+</description>
+        </item>
+    </channel>
+</rss>

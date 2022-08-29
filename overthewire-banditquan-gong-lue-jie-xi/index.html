@@ -43,7 +43,7 @@ renderMathInElement(document.body, katex_config);
       
 
       
-        <link rel="alternate" type="application/atom+xml" title="RSS" href="https://CSUwangj.github.io/atom.xml">
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="https://CSUwangj.github.io/rss.xml">
       
       
         <link rel="icon" type="image/x-icon" href="https://CSUwangj.github.io/images/favicon.ico">
@@ -124,8 +124,9 @@ renderMathInElement(document.body, katex_config);
       <span class="post-meta-divider">|</span>
     </div>
     <div class="post-body">
-      <p>$1- [x] <a rel="noopener nofollow noreferrer" target="_blank" href="http://overthewire.org/wargames/bandit/bandit0.html">Level 0</a></p>
-<ul>
+      <ul>
+<li><input disabled="" type="checkbox" checked=""/>
+<a rel="noopener nofollow noreferrer" target="_blank" href="http://overthewire.org/wargames/bandit/bandit0.html">Level 0</a></li>
 <li><input disabled="" type="checkbox" checked=""/>
 <a rel="noopener nofollow noreferrer" target="_blank" href="http://overthewire.org/wargames/bandit/bandit1.html">Level 0 → Level 1</a></li>
 <li><input disabled="" type="checkbox" checked=""/>
@@ -196,57 +197,57 @@ renderMathInElement(document.body, katex_config);
 <a rel="noopener nofollow noreferrer" target="_blank" href="http://overthewire.org/wargames/bandit/bandit34.html">Level 33 → Level 34</a></li>
 </ul>
 <span id="continue-reading"></span><h1 id="level-0">Level 0</h1>
-<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">ssh bandit.labs.overthewire.org -p 2220 -l bandit0
-</code></pre>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">ssh</span><span> bandit.labs.overthewire.org</span><span style="color:#bf616a;"> -p</span><span> 2220</span><span style="color:#bf616a;"> -l</span><span> bandit0
+</span></code></pre>
 <h1 id="level-0-level-1">Level 0 → Level 1</h1>
-<pre><code>cat ~&#x2F;readme
-</code></pre>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>cat ~/readme
+</span></code></pre>
 <h1 id="level-1-level-2">Level 1 → Level 2</h1>
-<pre><code>cat ~&#x2F;-
-</code></pre>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>cat ~/-
+</span></code></pre>
 <h2 id="can-kao-zi-liao">参考资料</h2>
 <p>http://tldp.org/LDP/abs/html/special-chars.html</p>
 <h1 id="level-2-level-3">Level 2 → Level 3</h1>
 <p>这一关其实,,,应该关了tab补全</p>
-<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">cat ~&#x2F;spaces\ in\ this\ filename
-</code></pre>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">cat ~</span><span>/spaces</span><span style="color:#96b5b4;">\ </span><span>in</span><span style="color:#96b5b4;">\ </span><span>this</span><span style="color:#96b5b4;">\ </span><span>filename
+</span></code></pre>
 <p>或者在windows用命令行的方式也行</p>
-<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">cat &quot;&#x2F;home&#x2F;bandit2&#x2F;spaces in this filename&quot;
-cat &quot;space in this filename
-</code></pre>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">cat </span><span>&quot;</span><span style="color:#a3be8c;">/home/bandit2/spaces in this filename</span><span>&quot;
+</span><span style="color:#bf616a;">cat </span><span>&quot;</span><span style="color:#a3be8c;">space in this filename
+</span></code></pre>
 <h1 id="level-3-level-4">Level 3 → Level 4</h1>
-<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">cat ~&#x2F;inhere&#x2F;.hidden
-</code></pre>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">cat ~</span><span>/inhere/.hidden
+</span></code></pre>
 <h1 id="level-4-level-5">Level 4 → Level 5</h1>
-<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">i=0; while [ $i -le 9 ]; do file `python -c &quot;print &#x27;&#x2F;home&#x2F;bandit4&#x2F;inhere&#x2F;-file%02d&#x27; % $i&quot;`; i=$((i+1)); done
-</code></pre>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">i</span><span>=</span><span style="color:#a3be8c;">0</span><span>; </span><span style="color:#b48ead;">while </span><span style="color:#96b5b4;">[ </span><span>$</span><span style="color:#bf616a;">i -le</span><span> 9 </span><span style="color:#96b5b4;">]</span><span>; </span><span style="color:#b48ead;">do </span><span style="color:#bf616a;">file </span><span>`</span><span style="color:#bf616a;">python -c </span><span>&quot;</span><span style="color:#a3be8c;">print &#39;/home/bandit4/inhere/-file%02d&#39; % </span><span>$</span><span style="color:#bf616a;">i</span><span>&quot;`; </span><span style="color:#bf616a;">i</span><span>=$</span><span style="color:#a3be8c;">((i</span><span>+</span><span style="color:#d08770;">1</span><span style="color:#a3be8c;">))</span><span>; </span><span style="color:#b48ead;">done
+</span></code></pre>
 <h1 id="level-5-level-6">Level 5 → Level 6</h1>
 <p>难度不够啊，同大小的就一个...</p>
-<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash"> find . -type f -size 1033c -print | xargs cat
-</code></pre>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span> </span><span style="color:#bf616a;">find</span><span> .</span><span style="color:#bf616a;"> -type</span><span> f</span><span style="color:#bf616a;"> -size</span><span> 1033c</span><span style="color:#bf616a;"> -print </span><span>| </span><span style="color:#bf616a;">xargs</span><span> cat
+</span></code></pre>
 <p>还要过滤的话文件加-perm参数未必有用，目前考虑用ls -l和file命令做。</p>
 <h1 id="level-6-level-7">Level 6 → Level 7</h1>
-<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">find &#x2F; -user bandit7 -group bandit6 -size 33c 2&gt;&#x2F;dev&#x2F;null | xargs cat
-</code></pre>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">find</span><span> /</span><span style="color:#bf616a;"> -user</span><span> bandit7</span><span style="color:#bf616a;"> -group</span><span> bandit6</span><span style="color:#bf616a;"> -size</span><span> 33c </span><span style="color:#d08770;">2</span><span>&gt;/dev/null | </span><span style="color:#bf616a;">xargs</span><span> cat
+</span></code></pre>
 <p>很见鬼的是，-print后面放哪些东西会出问题...</p>
 <h1 id="level-7-level-8">Level 7 → Level 8</h1>
-<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash"> cat ~&#x2F;data.txt | grep millionth
-</code></pre>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span> </span><span style="color:#bf616a;">cat ~</span><span>/data.txt | </span><span style="color:#bf616a;">grep</span><span> millionth
+</span></code></pre>
 <h1 id="level-8-level-9">Level 8 → Level 9</h1>
-<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">sort ~&#x2F;data.txt | uniq -u
-</code></pre>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">sort ~</span><span>/data.txt | </span><span style="color:#bf616a;">uniq -u
+</span></code></pre>
 <h1 id="level-9-level-10">Level 9 → Level 10</h1>
-<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">strings ~&#x2F;data.txt | grep ==
-</code></pre>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">strings ~</span><span>/data.txt | </span><span style="color:#bf616a;">grep</span><span> ==
+</span></code></pre>
 <h1 id="level-10-level-11">Level 10 → Level 11</h1>
-<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">base64 -d ~&#x2F;data.txt
-</code></pre>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">base64 -d ~</span><span>/data.txt
+</span></code></pre>
 <h1 id="level-11-level-12">Level 11 → Level 12</h1>
-<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash"> cat ~&#x2F;data.txt | tr &#x27;a-zA-Z&#x27; &#x27;n-za-mN-ZA-M&#x27;
-</code></pre>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span> </span><span style="color:#bf616a;">cat ~</span><span>/data.txt | </span><span style="color:#bf616a;">tr </span><span>&#39;</span><span style="color:#a3be8c;">a-zA-Z</span><span>&#39; &#39;</span><span style="color:#a3be8c;">n-za-mN-ZA-M</span><span>&#39;
+</span></code></pre>
 <h1 id="level-12-level-13">Level 12 → Level 13</h1>
-<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">xxd -r ~&#x2F;data.txt | gzip -d - | bzip2 -d - | gzip -d - | tar -xOf - | tar -xOf - | bzip2 -d - | tar -xOf - | gzip -d -
-</code></pre>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">xxd -r ~</span><span>/data.txt | </span><span style="color:#bf616a;">gzip -d</span><span> - | </span><span style="color:#bf616a;">bzip2 -d</span><span> - | </span><span style="color:#bf616a;">gzip -d</span><span> - | </span><span style="color:#bf616a;">tar -xOf</span><span> - | </span><span style="color:#bf616a;">tar -xOf</span><span> - | </span><span style="color:#bf616a;">bzip2 -d</span><span> - | </span><span style="color:#bf616a;">tar -xOf</span><span> - | </span><span style="color:#bf616a;">gzip -d</span><span> -
+</span></code></pre>
 <h1 id="level-13-level-14">Level 13 → Level 14</h1>
 <h1 id="level-14-level-15">Level 14 → Level 15</h1>
 <h1 id="level-15-level-16">Level 15 → Level 16</h1>
@@ -288,7 +289,7 @@ cat &quot;space in this filename
             </div>
             <div class="feed-link">
               
-                <a rel="alternate" type="application/atom+xml" title="RSS" href="https://CSUwangj.github.io/atom.xml">
+                <a rel="alternate" type="application/rss+xml" title="RSS" href="https://CSUwangj.github.io/rss.xml">
                   RSS
                 </a>
               

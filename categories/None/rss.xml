@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>LuckyDog | CSUwangj&#x27;s Blog - None</title>
+        <link>https://CSUwangj.github.io/</link>
+        <description></description>
+        <generator>Zola</generator>
+        <language>en</language>
+        <atom:link href="https://CSUwangj.github.io/categories/None/rss.xml" rel="self" type="application/rss+xml"/>
+        <lastBuildDate>Fri, 07 Aug 2020 01:54:43 +0800</lastBuildDate>
+        <item>
+            <title>游戏的随机，随机的游戏（一）：当我们讨论伪随机时我们在讨论什么</title>
+            <pubDate>Mon, 18 May 2020 14:14:17 +0800</pubDate>
+            <link>https://CSUwangj.github.io/you-xi-de-sui-ji-sui-ji-de-you-xi-yi-dang-wo-men-tao-lun-wei-sui-ji-shi-wo-men-zai-tao-lun-shi-yao/</link>
+            <guid>https://CSUwangj.github.io/you-xi-de-sui-ji-sui-ji-de-you-xi-yi-dang-wo-men-tao-lun-wei-sui-ji-shi-wo-men-zai-tao-lun-shi-yao/</guid>
+            <description>&lt;p&gt;我们生活的世界充满了随机，在娱乐时也是。从一次次抽卡、掉落物品，平A转出的暴击，甚至在每一次攻击，背后都有概率的影子。你是否曾看到“计算机里只有伪随机”，又看到有人说“伪随机抽奖机制确保中奖”？他们说的分别是什么？我为什么还抽不到想要的SSR？为什么她17张牌秒了我？&lt;&#x2F;p&gt;
+</description>
+        </item>
+    </channel>
+</rss>

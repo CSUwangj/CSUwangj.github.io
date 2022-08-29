@@ -43,7 +43,7 @@ renderMathInElement(document.body, katex_config);
       
 
       
-        <link rel="alternate" type="application/atom+xml" title="RSS" href="https://CSUwangj.github.io/atom.xml">
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="https://CSUwangj.github.io/rss.xml">
       
       
         <link rel="icon" type="image/x-icon" href="https://CSUwangj.github.io/images/favicon.ico">
@@ -124,7 +124,7 @@ renderMathInElement(document.body, katex_config);
       <span class="post-meta-divider">|</span>
     </div>
     <div class="post-body">
-      <p>$1因为预感进度表会很长，所以不放了</p>
+      <p>因为预感进度表会很长，所以不放了</p>
 <span id="continue-reading"></span><h1 id="bu-zi-ci-tiao-zhuan-de-jin-du-biao">不资瓷跳转的进度表</h1>
 <ul>
 <li><input disabled="" type="checkbox" checked=""/>
@@ -236,14 +236,14 @@ hard RSA</li>
 <p>看来还是需要文件系统，用命令</p>
 <p><code>mount -o loop haha.f38a74f55b4e193561d1b707211cf7eb /mnt</code></p>
 <p>装载文件系统之后，发现每个文件里一个字符，所以写出脚本</p>
-<pre data-lang="python" class="language-python "><code class="language-python" data-lang="python">import os
-s = &quot;&quot;
-for i in range(0, 254):
-	f = open(str(i), &quot;r&quot;)
-	s += f.read()
-	f.close()
-print(s)
-</code></pre>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">import </span><span>os
+</span><span>s = &quot;&quot;
+</span><span style="color:#b48ead;">for </span><span>i </span><span style="color:#b48ead;">in </span><span style="color:#96b5b4;">range</span><span>(</span><span style="color:#d08770;">0</span><span>, </span><span style="color:#d08770;">254</span><span>):
+</span><span>	f = </span><span style="color:#96b5b4;">open</span><span>(</span><span style="color:#bf616a;">str</span><span>(i), &quot;</span><span style="color:#a3be8c;">r</span><span>&quot;)
+</span><span>	s += f.</span><span style="color:#bf616a;">read</span><span>()
+</span><span>	f.</span><span style="color:#bf616a;">close</span><span>()
+</span><span style="color:#96b5b4;">print</span><span>(s)
+</span></code></pre>
 <p>得到flag</p>
 <h3 id="flag-7">flag</h3>
 <p>PCTF{P13c3_7oghter_i7}</p>
@@ -256,24 +256,24 @@ print(s)
 <p><img src="https://CSUwangj.github.io/jarvisoj-wphe-ji/1525966589251.png" alt="Easy Crackme" /></p>
 <p>算法很简单，第一位异或以后，后面24位每6位一组和对应位置异或，然后进行比较</p>
 <p>写出逆算法</p>
-<pre data-lang="cpp" class="language-cpp "><code class="language-cpp" data-lang="cpp">#include &lt;bits&#x2F;stdc++.h&gt;
-using namespace std;
-unsigned char a[27] = {
-    0xFB, 0x9E, 0x67, 0x12, 0x4E, 0x9D, 0x98, 0xAB, 0x00, 0x06, 0x46, 0x8A, 0xF4, 0xB4, 0x06, 0x0B,
-    0x43, 0xDC, 0xD9, 0xA4, 0x6C, 0x31, 0x74, 0x9C, 0xD2, 0xA0, 0
-};
-int ar[6] = {-35,51,84,53,-17,-85};
-int main()
-{
-	a[0]^=0xab;
-	for(int i=0;i&lt;25;++i){
-		a[i+1]^=ar[i%6];
-	}
-	puts((const char *)a);
-    return 0;
-}
-
-</code></pre>
+<pre data-lang="cpp" style="background-color:#2b303b;color:#c0c5ce;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="color:#b48ead;">#include </span><span>&lt;</span><span style="color:#a3be8c;">bits/stdc++.h</span><span>&gt;
+</span><span style="color:#b48ead;">using namespace</span><span> std;
+</span><span style="color:#b48ead;">unsigned char</span><span> a[</span><span style="color:#d08770;">27</span><span>] = {
+</span><span>    </span><span style="color:#d08770;">0xFB</span><span>, </span><span style="color:#d08770;">0x9E</span><span>, </span><span style="color:#d08770;">0x67</span><span>, </span><span style="color:#d08770;">0x12</span><span>, </span><span style="color:#d08770;">0x4E</span><span>, </span><span style="color:#d08770;">0x9D</span><span>, </span><span style="color:#d08770;">0x98</span><span>, </span><span style="color:#d08770;">0xAB</span><span>, </span><span style="color:#d08770;">0x00</span><span>, </span><span style="color:#d08770;">0x06</span><span>, </span><span style="color:#d08770;">0x46</span><span>, </span><span style="color:#d08770;">0x8A</span><span>, </span><span style="color:#d08770;">0xF4</span><span>, </span><span style="color:#d08770;">0xB4</span><span>, </span><span style="color:#d08770;">0x06</span><span>, </span><span style="color:#d08770;">0x0B</span><span>,
+</span><span>    </span><span style="color:#d08770;">0x43</span><span>, </span><span style="color:#d08770;">0xDC</span><span>, </span><span style="color:#d08770;">0xD9</span><span>, </span><span style="color:#d08770;">0xA4</span><span>, </span><span style="color:#d08770;">0x6C</span><span>, </span><span style="color:#d08770;">0x31</span><span>, </span><span style="color:#d08770;">0x74</span><span>, </span><span style="color:#d08770;">0x9C</span><span>, </span><span style="color:#d08770;">0xD2</span><span>, </span><span style="color:#d08770;">0xA0</span><span>, </span><span style="color:#d08770;">0
+</span><span>};
+</span><span style="color:#b48ead;">int</span><span> ar[</span><span style="color:#d08770;">6</span><span>] = {-</span><span style="color:#d08770;">35</span><span>,</span><span style="color:#d08770;">51</span><span>,</span><span style="color:#d08770;">84</span><span>,</span><span style="color:#d08770;">53</span><span>,-</span><span style="color:#d08770;">17</span><span>,-</span><span style="color:#d08770;">85</span><span>};
+</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main</span><span>()
+</span><span>{
+</span><span>	a[</span><span style="color:#d08770;">0</span><span>]^=</span><span style="color:#d08770;">0xab</span><span>;
+</span><span>	</span><span style="color:#b48ead;">for</span><span>(</span><span style="color:#b48ead;">int</span><span> i=</span><span style="color:#d08770;">0</span><span>;i&lt;</span><span style="color:#d08770;">25</span><span>;++i){
+</span><span>		a[i+</span><span style="color:#d08770;">1</span><span>]^=ar[i%</span><span style="color:#d08770;">6</span><span>];
+</span><span>	}
+</span><span>	</span><span style="color:#96b5b4;">puts</span><span>((</span><span style="color:#b48ead;">const char </span><span>*)a);
+</span><span>    </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span>;
+</span><span>}
+</span><span>
+</span></code></pre>
 <h3 id="flag-9">flag</h3>
 <p>PCTF{r3v3Rse_i5_v3ry_eAsy}</p>
 <h2 id="x-secret">[Ｘ]  Secret</h2>
@@ -302,37 +302,37 @@ int main()
 <p>PCTF{PHRACKCTF}</p>
 <h2 id="x-baby-s-crack">[Ｘ] Baby's Crack</h2>
 <p>很简单的加密，都不用写逆算法了，直接爆破吧！</p>
-<pre data-lang="c" class="language-c "><code class="language-c" data-lang="c">#include &lt;string.h&gt;
-#include &lt;stdio.h&gt;
-char a[] = &quot;jeihjiiklwjnk{ljj{kflghhj{ilk{k{kij{ihlgkfkhkwhhjgly&quot;;
-char b[] = &quot;jeihjiiklwjnk{ljj{kflghhj{ilk{k{kij{ihlgkfkhkwhhjgly&quot;;&#x2F;&#x2F;这里可以为空，我只是方便设置长度搞得
-int main()
-{
-	int len = strlen(a);
-	for(int i=0;i&lt;len;++i){
-		int ok = 0;
-		for(int j=32;j&lt;255&amp;&amp;!ok;++j){
-			int cur = j;
-			if ( j &gt; 47 &amp;&amp; j &lt;= 96 ){
-          		j += 53;
-        	}else if ( j &lt;= 46 ){
-          		j += j % 11;
-        	}else{
-          		j = 61 * (j &#x2F; 61);
-        	}
-        	if(j==a[i]){
-        		&#x2F;&#x2F;ok=1;这里加上注释是为了确认每次解的唯一
-        		b[i]=cur;
-        		putchar(cur);
-        	}
-        	j=cur;
-        }
-        putchar(&#x27;\n&#x27;);
-    }
-    puts(b);
-	return 0;
-}
-</code></pre>
+<pre data-lang="c" style="background-color:#2b303b;color:#c0c5ce;" class="language-c "><code class="language-c" data-lang="c"><span style="color:#b48ead;">#include </span><span>&lt;</span><span style="color:#a3be8c;">string.h</span><span>&gt;
+</span><span style="color:#b48ead;">#include </span><span>&lt;</span><span style="color:#a3be8c;">stdio.h</span><span>&gt;
+</span><span style="color:#b48ead;">char</span><span> a[] = &quot;</span><span style="color:#a3be8c;">jeihjiiklwjnk{ljj{kflghhj{ilk{k{kij{ihlgkfkhkwhhjgly</span><span>&quot;;
+</span><span style="color:#b48ead;">char</span><span> b[] = &quot;</span><span style="color:#a3be8c;">jeihjiiklwjnk{ljj{kflghhj{ilk{k{kij{ihlgkfkhkwhhjgly</span><span>&quot;;</span><span style="color:#65737e;">//这里可以为空，我只是方便设置长度搞得
+</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main</span><span>()
+</span><span>{
+</span><span>	</span><span style="color:#b48ead;">int</span><span> len = </span><span style="color:#96b5b4;">strlen</span><span>(a);
+</span><span>	</span><span style="color:#b48ead;">for</span><span>(</span><span style="color:#b48ead;">int</span><span> i=</span><span style="color:#d08770;">0</span><span>;i&lt;len;++i){
+</span><span>		</span><span style="color:#b48ead;">int</span><span> ok = </span><span style="color:#d08770;">0</span><span>;
+</span><span>		</span><span style="color:#b48ead;">for</span><span>(</span><span style="color:#b48ead;">int</span><span> j=</span><span style="color:#d08770;">32</span><span>;j&lt;</span><span style="color:#d08770;">255</span><span>&amp;&amp;!ok;++j){
+</span><span>			</span><span style="color:#b48ead;">int</span><span> cur = j;
+</span><span>			</span><span style="color:#b48ead;">if </span><span>( j &gt; </span><span style="color:#d08770;">47 </span><span>&amp;&amp; j &lt;= </span><span style="color:#d08770;">96 </span><span>){
+</span><span>          		j += </span><span style="color:#d08770;">53</span><span>;
+</span><span>        	}</span><span style="color:#b48ead;">else if </span><span>( j &lt;= </span><span style="color:#d08770;">46 </span><span>){
+</span><span>          		j += j % </span><span style="color:#d08770;">11</span><span>;
+</span><span>        	}</span><span style="color:#b48ead;">else</span><span>{
+</span><span>          		j = </span><span style="color:#d08770;">61 </span><span>* (j / </span><span style="color:#d08770;">61</span><span>);
+</span><span>        	}
+</span><span>        	</span><span style="color:#b48ead;">if</span><span>(j==a[i]){
+</span><span>        		</span><span style="color:#65737e;">//ok=1;这里加上注释是为了确认每次解的唯一
+</span><span>        		b[i]=cur;
+</span><span>        		</span><span style="color:#96b5b4;">putchar</span><span>(cur);
+</span><span>        	}
+</span><span>        	j=cur;
+</span><span>        }
+</span><span>        </span><span style="color:#96b5b4;">putchar</span><span>(&#39;</span><span style="color:#96b5b4;">\n</span><span>&#39;);
+</span><span>    }
+</span><span>    </span><span style="color:#96b5b4;">puts</span><span>(b);
+</span><span>	</span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span>;
+</span><span>}
+</span></code></pre>
 <p>得到的结果转ASCII就好</p>
 <h3 id="flag-16">flag</h3>
 <p>PCTF{You_ar3_Good_Crack3R}</p>
@@ -362,108 +362,108 @@ int main()
 <h2 id="x-wo-shou-bao">[Ｘ] 握手包</h2>
 <p>下载发现是个cap包，中文搜索无果，搜&quot;Kali handshake crack&quot;，搜到hashcat，找到<a rel="noopener nofollow noreferrer" target="_blank" href="https://hashcat.net/wiki/doku.php?id=cracking_wpawpa2">这个网站</a></p>
 <p>照葫芦画瓢</p>
-<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">A:\Downloads\Compressed\hashcat-4.1.0
-λ hashcat64.exe -m 2500 9640_1525972232.hccapx rockyou.txt
-hashcat (v4.1.0) starting...
-
-* Device #1: WARNING! Kernel exec timeout is not disabled.
-             This may cause &quot;CL_OUT_OF_RESOURCES&quot; or related errors.
-             To disable the timeout, see: https:&#x2F;&#x2F;hashcat.net&#x2F;q&#x2F;timeoutpatch
-* Device #2: Intel&#x27;s OpenCL runtime (GPU only) is currently broken.
-             We are waiting for updated OpenCL drivers from Intel.
-             You can use --force to override, but do not report related errors.
-nvmlDeviceGetFanSpeed(): Not Supported
-
-OpenCL Platform #1: NVIDIA Corporation
-======================================
-* Device #1: GeForce GTX 965M, 512&#x2F;2048 MB allocatable, 8MCU
-
-OpenCL Platform #2: Intel(R) Corporation
-========================================
-* Device #2: Intel(R) HD Graphics 530, skipped.
-* Device #3: Intel(R) Core(TM) i7-6700HQ CPU @ 2.60GHz, skipped.
-
-Hashes: 1 digests; 1 unique digests, 1 unique salts
-Bitmaps: 16 bits, 65536 entries, 0x0000ffff mask, 262144 bytes, 5&#x2F;13 rotates
-Rules: 1
-
-Applicable optimizers:
-* Zero-Byte
-* Single-Hash
-* Single-Salt
-* Slow-Hash-SIMD-LOOP
-
-Minimum password length supported by kernel: 8
-Maximum password length supported by kernel: 63
-
-Watchdog: Temperature abort trigger set to 90c
-
-Dictionary cache built:
-* Filename..: rockyou.txt
-* Passwords.: 14344390
-* Bytes.....: 139921496
-* Keyspace..: 14344383
-* Runtime...: 3 secs
-
-e56452df7244988624af174fa692d81d:560a64ffe917:b8ee65ac640b:Flag_is_here:11223344
-
-Session..........: hashcat
-Status...........: Cracked
-Hash.Type........: WPA&#x2F;WPA2
-Hash.Target......: Flag_is_here (AP:56:0a:64:ff:e9:17 STA:b8:ee:65:ac:64:0b)
-Time.Started.....: Fri May 11 01:17:21 2018 (3 secs)
-Time.Estimated...: Fri May 11 01:17:24 2018 (0 secs)
-Guess.Base.......: File (rockyou.txt)
-Guess.Queue......: 1&#x2F;1 (100.00%)
-Speed.Dev.#1.....:    91621 H&#x2F;s (10.79ms) @ Accel:32 Loops:16 Thr:1024 Vec:1
-Recovered........: 1&#x2F;1 (100.00%) Digests, 1&#x2F;1 (100.00%) Salts
-Progress.........: 593466&#x2F;14344383 (4.14%)
-Rejected.........: 331322&#x2F;593466 (55.83%)
-Restore.Point....: 0&#x2F;14344383 (0.00%)
-Candidates.#1....: 123456789 -&gt; rinabelle
-HWMon.Dev.#1.....: Temp: 68c Util: 98% Core:1151MHz Mem:2505MHz Bus:16
-
-Started: Fri May 11 01:17:04 2018
-Stopped: Fri May 11 01:17:25 2018
-</code></pre>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">A:</span><span style="color:#96b5b4;">\D</span><span style="color:#bf616a;">ownloads</span><span style="color:#96b5b4;">\C</span><span style="color:#bf616a;">ompressed</span><span style="color:#96b5b4;">\h</span><span style="color:#bf616a;">ashcat-4.1.0
+</span><span style="color:#bf616a;">λ</span><span> hashcat64.exe</span><span style="color:#bf616a;"> -m</span><span> 2500 9640_1525972232.hccapx rockyou.txt
+</span><span style="color:#bf616a;">hashcat</span><span> (v4.1.0) </span><span style="color:#bf616a;">starting...
+</span><span>
+</span><span style="color:#bf616a;">*</span><span> Device </span><span style="color:#65737e;">#1: WARNING! Kernel exec timeout is not disabled.
+</span><span>             </span><span style="color:#bf616a;">This</span><span> may cause &quot;</span><span style="color:#a3be8c;">CL_OUT_OF_RESOURCES</span><span>&quot; or related errors.
+</span><span>             </span><span style="color:#bf616a;">To</span><span> disable the timeout, see: https://hashcat.net/q/timeoutpatch
+</span><span style="color:#bf616a;">*</span><span> Device </span><span style="color:#65737e;">#2: Intel&#39;s OpenCL runtime (GPU only) is currently broken.
+</span><span>             </span><span style="color:#bf616a;">We</span><span> are waiting for updated OpenCL drivers from Intel.
+</span><span>             </span><span style="color:#bf616a;">You</span><span> can use</span><span style="color:#bf616a;"> --force</span><span> to override, but do not report related errors.
+</span><span style="color:#8fa1b3;">nvmlDeviceGetFanSpeed</span><span>(): Not Supported
+</span><span>
+</span><span>OpenCL Platform </span><span style="color:#65737e;">#1: NVIDIA Corporation
+</span><span>======================================
+</span><span>* Device </span><span style="color:#65737e;">#1: GeForce GTX 965M, 512/2048 MB allocatable, 8MCU
+</span><span>
+</span><span>OpenCL Platform </span><span style="color:#65737e;">#2: Intel(R) Corporation
+</span><span>========================================
+</span><span>* Device </span><span style="color:#65737e;">#2: Intel(R) HD Graphics 530, skipped.
+</span><span>* Device </span><span style="color:#65737e;">#3: Intel(R) Core(TM) i7-6700HQ CPU @ 2.60GHz, skipped.
+</span><span>
+</span><span>Hashes: 1 digests; 1 unique digests, 1 unique salts
+</span><span>Bitmaps: 16 bits, 65536 entries, 0x0000ffff mask, 262144 bytes, 5/13 rotates
+</span><span>Rules: 1
+</span><span>
+</span><span>Applicable optimizers:
+</span><span>* Zero-Byte
+</span><span>* Single-Hash
+</span><span>* Single-Salt
+</span><span>* Slow-Hash-SIMD-LOOP
+</span><span>
+</span><span>Minimum password length supported by kernel: 8
+</span><span>Maximum password length supported by kernel: 63
+</span><span>
+</span><span>Watchdog: Temperature abort trigger set to 90c
+</span><span>
+</span><span>Dictionary cache built:
+</span><span>* Filename..: rockyou.txt
+</span><span>* Passwords.: 14344390
+</span><span>* Bytes.....: 139921496
+</span><span>* Keyspace..: 14344383
+</span><span>* Runtime...: 3 secs
+</span><span>
+</span><span>e56452df7244988624af174fa692d81d:560a64ffe917:b8ee65ac640b:Flag_is_here:11223344
+</span><span>
+</span><span>Session..........: hashcat
+</span><span>Status...........: Cracked
+</span><span>Hash.Type........: WPA/WPA2
+</span><span>Hash.Target......: Flag_is_here (</span><span style="color:#bf616a;">AP:56:0a:64:ff:e9:17</span><span> STA:b8:ee:65:ac:64:0b)
+</span><span style="color:#bf616a;">Time.Started.....:</span><span> Fri May 11 01:17:21 2018 (3 secs)
+</span><span style="color:#bf616a;">Time.Estimated...:</span><span> Fri May 11 01:17:24 2018 (0 secs)
+</span><span style="color:#bf616a;">Guess.Base.......:</span><span> File (rockyou.txt)
+</span><span style="color:#bf616a;">Guess.Queue......:</span><span> 1/1 (100.00%)
+</span><span style="color:#bf616a;">Speed.Dev.#1.....:</span><span>    91621 H/s (10.79ms) </span><span style="color:#bf616a;">@</span><span> Accel:32 Loops:16 Thr:1024 Vec:1
+</span><span style="color:#bf616a;">Recovered........:</span><span> 1/1 (100.00%) </span><span style="color:#bf616a;">Digests,</span><span> 1/1 (100.00%) </span><span style="color:#bf616a;">Salts
+</span><span style="color:#bf616a;">Progress.........:</span><span> 593466/14344383 (4.14%)
+</span><span style="color:#bf616a;">Rejected.........:</span><span> 331322/593466 (55.83%)
+</span><span style="color:#bf616a;">Restore.Point....:</span><span> 0/14344383 (0.00%)
+</span><span style="color:#bf616a;">Candidates.#1....:</span><span> 123456789 -&gt; rinabelle
+</span><span style="color:#bf616a;">HWMon.Dev.#1.....:</span><span> Temp: 68c Util: 98% Core:1151MHz Mem:2505MHz Bus:16
+</span><span>
+</span><span style="color:#bf616a;">Started:</span><span> Fri May 11 01:17:04 2018
+</span><span style="color:#bf616a;">Stopped:</span><span> Fri May 11 01:17:25 2018
+</span></code></pre>
 <h3 id="flag-22">flag</h3>
 <p>flag{11223344}</p>
 <h1 id="crypto">[　] Crypto</h1>
 <h2 id="x-medium-rsa">[Ｘ] Medium RSA</h2>
-<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">λ openssl rsa -pubin -in pubkey.pem -text -modulus
-WARNING: can&#x27;t open config file: &#x2F;usr&#x2F;local&#x2F;ssl&#x2F;openssl.cnf
-Public-Key: (256 bit)
-Modulus:
-    00:c2:63:6a:e5:c3:d8:e4:3f:fb:97:ab:09:02:8f:
-    1a:ac:6c:0b:f6:cd:3d:70:eb:ca:28:1b:ff:e9:7f:
-    be:30:dd
-Exponent: 65537 (0x10001)
-Modulus=C2636AE5C3D8E43FFB97AB09028F1AAC6C0BF6CD3D70EBCA281BFFE97FBE30DD
-writing RSA key
------BEGIN PUBLIC KEY-----
-MDwwDQYJKoZIhvcNAQEBBQADKwAwKAIhAMJjauXD2OQ&#x2F;+5erCQKPGqxsC&#x2F;bNPXDr
-yigb&#x2F;+l&#x2F;vjDdAgMBAAE=
------END PUBLIC KEY-----
-
-</code></pre>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">λ</span><span> openssl rsa</span><span style="color:#bf616a;"> -pubin -in</span><span> pubkey.pem</span><span style="color:#bf616a;"> -text -modulus
+</span><span style="color:#bf616a;">WARNING:</span><span> can&#39;</span><span style="color:#a3be8c;">t open config file: /usr/local/ssl/openssl.cnf
+</span><span style="color:#a3be8c;">Public-Key: (256 bit)
+</span><span style="color:#a3be8c;">Modulus:
+</span><span style="color:#a3be8c;">    00:c2:63:6a:e5:c3:d8:e4:3f:fb:97:ab:09:02:8f:
+</span><span style="color:#a3be8c;">    1a:ac:6c:0b:f6:cd:3d:70:eb:ca:28:1b:ff:e9:7f:
+</span><span style="color:#a3be8c;">    be:30:dd
+</span><span style="color:#a3be8c;">Exponent: 65537 (0x10001)
+</span><span style="color:#a3be8c;">Modulus=C2636AE5C3D8E43FFB97AB09028F1AAC6C0BF6CD3D70EBCA281BFFE97FBE30DD
+</span><span style="color:#a3be8c;">writing RSA key
+</span><span style="color:#a3be8c;">-----BEGIN PUBLIC KEY-----
+</span><span style="color:#a3be8c;">MDwwDQYJKoZIhvcNAQEBBQADKwAwKAIhAMJjauXD2OQ/+5erCQKPGqxsC/bNPXDr
+</span><span style="color:#a3be8c;">yigb/+l/vjDdAgMBAAE=
+</span><span style="color:#a3be8c;">-----END PUBLIC KEY-----
+</span><span style="color:#a3be8c;">
+</span></code></pre>
 <p>然后分解这个数，用RSAtools输出私钥文件</p>
-<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">λ python rsatool.py -f PEM -o key.pem -p 275127860351348928173285174381581152299 -q 319576316814478949870590164193048 041239
-Using (p, q) to initialise RSA instance
-
-n =
-c2636ae5c3d8e43ffb97ab09028f1aac6c0bf6cd3d70ebca281bffe97fbe30dd
-
-e = 65537 (0x10001)
-
-d =
-1806799bd44ce649122b78b43060c786f8b77fb1593e0842da063ba0d8728bf1
-
-p = 275127860351348928173285174381581152299 (0xcefbb2cf7e18a98ebedc36e3e7c3b02b)
-
-q = 319576316814478949870590164193048041239 (0xf06c28e91c8922b9c236e23560c09717)
-
-Saving PEM as key.pem
-</code></pre>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">λ</span><span> python rsatool.py</span><span style="color:#bf616a;"> -f</span><span> PEM</span><span style="color:#bf616a;"> -o</span><span> key.pem</span><span style="color:#bf616a;"> -p</span><span> 275127860351348928173285174381581152299</span><span style="color:#bf616a;"> -q</span><span> 319576316814478949870590164193048 041239
+</span><span style="color:#bf616a;">Using</span><span> (p, q) </span><span style="color:#bf616a;">to</span><span> initialise RSA instance
+</span><span>
+</span><span style="color:#bf616a;">n</span><span> =
+</span><span style="color:#bf616a;">c2636ae5c3d8e43ffb97ab09028f1aac6c0bf6cd3d70ebca281bffe97fbe30dd
+</span><span>
+</span><span style="color:#bf616a;">e</span><span> = 65537 (0x10001)
+</span><span>
+</span><span style="color:#bf616a;">d</span><span> =
+</span><span style="color:#bf616a;">1806799bd44ce649122b78b43060c786f8b77fb1593e0842da063ba0d8728bf1
+</span><span>
+</span><span style="color:#bf616a;">p</span><span> = 275127860351348928173285174381581152299 (0xcefbb2cf7e18a98ebedc36e3e7c3b02b)
+</span><span>
+</span><span style="color:#bf616a;">q</span><span> = 319576316814478949870590164193048041239 (0xf06c28e91c8922b9c236e23560c09717)
+</span><span>
+</span><span style="color:#bf616a;">Saving</span><span> PEM as key.pem
+</span></code></pre>
 <p>之后解密</p>
 <p><code>λ openssl rsautl -decrypt -inkey key.pem -in flag.enc -out flag</code></p>
 <h3 id="flag-23">flag</h3>
@@ -500,45 +500,45 @@ Saving PEM as key.pem
 <p>$$mq=c^{\frac14(q+1)}modq$$</p>
 <p>而一般情况下，$p≡q≡3(mod4)p $是满足的，对于不满足的情况下，请参考相应的算法解决。</p>
 </blockquote>
-<pre data-lang="python" class="language-python "><code class="language-python" data-lang="python">#!&#x2F;usr&#x2F;bin&#x2F;python
-# coding=utf-8
-import gmpy2
-import string
-from Crypto.PublicKey import RSA
-
-# 读取公钥参数
-with open(&#x27;pubkey.pem&#x27;, &#x27;r&#x27;) as f:
-    key = RSA.importKey(f)
-    N = key.n
-    e = key.e
-with open(&#x27;flag.enc&#x27;, &#x27;r&#x27;) as f:
-    cipher = f.read().encode(&#x27;hex&#x27;)
-    cipher = string.atoi(cipher, base=16)
-    # print cipher
-print &quot;please input p&quot;
-p = int(raw_input(), 10)
-print &#x27;please input q&#x27;
-q = int(raw_input(), 10)
-# 计算yp和yq
-inv_p = gmpy2.invert(p, q)
-inv_q = gmpy2.invert(q, p)
-
-# 计算mp和mq
-mp = pow(cipher, (p + 1) &#x2F; 4, p)
-mq = pow(cipher, (q + 1) &#x2F; 4, q)
-
-# 计算a,b,c,d
-a = (inv_p * p * mq + inv_q * q * mp) % N
-b = N - int(a)
-c = (inv_p * p * mq - inv_q * q * mp) % N
-d = N - int(c)
-
-for i in (a, b, c, d):
-    s = &#x27;%x&#x27; % i
-    if len(s) % 2 != 0:
-        s = &#x27;0&#x27; + s
-    print s.decode(&#x27;hex&#x27;)
-</code></pre>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#65737e;">#!/usr/bin/python
+</span><span style="color:#65737e;"># coding=utf-8
+</span><span style="color:#b48ead;">import </span><span>gmpy2
+</span><span style="color:#b48ead;">import </span><span>string
+</span><span style="color:#b48ead;">from </span><span>Crypto.PublicKey </span><span style="color:#b48ead;">import </span><span style="color:#bf616a;">RSA
+</span><span>
+</span><span style="color:#65737e;"># 读取公钥参数
+</span><span style="color:#b48ead;">with </span><span style="color:#96b5b4;">open</span><span>(&#39;</span><span style="color:#a3be8c;">pubkey.pem</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">r</span><span>&#39;) </span><span style="color:#b48ead;">as </span><span>f:
+</span><span>    key = RSA.</span><span style="color:#bf616a;">importKey</span><span>(f)
+</span><span>    N = key.n
+</span><span>    e = key.e
+</span><span style="color:#b48ead;">with </span><span style="color:#96b5b4;">open</span><span>(&#39;</span><span style="color:#a3be8c;">flag.enc</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">r</span><span>&#39;) </span><span style="color:#b48ead;">as </span><span>f:
+</span><span>    cipher = f.</span><span style="color:#bf616a;">read</span><span>().</span><span style="color:#bf616a;">encode</span><span>(&#39;</span><span style="color:#a3be8c;">hex</span><span>&#39;)
+</span><span>    cipher = string.</span><span style="color:#bf616a;">atoi</span><span>(cipher, </span><span style="color:#bf616a;">base</span><span>=</span><span style="color:#d08770;">16</span><span>)
+</span><span>    </span><span style="color:#65737e;"># print cipher
+</span><span style="color:#b48ead;">print </span><span>&quot;</span><span style="color:#a3be8c;">please input p</span><span>&quot;
+</span><span>p = </span><span style="color:#bf616a;">int</span><span>(</span><span style="color:#96b5b4;">raw_input</span><span>(), </span><span style="color:#d08770;">10</span><span>)
+</span><span style="color:#b48ead;">print </span><span>&#39;</span><span style="color:#a3be8c;">please input q</span><span>&#39;
+</span><span>q = </span><span style="color:#bf616a;">int</span><span>(</span><span style="color:#96b5b4;">raw_input</span><span>(), </span><span style="color:#d08770;">10</span><span>)
+</span><span style="color:#65737e;"># 计算yp和yq
+</span><span>inv_p = gmpy2.</span><span style="color:#bf616a;">invert</span><span>(p, q)
+</span><span>inv_q = gmpy2.</span><span style="color:#bf616a;">invert</span><span>(q, p)
+</span><span>
+</span><span style="color:#65737e;"># 计算mp和mq
+</span><span>mp = </span><span style="color:#96b5b4;">pow</span><span>(cipher, (p + </span><span style="color:#d08770;">1</span><span>) / </span><span style="color:#d08770;">4</span><span>, p)
+</span><span>mq = </span><span style="color:#96b5b4;">pow</span><span>(cipher, (q + </span><span style="color:#d08770;">1</span><span>) / </span><span style="color:#d08770;">4</span><span>, q)
+</span><span>
+</span><span style="color:#65737e;"># 计算a,b,c,d
+</span><span>a = (inv_p * p * mq + inv_q * q * mp) % N
+</span><span>b = N - </span><span style="color:#bf616a;">int</span><span>(a)
+</span><span>c = (inv_p * p * mq - inv_q * q * mp) % N
+</span><span>d = N - </span><span style="color:#bf616a;">int</span><span>(c)
+</span><span>
+</span><span style="color:#b48ead;">for </span><span>i </span><span style="color:#b48ead;">in </span><span>(a, b, c, d):
+</span><span>    s = &#39;</span><span style="color:#d08770;">%x</span><span>&#39; % i
+</span><span>    </span><span style="color:#b48ead;">if </span><span style="color:#96b5b4;">len</span><span>(s) % </span><span style="color:#d08770;">2 </span><span>!= </span><span style="color:#d08770;">0</span><span>:
+</span><span>        s = &#39;</span><span style="color:#a3be8c;">0</span><span>&#39; + s
+</span><span>    </span><span style="color:#b48ead;">print </span><span>s.</span><span style="color:#bf616a;">decode</span><span>(&#39;</span><span style="color:#a3be8c;">hex</span><span>&#39;)
+</span></code></pre>
 <h3 id="flag-25">flag</h3>
 <p>PCTF{sp3ci4l_rsa}</p>
 
@@ -561,7 +561,7 @@ for i in (a, b, c, d):
             </div>
             <div class="feed-link">
               
-                <a rel="alternate" type="application/atom+xml" title="RSS" href="https://CSUwangj.github.io/atom.xml">
+                <a rel="alternate" type="application/rss+xml" title="RSS" href="https://CSUwangj.github.io/rss.xml">
                   RSS
                 </a>
               
