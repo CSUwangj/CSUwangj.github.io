@@ -21,12 +21,17 @@ taxonomies = [
 # Whether to do syntax highlighting
 # Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
 highlight_code = true
+highlight_theme = "Darkmatter"
+extra_syntaxes_and_themes = [
+  "./highlight_theme"
+]
 external_links_target_blank = true
 external_links_no_referrer = true
 external_links_no_follow = true
 
 [link_checker]
 internal_level = "warn"
+external_level = "warn"
 
 [slugify]
 taxonomies = "off"
