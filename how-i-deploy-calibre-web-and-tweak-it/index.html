@@ -43,10 +43,10 @@ renderMathInElement(document.body, katex_config);
       
 
       
-        <link rel="alternate" type="application/rss+xml" title="RSS" href="https://CSUwangj.github.io/rss.xml">
+      <link rel="alternate" type="application/rss+xml" title="RSS" href="https://CSUwangj.github.io/rss.xml">
       
       
-        <link rel="icon" type="image/x-icon" href="https://CSUwangj.github.io/images/favicon.ico">
+      <link rel="icon" type="image/x-icon" href="https://CSUwangj.github.io/images/favicon.ico">
       
 
       
@@ -56,43 +56,43 @@ renderMathInElement(document.body, katex_config);
     <body>
       
       
-        <header name="header">
-          <div>
-            <div class="logo"><a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;">LuckyDog</a></div>
-            <nav class="menu">
-              
-                <a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;" class="nav-item-home unselectable">
-                  <span><i class="fa-solid fa-house"></i> Home</span>
-                </a>
-              
-                <a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;about" class="nav-item-about unselectable">
-                  <span><i class="fa-solid fa-user-circle"></i> About</span>
-                </a>
-              
-                <a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;categories" class="nav-item-categories unselectable">
-                  <span><i class="fa-solid fa-book"></i> Categories</span>
-                </a>
-              
-                <a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;tags" class="nav-item-tags unselectable">
-                  <span><i class="fa-solid fa-tags"></i> Tags</span>
-                </a>
-              
-                <a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;archives" class="nav-item-archives unselectable">
-                  <span><i class="fa-solid fa-inbox"></i> Archives</span>
-                </a>
-              
-                <a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;ZDaily" class="nav-item-dailychallenge unselectable">
-                  <span><i class="fa-solid fa-calendar-check"></i> DailyChallenge</span>
-                </a>
-              
-                <a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;Webtools" class="nav-item-webtools unselectable">
-                  <span><i class="fa-solid fa-toolbox"></i> Webtools</span>
-                </a>
-              
-              
-            </nav>
-          </div>
-        </header>
+      <header name="header">
+        <div>
+          <div class="logo"><a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;">LuckyDog</a></div>
+          <nav class="menu">
+            
+            <a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;" class="nav-item-home unselectable">
+              <span><i class="fa-solid fa-house"></i> Home</span>
+            </a>
+            
+            <a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;about" class="nav-item-about unselectable">
+              <span><i class="fa-solid fa-user-circle"></i> About</span>
+            </a>
+            
+            <a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;categories" class="nav-item-categories unselectable">
+              <span><i class="fa-solid fa-book"></i> Categories</span>
+            </a>
+            
+            <a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;tags" class="nav-item-tags unselectable">
+              <span><i class="fa-solid fa-tags"></i> Tags</span>
+            </a>
+            
+            <a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;archives" class="nav-item-archives unselectable">
+              <span><i class="fa-solid fa-inbox"></i> Archives</span>
+            </a>
+            
+            <a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;ZDaily" class="nav-item-dailychallenge unselectable">
+              <span><i class="fa-solid fa-calendar-check"></i> DailyChallenge</span>
+            </a>
+            
+            <a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;Webtools" class="nav-item-webtools unselectable">
+              <span><i class="fa-solid fa-toolbox"></i> Webtools</span>
+            </a>
+            
+            
+          </nav>
+        </div>
+      </header>
       
 
       <main class="content container" name="main">
@@ -155,10 +155,10 @@ renderMathInElement(document.body, katex_config);
 <p>Then I found <a rel="noopener nofollow noreferrer" target="_blank" href="https://github.com/JordanMilne/Advocate/blob/74594fb8d65c20fd1bf5f2eda75619605d340533/advocate/adapters.py#L31">https://github.com/JordanMilne/Advocate/blob/74594fb8d65c20fd1bf5f2eda75619605d340533/advocate/adapters.py#L31</a>. Seems that <code>advocate</code> just doesn't support proxy. Maybe I can write proxy support for it? I look around and found something interesting in its <code>README</code>.</p>
 <p><img src="https://CSUwangj.github.io/how-i-deploy-calibre-web-and-tweak-it/./advocate.png" alt="advocate README" /></p>
 <p>Okey, why can't I replace it with <code>requests</code>? I checked<code>calibre-web</code> and found <img src="https://CSUwangj.github.io/how-i-deploy-calibre-web-and-tweak-it/./helper.png" alt="requests" />. That what I need exactly, so I wrote a small script which can help me replace <code>advocate</code> with <code>requests</code> and put it into <code>/config/custom-cont-init.d</code>:</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#65737e;">#!/bin/bash
+<pre data-lang="bash" style="background-color:#14191f;color:#aec2e0;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#516a88;">#!/bin/bash
 </span><span>
-</span><span style="color:#96b5b4;">echo </span><span>&quot;</span><span style="color:#a3be8c;">**** patching calibre-web - removing advocate for proxy ****</span><span>&quot;
-</span><span style="color:#bf616a;">sed -i </span><span>&quot;</span><span style="color:#a3be8c;">s/import advocate/raise ImportError(</span><span style="color:#96b5b4;">\&quot;</span><span style="color:#a3be8c;">no advocate</span><span style="color:#96b5b4;">\&quot;</span><span style="color:#a3be8c;">)/</span><span>&quot; /app/calibre-web/cps/helper.py
+</span><span style="color:#267fb5;">echo </span><span style="color:#516a88;">&quot;</span><span style="color:#6ee2ff;">**** patching calibre-web - removing advocate for proxy ****</span><span style="color:#516a88;">&quot;
+</span><span style="color:#d0dfe6;">sed</span><span style="font-style:italic;color:#95cc5e;"> -i </span><span style="color:#516a88;">&quot;</span><span style="color:#6ee2ff;">s/import advocate/raise ImportError(</span><span style="color:#4cbbff;">\&quot;</span><span style="color:#6ee2ff;">no advocate</span><span style="color:#4cbbff;">\&quot;</span><span style="color:#6ee2ff;">)/</span><span style="color:#516a88;">&quot;</span><span> /app/calibre-web/cps/helper.py
 </span></code></pre>
 <p>Though cover uploads will failed due to absence of <code>advocate</code>, but check the error message, it's at <a rel="noopener nofollow noreferrer" target="_blank" href="https://github.com/janeczku/calibre-web/blob/68e21e1098aab8dcbfcf024cc296bc43936bfe3c/cps/helper.py#L811">https://github.com/janeczku/calibre-web/blob/68e21e1098aab8dcbfcf024cc296bc43936bfe3c/cps/helper.py#L811</a>, we can add an environment variable <code>CALIBRE_LOCALHOST=1</code> which solve this problem.</p>
 <h1 id="i-ll-reclaim-my-lost-souls">I'll reclaim my lost souls.</h1>
@@ -177,8 +177,16 @@ renderMathInElement(document.body, katex_config);
         </div>
 
         
-          <button class="sidebar-toggle" onclick="openSidebar()">O</button>
-          <aside class="sidebar" name="sidebar">
+        
+        <button class="sidebar-toggle left-sidebar-toggle" onclick="openSidebar()">O</button>
+        <aside class="sidebar left" name="sidebar">
+          
+          <div class="sidebar-content-toggle">
+            <a name="swith-to-toc-button" class="actived" onclick="switchToTOC()">Table of Content</>
+            <a name="swith-to-about-authour-button" onclick="switchToAboutAuthor()">About Author</a>
+          </div>
+          
+          <div class="sidebar-overview"  style="opacity:0;display:none" >
             <div class="site-author" itemprop="author" itemtype="https://schema.org/Person">
               
               <img class="site-author-image" itemprop="image"
@@ -190,54 +198,103 @@ renderMathInElement(document.body, katex_config);
             </div>
             <div class="feed-link">
               
-                <a rel="alternate" type="application/rss+xml" title="RSS" href="https://CSUwangj.github.io/rss.xml">
-                  RSS
-                </a>
+              <a rel="alternate" type="application/rss+xml" title="RSS" href="https://CSUwangj.github.io/rss.xml">
+                RSS
+              </a>
               
             </div>
             <div class="links-of-author">
               
-                <a href="https:&#x2F;&#x2F;github.com&#x2F;CSUwangj" title="Github" class="author-link">
-                  <i class="fa-brands fa-github"></i>
-                </a>
+              <a href="https:&#x2F;&#x2F;github.com&#x2F;CSUwangj" title="Github" class="author-link">
+                <i class="fa-brands fa-github"></i>
+              </a>
               
-                <a href="mailto:CSUwangj@protonmail.com" title="EMail" class="author-link">
-                  <i class="fa-solid fa-envelope"></i>
-                </a>
+              <a href="mailto:CSUwangj@protonmail.com" title="EMail" class="author-link">
+                <i class="fa-solid fa-envelope"></i>
+              </a>
               
             </div>
             <div class="links-of-blogroll">
               
-                <a href="https:&#x2F;&#x2F;wolfbolin.com&#x2F;">WolfBolin</a>
+              <a href="https:&#x2F;&#x2F;wolfbolin.com&#x2F;">WolfBolin</a>
               
-                <a href="https:&#x2F;&#x2F;blog.yuki-nagato.com&#x2F;">长门有希</a>
+              <a href="https:&#x2F;&#x2F;blog.yuki-nagato.com&#x2F;">长门有希</a>
               
-                <a href="https:&#x2F;&#x2F;www.porlockz.com&#x2F;">Porlockz</a>
+              <a href="https:&#x2F;&#x2F;www.porlockz.com&#x2F;">Porlockz</a>
               
-                <a href="https:&#x2F;&#x2F;way.lu&#x2F;">Phosphorus</a>
+              <a href="https:&#x2F;&#x2F;way.lu&#x2F;">Phosphorus</a>
               
-                <a href="https:&#x2F;&#x2F;edwardzcn.github.io&#x2F;">Edwardzcn</a>
+              <a href="https:&#x2F;&#x2F;edwardzcn.github.io&#x2F;">Edwardzcn</a>
               
-                <a href="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;csu-lmw&#x2F;">吕少</a>
+              <a href="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;csu-lmw&#x2F;">吕少</a>
               
-                <a href="https:&#x2F;&#x2F;zickshen.github.io&#x2F;">ZickShen</a>
+              <a href="https:&#x2F;&#x2F;zickshen.github.io&#x2F;">ZickShen</a>
               
             </div>
-          </aside>
+          </div>
+          <div class="sidebar-toc">
+          
+          <ul>
+          
+          <li>
+          <a href="https://CSUwangj.github.io/how-i-deploy-calibre-web-and-tweak-it/#tl-dr">TL;DR</a>
+            
+          </li>
+          
+          <li>
+          <a href="https://CSUwangj.github.io/how-i-deploy-calibre-web-and-tweak-it/#originate-from-an-ip">Originate from an IP</a>
+            
+          </li>
+          
+          <li>
+          <a href="https://CSUwangj.github.io/how-i-deploy-calibre-web-and-tweak-it/#let-s-deploy-it">Let&#x27;s deploy it</a>
+            
+          </li>
+          
+          <li>
+          <a href="https://CSUwangj.github.io/how-i-deploy-calibre-web-and-tweak-it/#proxies-cannot-be-used-with-advocate">Proxies cannot be used with Advocate</a>
+            
+          </li>
+          
+          <li>
+          <a href="https://CSUwangj.github.io/how-i-deploy-calibre-web-and-tweak-it/#read-the-fucking-source-code">Read the fucking source code</a>
+            
+          </li>
+          
+          <li>
+          <a href="https://CSUwangj.github.io/how-i-deploy-calibre-web-and-tweak-it/#i-ll-reclaim-my-lost-souls">I&#x27;ll reclaim my lost souls.</a>
+            
+          </li>
+          
+          <li>
+          <a href="https://CSUwangj.github.io/how-i-deploy-calibre-web-and-tweak-it/#conclusion">Conclusion</a>
+            
+          </li>
+          
+          <li>
+          <a href="https://CSUwangj.github.io/how-i-deploy-calibre-web-and-tweak-it/#todo">TODO</a>
+            
+          </li>
+          
+          </ul>
+          
+          </div>
+        </aside>
+        
         
 
       </main>
 
       
-        <footer name="footer">
-          <div class="copyright">
-            <span item="copyrightYear">© 2018-2022</span>
-            <span class="author">CSUwangj</span>
-          </div>
-          <div class="powered-by">
-            Powered by <a href="https://www.getzola.org/">Zola</a> Theme <a href="https://github.com/CSUwangj/DogFood">DogFood</a>
-          </div>
-        </footer>
+      <footer name="footer">
+        <div class="copyright">
+          <span item="copyrightYear">© 2018-2022</span>
+          <span class="author">CSUwangj</span>
+        </div>
+        <div class="powered-by">
+          Powered by <a href="https://www.getzola.org/">Zola</a> Theme <a href="https://github.com/CSUwangj/DogFood">DogFood</a>
+        </div>
+      </footer>
       
     </body>
 
