@@ -7,6 +7,7 @@ in_search_index = true
 [taxonomies]
 categories = [ "Notes",]
 archives = [ "archive",]
+tags = ["building computer", "software"]
 +++
 
 更新了固态硬盘，所以又要重装电脑啦~

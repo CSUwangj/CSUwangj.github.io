@@ -8,6 +8,7 @@ in_search_index = true
 [taxonomies]
 categories = [ "Notes",]
 archives = [ "archive",]
+tags = []
 +++
 打算专门搞个整理用的东西，顺便可以看看自己有多少挖完没填的坑。
 
