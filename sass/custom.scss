@@ -16,10 +16,26 @@ footer {
   background-size: cover;
   background-position:center;
   background-repeat:no-repeat;
-  p,span,a {
+  p, span, a {
     color: #FFFFFF;
   }
   a:hover, a:active, a.actived {
-    color: #000
+    color: #000;
+    transition: all 0.45s;
+    span {
+      color: #000;
+      transition: all 0.45s;
+    }
+  }
+}
+
+footer {
+  a:hover, a:active, a.actived {
+    color: #000;
+    transition: all 0.45s;
+    span {
+      color: #000;
+      transition: all 0.45s;
+    }
   }
 }
