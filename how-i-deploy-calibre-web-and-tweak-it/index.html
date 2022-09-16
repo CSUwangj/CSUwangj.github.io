@@ -56,7 +56,7 @@ renderMathInElement(document.body, katex_config);
     <body>
       
       
-      <header name="header">
+      <header name="header" class="left_sidebar">
         <div>
           <div class="logo"><a href="https:&#x2F;&#x2F;CSUwangj.github.io">LuckyDog</a></div>
           <nav class="menu">
@@ -94,31 +94,36 @@ renderMathInElement(document.body, katex_config);
       </header>
       
 
-      <main class="content container" name="main">
+      <main class="content container left_sidebar" name="main">
         <div class="content-wrapper">
           
   <div class="post">
     <h1 class="post-title">How I deploy Calibre-Web and tweak it</h1>
     <div class="post-meta">
       
-      <span class="post-meta-divider">|</span>
-      <span class="post-meta-item-icon"><i class="fa-solid fa-calendar"></i></span>
-      <span class="post-date">Posted on: </span>
-      <time datetime=2022-08-19T01:22:08+08:00 title="post created">2022-08-19</time>
+      <div class="post-meta-item">
+        <span class="post-meta-item-icon"><i class="fa-solid fa-calendar"></i></span>
+        <span class="post-date">Posted on: </span>
+        <time datetime=2022-08-19T01:22:08+08:00 title="post created at 2022-08-19T01:22:08+08:00">2022-08-19</time>
+      </div>
       
       
-      <span class="post-meta-divider">|</span>
-      <span class="post-meta-item-icon"><i class="fa-solid fa-calendar-check"></i></span>
-      <span class="modify-date">Posted modified: </span>
-      <time datetime=2022-08-28T03:57:23+08:00 title="post modified">2022-08-28</time>
+      <div class="post-meta-item">
+        <span class="post-meta-item-icon"><i class="fa-solid fa-calendar-check"></i></span>
+        <span class="modify-date">Posted modified: </span>
+        <time datetime=2022-08-28T03:57:23+08:00 title="post modified at 2022-08-28T03:57:23+08:00">2022-08-28</time>
+      </div>
       
       
-      <span class="post-meta-divider">|</span>
-      <span class="post-meta-item-icon"><i class="fa-solid fa-folder"></i></span>
-      <span class="in-category">In: </span>
+      <div class="post-meta-item">
+          <span class="post-meta-item-icon"><i class="fa-solid fa-book"></i></span>
+          <span class="in-category">In: </span>
+        
+        <a class="category" href="https:&#x2F;&#x2F;CSUwangj.github.io/categories/Notes">
+          Notes
+        </a>
       
-      <a class="category" href="https:&#x2F;&#x2F;CSUwangj.github.io/categories/Notes">Notes</a>
-      
+      </div>
       
       <span class="post-meta-divider">|</span>
     </div>
@@ -218,150 +223,10 @@ renderMathInElement(document.body, katex_config);
   </nav>
 
         </div>
-
-        
-        
-        
-        
-        
-        <button class="sidebar-toggle left-sidebar-toggle" onclick="openSidebar()">O</button>
-        <aside class="sidebar left" name="sidebar">
-          
-          <div class="sidebar-content-toggle">
-            <a name="swith-to-toc-button" class="actived" onclick="switchToTOC()">Table of Content</>
-            <a name="swith-to-about-authour-button" onclick="switchToAboutAuthor()">About Author</a>
-          </div>
-          
-          <div class="sidebar-overview"  style="opacity:0;display:none" >
-            <div class="site-author" itemprop="author" itemtype="https://schema.org/Person">
-              
-              <img class="site-author-image" itemprop="image"
-                src="https://CSUwangj.github.io/images/avatar.png"
-                alt="CSUwangj" />
-              
-              <p class="site-author-name unselectable">CSUwangj</p>
-              <p class="site-author-quote">Just keep in mind that hacking is very rarely in a sequence.</p>
-            </div>
-            <div class="sidebar-post-overview">
-              
-              <a class="sidebar-post-overview-item" href="https:&#x2F;&#x2F;CSUwangj.github.io/categories">
-                <span class="sidebar-post-overview-amount unselectable">4</span>
-                <span class="sidebar-post-overview-type unselectable">
-                  <i class="fa-solid fa-book"></i>
-                  categories
-                </span>
-              </a>
-              
-              
-              <a class="sidebar-post-overview-item" href="https:&#x2F;&#x2F;CSUwangj.github.io/tags">
-                <span class="sidebar-post-overview-amount unselectable">39</span>
-                <span class="sidebar-post-overview-type unselectable">
-                  <i class="fa-solid fa-tags"></i>
-                  tags
-                </span>
-              </a>
-              
-              
-              <a class="sidebar-post-overview-item" href="https:&#x2F;&#x2F;CSUwangj.github.io/archives">
-                <span class="sidebar-post-overview-amount unselectable">28</span>
-                <span class="sidebar-post-overview-type unselectable">
-                  <i class="fa-solid fa-inbox"></i>
-                  posts
-                </span>
-              </a>
-              
-            </div>
-            <div class="feed-link">
-              
-              <a rel="alternate" type="application/rss+xml" title="RSS" href="https://CSUwangj.github.io/rss.xml">
-                RSS
-              </a>
-              
-            </div>
-            <div class="links-of-author">
-              
-              <a href="https:&#x2F;&#x2F;github.com&#x2F;CSUwangj" title="Github" class="author-link">
-                <i class="fa-brands fa-github"></i>
-              </a>
-              
-              <a href="mailto:CSUwangj@protonmail.com" title="EMail" class="author-link">
-                <i class="fa-solid fa-envelope"></i>
-              </a>
-              
-            </div>
-            <div class="links-of-blogroll">
-              
-              <a href="https:&#x2F;&#x2F;wolfbolin.com&#x2F;">WolfBolin</a>
-              
-              <a href="https:&#x2F;&#x2F;blog.yuki-nagato.com&#x2F;">长门有希</a>
-              
-              <a href="https:&#x2F;&#x2F;www.porlockz.com&#x2F;">Porlockz</a>
-              
-              <a href="https:&#x2F;&#x2F;way.lu&#x2F;">Phosphorus</a>
-              
-              <a href="https:&#x2F;&#x2F;edwardzcn.github.io&#x2F;">Edwardzcn</a>
-              
-              <a href="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;csu-lmw&#x2F;">吕少</a>
-              
-              <a href="https:&#x2F;&#x2F;zickshen.github.io&#x2F;">ZickShen</a>
-              
-            </div>
-          </div>
-          <div class="sidebar-toc">
-          
-          <ul>
-          
-          <li>
-          <a href="https://CSUwangj.github.io/how-i-deploy-calibre-web-and-tweak-it/#tl-dr">TL;DR</a>
-            
-          </li>
-          
-          <li>
-          <a href="https://CSUwangj.github.io/how-i-deploy-calibre-web-and-tweak-it/#originate-from-an-ip">Originate from an IP</a>
-            
-          </li>
-          
-          <li>
-          <a href="https://CSUwangj.github.io/how-i-deploy-calibre-web-and-tweak-it/#let-s-deploy-it">Let&#x27;s deploy it</a>
-            
-          </li>
-          
-          <li>
-          <a href="https://CSUwangj.github.io/how-i-deploy-calibre-web-and-tweak-it/#proxies-cannot-be-used-with-advocate">Proxies cannot be used with Advocate</a>
-            
-          </li>
-          
-          <li>
-          <a href="https://CSUwangj.github.io/how-i-deploy-calibre-web-and-tweak-it/#read-the-fucking-source-code">Read the fucking source code</a>
-            
-          </li>
-          
-          <li>
-          <a href="https://CSUwangj.github.io/how-i-deploy-calibre-web-and-tweak-it/#i-ll-reclaim-my-lost-souls">I&#x27;ll reclaim my lost souls.</a>
-            
-          </li>
-          
-          <li>
-          <a href="https://CSUwangj.github.io/how-i-deploy-calibre-web-and-tweak-it/#conclusion">Conclusion</a>
-            
-          </li>
-          
-          <li>
-          <a href="https://CSUwangj.github.io/how-i-deploy-calibre-web-and-tweak-it/#todo">TODO</a>
-            
-          </li>
-          
-          </ul>
-          
-          </div>
-        </aside>
-        
-        
-
       </main>
 
       
-      <footer name="footer">
+      <footer name="footer" class="left_sidebar">
         <div class="copyright">
           <span item="copyrightYear">© 2018-2022</span>
           <span class="author">CSUwangj</span>
@@ -370,6 +235,146 @@ renderMathInElement(document.body, katex_config);
           Powered by <a href="https://www.getzola.org/">Zola</a> Theme <a href="https://github.com/CSUwangj/DogFood">DogFood</a>
         </div>
       </footer>
+      
+
+
+      
+      
+      
+      
+      
+      <button class="sidebar-toggle left_sidebar-sidebar-toggle" onclick="openSidebar()">O</button>
+      <aside class="sidebar left_sidebar" name="sidebar">
+        
+        <div class="sidebar-content-toggle">
+          <a name="swith-to-toc-button" class="actived" onclick="switchToTOC()">Table of Content</>
+          <a name="swith-to-about-authour-button" onclick="switchToAboutAuthor()">About Author</a>
+        </div>
+        
+        <div class="sidebar-overview"  style="opacity:0;display:none" >
+          <div class="site-author" itemprop="author" itemtype="https://schema.org/Person">
+            
+            <img class="site-author-image" itemprop="image"
+              src="https://CSUwangj.github.io/images/avatar.png"
+              alt="CSUwangj" />
+            
+            <p class="site-author-name unselectable">CSUwangj</p>
+            <p class="site-author-quote">Just keep in mind that hacking is very rarely in a sequence.</p>
+          </div>
+          <div class="sidebar-post-overview">
+            
+            <a class="sidebar-post-overview-item" href="https:&#x2F;&#x2F;CSUwangj.github.io/categories">
+              <span class="sidebar-post-overview-amount unselectable">4</span>
+              <span class="sidebar-post-overview-type unselectable">
+                <i class="fa-solid fa-book"></i>
+                categories
+              </span>
+            </a>
+            
+            
+            <a class="sidebar-post-overview-item" href="https:&#x2F;&#x2F;CSUwangj.github.io/tags">
+              <span class="sidebar-post-overview-amount unselectable">39</span>
+              <span class="sidebar-post-overview-type unselectable">
+                <i class="fa-solid fa-tags"></i>
+                tags
+              </span>
+            </a>
+            
+            
+            <a class="sidebar-post-overview-item" href="https:&#x2F;&#x2F;CSUwangj.github.io/archives">
+              <span class="sidebar-post-overview-amount unselectable">28</span>
+              <span class="sidebar-post-overview-type unselectable">
+                <i class="fa-solid fa-inbox"></i>
+                posts
+              </span>
+            </a>
+            
+          </div>
+          <div class="feed-link">
+            
+            <a rel="alternate" type="application/rss+xml" title="RSS" href="https://CSUwangj.github.io/rss.xml">
+              RSS
+            </a>
+            
+          </div>
+          <div class="links-of-author">
+            
+            <a href="https:&#x2F;&#x2F;github.com&#x2F;CSUwangj" title="Github" class="author-link">
+              <i class="fa-brands fa-github"></i>
+            </a>
+            
+            <a href="mailto:CSUwangj@protonmail.com" title="EMail" class="author-link">
+              <i class="fa-solid fa-envelope"></i>
+            </a>
+            
+          </div>
+          <div class="links-of-blogroll">
+            
+            <a href="https:&#x2F;&#x2F;wolfbolin.com&#x2F;">WolfBolin</a>
+            
+            <a href="https:&#x2F;&#x2F;blog.yuki-nagato.com&#x2F;">长门有希</a>
+            
+            <a href="https:&#x2F;&#x2F;www.porlockz.com&#x2F;">Porlockz</a>
+            
+            <a href="https:&#x2F;&#x2F;way.lu&#x2F;">Phosphorus</a>
+            
+            <a href="https:&#x2F;&#x2F;edwardzcn.github.io&#x2F;">Edwardzcn</a>
+            
+            <a href="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;csu-lmw&#x2F;">吕少</a>
+            
+            <a href="https:&#x2F;&#x2F;zickshen.github.io&#x2F;">ZickShen</a>
+            
+          </div>
+        </div>
+        <div class="sidebar-toc">
+        
+        <ul>
+        
+        <li>
+        <a class="toc-link" href="https://CSUwangj.github.io/how-i-deploy-calibre-web-and-tweak-it/#tl-dr">TL;DR</a>
+          
+        </li>
+        
+        <li>
+        <a class="toc-link" href="https://CSUwangj.github.io/how-i-deploy-calibre-web-and-tweak-it/#originate-from-an-ip">Originate from an IP</a>
+          
+        </li>
+        
+        <li>
+        <a class="toc-link" href="https://CSUwangj.github.io/how-i-deploy-calibre-web-and-tweak-it/#let-s-deploy-it">Let&#x27;s deploy it</a>
+          
+        </li>
+        
+        <li>
+        <a class="toc-link" href="https://CSUwangj.github.io/how-i-deploy-calibre-web-and-tweak-it/#proxies-cannot-be-used-with-advocate">Proxies cannot be used with Advocate</a>
+          
+        </li>
+        
+        <li>
+        <a class="toc-link" href="https://CSUwangj.github.io/how-i-deploy-calibre-web-and-tweak-it/#read-the-fucking-source-code">Read the fucking source code</a>
+          
+        </li>
+        
+        <li>
+        <a class="toc-link" href="https://CSUwangj.github.io/how-i-deploy-calibre-web-and-tweak-it/#i-ll-reclaim-my-lost-souls">I&#x27;ll reclaim my lost souls.</a>
+          
+        </li>
+        
+        <li>
+        <a class="toc-link" href="https://CSUwangj.github.io/how-i-deploy-calibre-web-and-tweak-it/#conclusion">Conclusion</a>
+          
+        </li>
+        
+        <li>
+        <a class="toc-link" href="https://CSUwangj.github.io/how-i-deploy-calibre-web-and-tweak-it/#todo">TODO</a>
+          
+        </li>
+        
+        </ul>
+        
+        </div>
+      </aside>
+      
       
     </body>
 

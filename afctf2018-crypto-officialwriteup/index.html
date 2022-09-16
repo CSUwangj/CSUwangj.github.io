@@ -56,7 +56,7 @@ renderMathInElement(document.body, katex_config);
     <body>
       
       
-      <header name="header">
+      <header name="header" class="left_sidebar">
         <div>
           <div class="logo"><a href="https:&#x2F;&#x2F;CSUwangj.github.io">LuckyDog</a></div>
           <nav class="menu">
@@ -94,31 +94,36 @@ renderMathInElement(document.body, katex_config);
       </header>
       
 
-      <main class="content container" name="main">
+      <main class="content container left_sidebar" name="main">
         <div class="content-wrapper">
           
   <div class="post">
     <h1 class="post-title">AFCTF2018-Crypto_OfficialWriteUp</h1>
     <div class="post-meta">
       
-      <span class="post-meta-divider">|</span>
-      <span class="post-meta-item-icon"><i class="fa-solid fa-calendar"></i></span>
-      <span class="post-date">Posted on: </span>
-      <time datetime=2018-05-21T14:46:15+08:00 title="post created">2018-05-21</time>
+      <div class="post-meta-item">
+        <span class="post-meta-item-icon"><i class="fa-solid fa-calendar"></i></span>
+        <span class="post-date">Posted on: </span>
+        <time datetime=2018-05-21T14:46:15+08:00 title="post created at 2018-05-21T14:46:15+08:00">2018-05-21</time>
+      </div>
       
       
-      <span class="post-meta-divider">|</span>
-      <span class="post-meta-item-icon"><i class="fa-solid fa-calendar-check"></i></span>
-      <span class="modify-date">Posted modified: </span>
-      <time datetime=2020-08-07T01:54:42.997715+08:00 title="post modified">2020-08-07</time>
+      <div class="post-meta-item">
+        <span class="post-meta-item-icon"><i class="fa-solid fa-calendar-check"></i></span>
+        <span class="modify-date">Posted modified: </span>
+        <time datetime=2020-08-07T01:54:42.997715+08:00 title="post modified at 2020-08-07T01:54:42.997715+08:00">2020-08-07</time>
+      </div>
       
       
-      <span class="post-meta-divider">|</span>
-      <span class="post-meta-item-icon"><i class="fa-solid fa-folder"></i></span>
-      <span class="in-category">In: </span>
+      <div class="post-meta-item">
+          <span class="post-meta-item-icon"><i class="fa-solid fa-book"></i></span>
+          <span class="in-category">In: </span>
+        
+        <a class="category" href="https:&#x2F;&#x2F;CSUwangj.github.io/categories/WriteUp">
+          WriteUp
+        </a>
       
-      <a class="category" href="https:&#x2F;&#x2F;CSUwangj.github.io/categories/WriteUp">WriteUp</a>
-      
+      </div>
       
       <span class="post-meta-divider">|</span>
     </div>
@@ -626,258 +631,130 @@ renderMathInElement(document.body, katex_config);
   </nav>
 
         </div>
+      </main>
 
+      
+      <footer name="footer" class="left_sidebar">
+        <div class="copyright">
+          <span item="copyrightYear">© 2018-2022</span>
+          <span class="author">CSUwangj</span>
+        </div>
+        <div class="powered-by">
+          Powered by <a href="https://www.getzola.org/">Zola</a> Theme <a href="https://github.com/CSUwangj/DogFood">DogFood</a>
+        </div>
+      </footer>
+      
+
+
+      
+      
+      
+      
+      
+      <button class="sidebar-toggle left_sidebar-sidebar-toggle" onclick="openSidebar()">O</button>
+      <aside class="sidebar left_sidebar" name="sidebar">
         
+        <div class="sidebar-content-toggle">
+          <a name="swith-to-toc-button" class="actived" onclick="switchToTOC()">Table of Content</>
+          <a name="swith-to-about-authour-button" onclick="switchToAboutAuthor()">About Author</a>
+        </div>
         
-        
-        
-        
-        <button class="sidebar-toggle left-sidebar-toggle" onclick="openSidebar()">O</button>
-        <aside class="sidebar left" name="sidebar">
-          
-          <div class="sidebar-content-toggle">
-            <a name="swith-to-toc-button" class="actived" onclick="switchToTOC()">Table of Content</>
-            <a name="swith-to-about-authour-button" onclick="switchToAboutAuthor()">About Author</a>
+        <div class="sidebar-overview"  style="opacity:0;display:none" >
+          <div class="site-author" itemprop="author" itemtype="https://schema.org/Person">
+            
+            <img class="site-author-image" itemprop="image"
+              src="https://CSUwangj.github.io/images/avatar.png"
+              alt="CSUwangj" />
+            
+            <p class="site-author-name unselectable">CSUwangj</p>
+            <p class="site-author-quote">Just keep in mind that hacking is very rarely in a sequence.</p>
           </div>
-          
-          <div class="sidebar-overview"  style="opacity:0;display:none" >
-            <div class="site-author" itemprop="author" itemtype="https://schema.org/Person">
-              
-              <img class="site-author-image" itemprop="image"
-                src="https://CSUwangj.github.io/images/avatar.png"
-                alt="CSUwangj" />
-              
-              <p class="site-author-name unselectable">CSUwangj</p>
-              <p class="site-author-quote">Just keep in mind that hacking is very rarely in a sequence.</p>
-            </div>
-            <div class="sidebar-post-overview">
-              
-              <a class="sidebar-post-overview-item" href="https:&#x2F;&#x2F;CSUwangj.github.io/categories">
-                <span class="sidebar-post-overview-amount unselectable">4</span>
-                <span class="sidebar-post-overview-type unselectable">
-                  <i class="fa-solid fa-book"></i>
-                  categories
-                </span>
-              </a>
-              
-              
-              <a class="sidebar-post-overview-item" href="https:&#x2F;&#x2F;CSUwangj.github.io/tags">
-                <span class="sidebar-post-overview-amount unselectable">39</span>
-                <span class="sidebar-post-overview-type unselectable">
-                  <i class="fa-solid fa-tags"></i>
-                  tags
-                </span>
-              </a>
-              
-              
-              <a class="sidebar-post-overview-item" href="https:&#x2F;&#x2F;CSUwangj.github.io/archives">
-                <span class="sidebar-post-overview-amount unselectable">28</span>
-                <span class="sidebar-post-overview-type unselectable">
-                  <i class="fa-solid fa-inbox"></i>
-                  posts
-                </span>
-              </a>
-              
-            </div>
-            <div class="feed-link">
-              
-              <a rel="alternate" type="application/rss+xml" title="RSS" href="https://CSUwangj.github.io/rss.xml">
-                RSS
-              </a>
-              
-            </div>
-            <div class="links-of-author">
-              
-              <a href="https:&#x2F;&#x2F;github.com&#x2F;CSUwangj" title="Github" class="author-link">
-                <i class="fa-brands fa-github"></i>
-              </a>
-              
-              <a href="mailto:CSUwangj@protonmail.com" title="EMail" class="author-link">
-                <i class="fa-solid fa-envelope"></i>
-              </a>
-              
-            </div>
-            <div class="links-of-blogroll">
-              
-              <a href="https:&#x2F;&#x2F;wolfbolin.com&#x2F;">WolfBolin</a>
-              
-              <a href="https:&#x2F;&#x2F;blog.yuki-nagato.com&#x2F;">长门有希</a>
-              
-              <a href="https:&#x2F;&#x2F;www.porlockz.com&#x2F;">Porlockz</a>
-              
-              <a href="https:&#x2F;&#x2F;way.lu&#x2F;">Phosphorus</a>
-              
-              <a href="https:&#x2F;&#x2F;edwardzcn.github.io&#x2F;">Edwardzcn</a>
-              
-              <a href="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;csu-lmw&#x2F;">吕少</a>
-              
-              <a href="https:&#x2F;&#x2F;zickshen.github.io&#x2F;">ZickShen</a>
-              
-            </div>
+          <div class="sidebar-post-overview">
+            
+            <a class="sidebar-post-overview-item" href="https:&#x2F;&#x2F;CSUwangj.github.io/categories">
+              <span class="sidebar-post-overview-amount unselectable">4</span>
+              <span class="sidebar-post-overview-type unselectable">
+                <i class="fa-solid fa-book"></i>
+                categories
+              </span>
+            </a>
+            
+            
+            <a class="sidebar-post-overview-item" href="https:&#x2F;&#x2F;CSUwangj.github.io/tags">
+              <span class="sidebar-post-overview-amount unselectable">39</span>
+              <span class="sidebar-post-overview-type unselectable">
+                <i class="fa-solid fa-tags"></i>
+                tags
+              </span>
+            </a>
+            
+            
+            <a class="sidebar-post-overview-item" href="https:&#x2F;&#x2F;CSUwangj.github.io/archives">
+              <span class="sidebar-post-overview-amount unselectable">28</span>
+              <span class="sidebar-post-overview-type unselectable">
+                <i class="fa-solid fa-inbox"></i>
+                posts
+              </span>
+            </a>
+            
           </div>
-          <div class="sidebar-toc">
+          <div class="feed-link">
+            
+            <a rel="alternate" type="application/rss+xml" title="RSS" href="https://CSUwangj.github.io/rss.xml">
+              RSS
+            </a>
+            
+          </div>
+          <div class="links-of-author">
+            
+            <a href="https:&#x2F;&#x2F;github.com&#x2F;CSUwangj" title="Github" class="author-link">
+              <i class="fa-brands fa-github"></i>
+            </a>
+            
+            <a href="mailto:CSUwangj@protonmail.com" title="EMail" class="author-link">
+              <i class="fa-solid fa-envelope"></i>
+            </a>
+            
+          </div>
+          <div class="links-of-blogroll">
+            
+            <a href="https:&#x2F;&#x2F;wolfbolin.com&#x2F;">WolfBolin</a>
+            
+            <a href="https:&#x2F;&#x2F;blog.yuki-nagato.com&#x2F;">长门有希</a>
+            
+            <a href="https:&#x2F;&#x2F;www.porlockz.com&#x2F;">Porlockz</a>
+            
+            <a href="https:&#x2F;&#x2F;way.lu&#x2F;">Phosphorus</a>
+            
+            <a href="https:&#x2F;&#x2F;edwardzcn.github.io&#x2F;">Edwardzcn</a>
+            
+            <a href="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;csu-lmw&#x2F;">吕少</a>
+            
+            <a href="https:&#x2F;&#x2F;zickshen.github.io&#x2F;">ZickShen</a>
+            
+          </div>
+        </div>
+        <div class="sidebar-toc">
+        
+        <ul>
+        
+        <li>
+        <a class="toc-link" href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#jian-dan-ti">简单题</a>
           
           <ul>
           
           <li>
-          <a href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#jian-dan-ti">简单题</a>
+          <a class="toc-link" href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#morse">Morse</a>
             
             <ul>
             
             <li>
-            <a href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#morse">Morse</a>
-              
-              <ul>
-              
-              <li>
-              <a href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#jie-ti-si-lu">解题思路</a>
-                
-              </li>
-              
-              <li>
-              <a href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#flag">flag</a>
-                
-              </li>
-              
-              </ul>
+            <a class="toc-link" href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#jie-ti-si-lu">解题思路</a>
               
             </li>
             
             <li>
-            <a href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#base">BASE</a>
-              
-              <ul>
-              
-              <li>
-              <a href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#jie-ti-si-lu-1">解题思路</a>
-                
-              </li>
-              
-              <li>
-              <a href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#flag-1">flag</a>
-                
-              </li>
-              
-              </ul>
-              
-            </li>
-            
-            <li>
-            <a href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#magicnum">MagicNum</a>
-              
-              <ul>
-              
-              <li>
-              <a href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#jie-ti-si-lu-2">解题思路</a>
-                
-              </li>
-              
-              <li>
-              <a href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#flag-2">flag</a>
-                
-              </li>
-              
-              </ul>
-              
-            </li>
-            
-            <li>
-            <a href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#single">Single</a>
-              
-              <ul>
-              
-              <li>
-              <a href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#jie-ti-si-lu-3">解题思路</a>
-                
-              </li>
-              
-              <li>
-              <a href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#flag-3">flag</a>
-                
-              </li>
-              
-              <li>
-              <a href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#fei-yu-qi-jie">非预期解</a>
-                
-              </li>
-              
-              </ul>
-              
-            </li>
-            
-            <li>
-            <a href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#vigenere">Vigenère</a>
-              
-              <ul>
-              
-              <li>
-              <a href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#jie-ti-si-lu-4">解题思路</a>
-                
-              </li>
-              
-              <li>
-              <a href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#flag-4">flag</a>
-                
-              </li>
-              
-              </ul>
-              
-            </li>
-            
-            <li>
-            <a href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#ni-neng-kan-chu-zhe-shi-shi-yao-jia-mi-yao">你能看出这是什么加密么？</a>
-              
-              <ul>
-              
-              <li>
-              <a href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#jie-ti-si-lu-5">解题思路</a>
-                
-              </li>
-              
-              <li>
-              <a href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#flag-5">flag</a>
-                
-              </li>
-              
-              </ul>
-              
-            </li>
-            
-            <li>
-            <a href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#ke-lian-de-rsa">可怜的RSA</a>
-              
-              <ul>
-              
-              <li>
-              <a href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#jie-ti-si-lu-6">解题思路</a>
-                
-              </li>
-              
-              <li>
-              <a href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#flag-6">flag</a>
-                
-              </li>
-              
-              </ul>
-              
-            </li>
-            
-            <li>
-            <a href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#one-secret-two-encryption">One Secret, Two encryption</a>
-              
-              <ul>
-              
-              <li>
-              <a href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#jie-ti-si-lu-7">解题思路</a>
-                
-              </li>
-              
-              <li>
-              <a href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#flag-7">flag</a>
-                
-              </li>
-              
-              </ul>
+            <a class="toc-link" href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#flag">flag</a>
               
             </li>
             
@@ -886,45 +763,17 @@ renderMathInElement(document.body, katex_config);
           </li>
           
           <li>
-          <a href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#zhong-deng-ti">中等题</a>
+          <a class="toc-link" href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#base">BASE</a>
             
             <ul>
             
             <li>
-            <a href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#tiny-lfsr">Tiny LFSR</a>
-              
-              <ul>
-              
-              <li>
-              <a href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#jie-ti-si-lu-8">解题思路</a>
-                
-              </li>
-              
-              <li>
-              <a href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#flag-8">flag</a>
-                
-              </li>
-              
-              </ul>
+            <a class="toc-link" href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#jie-ti-si-lu-1">解题思路</a>
               
             </li>
             
             <li>
-            <a href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#myowncbc">MyOwnCBC</a>
-              
-              <ul>
-              
-              <li>
-              <a href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#jie-ti-si-lu-9">解题思路</a>
-                
-              </li>
-              
-              <li>
-              <a href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#flag-9">flag</a>
-                
-              </li>
-              
-              </ul>
+            <a class="toc-link" href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#flag-1">flag</a>
               
             </li>
             
@@ -933,50 +782,17 @@ renderMathInElement(document.body, katex_config);
           </li>
           
           <li>
-          <a href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#zhong-nan-ti">中难题</a>
+          <a class="toc-link" href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#magicnum">MagicNum</a>
             
             <ul>
             
             <li>
-            <a href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#ni-ting-guo-yi-ci-yi-mi-yao">你听过一次一密么？</a>
-              
-              <ul>
-              
-              <li>
-              <a href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#jie-ti-si-lu-10">解题思路</a>
-                
-              </li>
-              
-              <li>
-              <a href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#flag-10">flag</a>
-                
-              </li>
-              
-              </ul>
+            <a class="toc-link" href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#jie-ti-si-lu-2">解题思路</a>
               
             </li>
             
             <li>
-            <a href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#hua-kai-cang-bao-di">花开藏宝地</a>
-              
-              <ul>
-              
-              <li>
-              <a href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#jie-ti-si-lu-11">解题思路</a>
-                
-              </li>
-              
-              <li>
-              <a href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#flag-11">flag</a>
-                
-              </li>
-              
-              <li>
-              <a href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#fei-yu-qi-jie-1">非预期解</a>
-                
-              </li>
-              
-              </ul>
+            <a class="toc-link" href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#flag-2">flag</a>
               
             </li>
             
@@ -985,45 +801,98 @@ renderMathInElement(document.body, katex_config);
           </li>
           
           <li>
-          <a href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#nan-ti">难题</a>
+          <a class="toc-link" href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#single">Single</a>
             
             <ul>
             
             <li>
-            <a href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#yi-dao-you-qu-de-ti-mu">一道有趣的题目</a>
-              
-              <ul>
-              
-              <li>
-              <a href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#jie-ti-si-lu-12">解题思路</a>
-                
-              </li>
-              
-              <li>
-              <a href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#flag-12">flag</a>
-                
-              </li>
-              
-              </ul>
+            <a class="toc-link" href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#jie-ti-si-lu-3">解题思路</a>
               
             </li>
             
             <li>
-            <a href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#fast-lfsr">Fast LFSR</a>
+            <a class="toc-link" href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#flag-3">flag</a>
               
-              <ul>
+            </li>
+            
+            <li>
+            <a class="toc-link" href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#fei-yu-qi-jie">非预期解</a>
               
-              <li>
-              <a href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#jie-ti-si-lu-13">解题思路</a>
-                
-              </li>
+            </li>
+            
+            </ul>
+            
+          </li>
+          
+          <li>
+          <a class="toc-link" href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#vigenere">Vigenère</a>
+            
+            <ul>
+            
+            <li>
+            <a class="toc-link" href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#jie-ti-si-lu-4">解题思路</a>
               
-              <li>
-              <a href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#flag-13">flag</a>
-                
-              </li>
+            </li>
+            
+            <li>
+            <a class="toc-link" href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#flag-4">flag</a>
               
-              </ul>
+            </li>
+            
+            </ul>
+            
+          </li>
+          
+          <li>
+          <a class="toc-link" href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#ni-neng-kan-chu-zhe-shi-shi-yao-jia-mi-yao">你能看出这是什么加密么？</a>
+            
+            <ul>
+            
+            <li>
+            <a class="toc-link" href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#jie-ti-si-lu-5">解题思路</a>
+              
+            </li>
+            
+            <li>
+            <a class="toc-link" href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#flag-5">flag</a>
+              
+            </li>
+            
+            </ul>
+            
+          </li>
+          
+          <li>
+          <a class="toc-link" href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#ke-lian-de-rsa">可怜的RSA</a>
+            
+            <ul>
+            
+            <li>
+            <a class="toc-link" href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#jie-ti-si-lu-6">解题思路</a>
+              
+            </li>
+            
+            <li>
+            <a class="toc-link" href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#flag-6">flag</a>
+              
+            </li>
+            
+            </ul>
+            
+          </li>
+          
+          <li>
+          <a class="toc-link" href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#one-secret-two-encryption">One Secret, Two encryption</a>
+            
+            <ul>
+            
+            <li>
+            <a class="toc-link" href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#jie-ti-si-lu-7">解题思路</a>
+              
+            </li>
+            
+            <li>
+            <a class="toc-link" href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#flag-7">flag</a>
               
             </li>
             
@@ -1033,23 +902,159 @@ renderMathInElement(document.body, katex_config);
           
           </ul>
           
-          </div>
-        </aside>
+        </li>
         
+        <li>
+        <a class="toc-link" href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#zhong-deng-ti">中等题</a>
+          
+          <ul>
+          
+          <li>
+          <a class="toc-link" href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#tiny-lfsr">Tiny LFSR</a>
+            
+            <ul>
+            
+            <li>
+            <a class="toc-link" href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#jie-ti-si-lu-8">解题思路</a>
+              
+            </li>
+            
+            <li>
+            <a class="toc-link" href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#flag-8">flag</a>
+              
+            </li>
+            
+            </ul>
+            
+          </li>
+          
+          <li>
+          <a class="toc-link" href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#myowncbc">MyOwnCBC</a>
+            
+            <ul>
+            
+            <li>
+            <a class="toc-link" href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#jie-ti-si-lu-9">解题思路</a>
+              
+            </li>
+            
+            <li>
+            <a class="toc-link" href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#flag-9">flag</a>
+              
+            </li>
+            
+            </ul>
+            
+          </li>
+          
+          </ul>
+          
+        </li>
         
-
-      </main>
-
+        <li>
+        <a class="toc-link" href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#zhong-nan-ti">中难题</a>
+          
+          <ul>
+          
+          <li>
+          <a class="toc-link" href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#ni-ting-guo-yi-ci-yi-mi-yao">你听过一次一密么？</a>
+            
+            <ul>
+            
+            <li>
+            <a class="toc-link" href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#jie-ti-si-lu-10">解题思路</a>
+              
+            </li>
+            
+            <li>
+            <a class="toc-link" href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#flag-10">flag</a>
+              
+            </li>
+            
+            </ul>
+            
+          </li>
+          
+          <li>
+          <a class="toc-link" href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#hua-kai-cang-bao-di">花开藏宝地</a>
+            
+            <ul>
+            
+            <li>
+            <a class="toc-link" href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#jie-ti-si-lu-11">解题思路</a>
+              
+            </li>
+            
+            <li>
+            <a class="toc-link" href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#flag-11">flag</a>
+              
+            </li>
+            
+            <li>
+            <a class="toc-link" href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#fei-yu-qi-jie-1">非预期解</a>
+              
+            </li>
+            
+            </ul>
+            
+          </li>
+          
+          </ul>
+          
+        </li>
+        
+        <li>
+        <a class="toc-link" href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#nan-ti">难题</a>
+          
+          <ul>
+          
+          <li>
+          <a class="toc-link" href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#yi-dao-you-qu-de-ti-mu">一道有趣的题目</a>
+            
+            <ul>
+            
+            <li>
+            <a class="toc-link" href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#jie-ti-si-lu-12">解题思路</a>
+              
+            </li>
+            
+            <li>
+            <a class="toc-link" href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#flag-12">flag</a>
+              
+            </li>
+            
+            </ul>
+            
+          </li>
+          
+          <li>
+          <a class="toc-link" href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#fast-lfsr">Fast LFSR</a>
+            
+            <ul>
+            
+            <li>
+            <a class="toc-link" href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#jie-ti-si-lu-13">解题思路</a>
+              
+            </li>
+            
+            <li>
+            <a class="toc-link" href="https://CSUwangj.github.io/afctf2018-crypto-officialwriteup/#flag-13">flag</a>
+              
+            </li>
+            
+            </ul>
+            
+          </li>
+          
+          </ul>
+          
+        </li>
+        
+        </ul>
+        
+        </div>
+      </aside>
       
-      <footer name="footer">
-        <div class="copyright">
-          <span item="copyrightYear">© 2018-2022</span>
-          <span class="author">CSUwangj</span>
-        </div>
-        <div class="powered-by">
-          Powered by <a href="https://www.getzola.org/">Zola</a> Theme <a href="https://github.com/CSUwangj/DogFood">DogFood</a>
-        </div>
-      </footer>
       
     </body>
 
