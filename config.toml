@@ -66,4 +66,4 @@ copyright_year = "2018-2022"
 avatar = "images/avatar.png"
 favicon = "images/favicon.ico"
 katex_enabled = true
-sidebar = "left"
+sidebar = "left_sidebar"
