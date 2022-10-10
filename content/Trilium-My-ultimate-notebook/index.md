@@ -97,6 +97,7 @@ pros:
 7. API support with great flexibility
 8. what you see is what you get with custom CSS support
 9. can export markdown
+10. plugin support
 
 cons:
 
@@ -106,3 +107,145 @@ cons:
 2. performance seems not good for too many notes
 3. not simple
 4. trilium is on beta(means may introduce breaking change in the future)
+
+# Appendix
+
+## script which reorganize notes
+
+``` python
+# %%
+import json
+
+# %%
+with open('notes.json', 'r') as f:
+    notes = json.loads(f.read())
+
+# %%
+tagged_notes = {}
+for note in notes['activeNotes']:
+    if 'tags' in note.keys():
+        for tag in note['tags']:
+            tagged_notes.setdefault(tag, []).append(note)
+    else:
+        tagged_notes.setdefault('untagged', []).append(note)
+
+# %%
+years = ['2016', '2017', '2018', '2019', '2020', '2021', '2022']
+months = ['01-January', '02-February', '03-March', '04-April', '05-May', '06-June', '07-July', '08-August', '09-September', '10-October', '11-November', '12-December']
+from pathlib import Path
+for year in years:
+    for month in months:
+        Path('./{}/{}'.format(year, month)).mkdir(parents=True, exist_ok=True)
+for tag in tagged_notes.keys():
+    if tag != '日总结' and tag != '月总结' and tag != '周总结':
+        Path('./{}'.format(tag)).mkdir(parents=True, exist_ok=True)
+Path('./ToClassified').mkdir(parents=True, exist_ok=True)
+
+# %%
+for note in tagged_notes['日总结']:
+    title = note['content'].split('\r\n')[0].lstrip('#').lstrip()
+    content = '\n\n'.join(note['content'].split('\r\n')[2:])
+    try:
+        if title[0:4] not in years or int(title[5:7]) > 12 or int(title[5:7]) < 1:
+            raise ValueError('')
+        with open('./{}/{}/{}.md'.format(title[0:4], months[int(title[5:7]) - 1], title), 'w') as f:
+            f.write(content)
+    except:
+        print(title)
+        with open('./ToClassified/{}.md'.format(title), 'w') as f:
+            f.write(content) 
+
+# %%
+import re
+for note in tagged_notes['月总结']:
+    title = note['content'].split('\r\n')[0].lstrip('#').lstrip()
+    content = '\n\n'.join(note['content'].split('\r\n')[2:])
+    try:
+        month = int(re.findall(r"\d+", title)[1])
+        if month > 12 or month < 1:
+            raise ValueError('')
+        with open('./{}/{}.md'.format(title[0:4], months[month - 1]), 'w') as f:
+            f.write(content)
+    except:
+        print(title)
+        with open('./ToClassified/{}.md'.format(title), 'w') as f:
+            f.write(content) 
+
+# %%
+for note in tagged_notes['周总结']:
+    title = note['content'].split('\r\n')[0].lstrip('#').lstrip()
+    content = '\n\n'.join(note['content'].split('\r\n')[2:])
+    year = note['creationDate'][0:4]
+    month = int(note['creationDate'][5:7])
+    try:
+        if month > 12 or month < 1:
+            raise ValueError('')
+        with open('./{}/{}/{}.md'.format(year, months[month - 1], title), 'w') as f:
+            f.write(content)
+    except:
+        print(title)
+        with open('./ToClassified/{}.md'.format(title), 'w') as f:
+            f.write(content) 
+
+# %%
+for tag, notes in tagged_notes.items():
+    if tag == '日总结' or tag == '周总结' or tag == '月总结':
+        continue
+    for note in notes:
+        try:
+            title = note['content'].split('\r\n')[0].lstrip('#').lstrip().replace('/', ' ')
+            content = '\n\n'.join(note['content'].split('\r\n')[2:])
+            with open('./{}/{}.md'.format(tag, title), 'w') as f:
+                f.write(content)
+        except:
+            title = note['content'].split('\r\n')[0].lstrip('#').lstrip()[:20].replace('/', ' ')
+            content = '\n\n'.join(note['content'].split('\r\n'))
+            with open('./{}/{}.md'.format(tag, title), 'w') as f:
+                f.write(content)
+```
+
+## scripts which bulk add label
+
+``` javascript
+if(/^\\d{4}$/.test(note.title)){note.addAttribute('label', 'yearNote', note.title)}
+if (note.title.match(/\\d{4}-\\d{2}-\\d{2}/).length == 1) { note.addAttribute('label', 'dateNote', note.title.match(/\\d{4}-\\d{2}-\\d{2}/)[0]) }
+if (note.title.match(/^(\\d{2})-([a-zA-Z]+)$/).length == 3) { note.title = note.title.match(/^(\\d{2})-([a-zA-Z]+)$/)[1] + ' - ' + note.title.match(/^(\\d{2})-([a-zA-Z]+)$/)[2] }
+if (note.title.match(/^(\\d{2}) - ([a-zA-Z]+)$/).length == 3) { note.addAttribute('label', 'monthNote', `2021-${note.title.match(/^(\\d{2}) - ([a-zA-Z]+)$/)[1]}`) }
+```
+
+## script which gathers todo and display them
+
+``` javascript
+const getTodo = async () => {
+    const todos = await api.runOnServer(() => {
+        const notes = api.getNotesWithLabel('todo');
+        return notes.map(x => ({
+            title: x.getParentNotes()[0].title,
+            open: !!x.getAttribute('label', 'alwaysShow'),
+            nav: x.getAllNotePaths()[0],
+            content: x.getContent()
+        }));
+    });
+    return todos;
+};
+
+const todos = await getTodo();
+const container = document.getElementById('todo')
+container.innerHTML = ''
+for(const todo of todos) {
+    const newTodo = document.createElement('details')
+    newTodo.innerHTML = todo.content
+    const newTodoTitle = document.createElement('summary')
+    const newTodoNav = document.createElement('a')
+    newTodoNav.href = '#'
+    newTodoNav.href += todo.nav.join('/')
+    const header = document.createElement('h1')
+    header.innerHTML = todo.title
+    header.style.display = 'inline'
+    newTodoNav.appendChild(header)
+    newTodoTitle.appendChild(newTodoNav)
+    newTodo.appendChild(newTodoTitle)
+    newTodo.open = todo.open
+    container.appendChild(newTodo)
+}
+```
