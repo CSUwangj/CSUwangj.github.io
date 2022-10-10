@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>LuckyDog | CSUwangj&#x27;s Blog - trilium</title>
+        <link>https://CSUwangj.github.io</link>
+        <description></description>
+        <generator>Zola</generator>
+        <language>en</language>
+        <atom:link href="https://CSUwangj.github.io/tags/trilium/rss.xml" rel="self" type="application/rss+xml"/>
+        <lastBuildDate>Mon, 10 Oct 2022 01:22:08 +0800</lastBuildDate>
+        <item>
+            <title>Trilium, My ultimate notebook</title>
+            <pubDate>Mon, 10 Oct 2022 01:22:08 +0800</pubDate>
+            <link>https://CSUwangj.github.io/trilium-my-ultimate-notebook/</link>
+            <guid>https://CSUwangj.github.io/trilium-my-ultimate-notebook/</guid>
+            <description>&lt;h1 id=&quot;tl-dr&quot;&gt;TL;DR&lt;&#x2F;h1&gt;
+&lt;p&gt;I transferred my notes to self-hosted notebook software called &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;zadam&#x2F;trilium&quot;&gt;trilium&lt;&#x2F;a&gt;, and tried tweaking it to fit me.&lt;&#x2F;p&gt;
+&lt;p&gt;I&#x27;ll list the &lt;a href=&quot;https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;trilium-my-ultimate-notebook&#x2F;#pros-cons&quot;&gt;pros &amp;amp; cons&lt;&#x2F;a&gt; of it in my opinion below.&lt;&#x2F;p&gt;
+</description>
+        </item>
+    </channel>
+</rss>

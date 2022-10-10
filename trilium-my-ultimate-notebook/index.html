@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10, viewport-fit=cover">
+
+      <title>LuckyDog | CSUwangj&#x27;s Blog</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://CSUwangj.github.io/css/lib/font-awesome.min.css">
+      <link rel="stylesheet" href="https://CSUwangj.github.io/site.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Noto+Serif+SC">
+      
+<link rel="stylesheet" href="https://CSUwangj.github.io/custom.css">
+
+      <!-- js -->
+      <script type="text/javascript" charset="utf-8" src="https://CSUwangj.github.io/js/sidebar.js"></script>
+      
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css" crossorigin="anonymous">
+<script type="module">
+import renderMathInElement from "https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/auto-render.mjs";
+const katex_config = {
+  delimiters: [
+    { left: "$$", right: "$$", display: true },
+    { left: "$", right: "$", display: false },
+  ],
+  macros: {
+    // Functions
+    arccot: '\\operatorname{arccot}',
+    arcsec: '\\operatorname{arcsec}',
+    arccsc: '\\operatorname{arccsc}',
+  }
+}
+renderMathInElement(document.body, katex_config);
+</script>
+
+
+      
+
+      
+      <link rel="alternate" type="application/rss+xml" title="RSS" href="https://CSUwangj.github.io/rss.xml">
+      
+      
+      <link rel="icon" type="image/x-icon" href="https://CSUwangj.github.io/images/favicon.ico">
+      
+
+      
+      
+    </head>
+
+    <body>
+      
+      
+      <header name="header" class="left_sidebar">
+        <div>
+          <div class="logo"><a href="https:&#x2F;&#x2F;CSUwangj.github.io">LuckyDog</a></div>
+          <nav class="menu">
+            
+            <a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;" class="nav-item-home unselectable">
+              <span><i class="fa-solid fa-house"></i> Home</span>
+            </a>
+            
+            <a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;about" class="nav-item-about unselectable">
+              <span><i class="fa-solid fa-user-circle"></i> About</span>
+            </a>
+            
+            <a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;categories" class="nav-item-categories unselectable">
+              <span><i class="fa-solid fa-books"></i> Categories</span>
+            </a>
+            
+            <a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;tags" class="nav-item-tags unselectable">
+              <span><i class="fa-solid fa-tags"></i> Tags</span>
+            </a>
+            
+            <a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;archives" class="nav-item-archives unselectable">
+              <span><i class="fa-solid fa-inbox"></i> Archives</span>
+            </a>
+            
+            <a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;ZDaily" class="nav-item-dailychallenge unselectable">
+              <span><i class="fa-solid fa-calendar-check"></i> DailyChallenge</span>
+            </a>
+            
+            <a href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;Webtools" class="nav-item-webtools unselectable">
+              <span><i class="fa-solid fa-toolbox"></i> Webtools</span>
+            </a>
+            
+          </nav>
+        </div>
+      </header>
+      
+
+      <main class="content container left_sidebar" name="main">
+        <div class="content-wrapper">
+          
+  <div class="post">
+    <h1 class="post-title">Trilium, My ultimate notebook</h1>
+    <div class="post-meta">
+      
+      <div class="post-meta-item">
+        <span class="post-meta-item-icon"><i class="fa-solid fa-calendar"></i></span>
+        <span class="post-date">Posted on: </span>
+        <time datetime=2022-10-10T01:22:08+08:00 title="post created at 2022-10-10T01:22:08+08:00">2022-10-10</time>
+      </div>
+      
+      
+      <div class="post-meta-item">
+        <span class="post-meta-item-icon"><i class="fa-solid fa-calendar-check"></i></span>
+        <span class="modify-date">Posted modified: </span>
+        <time datetime=2022-10-10T01:22:08+08:00 title="post modified at 2022-10-10T01:22:08+08:00">2022-10-10</time>
+      </div>
+      
+      
+      <div class="post-meta-item">
+          <span class="post-meta-item-icon"><i class="fa-solid fa-book"></i></span>
+          <span class="in-category">In: </span>
+        
+        <a class="category" href="https:&#x2F;&#x2F;CSUwangj.github.io/categories/Notes">
+          Notes
+        </a>
+      
+      </div>
+      
+      <span class="post-meta-divider">|</span>
+    </div>
+    <div class="post-body">
+      <h1 id="tl-dr">TL;DR</h1>
+<p>I transferred my notes to self-hosted notebook software called <a rel="noopener nofollow noreferrer" target="_blank" href="https://github.com/zadam/trilium">trilium</a>, and tried tweaking it to fit me.</p>
+<p>I'll list the <a href="https://CSUwangj.github.io/trilium-my-ultimate-notebook/#pros-cons">pros &amp; cons</a> of it in my opinion below.</p>
+<span id="continue-reading"></span><h1 id="background">Background</h1>
+<p>I used to use simplenote as my notebook, it runs blazing fast, has cloud synchronize and tag system. I used to make it as my diary and notebook for random thoughts. <img src="https://CSUwangj.github.io/trilium-my-ultimate-notebook/simplenote.png" alt="simplenote" /> <img src="https://CSUwangj.github.io/trilium-my-ultimate-notebook/simplenote_tags.png" alt="tag" />.</p>
+<p>As I grew older and create more and more side projects, I find it's not enough for my daily use. I want a notebook with such features:</p>
+<ul>
+<li>must have:
+<ul>
+<li>tag system</li>
+<li>easy to classify and reorder</li>
+<li>basic markdown support</li>
+<li>can run as standalone application</li>
+<li>can import notes from markdown files</li>
+</ul>
+</li>
+<li>best to have:
+<ul>
+<li>document template(for my todo list and diary)</li>
+<li>API support(because I'm a programmer)</li>
+<li>self-host(I have a private server and public internet access to it)
+<ul>
+<li>cloud synchronize support(can be native support or through Onedrive/Google Drive)</li>
+</ul>
+</li>
+<li>what you see is what you get
+<ul>
+<li>custom CSS</li>
+</ul>
+</li>
+<li>advanced markdown support
+<ul>
+<li>math formula(LaTeX, mathjax)</li>
+<li>mermaid diagram</li>
+</ul>
+</li>
+<li>handwriting support(I have a Surface)</li>
+</ul>
+</li>
+</ul>
+<p>I tried several notebook software/SaaS like notion/obsidian/logseq/OneNote and none of them satisfy my basic requirements, so I began to try software on <a rel="noopener nofollow noreferrer" target="_blank" href="https://github.com/awesome-selfhosted/awesome-selfhosted#note-taking--editors">https://github.com/awesome-selfhosted/awesome-selfhosted#note-taking--editors</a>. Then I found trilium.</p>
+<h1 id="transfer-to-trilium">Transfer to trilium</h1>
+<h2 id="make-a-todo-list-is-my-first-todo">Make a TODO list is my first TODO</h2>
+<p>You can get a straight view of how it looks like in its <a rel="noopener nofollow noreferrer" target="_blank" href="https://github.com/zadam/trilium/wiki/Screenshot-tour">screenshot tour</a>, or looking through <a rel="noopener nofollow noreferrer" target="_blank" href="https://github.com/zadam/trilium#features">features list</a> to find something interesting, or check <a rel="noopener nofollow noreferrer" target="_blank" href="https://github.com/zadam/trilium/wiki/Patterns-of-personal-knowledge-base">author's opinion towards personal knowledge base</a> to know what will trilium be.</p>
+<p>For me, a programmer who loves changing random stuff and seeing what happens, just downloading and trying is my best choice. </p>
+<p>Opening up trilium without server, it will have the demo notes under root folder. They are great examples for me to know what can trilium do and how it is being done.</p>
+<p>For me, the most interesting example is weight tracker. I used to have a self-hosted redmine help me manage my side projects, but full real project management software is too heavy to me to use daily. I just develop these packages by myself, all I need is a todo list and a wiki page for every project, and I want these todo lists to also show in a standalone page so I can know I have something to do.</p>
+<p>Weight tracker's data is gathered through the notes which has the label &quot;weight&quot;. Weight tracker's display is done by using JavaScript library chartjs.</p>
+<p>Because I can use JavaScript library in notes, I can literally display anything on the page. Trilium also provide API to fetch note content/title/etc. Which means trilium is a notebook with flexibility as website.</p>
+<p>I create a render note and write a script and, Voilà!</p>
+<p><img src="https://CSUwangj.github.io/trilium-my-ultimate-notebook/./todo.png" alt="todo" /></p>
+<p>Every title is a hyper link navigated to the project's todo note, even the page cannot edit and feed the change back to real todo note, it's good enough for me.</p>
+<h2 id="label-system">Label system</h2>
+<p>Trilium has three special note types for journal: day note, month note, year note. Thanks to my well formatted diary notes title, I can easily write a script to reorganize these notes into the same order as trilium.</p>
+<p>But after importing, I still cannot see these notes in trilium's built-in calendar. So I checked the difference between imported diary notes and diary notes created by trilium, and found out that diary notes created by trilium have a label whose value is date.</p>
+<p>By default, the exported notes come with a file named <code>!!!meta.json</code> containing metadata. I tried to write a script to generate these metadata by hand, and failed. Every note have an ID, and I still don't know what will happen if I random some strings and put them into trilium.</p>
+<p>Thank goodness, the flexibility of trilium exceeds my expectations. Finally, I use the bulk action run some script written in 5 minutes on these notes and set the labels.</p>
+<h1 id="end">end</h1>
+<p>Now I use trilium on all my digital devices: laptop, desktop, mobile phone, tablet. I think trilium will be the notebook software for my life.</p>
+<h1 id="pros-cons">pros &amp; cons</h1>
+<p>pros:</p>
+<ol>
+<li>open source software</li>
+<li>markdown support
+<ol>
+<li>math formula</li>
+<li>mermaid diagram</li>
+</ol>
+</li>
+<li>handwriting support</li>
+<li>standalone application(store data locally)</li>
+<li>can be hosted locally and provide synchronize service for instance runs on other devices
+<ol>
+<li>hosted service also provide web access</li>
+</ol>
+</li>
+<li>import markdown/html/text</li>
+<li>appendix support</li>
+<li>API support with great flexibility</li>
+<li>what you see is what you get with custom CSS support</li>
+<li>can export markdown</li>
+</ol>
+<p>cons:</p>
+<ol>
+<li>markdown is not the internal file format
+<ol>
+<li>cannot integrate mermaid diagram into notes</li>
+<li>cannot render markdown on the run</li>
+</ol>
+</li>
+<li>performance seems not good for too many notes</li>
+<li>not simple</li>
+<li>trilium is on beta(means may introduce breaking change in the future)</li>
+</ol>
+
+    </div>
+    
+    <div class="post-tags">
+      
+      <a class="tag" href="https:&#x2F;&#x2F;CSUwangj.github.io/tags/trilium">
+        <i class="fa-solid fa-tag"></i>
+        trilium
+      </a>
+      
+      <a class="tag" href="https:&#x2F;&#x2F;CSUwangj.github.io/tags/self-host">
+        <i class="fa-solid fa-tag"></i>
+        self-host
+      </a>
+      
+      <a class="tag" href="https:&#x2F;&#x2F;CSUwangj.github.io/tags/knowledge base">
+        <i class="fa-solid fa-tag"></i>
+        knowledge base
+      </a>
+      
+      <a class="tag" href="https:&#x2F;&#x2F;CSUwangj.github.io/tags/notebook">
+        <i class="fa-solid fa-tag"></i>
+        notebook
+      </a>
+      
+    </div>
+    
+  </div>
+  <nav class="pagination">
+    
+    <a class="left unselectable" href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;bo-wen-zheng-li&#x2F;">
+      <i class="fa-solid fa-caret-left"></i>
+      博文整理
+    </a>
+    
+    
+    <a class="right unselectable" href="https:&#x2F;&#x2F;CSUwangj.github.io&#x2F;how-i-deploy-calibre-web-and-tweak-it&#x2F;">
+      How I deploy Calibre-Web and tweak it
+      <i class="fa-solid fa-caret-right"></i>
+    </a>
+    
+  </nav>
+
+        </div>
+      </main>
+
+      
+      <footer name="footer" class="left_sidebar">
+        <div class="copyright">
+          <span item="copyrightYear">© 2018-2022</span>
+          <span class="author">CSUwangj</span>
+        </div>
+        <div class="powered-by">
+          Powered by <a href="https://www.getzola.org/">Zola</a> Theme <a href="https://github.com/CSUwangj/DogFood">DogFood</a>
+        </div>
+      </footer>
+      
+
+
+      
+      
+      
+      
+      
+      <button class="sidebar-toggle left_sidebar-sidebar-toggle" onclick="openSidebar()">O</button>
+      <aside class="sidebar left_sidebar" name="sidebar">
+        
+        <div class="sidebar-content-toggle">
+          <a name="swith-to-toc-button" class="actived" onclick="switchToTOC()">Table of Content</>
+          <a name="swith-to-about-authour-button" onclick="switchToAboutAuthor()">About Author</a>
+        </div>
+        
+        <div class="sidebar-overview"  style="opacity:0;display:none" >
+          <div class="site-author" itemprop="author" itemtype="https://schema.org/Person">
+            
+            <img class="site-author-image" itemprop="image"
+              src="https://CSUwangj.github.io/images/avatar.png"
+              alt="CSUwangj" />
+            
+            <p class="site-author-name unselectable">CSUwangj</p>
+            <p class="site-author-quote">Just keep in mind that hacking is very rarely in a sequence.</p>
+          </div>
+          <div class="sidebar-post-overview">
+            
+            <a class="sidebar-post-overview-item" href="https:&#x2F;&#x2F;CSUwangj.github.io/categories">
+              <span class="sidebar-post-overview-amount unselectable">4</span>
+              <span class="sidebar-post-overview-type unselectable">
+                <i class="fa-solid fa-book"></i>
+                categories
+              </span>
+            </a>
+            
+            
+            <a class="sidebar-post-overview-item" href="https:&#x2F;&#x2F;CSUwangj.github.io/tags">
+              <span class="sidebar-post-overview-amount unselectable">42</span>
+              <span class="sidebar-post-overview-type unselectable">
+                <i class="fa-solid fa-tags"></i>
+                tags
+              </span>
+            </a>
+            
+            
+            <a class="sidebar-post-overview-item" href="https:&#x2F;&#x2F;CSUwangj.github.io/archives">
+              <span class="sidebar-post-overview-amount unselectable">29</span>
+              <span class="sidebar-post-overview-type unselectable">
+                <i class="fa-solid fa-inbox"></i>
+                posts
+              </span>
+            </a>
+            
+          </div>
+          <div class="feed-link">
+            
+            <a rel="alternate" type="application/rss+xml" title="RSS" href="https://CSUwangj.github.io/rss.xml">
+              RSS
+            </a>
+            
+          </div>
+          <div class="links-of-author">
+            
+            <a href="https:&#x2F;&#x2F;github.com&#x2F;CSUwangj" title="Github" class="author-link">
+              <i class="fa-brands fa-github"></i>
+            </a>
+            
+            <a href="mailto:CSUwangj@protonmail.com" title="EMail" class="author-link">
+              <i class="fa-solid fa-envelope"></i>
+            </a>
+            
+          </div>
+          <div class="links-of-blogroll">
+            
+            <a href="https:&#x2F;&#x2F;wolfbolin.com&#x2F;">WolfBolin</a>
+            
+            <a href="https:&#x2F;&#x2F;blog.yuki-nagato.com&#x2F;">长门有希</a>
+            
+            <a href="https:&#x2F;&#x2F;www.porlockz.com&#x2F;">Porlockz</a>
+            
+            <a href="https:&#x2F;&#x2F;way.lu&#x2F;">Phosphorus</a>
+            
+            <a href="https:&#x2F;&#x2F;edwardzcn.github.io&#x2F;">Edwardzcn</a>
+            
+            <a href="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;csu-lmw&#x2F;">吕少</a>
+            
+            <a href="https:&#x2F;&#x2F;zickshen.github.io&#x2F;">ZickShen</a>
+            
+          </div>
+        </div>
+        <div class="sidebar-toc">
+        
+        <ul>
+        
+        <li>
+        <a class="toc-link" href="https://CSUwangj.github.io/trilium-my-ultimate-notebook/#tl-dr">TL;DR</a>
+          
+        </li>
+        
+        <li>
+        <a class="toc-link" href="https://CSUwangj.github.io/trilium-my-ultimate-notebook/#background">Background</a>
+          
+        </li>
+        
+        <li>
+        <a class="toc-link" href="https://CSUwangj.github.io/trilium-my-ultimate-notebook/#transfer-to-trilium">Transfer to trilium</a>
+          
+          <ul>
+          
+          <li>
+          <a class="toc-link" href="https://CSUwangj.github.io/trilium-my-ultimate-notebook/#make-a-todo-list-is-my-first-todo">Make a TODO list is my first TODO</a>
+            
+          </li>
+          
+          <li>
+          <a class="toc-link" href="https://CSUwangj.github.io/trilium-my-ultimate-notebook/#label-system">Label system</a>
+            
+          </li>
+          
+          </ul>
+          
+        </li>
+        
+        <li>
+        <a class="toc-link" href="https://CSUwangj.github.io/trilium-my-ultimate-notebook/#end">end</a>
+          
+        </li>
+        
+        <li>
+        <a class="toc-link" href="https://CSUwangj.github.io/trilium-my-ultimate-notebook/#pros-cons">pros &amp; cons</a>
+          
+        </li>
+        
+        </ul>
+        
+        </div>
+      </aside>
+      
+      
+    </body>
+
+</html>
